@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+
+# Local and generated research data
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+reports/*
+!reports/.gitkeep
+*.parquet
+*.pkl
+*.joblib
+
+# Notebook/editor clutter
+.ipynb_checkpoints/
+.idea/
+.vscode/
+
