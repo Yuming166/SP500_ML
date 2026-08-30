@@ -89,7 +89,7 @@ h_t = sum(gate_t[k] * h_k)
 
 所有模型使用 expanding-window walk-forward；不能用随机 train/test split。
 
-## 7. 第二阶段：LLM 异质行为仿真
+## 7. 第二阶段：LLM 虚假共识与证据溯源路由
 
 ### 7.1 LLM 的职责边界
 
@@ -100,6 +100,8 @@ LLM 不直接读取长串 OHLCV，也不负责输出精确的未来价格。第�
  cross_market_disagreement, recent_drawdown, flow_state}
 ```
 
+`decision_time`、风险约束和当前持仓是所有 agent 的 shared context；真正支持 action 的特征要注册为带来源与派生边的 evidence catalog，再按 persona 分成 agent-specific evidence packet。由同一原始序列派生的不同指标保留共同祖先，不能因文本名称不同就被当作独立证据。
+
 不同 agent 使用不同、可复现的行为配置：
 
 - trend follower：偏好持续的低频趋势；
@@ -109,25 +111,25 @@ LLM 不直接读取长串 OHLCV，也不负责输出精确的未来价格。第�
 - sentiment/noise trader：对情绪和短期冲击更敏感；
 - contrarian：对拥挤交易或信号一致性做反向判断。
 
-每个 agent 必须输出严格 schema：`action`、`target_exposure`、`horizon_days`、`confidence`、`rationale_claims`、`evidence_tags`。不保存或依赖隐藏 chain-of-thought；保存可审计的短 claims 和证据标签即可。
+每个 agent 必须输出严格 schema：`decision_time`、`action`、`target_exposure`、`horizon_days`、`confidence`、带 `evidence_ids` 的短 claims，以及带 `source_id`、`event_time`、`publication_time`、`available_at` 的 evidence objects。不保存或依赖隐藏 chain-of-thought；来源标识和时间戳由环境提供并校验，不能由 LLM 自行编造。
 
 ### 7.2 与可信推理研究的接口
 
-把一个交易决策转成：
+本阶段不再使用不可解释的单一 trust score，而把整个团队的决策转成证据谱系：
 
 ```text
-market state -> claims -> supporting/attacking evidence
-             -> claim/evidence confidence -> trust assessment
+source -> evidence -> claim -> agent decision -> routed action
 ```
 
-trust assessment 至少包含：
+核心研究现象是 **false consensus**：多个 agent 因为共享同一条错误、过期或未来泄漏的证据而一致犯错。Trust assessment 至少包含：
 
-1. **逻辑/证据一致性**：理由是否支持最终 action；
-2. **历史校准**：该 agent 的 confidence 是否与真实结果匹配；
-3. **行为稳定性**：相同 state 和 persona 下，输出是否过度随机；
-4. **跨模型一致性**：换 LLM 或 prompt 后，结论是否保持。
+1. **As-of validity**：证据在决策时刻是否已经可见；
+2. **Grounding**：证据是否真正支持对应 claim；
+3. **Independence**：多个 agent 是否依赖独立来源和信息路径；
+4. **Causal effect**：删除、替换或反转证据后，action/confidence 是否合理变化；
+5. **Historical calibration**：该 agent 的 confidence 是否与相似状态下的真实错误率匹配。
 
-这会把你现有的可信推理经验转化为一个可量化的 agent reliability signal，而不是把“LLM 会解释”当作结果。
+完整定义、干预 benchmark、baseline 和通过条件见 [`asof_provenance_faithfulness.md`](asof_provenance_faithfulness.md)。这会把可信推理经验转化为可证伪的团队级可靠性问题，而不是把“LLM 会解释”或“agent 达成共识”当作结果。
 
 ### 7.3 仿真层级
 
@@ -135,7 +137,7 @@ trust assessment 至少包含：
 
 1. **Historical replay**：市场路径外生，比较不同 agent/router 的决策；
 2. **Stylized closed-loop simulator**：订单失衡影响价格，外加外生冲击；用真实数据校准厚尾、波动聚集、成交量-波动关系和回撤分布；
-3. **Trust-aware router**：根据 market state 和 agent reliability 动态分配 `cash/long` 暴露。
+3. **Provenance-aware router**：识别共享来源、拒绝未来证据、检验证据的因果作用，并动态分配 `cash/long` 暴露；当全体证据可疑时 abstain。
 
 第一层能回答策略是否有用；第二层才回答群体行为是否能产生类似市场的统计现象。不能把第一层的回测结果描述成“证明 LLM agent 改变了市场”。
 
@@ -143,7 +145,7 @@ trust assessment 至少包含：
 
 RL 不直接从原始价格学习“下一天涨跌”。只有在监督预测器、LLM 行为仿真和不确定性层稳定后，才增加一个小型 offline decision layer：
 
-- state：`p_up`、预测区间宽度、VIX regime、当前持仓、agent trust distribution；
+- state：`p_up`、预测区间宽度、VIX regime、当前持仓、agent provenance-trust distribution；
 - action：`cash` 或 `long`，先不用连续杠杆；
 - reward：净收益 - 交易成本 - 换手惩罚 - 回撤惩罚；
 - baseline：固定概率阈值策略、buy-and-hold、简单 volatility targeting、静态 agent mixture。

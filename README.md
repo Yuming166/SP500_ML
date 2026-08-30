@@ -40,15 +40,15 @@ optional offline policy layer: long / cash
 
 第一版先实现可解释的 causal filter bank，作为 wavelet 和 learnable filter bank 的基线。任何使用 `filtfilt`、中心滑动窗口或未来边界填充的实现都不能进入正式结果。
 
-## 第二阶段：LLM 行为仿真
+## 第二阶段：LLM 虚假共识与证据溯源
 
-第二阶段不把 LLM 当作数字预测器，而把它当作具有不同风险偏好和决策规则的行为生成器：趋势跟随、均值回归、风险规避、噪声交易、情绪驱动等 agent 接收第一阶段生成的结构化市场状态，输出 `cash/long` 决策、持有期限、置信度和可检查的决策依据。
+第二阶段不把 LLM 当作数字预测器，而把它当作具有不同风险偏好和决策规则的行为生成器：趋势跟随、均值回归、风险规避、噪声交易、情绪驱动等 agent 接收共享任务上下文和各自的 evidence packet，输出 `cash/long` 决策、持有期限、置信度，以及带来源和发布时间的可检查证据。同一原始数据派生出的不同特征保留共同祖先，不能被当作多份独立支持。
 
-你的可信推理研究可以放在这里：将每个 agent 的决策依据拆成 claims、支持/反对证据和不确定性分数，形成 `trust-aware routing`。router 根据市场状态、预测区间和 agent 的历史校准表现决定采用谁的建议，而不是简单多数投票。
+核心创新是 **As-of Provenance Faithfulness**：显式记录 `source -> evidence -> claim -> agent -> action`，判断证据是否在决策时刻可见、是否真正支持 claim、多个 agent 是否依赖独立来源，以及干预证据是否会改变 action。router 根据这些信号选择可信 agent；当所有 agent 因共享的错误、过期或未来证据形成虚假共识时，系统应选择 `abstain/cash`，而不是服从多数。
 
 LLM 行为仿真的研究问题是：
 
-> agent 的推理可靠性和行为一致性，能否帮助系统在 regime shift 下选择更稳健的策略？
+> 系统能否识别由共享证据错误造成的 false consensus，并在 regime shift 下路由到由独立、及时证据支持的 agent？
 
 历史 replay 只能评估策略，不会让 agent 真正改变市场；如果要研究群体行为如何形成价格，需要增加一个经过历史 stylized facts 校准的闭环市场模拟器。`optimal strategy` 应理解为给定环境、交易成本和风险目标下的最优策略，而不是现实市场中的全局最优。
 
@@ -56,10 +56,11 @@ LLM 行为仿真的研究问题是：
 
 当前工作版本的论文题目可以暂定为：
 
-**FinTrustSim: Reliability-Calibrated LLM Agents for Regime-Aware Financial Market Simulation**
+**When Consensus Lies: As-of Provenance Faithfulness for Multi-Agent LLM Decisions under Distribution Shift**
 
-论文贡献应集中在可复现的 benchmark、trust assessment 和策略路由方法；S&P 500 是测试环境，不把单次回测收益作为主要贡献。具体投稿定位和 Qwen 微调实验见：
+论文贡献集中在 false-consensus benchmark、时间证据谱系评估和 provenance-aware selective routing；S&P 500 是具有真实发布时间和状态切换的测试环境，不把单次回测收益作为主要贡献。Qwen3.5-4B 微调、金融信号处理和 RL 是实现组件，不是中心 novelty。具体研究定义、投稿定位和微调实验见：
 
+- [`docs/asof_provenance_faithfulness.md`](docs/asof_provenance_faithfulness.md)
 - [`docs/paper_proposal.md`](docs/paper_proposal.md)
 - [`docs/finetuning_plan.md`](docs/finetuning_plan.md)
 
@@ -94,7 +95,7 @@ LLM 行为仿真的研究问题是：
 
 ## 当前状态
 
-目前是研究骨架：已经包含选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组和第二阶段的结构化 agent 输出契约。下一步接入清洗后的数据，实现 raw-feature、fixed-filter、wavelet/filter-bank、adaptive-gating 与 trust-aware strategy routing 对照实验。
+目前是研究骨架：已经包含选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组和第二阶段的基础 agent 输出契约。下一步先把输出契约扩展为带 `source_id`、`available_at` 和 claim-evidence links 的证据谱系，再实现 source duplication、shared corruption、stale/future evidence、evidence removal/reversal 等 paired benchmark，最后比较 majority、confidence、agreement、recent-performance 与 provenance-aware routing。
 
 目录约定和研究设计见：
 

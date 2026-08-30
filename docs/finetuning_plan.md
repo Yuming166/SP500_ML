@@ -30,7 +30,7 @@
     },
     {
       "role": "assistant",
-      "content": "{\"action\":\"cash\",\"target_exposure\":0.0,\"horizon_days\":5,\"confidence\":0.78,\"rationale_claims\":[\"...\"],\"evidence_tags\":[\"vix_state\"]}"
+      "content": "{\"decision_time\":\"...\",\"action\":\"cash\",\"target_exposure\":0.0,\"horizon_days\":5,\"confidence\":0.78,\"claims\":[{\"claim_id\":\"c1\",\"text\":\"...\",\"stance\":\"supports\",\"evidence_ids\":[\"e1\"]}],\"evidence\":[{\"evidence_id\":\"e1\",\"source_id\":\"cboe_vix_close\",\"event_time\":\"...\",\"publication_time\":\"...\",\"available_at\":\"...\"}]}"
     }
   ],
   "metadata": {
@@ -41,7 +41,7 @@
 }
 ```
 
-未来收益可以用于给训练期样本生成 outcome label 或 chosen/rejected pair，但不能把验证/测试期结果放进 prompt、persona 选择、trust 权重或超参数搜索。
+未来收益可以用于给训练期样本生成 outcome label 或 chosen/rejected pair，但不能把验证/测试期结果放进 prompt、persona 选择、trust 权重或超参数搜索。Evidence IDs、来源和时间戳必须由数据管线提供；模型只允许引用候选 evidence，不能自行生成来源或修改 `available_at`。
 
 ## 2. 三阶段训练
 
@@ -52,7 +52,7 @@
 - JSON schema validity；
 - action/exposure/horizon 的约束；
 - persona adherence；
-- 简短 claims 和 evidence tags；
+- 简短 claims、合法 evidence IDs 和完整 provenance 字段；
 - 高不确定性时 abstain/cash。
 
 数据来源可以混合规则策略、人工检查样本和 teacher LLM 样本。不能全部由同一个 teacher 生成后再声称是独立发现。
@@ -65,10 +65,13 @@
 
 - action 与 persona 约束一致；
 - claims 能支持 action；
+- 引用的证据在 `decision_time` 前可见；
+- 多 agent 结论相同时，优先保留来源独立而非重复转述的样本；
+- 删除或反转关键 evidence 后，action/confidence 做出合理变化；
 - confidence 与训练期 outcome/calibration 相符；
 - 不违反暴露、成本和风险限制。
 
-`rejected` 可以包括：高 confidence 但错误、理由和 action 矛盾、违反 schema、对输入因素不敏感的输出。
+`rejected` 可以包括：高 confidence 但错误、理由和 action 矛盾、违反 schema、引用未来或过期证据、把同源文本当作独立证据，以及对关键证据删除/反转不敏感的输出。
 
 先使用 DPO/ORPO 类方法做小规模实验；如果 pairwise label 不稳定，就保留 SFT，不强行加入 preference optimization。
 
@@ -78,7 +81,8 @@
 
 ```text
 p_up, interval_width, regime,
-agent confidence, trust score, current exposure
+agent confidence, as-of validity, grounding,
+source independence, causal effect, current exposure
 ```
 
 先用规则和 contextual bandit，最后才考虑 offline RL。RL 的 reward 必须包含交易成本、换手和回撤惩罚。
@@ -103,9 +107,11 @@ past window -> calibration window -> held-out future window
 | rule-based persona | 非 LLM 行为基线 |
 | majority vote | 简单多 agent 聚合 |
 | self-confidence router | 不使用外部 trust 的基线 |
-| trust-aware router | 核心方法 |
+| agreement/consensus router | 检验共享错误是否欺骗群体一致性 |
+| recent-performance/regime router | 不使用证据谱系的动态路由基线 |
+| provenance-aware selective router | 核心方法 |
 
-指标至少包括 JSON validity、persona consistency、ECE、Brier、selective risk、regime-wise performance、turnover、最大回撤和推理成本/延迟。
+指标至少包括 JSON validity、persona consistency、false-consensus AUROC/AUPRC、future-evidence violation、ECE、Brier、AURC、routing regret、shared-corruption robustness、regime-wise performance、turnover、最大回撤和推理成本/延迟。
 
 ## 5. 避免的陷阱
 
@@ -114,4 +120,3 @@ past window -> calibration window -> held-out future window
 3. 不用测试期收益挑选 prompt、persona 或 trust 权重；
 4. 不把一次回测胜出写成“找到最优投资策略”；
 5. 不保存或训练隐藏 chain-of-thought，保存短 claims 和证据标签即可。
-
