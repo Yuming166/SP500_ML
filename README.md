@@ -1,26 +1,21 @@
 # SP500 Forecastability Lab
 
-一个面向 S&P 500 的因果多分辨率信号学习研究项目。
+一个面向 S&P 500 的因果多分辨率信号学习研究项目
 
 ## 研究问题
 
-与其每天强行预测涨跌，不如研究：
-
 > 在什么市场状态下，S&P 500 的短期走势更容易预测？模型能否识别出“不应该预测”的时刻？
 
-第一版固定预测窗口为未来 5 个交易日，模型输出三部分：
+## 第一阶段 固定预测窗口为未来 5 个交易日，模型输出三部分：
 
 - `p_up`：未来 5 日收益为正的概率；
 - 不确定性区间：预测可能落入的收益范围；
 - `forecast_status`：`forecast` 或 `abstain`，即预测或拒绝预测。
 
-项目的 CS/ECE 主线是 **causal multi-resolution representation learning**：先用只依赖历史样本的滤波器组/小波分解，把价格、VIX、资金流、情绪和宏观变量拆成不同时间尺度；再让模型学习各频带的动态权重；最后用校准和 abstention 处理非平稳环境中的不确定性。
+项目的 CS/ECE 主线是 causal multi-resolution representation learning：先用只依赖历史样本的滤波器组/小波分解，把价格、VIX、资金流、情绪和宏观变量拆成不同时间尺度；再让模型学习各频带的动态权重；最后用校准和 abstention 处理非平稳环境中的不确定性。
 
 重点验证：在相同数据和严格时间外推下，自适应多分辨率表示是否比原始序列和静态融合更稳健，尤其是在市场状态切换时。
-
 小波变换本身不是项目的创新声明；已有多尺度小波时序模型。因此创新应落在“因果在线约束 + 自适应频带路由 + 预测可靠性评估”的组合和消融实验上。
-
-这是一项研究假设，不预设模型一定能赚钱；如果结果没有稳定改善，也应作为有效结论记录。
 
 ## 方法架构
 
@@ -37,7 +32,6 @@ point forecast + calibrated uncertainty + abstention
               |
 optional offline policy layer: long / cash
 ```
-
 第一版先实现可解释的 causal filter bank，作为 wavelet 和 learnable filter bank 的基线。任何使用 `filtfilt`、中心滑动窗口或未来边界填充的实现都不能进入正式结果。
 
 ## 第二阶段：LLM 虚假共识与证据溯源
@@ -54,7 +48,7 @@ LLM 行为仿真的研究问题是：
 
 ## 论文定位
 
-当前工作版本的论文题目可以暂定为：
+当前工作版本的论文题目暂定：
 
 **When Consensus Lies: As-of Provenance Faithfulness for Multi-Agent LLM Decisions under Distribution Shift**
 
@@ -69,7 +63,7 @@ LLM 行为仿真的研究问题是：
 
 ## 数据基础
 
-你原来的 [`Yuming166/SP500_ML`](https://github.com/Yuming166/SP500_ML) 已经准备了适合这个问题的数据：
+[`Yuming166/SP500_ML`](https://github.com/Yuming166/SP500_ML
 
 - S&P 500/ETF 行情与收益；
 - VIX；
@@ -78,9 +72,9 @@ LLM 行为仿真的研究问题是：
 - stock put/call ratio；
 - SPY、IVV、VOO 和共同基金资金流。
 
-数据不会直接复制进本仓库。请将原始文件放入 `data/raw/`，处理产物放入 `data/processed/`。原仓库中的数据快照截至 2026 年 5 月左右，正式实验前需要重新确认数据的最新日期、来源和授权。
+数据不会直接复制进本仓库。将原始文件放入 `data/raw/`，处理产物放入 `data/processed/`。原仓库中的数据快照截至 2026 年 5 月左右，正式实验前会重新确认数据的最新日期、来源和授权。
 
-## 防止数据泄漏的约定
+## 防止数据泄漏
 
 1. 只使用预测时刻已经可见的数据；
 2. 日频数据默认在收盘后生成信号，目标从下一个交易窗口计算；
