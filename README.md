@@ -62,6 +62,8 @@ LLM 行为仿真的研究问题是：
 
 - [`docs/asof_provenance_faithfulness.md`](docs/asof_provenance_faithfulness.md)
 - [`docs/synthetic_benchmark_spec.md`](docs/synthetic_benchmark_spec.md)
+- [`docs/synthetic_v2_preregistration.md`](docs/synthetic_v2_preregistration.md)
+- [`docs/synthetic_v3_preregistration.md`](docs/synthetic_v3_preregistration.md)
 - [`docs/paper_proposal.md`](docs/paper_proposal.md)
 - [`docs/finetuning_plan.md`](docs/finetuning_plan.md)
 
@@ -96,9 +98,11 @@ LLM 行为仿真的研究问题是：
 
 ## 当前状态
 
-目前已具备选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组，以及环境持有的 provenance-aware agent contract。第二阶段还包含一个不依赖 LLM 的 synthetic harness：独立正确共识、共享但正确共识、共享污染和陈旧证据四类 episode，可比较多数决策和 provenance-aware selective routing。
+目前已具备选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组，以及环境持有的 provenance-aware agent contract。第二阶段还包含不依赖 LLM 的 synthetic harness；冻结的 V2 压力测试比较行为基线与来源审计，独立的 V3 则进一步比较 quality-only、source-overlap-only、temporal-only 和 conditional-provenance 消融。
 
-当前 harness 已额外支持 hidden/aliased provenance、opaque transformation names、带噪的 source-quality estimates、可变 agent 数、corruption strength 和 mechanism-held-out split。下一步是在这些设置上运行固定协议的多 seed 评估，报告 provenance completeness 对 detection/routing 的影响；压力测试稳定后，再接入 S&P 500 historical replay 与 Qwen agent。
+V3 增加了 evidence inertia：agent 表面引用及时且高质量的证据，但在 paired remove/reverse intervention 下不随证据改变 action。它用于区分“共享但可靠的证据”与“同源且不完整/陈旧，或仅作事后理由的证据”。所有版本均支持 hidden/aliased provenance、opaque transformation names、带噪 source-quality estimates、可变 agent 数、corruption strength 和 mechanism-held-out split。通过压力测试后，下一步才是用相同契约接入 S&P 500 historical replay 与 Qwen agent。
+
+V3 的冻结协议与已生成结果分别见 [`docs/synthetic_v3_preregistration.md`](docs/synthetic_v3_preregistration.md) 和 [`results/synthetic_v3.md`](results/synthetic_v3.md)。
 
 目录约定和研究设计见：
 

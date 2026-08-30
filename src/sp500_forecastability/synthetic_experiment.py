@@ -33,12 +33,14 @@ from sp500_forecastability.synthetic_benchmark import (
     ParameterizedEpisode,
     ProvenanceVisibility,
     Scenario,
+    conditional_provenance_risk,
     generate_parameterized_episode,
     provenance_risk,
 )
 
 BASE_SEEDS = (101, 211, 307, 401, 509, 601, 709, 809, 907, 1009)
 V2_BASE_SEEDS = (1103, 1201, 1301, 1409, 1511, 1601, 1709, 1801, 1901, 2003)
+V3_BASE_SEEDS = (2203, 2309, 2411, 2503, 2609, 2707, 2801, 2903, 3001, 3109)
 AGENT_COUNTS = (3, 5, 7, 9)
 SOURCE_QUALITY_NOISE = (0.00, 0.10, 0.20, 0.35)
 CORRUPTION_STRENGTHS = (0.40, 0.60, 0.80, 1.00)
@@ -48,12 +50,27 @@ CORRUPTION_MECHANISMS = (
     Scenario.STALE_EVIDENCE,
     Scenario.PARTIAL_CORRUPTION,
 )
+V3_CORRUPTION_MECHANISMS = (
+    *CORRUPTION_MECHANISMS,
+    Scenario.EVIDENCE_INERTIA,
+)
 METHODS = (
     "majority",
     "confidence",
     "agreement",
     "recent_performance",
     "provenance",
+    "oracle",
+)
+V3_METHODS = (
+    "majority",
+    "confidence",
+    "agreement",
+    "recent_performance",
+    "quality_only",
+    "source_overlap",
+    "temporal_only",
+    "provenance_v3",
     "oracle",
 )
 METHOD_LABELS = {
@@ -64,6 +81,14 @@ METHOD_LABELS = {
     "provenance": "Provenance",
     "oracle": "Oracle (diagnostic)",
 }
+METHOD_LABELS.update(
+    {
+        "quality_only": "Quality only",
+        "source_overlap": "Source overlap only",
+        "temporal_only": "Temporal only",
+        "provenance_v3": "Conditional provenance",
+    }
+)
 TARGET_TRAIN_RISK_QUANTILE = 0.75
 RISK_AT_COVERAGE = 0.80
 BOOTSTRAP_REPLICATES = 1000
@@ -95,8 +120,16 @@ def _stable_seed(base_seed: int, *parts: object) -> int:
     return int.from_bytes(digest, "big") % (2**31 - 1)
 
 
-def _is_corruption(scenario: Scenario) -> bool:
-    return scenario in CORRUPTION_MECHANISMS
+def _profile_methods(profile: str) -> tuple[str, ...]:
+    return V3_METHODS if profile == "v3" else METHODS
+
+
+def _profile_corruption_mechanisms(profile: str) -> tuple[Scenario, ...]:
+    return V3_CORRUPTION_MECHANISMS if profile == "v3" else CORRUPTION_MECHANISMS
+
+
+def _is_corruption(scenario: Scenario, *, profile: str) -> bool:
+    return scenario in _profile_corruption_mechanisms(profile)
 
 
 def _episode_risk_scores(
@@ -122,16 +155,29 @@ def _episode_risk_scores(
         )
         agent_quality.append(episode.observation.source_quality[root_source])
     recent_performance_risk = 1.0 - mean(agent_quality)
-    if profile == "v2":
+    if profile in {"v2", "v3"}:
         recent_performance_risk = 1.0 - mean(episode.agent_historical_performance.values())
-    return {
+    scores = {
         "majority": 1.0 - majority_fraction,
         "confidence": 1.0 - mean_confidence,
         "agreement": 1.0 - agreeing_pairs / pair_total,
         "recent_performance": recent_performance_risk,
-        "provenance": provenance_risk(episode.observation).score,
         "oracle": float(episode.harmful_false_consensus),
     }
+    if profile == "v3":
+        base = provenance_risk(episode.observation)
+        conditional = conditional_provenance_risk(episode)
+        scores.update(
+            {
+                "quality_only": base.source_quality_risk,
+                "source_overlap": base.source_concentration,
+                "temporal_only": min(1.0, base.stale_fraction + base.temporal_violation_fraction),
+                "provenance_v3": conditional.score,
+            }
+        )
+    else:
+        scores["provenance"] = provenance_risk(episode.observation).score
+    return scores
 
 
 def generate_protocol_rows(
@@ -141,11 +187,11 @@ def generate_protocol_rows(
 
     if not base_seeds:
         raise ValueError("base_seeds must not be empty")
-    if profile not in {"v1", "v2"}:
-        raise ValueError("profile must be v1 or v2")
+    if profile not in {"v1", "v2", "v3"}:
+        raise ValueError("profile must be v1, v2, or v3")
     rows: list[dict[str, Any]] = []
-    for scenario in (*CONTROLS, *CORRUPTION_MECHANISMS):
-        strengths = CORRUPTION_STRENGTHS if _is_corruption(scenario) else (0.60,)
+    for scenario in (*CONTROLS, *_profile_corruption_mechanisms(profile)):
+        strengths = CORRUPTION_STRENGTHS if _is_corruption(scenario, profile=profile) else (0.60,)
         for agent_count in AGENT_COUNTS:
             for source_noise in SOURCE_QUALITY_NOISE:
                 for strength in strengths:
@@ -156,7 +202,7 @@ def generate_protocol_rows(
                         "provenance_visibility": ProvenanceVisibility.ALIASED,
                         "renamed_transformations": True,
                     }
-                    if profile == "v2":
+                    if profile in {"v2", "v3"}:
                         config_kwargs.update(
                             confidence_quality_coupling=0.15,
                             confidence_noise=0.08,
@@ -199,16 +245,18 @@ def _quantile(values: Sequence[float], quantile: float) -> float:
 
 
 def mechanism_heldout_partitions(
-    rows: Sequence[Mapping[str, Any]]
+    rows: Sequence[Mapping[str, Any]],
+    *,
+    corruption_mechanisms: Sequence[Scenario] = CORRUPTION_MECHANISMS,
 ) -> dict[str, tuple[list[dict[str, Any]], list[dict[str, Any]]]]:
-    """Create three leave-one-corruption-mechanism-out partitions."""
+    """Create one leave-one-corruption-mechanism-out partition per mechanism."""
 
     partitions: dict[str, tuple[list[dict[str, Any]], list[dict[str, Any]]]] = {}
-    for held_out in CORRUPTION_MECHANISMS:
+    for held_out in corruption_mechanisms:
         test_names = {held_out.value, *(scenario.value for scenario in CONTROLS)}
         train_names = {
             *(scenario.value for scenario in CONTROLS),
-            *(scenario.value for scenario in CORRUPTION_MECHANISMS if scenario != held_out),
+            *(scenario.value for scenario in corruption_mechanisms if scenario != held_out),
         }
         train = [dict(row) for row in rows if row["scenario"] in train_names]
         test = [dict(row) for row in rows if row["scenario"] in test_names]
@@ -218,12 +266,14 @@ def mechanism_heldout_partitions(
     return partitions
 
 
-def frozen_thresholds(train_rows: Sequence[Mapping[str, Any]]) -> dict[str, float]:
+def frozen_thresholds(
+    train_rows: Sequence[Mapping[str, Any]], *, methods: Sequence[str] = METHODS
+) -> dict[str, float]:
     """Select outcome-free thresholds with the preregistered training quantile."""
 
     thresholds = {
         method: _quantile([float(row[method]) for row in train_rows], TARGET_TRAIN_RISK_QUANTILE)
-        for method in METHODS
+        for method in methods
         if method != "oracle"
     }
     thresholds["oracle"] = 0.50
@@ -284,7 +334,12 @@ def evaluate_method(
 
 
 def _bootstrap_ci(
-    rows: Sequence[Mapping[str, Any]], method: str, threshold: float, repeats: int
+    rows: Sequence[Mapping[str, Any]],
+    method: str,
+    threshold: float,
+    repeats: int,
+    *,
+    methods: Sequence[str] = METHODS,
 ) -> dict[str, tuple[float | None, float | None]]:
     """Cluster bootstrap on the preregistered base-seed unit."""
 
@@ -292,7 +347,7 @@ def _bootstrap_ci(
     for row in rows:
         by_seed[int(row["base_seed"])].append(row)
     seeds = tuple(sorted(by_seed))
-    random = Random(BOOTSTRAP_SEED + METHODS.index(method))
+    random = Random(BOOTSTRAP_SEED + tuple(methods).index(method))
     samples: dict[str, list[float]] = defaultdict(list)
     for _ in range(repeats):
         sampled_rows = [
@@ -309,12 +364,14 @@ def _bootstrap_ci(
 
 
 def _annotate_test_rows(
-    partitions: Mapping[str, tuple[Sequence[Mapping[str, Any]], Sequence[Mapping[str, Any]]]]
+    partitions: Mapping[str, tuple[Sequence[Mapping[str, Any]], Sequence[Mapping[str, Any]]]],
+    *,
+    methods: Sequence[str] = METHODS,
 ) -> tuple[list[dict[str, Any]], dict[str, dict[str, float]]]:
     annotated: list[dict[str, Any]] = []
     thresholds_by_fold: dict[str, dict[str, float]] = {}
     for held_out, (train, test) in partitions.items():
-        thresholds = frozen_thresholds(train)
+        thresholds = frozen_thresholds(train, methods=methods)
         thresholds_by_fold[held_out] = thresholds
         for row in test:
             expanded = dict(row)
@@ -326,13 +383,16 @@ def _annotate_test_rows(
 
 
 def _fold_metrics(
-    annotated_rows: Sequence[Mapping[str, Any]]
+    annotated_rows: Sequence[Mapping[str, Any]],
+    *,
+    methods: Sequence[str] = METHODS,
+    corruption_mechanisms: Sequence[Scenario] = CORRUPTION_MECHANISMS,
 ) -> dict[str, dict[str, dict[str, float | None]]]:
     output: dict[str, dict[str, dict[str, float | None]]] = {}
-    for held_out in (scenario.value for scenario in CORRUPTION_MECHANISMS):
+    for held_out in (scenario.value for scenario in corruption_mechanisms):
         rows = [row for row in annotated_rows if row["held_out_mechanism"] == held_out]
         output[held_out] = {}
-        for method in METHODS:
+        for method in methods:
             threshold = float(rows[0][f"threshold_{method}"])
             output[held_out][method] = asdict(evaluate_method(rows, method, threshold))
     return output
@@ -374,13 +434,17 @@ def _aggregate_threshold_metrics(
 
 
 def _aggregate_bootstrap_ci(
-    rows: Sequence[Mapping[str, Any]], method: str, repeats: int
+    rows: Sequence[Mapping[str, Any]],
+    method: str,
+    repeats: int,
+    *,
+    methods: Sequence[str] = METHODS,
 ) -> dict[str, tuple[float | None, float | None]]:
     by_seed: dict[int, list[Mapping[str, Any]]] = defaultdict(list)
     for row in rows:
         by_seed[int(row["base_seed"])].append(row)
     seeds = tuple(sorted(by_seed))
-    random = Random(BOOTSTRAP_SEED + 100 + METHODS.index(method))
+    random = Random(BOOTSTRAP_SEED + 100 + tuple(methods).index(method))
     samples: dict[str, list[float]] = defaultdict(list)
     for _ in range(repeats):
         sample = [row for seed in (random.choice(seeds) for _ in seeds) for row in by_seed[seed]]
@@ -398,9 +462,11 @@ def _risk_coverage_points(rows: Sequence[Mapping[str, Any]], method: str) -> tup
     return list(coverages), [_risk_at_coverage(rows, method, float(value)) for value in coverages]
 
 
-def _plot_risk_coverage(rows: Sequence[Mapping[str, Any]], output: Path) -> None:
+def _plot_risk_coverage(
+    rows: Sequence[Mapping[str, Any]], output: Path, *, methods: Sequence[str] = METHODS
+) -> None:
     figure, axis = plt.subplots(figsize=(7, 4.5))
-    for method in METHODS:
+    for method in methods:
         coverage, risk = _risk_coverage_points(rows, method)
         axis.plot(coverage, risk, label=METHOD_LABELS[method], linewidth=2)
     axis.set(xlabel="Coverage (least-risky consensus retained)", ylabel="Consensus error")
@@ -412,10 +478,15 @@ def _plot_risk_coverage(rows: Sequence[Mapping[str, Any]], output: Path) -> None
     plt.close(figure)
 
 
-def _plot_reliability(rows: Sequence[Mapping[str, Any]], output: Path) -> None:
-    figure, axes = plt.subplots(2, 3, figsize=(10, 6), sharex=True, sharey=True)
+def _plot_reliability(
+    rows: Sequence[Mapping[str, Any]], output: Path, *, methods: Sequence[str] = METHODS
+) -> None:
+    columns = 3
+    row_count = ceil(len(methods) / columns)
+    figure, axes = plt.subplots(row_count, columns, figsize=(10, 3 * row_count), sharex=True, sharey=True)
+    flattened_axes = np.asarray(axes).reshape(-1)
     labels = np.asarray([int(row["harmful_false_consensus"]) for row in rows])
-    for axis, method in zip(axes.flat, METHODS):
+    for axis, method in zip(flattened_axes, methods):
         scores = np.asarray([float(row[method]) for row in rows])
         centers, observed = [], []
         for index in range(10):
@@ -428,6 +499,8 @@ def _plot_reliability(rows: Sequence[Mapping[str, Any]], output: Path) -> None:
         axis.plot(centers, observed, marker="o", linewidth=1.8)
         axis.set_title(METHOD_LABELS[method], fontsize=10)
         axis.grid(alpha=0.2)
+    for axis in flattened_axes[len(methods) :]:
+        axis.set_visible(False)
     figure.supxlabel("Predicted harmful-consensus risk")
     figure.supylabel("Observed frequency")
     figure.suptitle("Reliability diagrams (pooled held-out test rows)", y=1.01)
@@ -437,19 +510,23 @@ def _plot_reliability(rows: Sequence[Mapping[str, Any]], output: Path) -> None:
 
 
 def _plot_heatmap(
-    fold_results: Mapping[str, Mapping[str, Mapping[str, float | None]]], output: Path
+    fold_results: Mapping[str, Mapping[str, Mapping[str, float | None]]],
+    output: Path,
+    *,
+    methods: Sequence[str] = METHODS,
+    corruption_mechanisms: Sequence[Scenario] = CORRUPTION_MECHANISMS,
 ) -> None:
     values = np.asarray(
         [
-            [fold_results[scenario.value][method]["high_confidence_error"] for scenario in CORRUPTION_MECHANISMS]
-            for method in METHODS
+            [fold_results[scenario.value][method]["high_confidence_error"] for scenario in corruption_mechanisms]
+            for method in methods
         ],
         dtype=float,
     )
     figure, axis = plt.subplots(figsize=(7, 4.5))
     image = axis.imshow(values, cmap="magma_r", vmin=0.0, vmax=1.0, aspect="auto")
-    axis.set_xticks(range(len(CORRUPTION_MECHANISMS)), [item.value for item in CORRUPTION_MECHANISMS], rotation=20)
-    axis.set_yticks(range(len(METHODS)), [METHOD_LABELS[item] for item in METHODS])
+    axis.set_xticks(range(len(corruption_mechanisms)), [item.value for item in corruption_mechanisms], rotation=20)
+    axis.set_yticks(range(len(methods)), [METHOD_LABELS[item] for item in methods])
     for row_index in range(values.shape[0]):
         for column_index in range(values.shape[1]):
             axis.text(column_index, row_index, f"{values[row_index, column_index]:.2f}", ha="center", va="center")
@@ -461,10 +538,15 @@ def _plot_heatmap(
 
 
 def _plot_group_curve(
-    rows: Sequence[Mapping[str, Any]], group: str, output: Path, title: str
+    rows: Sequence[Mapping[str, Any]],
+    group: str,
+    output: Path,
+    title: str,
+    *,
+    methods: Sequence[str] = ("provenance", "recent_performance", "confidence"),
 ) -> None:
     figure, axis = plt.subplots(figsize=(6.5, 4.2))
-    for method in ("provenance", "recent_performance", "confidence"):
+    for method in methods:
         x_values = sorted({float(row[group]) for row in rows})
         y_values = []
         for value in x_values:
@@ -499,6 +581,8 @@ def _write_report(
     preregistration_path: str,
     base_seeds: Sequence[int],
     profile_note: str,
+    methods: Sequence[str] = METHODS,
+    corruption_mechanisms: Sequence[Scenario] = CORRUPTION_MECHANISMS,
 ) -> None:
     lines = [
         f"# {experiment_name.replace('_', ' ').title()} formal experiment",
@@ -511,7 +595,7 @@ def _write_report(
         "## Protocol snapshot",
         "",
         f"- Base-seed clusters: {', '.join(str(seed) for seed in base_seeds)}.",
-        f"- Generated independent episodes: {len(rows) // len(CORRUPTION_MECHANISMS)} before held-out test expansion; {len(rows)} pooled held-out test rows.",
+        f"- Generated independent episodes: {len(rows) // len(corruption_mechanisms)} before held-out test expansion; {len(rows)} pooled held-out test rows.",
         "- Evaluation: leave-one-corruption-mechanism-out; both clean controls appear in each test fold.",
         "- Frozen threshold: deployable methods use the 75th percentile of training-only pre-outcome risks; abstain iff risk is strictly greater.",
         f"- Uncertainty: {BOOTSTRAP_REPLICATES} base-seed-cluster bootstrap resamples; percentile 95% CI.",
@@ -529,7 +613,7 @@ def _write_report(
         "| Method | AUROC | AUPRC | ECE | Brier | AURC | Risk@80% | High-confidence error | False rejection | Coverage |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
-    for method in METHODS:
+    for method in methods:
         result = metrics[method]
         ci = confidence_intervals[method]
         lines.append(
@@ -553,18 +637,18 @@ def _write_report(
             + " |"
         )
     lines.extend(("", "## Frozen thresholds by held-out mechanism", ""))
-    lines.extend(("| Held-out mechanism | " + " | ".join(METHOD_LABELS[item] for item in METHODS) + " |", "| --- | " + " | ".join("---:" for _ in METHODS) + " |"))
+    lines.extend(("| Held-out mechanism | " + " | ".join(METHOD_LABELS[item] for item in methods) + " |", "| --- | " + " | ".join("---:" for _ in methods) + " |"))
     for held_out, values in thresholds.items():
         lines.append(
-            "| " + held_out + " | " + " | ".join(f"{values[method]:.3f}" for method in METHODS) + " |"
+            "| " + held_out + " | " + " | ".join(f"{values[method]:.3f}" for method in methods) + " |"
         )
     lines.extend(("", "## Held-out mechanism high-confidence error", ""))
-    lines.extend(("| Method | " + " | ".join(item.value for item in CORRUPTION_MECHANISMS) + " |", "| --- | " + " | ".join("---:" for _ in CORRUPTION_MECHANISMS) + " |"))
-    for method in METHODS:
+    lines.extend(("| Method | " + " | ".join(item.value for item in corruption_mechanisms) + " |", "| --- | " + " | ".join("---:" for _ in corruption_mechanisms) + " |"))
+    for method in methods:
         lines.append(
             "| " + METHOD_LABELS[method] + " | " + " | ".join(
                 f"{fold_results[scenario.value][method]['high_confidence_error']:.3f}"
-                for scenario in CORRUPTION_MECHANISMS
+                for scenario in corruption_mechanisms
             ) + " |"
         )
     lines.extend(
@@ -609,27 +693,61 @@ def run_synthetic_experiment(
     root = Path(output_root)
     figure_root = root / experiment_name
     figure_root.mkdir(parents=True, exist_ok=True)
+    methods = _profile_methods(profile)
+    corruption_mechanisms = _profile_corruption_mechanisms(profile)
     generated_rows = generate_protocol_rows(base_seeds, profile=profile)
-    partitions = mechanism_heldout_partitions(generated_rows)
-    test_rows, thresholds = _annotate_test_rows(partitions)
-    results = {method: _aggregate_threshold_metrics(test_rows, method) for method in METHODS}
-    confidence_intervals = {
-        method: _aggregate_bootstrap_ci(test_rows, method, bootstrap_repeats) for method in METHODS
-    }
-    fold_results = _fold_metrics(test_rows)
-    _plot_risk_coverage(test_rows, figure_root / "risk_coverage.png")
-    _plot_reliability(test_rows, figure_root / "reliability_diagram.png")
-    _plot_heatmap(fold_results, figure_root / "mechanism_heatmap.png")
-    _plot_group_curve(
-        test_rows, "source_quality_noise", figure_root / "provenance_noise_curve.png", "Noise sensitivity"
+    partitions = mechanism_heldout_partitions(
+        generated_rows, corruption_mechanisms=corruption_mechanisms
     )
-    _plot_group_curve(test_rows, "agent_count", figure_root / "agent_count_curve.png", "Agent-count sensitivity")
+    test_rows, thresholds = _annotate_test_rows(partitions, methods=methods)
+    results = {method: _aggregate_threshold_metrics(test_rows, method) for method in methods}
+    confidence_intervals = {
+        method: _aggregate_bootstrap_ci(
+            test_rows, method, bootstrap_repeats, methods=methods
+        )
+        for method in methods
+    }
+    fold_results = _fold_metrics(
+        test_rows, methods=methods, corruption_mechanisms=corruption_mechanisms
+    )
+    _plot_risk_coverage(test_rows, figure_root / "risk_coverage.png", methods=methods)
+    _plot_reliability(test_rows, figure_root / "reliability_diagram.png", methods=methods)
+    _plot_heatmap(
+        fold_results,
+        figure_root / "mechanism_heatmap.png",
+        methods=methods,
+        corruption_mechanisms=corruption_mechanisms,
+    )
+    curve_methods = (
+        ("provenance_v3", "source_overlap", "quality_only", "confidence")
+        if profile == "v3"
+        else ("provenance", "recent_performance", "confidence")
+    )
+    _plot_group_curve(
+        test_rows,
+        "source_quality_noise",
+        figure_root / "provenance_noise_curve.png",
+        "Noise sensitivity",
+        methods=curve_methods,
+    )
+    _plot_group_curve(
+        test_rows,
+        "agent_count",
+        figure_root / "agent_count_curve.png",
+        "Agent-count sensitivity",
+        methods=curve_methods,
+    )
     report_path = root / f"{experiment_name}.md"
     profile_note = (
         "V1: confidence and recent performance both access source-quality information."
         if profile == "v1"
-        else "V2: confidence is independently miscalibrated and recent performance is agent-level; "
-        "only provenance accesses the environment-held source-integrity audit."
+        else (
+            "V2: confidence is independently miscalibrated and recent performance is agent-level; "
+            "only provenance accesses the environment-held source-integrity audit."
+            if profile == "v2"
+            else "V3: quality, overlap, temporal, and conditional-provenance scores use the same "
+            "environment-held audit; only conditional provenance includes the paired-intervention signal."
+        )
     )
     _write_report(
         report_path,
@@ -642,6 +760,8 @@ def run_synthetic_experiment(
         preregistration_path=preregistration_path,
         base_seeds=base_seeds,
         profile_note=profile_note,
+        methods=methods,
+        corruption_mechanisms=corruption_mechanisms,
     )
     payload = {
         "protocol": {
@@ -690,6 +810,24 @@ def run_synthetic_v2(
         "synthetic_v2",
         "synthetic_v2_preregistration.md",
         "v2",
+        output_root,
+        base_seeds=base_seeds,
+        bootstrap_repeats=bootstrap_repeats,
+    )
+
+
+def run_synthetic_v3(
+    output_root: Path | str = "results",
+    *,
+    base_seeds: Sequence[int] = V3_BASE_SEEDS,
+    bootstrap_repeats: int = BOOTSTRAP_REPLICATES,
+) -> dict[str, Any]:
+    """Run the separately preregistered conditional-provenance V3 benchmark."""
+
+    return run_synthetic_experiment(
+        "synthetic_v3",
+        "synthetic_v3_preregistration.md",
+        "v3",
         output_root,
         base_seeds=base_seeds,
         bootstrap_repeats=bootstrap_repeats,

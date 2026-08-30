@@ -33,6 +33,7 @@ class Scenario(str, Enum):
     SHARED_CORRUPTION = "shared_corruption"
     STALE_EVIDENCE = "stale_evidence"
     PARTIAL_CORRUPTION = "partial_corruption"
+    EVIDENCE_INERTIA = "evidence_inertia"
 
 
 class EvidenceIntervention(str, Enum):
@@ -139,6 +140,25 @@ class ProvenanceRisk:
     source_quality_risk: float
     stale_fraction: float
     temporal_violation_fraction: float
+    score: float
+
+
+@dataclass(frozen=True)
+class ConditionalProvenanceRisk:
+    """V3 pre-outcome score with conditional overlap and intervention evidence.
+
+    Source overlap is only risky when its shared root has poor observed
+    integrity.  A temporal violation remains a hard risk, while a failed
+    paired remove/reverse intervention records that an agent did not respond
+    to the evidence it cited.
+    """
+
+    source_concentration: float
+    source_quality_risk: float
+    shared_integrity_risk: float
+    stale_fraction: float
+    temporal_violation_fraction: float
+    causal_effect_risk: float
     score: float
 
 
@@ -552,6 +572,43 @@ def provenance_risk(
     )
 
 
+def conditional_provenance_risk(
+    episode: ParameterizedEpisode, *, stale_after: timedelta = timedelta(days=1)
+) -> ConditionalProvenanceRisk:
+    """Return the frozen V3 provenance-faithfulness risk score.
+
+    The fixed V3 score is intentionally not fitted to V2 outcomes::
+
+        hard temporal violation
+        + source concentration * source-integrity risk
+        + 0.35 * stale fraction
+        + 0.60 * paired-intervention failure fraction
+
+    Each component is observable before the outcome.  The intervention term is
+    a controlled rule-agent proxy in this benchmark and is designed to be
+    replaced by paired model outputs once LLM agents are connected.
+    """
+
+    base = provenance_risk(episode.observation, stale_after=stale_after)
+    shared_integrity_risk = base.source_concentration * base.source_quality_risk
+    score = min(
+        1.0,
+        base.temporal_violation_fraction
+        + shared_integrity_risk
+        + 0.35 * base.stale_fraction
+        + 0.60 * episode.causal_effect_risk,
+    )
+    return ConditionalProvenanceRisk(
+        source_concentration=base.source_concentration,
+        source_quality_risk=base.source_quality_risk,
+        shared_integrity_risk=shared_integrity_risk,
+        stale_fraction=base.stale_fraction,
+        temporal_violation_fraction=base.temporal_violation_fraction,
+        causal_effect_risk=episode.causal_effect_risk,
+        score=score,
+    )
+
+
 def majority_action(observation: PreOutcomeObservation) -> str:
     """Return the majority action without inspecting the realized outcome."""
 
@@ -632,6 +689,7 @@ class ParameterizedEpisode:
     true_root_sources_by_agent: Mapping[str, tuple[str, ...]]
     latent_source_quality: Mapping[str, float]
     agent_historical_performance: Mapping[str, float]
+    causal_faithfulness: Mapping[str, bool]
 
     def __post_init__(self) -> None:
         if self.outcome_action not in {"cash", "long"}:
@@ -668,9 +726,15 @@ class ParameterizedEpisode:
             for value in normalized_performance.values()
         ):
             raise ValueError("agent_historical_performance must cover agents with values in [0, 1]")
+        normalized_faithfulness = {
+            str(agent_id): bool(value) for agent_id, value in self.causal_faithfulness.items()
+        }
+        if set(normalized_faithfulness) != decision_agents:
+            raise ValueError("causal_faithfulness must cover every decision agent")
         object.__setattr__(self, "true_root_sources_by_agent", MappingProxyType(normalized_roots))
         object.__setattr__(self, "latent_source_quality", MappingProxyType(normalized_quality))
         object.__setattr__(self, "agent_historical_performance", MappingProxyType(normalized_performance))
+        object.__setattr__(self, "causal_faithfulness", MappingProxyType(normalized_faithfulness))
 
     @property
     def consensus_action(self) -> str:
@@ -700,6 +764,17 @@ class ParameterizedEpisode:
     @property
     def harmful_false_consensus(self) -> bool:
         return self.correlated_consensus and self.consensus_action != self.outcome_action
+
+    @property
+    def causal_effect_risk(self) -> float:
+        """Fraction of agents that would fail a paired evidence intervention.
+
+        V3 models this as an outcome-free property of paired agent responses.
+        Rule agents provide the controlled stand-in; a future LLM experiment
+        must populate it from actual remove/reverse calls.
+        """
+
+        return 1.0 - sum(self.causal_faithfulness.values()) / len(self.causal_faithfulness)
 
 
 @dataclass(frozen=True)
@@ -774,7 +849,7 @@ def _shared_agent_count(config: BenchmarkConfig) -> int:
 def _latent_quality(scenario: Scenario, strength: float, *, shared: bool) -> float:
     if not shared:
         return 0.95
-    if scenario is Scenario.SHARED_CLEAN:
+    if scenario in {Scenario.SHARED_CLEAN, Scenario.EVIDENCE_INERTIA}:
         return 0.95
     if scenario is Scenario.STALE_EVIDENCE:
         return max(0.05, 0.7 - 0.35 * strength)
@@ -797,7 +872,7 @@ def generate_parameterized_episode(
     agent_ids = _parameterized_agent_ids(benchmark_config.agent_count)
     if normalized_scenario is Scenario.INDEPENDENT_CLEAN:
         shared_agents: set[str] = set()
-    elif normalized_scenario is Scenario.SHARED_CLEAN:
+    elif normalized_scenario in {Scenario.SHARED_CLEAN, Scenario.EVIDENCE_INERTIA}:
         shared_agents = set(agent_ids)
     else:
         shared_agents = set(agent_ids[:_shared_agent_count(benchmark_config)])
@@ -816,6 +891,7 @@ def generate_parameterized_episode(
     agent_evidence: dict[str, tuple[str, ...]] = {}
     agent_actions: dict[str, str] = {}
     true_roots_by_agent: dict[str, tuple[str, ...]] = {}
+    causal_faithfulness: dict[str, bool] = {}
 
     def observed_root_id(true_source: str, agent_id: str) -> str:
         if benchmark_config.provenance_visibility is ProvenanceVisibility.FULL:
@@ -831,11 +907,13 @@ def generate_parameterized_episode(
             if is_shared
             else f"true_independent_{index}"
         )
+        is_inert = normalized_scenario is Scenario.EVIDENCE_INERTIA
         is_corrupted = is_shared and normalized_scenario not in {
             Scenario.INDEPENDENT_CLEAN,
             Scenario.SHARED_CLEAN,
+            Scenario.EVIDENCE_INERTIA,
         }
-        agent_action = _opposite(outcome_action) if is_corrupted else outcome_action
+        agent_action = _opposite(outcome_action) if is_corrupted or is_inert else outcome_action
         is_stale = is_corrupted and normalized_scenario is Scenario.STALE_EVIDENCE
         event = stale_event if is_stale else current_event
         publication = stale_publication if is_stale else current_publication
@@ -881,6 +959,7 @@ def generate_parameterized_episode(
         agent_evidence[agent_id] = (evidence_id,)
         agent_actions[agent_id] = agent_action
         true_roots_by_agent[agent_id] = (true_source,)
+        causal_faithfulness[agent_id] = not is_inert
 
     graph = ProvenanceGraph.from_items([*root_items.values(), *derived_items])
     decision_time = _isoformat(_DECISION_AT)
@@ -948,6 +1027,7 @@ def generate_parameterized_episode(
         true_root_sources_by_agent=true_roots_by_agent,
         latent_source_quality=latent_quality,
         agent_historical_performance=agent_historical_performance,
+        causal_faithfulness=causal_faithfulness,
     )
 
 

@@ -5,6 +5,7 @@ from sp500_forecastability.synthetic_benchmark import (
     EvidenceIntervention,
     ProvenanceVisibility,
     Scenario,
+    conditional_provenance_risk,
     evaluate_selective_router,
     generate_episode,
     generate_future_leakage_attempt,
@@ -158,6 +159,32 @@ def test_noisy_source_quality_is_reproducible_and_bounded() -> None:
 
     assert dict(first.observation.source_quality) == dict(second.observation.source_quality)
     assert all(0.0 <= value <= 1.0 for value in first.observation.source_quality.values())
+
+
+def test_conditional_provenance_requires_bad_integrity_or_failed_intervention() -> None:
+    config = BenchmarkConfig(
+        agent_count=5,
+        corruption_strength=1.0,
+        source_quality_noise=0.0,
+        provenance_visibility=ProvenanceVisibility.FULL,
+    )
+    shared_clean = generate_parameterized_episode(Scenario.SHARED_CLEAN, seed=14, config=config)
+    shared_corruption = generate_parameterized_episode(
+        Scenario.SHARED_CORRUPTION, seed=14, config=config
+    )
+    evidence_inertia = generate_parameterized_episode(
+        Scenario.EVIDENCE_INERTIA, seed=14, config=config
+    )
+
+    clean_risk = conditional_provenance_risk(shared_clean)
+    corruption_risk = conditional_provenance_risk(shared_corruption)
+    inertia_risk = conditional_provenance_risk(evidence_inertia)
+
+    assert clean_risk.shared_integrity_risk < corruption_risk.shared_integrity_risk
+    assert clean_risk.score < corruption_risk.score
+    assert evidence_inertia.causal_effect_risk == 1.0
+    assert inertia_risk.causal_effect_risk == 1.0
+    assert inertia_risk.score > clean_risk.score
 
 
 def test_mechanism_heldout_split_never_mixes_corruption_mechanisms() -> None:
