@@ -1,0 +1,598 @@
+{
+  "protocol": {
+    "base_seeds": [
+      1103,
+      1201,
+      1301,
+      1409,
+      1511,
+      1601,
+      1709,
+      1801,
+      1901,
+      2003
+    ],
+    "bootstrap_repeats": 1000,
+    "threshold_quantile": 0.75,
+    "risk_at_coverage": 0.8
+  },
+  "thresholds": {
+    "shared_corruption": {
+      "majority": 0.33333333333333337,
+      "confidence": 0.2520242486448004,
+      "agreement": 0.5595238095238095,
+      "recent_performance": 0.2159834498583862,
+      "provenance": 0.7008721607810935,
+      "oracle": 0.5
+    },
+    "stale_evidence": {
+      "majority": 0.33333333333333337,
+      "confidence": 0.2554110031399689,
+      "agreement": 0.5595238095238095,
+      "recent_performance": 0.216433926208338,
+      "provenance": 0.6269723916201346,
+      "oracle": 0.5
+    },
+    "partial_corruption": {
+      "majority": 0.33333333333333337,
+      "confidence": 0.25422016570597755,
+      "agreement": 0.5595238095238095,
+      "recent_performance": 0.21669432932303825,
+      "provenance": 0.7097732389790408,
+      "oracle": 0.5
+    }
+  },
+  "pooled_results": {
+    "majority": {
+      "auroc": 0.5909090909090909,
+      "auprc": 0.5685814185814185,
+      "ece": 0.45555555555555555,
+      "brier": 0.4128982951205173,
+      "aurc": 0.3335144418775001,
+      "risk_at_80_coverage": 0.5833333333333334,
+      "high_confidence_error": 0.6,
+      "false_rejection": 0.2727272727272727,
+      "independent_correct_rejection": 0.0,
+      "coverage_at_threshold": 0.8333333333333334
+    },
+    "confidence": {
+      "auroc": 0.664634324009324,
+      "auprc": 0.6943485905039366,
+      "ece": 0.3224758251152358,
+      "brier": 0.3410773339064829,
+      "aurc": 0.42581290340512457,
+      "risk_at_80_coverage": 0.4887152777777778,
+      "high_confidence_error": 0.48261851015801355,
+      "false_rejection": 0.1318181818181818,
+      "independent_correct_rejection": 0.14583333333333334,
+      "coverage_at_threshold": 0.7690972222222222
+    },
+    "agreement": {
+      "auroc": 0.6468531468531469,
+      "auprc": 0.6729770229770229,
+      "ece": 0.3628968253968254,
+      "brier": 0.3490380658436214,
+      "aurc": 0.3175809370737801,
+      "risk_at_80_coverage": 0.5208333333333334,
+      "high_confidence_error": 0.5263157894736842,
+      "false_rejection": 0.18181818181818182,
+      "independent_correct_rejection": 0.0,
+      "coverage_at_threshold": 0.7916666666666666
+    },
+    "recent_performance": {
+      "auroc": 0.5103093434343435,
+      "auprc": 0.552978731772661,
+      "ece": 0.3417494596023713,
+      "brier": 0.3653737612503341,
+      "aurc": 0.5395244417136434,
+      "risk_at_80_coverage": 0.5347222222222222,
+      "high_confidence_error": 0.5324074074074074,
+      "false_rejection": 0.23484848484848486,
+      "independent_correct_rejection": 0.27291666666666664,
+      "coverage_at_threshold": 0.75
+    },
+    "provenance": {
+      "auroc": 0.9280754662004662,
+      "auprc": 0.9456674925260329,
+      "ece": 0.192849290736093,
+      "brier": 0.14077931383609438,
+      "aurc": 0.22638084007448844,
+      "risk_at_80_coverage": 0.4270833333333333,
+      "high_confidence_error": 0.42912873862158646,
+      "false_rejection": 0.0022727272727272726,
+      "independent_correct_rejection": 0.0,
+      "coverage_at_threshold": 0.8010416666666667
+    },
+    "oracle": {
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "ece": 0.0,
+      "brier": 0.0,
+      "aurc": 0.18418801649255015,
+      "risk_at_80_coverage": 0.4270833333333333,
+      "high_confidence_error": 0.0,
+      "false_rejection": 0.0,
+      "independent_correct_rejection": 0.0,
+      "coverage_at_threshold": 0.4583333333333333
+    }
+  },
+  "pooled_confidence_intervals": {
+    "majority": {
+      "auroc": [
+        0.5909090909090909,
+        0.5909090909090909
+      ],
+      "auprc": [
+        0.5685814185814185,
+        0.5685814185814185
+      ],
+      "ece": [
+        0.45555555555555555,
+        0.45555555555555555
+      ],
+      "brier": [
+        0.4128982951205173,
+        0.4128982951205173
+      ],
+      "aurc": [
+        0.3334979745553641,
+        0.333511148523129
+      ],
+      "risk_at_80_coverage": [
+        0.5833333333333334,
+        0.5833333333333334
+      ],
+      "high_confidence_error": [
+        0.6,
+        0.6
+      ],
+      "false_rejection": [
+        0.2727272727272727,
+        0.2727272727272727
+      ],
+      "independent_correct_rejection": [
+        0.0,
+        0.0
+      ],
+      "coverage_at_threshold": [
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "confidence": {
+      "auroc": [
+        0.6385653651903651,
+        0.6880144716394716
+      ],
+      "auprc": [
+        0.670178504270378,
+        0.7206298890406934
+      ],
+      "ece": [
+        0.32043775668094476,
+        0.324740182532024
+      ],
+      "brier": [
+        0.33914575485463877,
+        0.3426299144635411
+      ],
+      "aurc": [
+        0.4066627329158541,
+        0.44810433346853
+      ],
+      "risk_at_80_coverage": [
+        0.47611762152777776,
+        0.5000108506944444
+      ],
+      "high_confidence_error": [
+        0.46957903814791535,
+        0.49570731839632054
+      ],
+      "false_rejection": [
+        0.10227272727272728,
+        0.16517045454545454
+      ],
+      "independent_correct_rejection": [
+        0.0875,
+        0.21046874999999995
+      ],
+      "coverage_at_threshold": [
+        0.7520833333333333,
+        0.7850694444444445
+      ]
+    },
+    "agreement": {
+      "auroc": [
+        0.6468531468531469,
+        0.6468531468531469
+      ],
+      "auprc": [
+        0.6729770229770229,
+        0.6729770229770229
+      ],
+      "ece": [
+        0.3628968253968254,
+        0.3628968253968254
+      ],
+      "brier": [
+        0.3490380658436214,
+        0.3490380658436214
+      ],
+      "aurc": [
+        0.31756440889063886,
+        0.3175776488337797
+      ],
+      "risk_at_80_coverage": [
+        0.5208333333333334,
+        0.5208333333333334
+      ],
+      "high_confidence_error": [
+        0.5263157894736842,
+        0.5263157894736842
+      ],
+      "false_rejection": [
+        0.18181818181818182,
+        0.18181818181818182
+      ],
+      "independent_correct_rejection": [
+        0.0,
+        0.0
+      ],
+      "coverage_at_threshold": [
+        0.7916666666666666,
+        0.7916666666666666
+      ]
+    },
+    "recent_performance": {
+      "auroc": [
+        0.49557142336829835,
+        0.5252079205516704
+      ],
+      "auprc": [
+        0.5428770455390307,
+        0.5663231008330062
+      ],
+      "ece": [
+        0.34096261255579474,
+        0.34253255094455204
+      ],
+      "brier": [
+        0.3647189447470495,
+        0.3660061007327506
+      ],
+      "aurc": [
+        0.5264700473230741,
+        0.5542561820404365
+      ],
+      "risk_at_80_coverage": [
+        0.5277669270833334,
+        0.5412326388888888
+      ],
+      "high_confidence_error": [
+        0.5226147710570296,
+        0.5416739920300047
+      ],
+      "false_rejection": [
+        0.20606060606060606,
+        0.26136363636363635
+      ],
+      "independent_correct_rejection": [
+        0.21041666666666667,
+        0.33125
+      ],
+      "coverage_at_threshold": [
+        0.7354079861111111,
+        0.7649305555555556
+      ]
+    },
+    "provenance": {
+      "auroc": [
+        0.9221205929487181,
+        0.933631653069153
+      ],
+      "auprc": [
+        0.9402535760065069,
+        0.9508983265134922
+      ],
+      "ece": [
+        0.18502908076875066,
+        0.20215710584404384
+      ],
+      "brier": [
+        0.13917141810508052,
+        0.14230399927678902
+      ],
+      "aurc": [
+        0.22357289163908364,
+        0.22945450776061804
+      ],
+      "risk_at_80_coverage": [
+        0.4270833333333333,
+        0.4270833333333333
+      ],
+      "high_confidence_error": [
+        0.42545608963971576,
+        0.43293207222699914
+      ],
+      "false_rejection": [
+        0.0,
+        0.004545454545454545
+      ],
+      "independent_correct_rejection": [
+        0.0,
+        0.0
+      ],
+      "coverage_at_threshold": [
+        0.7954861111111111,
+        0.8062586805555556
+      ]
+    },
+    "oracle": {
+      "auroc": [
+        1.0,
+        1.0
+      ],
+      "auprc": [
+        1.0,
+        1.0
+      ],
+      "ece": [
+        0.0,
+        0.0
+      ],
+      "brier": [
+        0.0,
+        0.0
+      ],
+      "aurc": [
+        0.18418801649255015,
+        0.18418801649255015
+      ],
+      "risk_at_80_coverage": [
+        0.4270833333333333,
+        0.4270833333333333
+      ],
+      "high_confidence_error": [
+        0.0,
+        0.0
+      ],
+      "false_rejection": [
+        0.0,
+        0.0
+      ],
+      "independent_correct_rejection": [
+        0.0,
+        0.0
+      ],
+      "coverage_at_threshold": [
+        0.4583333333333333,
+        0.4583333333333333
+      ]
+    }
+  },
+  "held_out_results": {
+    "shared_corruption": {
+      "majority": {
+        "auroc": 0.5909090909090909,
+        "auprc": 0.5685814185814185,
+        "ece": 0.45555555555555555,
+        "brier": 0.41289829512051734,
+        "aurc": 0.29156718126523534,
+        "risk_at_80_coverage": 0.5833333333333334,
+        "high_confidence_error": 0.6,
+        "false_rejection": 0.2727272727272727,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.8333333333333334
+      },
+      "confidence": {
+        "auroc": 0.6939641608391608,
+        "auprc": 0.7204854288004992,
+        "ece": 0.3205182271801469,
+        "brier": 0.337133926252075,
+        "aurc": 0.4007111038712001,
+        "risk_at_80_coverage": 0.4817708333333333,
+        "high_confidence_error": 0.4642356241234222,
+        "false_rejection": 0.1318181818181818,
+        "independent_correct_rejection": 0.15,
+        "coverage_at_threshold": 0.7427083333333333
+      },
+      "agreement": {
+        "auroc": 0.6468531468531469,
+        "auprc": 0.6729770229770229,
+        "ece": 0.3628968253968254,
+        "brier": 0.3490380658436214,
+        "aurc": 0.27563367987138226,
+        "risk_at_80_coverage": 0.5208333333333334,
+        "high_confidence_error": 0.5263157894736842,
+        "false_rejection": 0.18181818181818182,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.7916666666666666
+      },
+      "recent_performance": {
+        "auroc": 0.5293793706293706,
+        "auprc": 0.5615209637478944,
+        "ece": 0.34171167036501837,
+        "brier": 0.3645915851833263,
+        "aurc": 0.5228549975202934,
+        "risk_at_80_coverage": 0.52734375,
+        "high_confidence_error": 0.5269121813031161,
+        "false_rejection": 0.2409090909090909,
+        "independent_correct_rejection": 0.28125,
+        "coverage_at_threshold": 0.7354166666666667
+      },
+      "provenance": {
+        "auroc": 0.9026092657342658,
+        "auprc": 0.9222647882597189,
+        "ece": 0.20184512400502017,
+        "brier": 0.15896840488707323,
+        "aurc": 0.23796148911321038,
+        "risk_at_80_coverage": 0.4296875,
+        "high_confidence_error": 0.47115384615384615,
+        "false_rejection": 0.0,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.8666666666666667
+      },
+      "oracle": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "ece": 0.0,
+        "brier": 0.0,
+        "aurc": 0.1843759566703688,
+        "risk_at_80_coverage": 0.4270833333333333,
+        "high_confidence_error": 0.0,
+        "false_rejection": 0.0,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.4583333333333333
+      }
+    },
+    "stale_evidence": {
+      "majority": {
+        "auroc": 0.5909090909090909,
+        "auprc": 0.5685814185814185,
+        "ece": 0.45555555555555555,
+        "brier": 0.41289829512051734,
+        "aurc": 0.29156718126523534,
+        "risk_at_80_coverage": 0.5833333333333334,
+        "high_confidence_error": 0.6,
+        "false_rejection": 0.2727272727272727,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.8333333333333334
+      },
+      "confidence": {
+        "auroc": 0.6354020979020979,
+        "auprc": 0.6686064242268018,
+        "ece": 0.32345718098782644,
+        "brier": 0.3443756766526033,
+        "aurc": 0.449210199346508,
+        "risk_at_80_coverage": 0.49609375,
+        "high_confidence_error": 0.4973614775725594,
+        "false_rejection": 0.1340909090909091,
+        "independent_correct_rejection": 0.14375,
+        "coverage_at_threshold": 0.7895833333333333
+      },
+      "agreement": {
+        "auroc": 0.6468531468531469,
+        "auprc": 0.6729770229770229,
+        "ece": 0.3628968253968254,
+        "brier": 0.3490380658436214,
+        "aurc": 0.27563367987138226,
+        "risk_at_80_coverage": 0.5208333333333334,
+        "high_confidence_error": 0.5263157894736842,
+        "false_rejection": 0.18181818181818182,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.7916666666666666
+      },
+      "recent_performance": {
+        "auroc": 0.4908173076923077,
+        "auprc": 0.5432956707242276,
+        "ece": 0.3420967152620752,
+        "brier": 0.36648431281692667,
+        "aurc": 0.5572271184175428,
+        "risk_at_80_coverage": 0.5403645833333334,
+        "high_confidence_error": 0.5365517241379311,
+        "false_rejection": 0.23636363636363636,
+        "independent_correct_rejection": 0.26875,
+        "coverage_at_threshold": 0.7552083333333334
+      },
+      "provenance": {
+        "auroc": 0.9917176573426574,
+        "auprc": 0.992542261950886,
+        "ece": 0.2493664383057927,
+        "brier": 0.10468320983970973,
+        "aurc": 0.1886979527320399,
+        "risk_at_80_coverage": 0.4270833333333333,
+        "high_confidence_error": 0.29967948717948717,
+        "false_rejection": 0.006818181818181818,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.65
+      },
+      "oracle": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "ece": 0.0,
+        "brier": 0.0,
+        "aurc": 0.1843759566703688,
+        "risk_at_80_coverage": 0.4270833333333333,
+        "high_confidence_error": 0.0,
+        "false_rejection": 0.0,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.4583333333333333
+      }
+    },
+    "partial_corruption": {
+      "majority": {
+        "auroc": 0.5909090909090909,
+        "auprc": 0.5685814185814185,
+        "ece": 0.45555555555555555,
+        "brier": 0.41289829512051734,
+        "aurc": 0.39485721594300666,
+        "risk_at_80_coverage": 0.5833333333333334,
+        "high_confidence_error": 0.6,
+        "false_rejection": 0.2727272727272727,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.8333333333333334
+      },
+      "confidence": {
+        "auroc": 0.6635795454545454,
+        "auprc": 0.6929639586102869,
+        "ece": 0.323452067177734,
+        "brier": 0.3417223988147704,
+        "aurc": 0.4269435702334666,
+        "risk_at_80_coverage": 0.48828125,
+        "high_confidence_error": 0.4852150537634409,
+        "false_rejection": 0.12954545454545455,
+        "independent_correct_rejection": 0.14375,
+        "coverage_at_threshold": 0.775
+      },
+      "agreement": {
+        "auroc": 0.6468531468531469,
+        "auprc": 0.6729770229770229,
+        "ece": 0.3628968253968254,
+        "brier": 0.3490380658436214,
+        "aurc": 0.3789237145491536,
+        "risk_at_80_coverage": 0.5208333333333334,
+        "high_confidence_error": 0.5263157894736842,
+        "false_rejection": 0.18181818181818182,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.7916666666666666
+      },
+      "recent_performance": {
+        "auroc": 0.5105550699300699,
+        "auprc": 0.5570511426798928,
+        "ece": 0.3414399931800206,
+        "brier": 0.3650453857507493,
+        "aurc": 0.5390404539851088,
+        "risk_at_80_coverage": 0.53515625,
+        "high_confidence_error": 0.53360768175583,
+        "false_rejection": 0.22727272727272727,
+        "independent_correct_rejection": 0.26875,
+        "coverage_at_threshold": 0.759375
+      },
+      "provenance": {
+        "auroc": 0.9047945804195804,
+        "auprc": 0.9233560172350317,
+        "ece": 0.20546509529955884,
+        "brier": 0.15868632678150024,
+        "aurc": 0.23653432670222527,
+        "risk_at_80_coverage": 0.4296875,
+        "high_confidence_error": 0.48296122209165687,
+        "false_rejection": 0.0,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.8864583333333333
+      },
+      "oracle": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "ece": 0.0,
+        "brier": 0.0,
+        "aurc": 0.1843759566703688,
+        "risk_at_80_coverage": 0.4270833333333333,
+        "high_confidence_error": 0.0,
+        "false_rejection": 0.0,
+        "independent_correct_rejection": 0.0,
+        "coverage_at_threshold": 0.4583333333333333
+      }
+    }
+  },
+  "row_count": 2880
+}

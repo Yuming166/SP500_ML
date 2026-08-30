@@ -61,6 +61,7 @@ LLM 行为仿真的研究问题是：
 论文贡献集中在 false-consensus benchmark、时间证据谱系评估和 provenance-aware selective routing；S&P 500 是具有真实发布时间和状态切换的测试环境，不把单次回测收益作为主要贡献。Qwen3.5-4B 微调、金融信号处理和 RL 是实现组件，不是中心 novelty。具体研究定义、投稿定位和微调实验见：
 
 - [`docs/asof_provenance_faithfulness.md`](docs/asof_provenance_faithfulness.md)
+- [`docs/synthetic_benchmark_spec.md`](docs/synthetic_benchmark_spec.md)
 - [`docs/paper_proposal.md`](docs/paper_proposal.md)
 - [`docs/finetuning_plan.md`](docs/finetuning_plan.md)
 
@@ -95,7 +96,9 @@ LLM 行为仿真的研究问题是：
 
 ## 当前状态
 
-目前是研究骨架：已经包含选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组和第二阶段的基础 agent 输出契约。下一步先把输出契约扩展为带 `source_id`、`available_at` 和 claim-evidence links 的证据谱系，再实现 source duplication、shared corruption、stale/future evidence、evidence removal/reversal 等 paired benchmark，最后比较 majority、confidence、agreement、recent-performance 与 provenance-aware routing。
+目前已具备选择性预测指标、conformal 区间的基础函数、时间序列 walk-forward 切分、跨市场分歧特征、因果滤波器组，以及环境持有的 provenance-aware agent contract。第二阶段还包含一个不依赖 LLM 的 synthetic harness：独立正确共识、共享但正确共识、共享污染和陈旧证据四类 episode，可比较多数决策和 provenance-aware selective routing。
+
+当前 harness 已额外支持 hidden/aliased provenance、opaque transformation names、带噪的 source-quality estimates、可变 agent 数、corruption strength 和 mechanism-held-out split。下一步是在这些设置上运行固定协议的多 seed 评估，报告 provenance completeness 对 detection/routing 的影响；压力测试稳定后，再接入 S&P 500 historical replay 与 Qwen agent。
 
 目录约定和研究设计见：
 
