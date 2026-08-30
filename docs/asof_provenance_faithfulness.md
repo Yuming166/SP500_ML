@@ -62,21 +62,11 @@ Agent 输出契约建议扩展为：
       "stance": "supports",
       "evidence_ids": ["e_vix_1", "e_trend_1"]
     }
-  ],
-  "evidence": [
-    {
-      "evidence_id": "e_vix_1",
-      "source_id": "cboe_vix_close",
-      "event_time": "2024-03-15T20:00:00Z",
-      "publication_time": "2024-03-15T20:15:00Z",
-      "available_at": "2024-03-15T20:16:00Z",
-      "value": 14.4
-    }
   ]
 }
 ```
 
-不要求模型输出或保存隐藏 chain-of-thought；只监督可审计的 claim、证据引用和最终动作。
+证据对象由环境持有的 catalog 提供，模型不得生成、重写或修改 `source_id`、时间戳和派生关系；运行时只接受被分配 evidence packet 内的 ID。不要求模型输出或保存隐藏 chain-of-thought；只监督可审计的 claim、证据引用和最终动作。
 
 ### 3.1 共享状态与独立证据包
 

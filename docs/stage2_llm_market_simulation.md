@@ -59,21 +59,11 @@ LLM agent 不需要处理原始长序列。这样可以减少数值幻觉、toke
       "stance": "supports",
       "evidence_ids": ["e1"]
     }
-  ],
-  "evidence": [
-    {
-      "evidence_id": "e1",
-      "source_id": "cboe_vix_close",
-      "event_time": "...",
-      "publication_time": "...",
-      "available_at": "...",
-      "value": 0.0
-    }
   ]
 }
 ```
 
-MVP 不让 LLM 自由输出价格、数量或隐藏推理过程；交易数量由环境和风险约束层决定。`source_id` 和时间戳由环境提供并校验，不能让 LLM 自行编造。
+MVP 不让 LLM 自由输出价格、数量或隐藏推理过程；交易数量由环境和风险约束层决定。完整 evidence catalog（`source_id`、时间戳和派生关系）由环境提供并校验，agent 只能引用分配给它的 ID，不能自行编造。
 
 ## As-of provenance-faithfulness routing
 

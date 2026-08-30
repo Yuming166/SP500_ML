@@ -5,6 +5,7 @@ __pycache__/
 .mypy_cache/
 .venv/
 venv/
+*.egg-info/
 .env
 
 # Local and generated research data
@@ -22,4 +23,3 @@ reports/*
 .ipynb_checkpoints/
 .idea/
 .vscode/
-

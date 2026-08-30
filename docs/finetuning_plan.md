@@ -26,11 +26,11 @@
     },
     {
       "role": "user",
-      "content": "<structured market state at t>"
+      "content": "<structured market state at t and environment-provided evidence packet>"
     },
     {
       "role": "assistant",
-      "content": "{\"decision_time\":\"...\",\"action\":\"cash\",\"target_exposure\":0.0,\"horizon_days\":5,\"confidence\":0.78,\"claims\":[{\"claim_id\":\"c1\",\"text\":\"...\",\"stance\":\"supports\",\"evidence_ids\":[\"e1\"]}],\"evidence\":[{\"evidence_id\":\"e1\",\"source_id\":\"cboe_vix_close\",\"event_time\":\"...\",\"publication_time\":\"...\",\"available_at\":\"...\"}]}"
+      "content": "{\"decision_time\":\"...\",\"action\":\"cash\",\"target_exposure\":0.0,\"horizon_days\":5,\"confidence\":0.78,\"claims\":[{\"claim_id\":\"c1\",\"text\":\"...\",\"stance\":\"supports\",\"evidence_ids\":[\"e1\"]}]}"
     }
   ],
   "metadata": {
@@ -52,7 +52,7 @@
 - JSON schema validity；
 - action/exposure/horizon 的约束；
 - persona adherence；
-- 简短 claims、合法 evidence IDs 和完整 provenance 字段；
+- 简短 claims 和合法 evidence IDs；证据的 provenance 字段只由环境维护；
 - 高不确定性时 abstain/cash。
 
 数据来源可以混合规则策略、人工检查样本和 teacher LLM 样本。不能全部由同一个 teacher 生成后再声称是独立发现。

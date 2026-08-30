@@ -25,6 +25,29 @@
 - 缺失值只能使用当时可用的历史值填充；禁止用未来值 `bfill`。
 - 合并前统一时区、日期格式和交易日历，并保留每个来源的原始日期列。
 
+## 第二阶段证据目录
+
+第二阶段的 agent 不直接生成或修改证据元数据。数据管线为每个 as-of 决策时点构建环境持有的 evidence catalog；agent 只可引用分配给它的 evidence ID。
+
+```json
+{
+  "evidence_id": "trend_20260830",
+  "source_id": "ema_20_transform",
+  "event_time": "2026-08-30T20:00:00Z",
+  "publication_time": "2026-08-30T20:06:00Z",
+  "available_at": "2026-08-30T20:06:00Z",
+  "summary": "20-day causal trend is positive",
+  "parent_evidence_ids": ["sp500_close_20260830"]
+}
+```
+
+- `source_id` 是原始来源或确定性变换的标识；
+- `parent_evidence_ids` 描述派生路径；无 parent 的 item 才是叶子来源；
+- 所有时间戳必须包含 UTC offset；
+- 所有被 claim 引用的 item 及其祖先都必须满足 `available_at <= decision_time`；
+- 两个派生特征只要共享任一叶子 `source_id`，即不是独立证据；
+- agent response 只能提交 claim 的 `evidence_ids`，运行时拒绝 catalog 外或 agent packet 外的引用。
+
 ## 目标字段
 
 ```text
@@ -41,4 +64,3 @@ target_up_5d = 1[forward_return_5d > 0]
 原仓库的说明文件显示当前数据快照大约覆盖至 2026 年 5 月；它不是实时数据，开始正式实验前必须重新检查日期覆盖和字段定义。FRED 的 S&P 500 页面说明该序列是收盘价、日频，并且是 price index（不含股息），因此若使用它作为基准，不要误称为 total return。[FRED S&P 500 series](https://fred.stlouisfed.org/series/SP500)
 
 VIX 的经济含义是由 S&P 500 期权推导的预期波动率，不应直接解释成“涨跌方向指标”。[Cboe VIX methodology](https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf)
-
