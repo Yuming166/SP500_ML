@@ -58,12 +58,15 @@ LLM 行为仿真的研究问题是：
 - [`docs/synthetic_benchmark_spec.md`](docs/synthetic_benchmark_spec.md)
 - [`docs/synthetic_v2_preregistration.md`](docs/synthetic_v2_preregistration.md)
 - [`docs/synthetic_v3_preregistration.md`](docs/synthetic_v3_preregistration.md)
+- [`docs/synthetic_v4_preregistration.md`](docs/synthetic_v4_preregistration.md)
 - [`docs/paper_proposal.md`](docs/paper_proposal.md)
 - [`docs/finetuning_plan.md`](docs/finetuning_plan.md)
 
+阶段性记录：[`Work Log 1`](docs/work_log_1.md) · [`Work Log 2`](docs/work_log_2.md)
+
 ## 数据基础
 
-[`Yuming166/SP500_ML`](https://github.com/Yuming166/SP500_ML
+[`Yuming166/SP500_ML`](https://github.com/Yuming166/SP500_ML)
 
 - S&P 500/ETF 行情与收益；
 - VIX；
@@ -98,6 +101,10 @@ V3 增加了 evidence inertia：agent 表面引用及时且高质量的证据，
 
 V3 的冻结协议与已生成结果分别见 [`docs/synthetic_v3_preregistration.md`](docs/synthetic_v3_preregistration.md) 和 [`results/synthetic_v3.md`](results/synthetic_v3.md)。
 
+补充的 matched-coverage 分析明确标记为 post-hoc；在相同 80% coverage 下，conditional provenance 的 error 为 `0.466`，quality-only 为 `0.470`，paired bootstrap 差值为 `-0.004 [-0.008, -0.001]`。这支持 V3 的排序能力，但不回溯修改原始 primary hypothesis。
+
+独立预注册的 V4 使用全新且互不重叠的训练/测试 seeds、带噪 action/intervention、按 seed 分组的 cross-fitting，以及非负 logistic provenance router。正式结果中，学习型 V4 的校准更好（ECE `0.074`），宏平均 AURC 优于 quality-only（`0.316` vs `0.352`），但 Risk@80 略差（`0.447` vs `0.442`），同时落后固定 V3 conditional provenance（宏平均 AURC `0.235`、Risk@80 `0.440`）。因此 V4 的预注册主假设未通过；结果表明完全未知的 evidence-inertia 机制需要显式结构先验，不能只依赖已知机制上的监督学习。详见 [`results/synthetic_v3_posthoc_matched_coverage.md`](results/synthetic_v3_posthoc_matched_coverage.md) 和 [`results/synthetic_v4.md`](results/synthetic_v4.md)。
+
 目录约定和研究设计见：
 
 - [`docs/research_plan.md`](docs/research_plan.md)
@@ -110,6 +117,7 @@ V3 的冻结协议与已生成结果分别见 [`docs/synthetic_v3_preregistratio
 ```bash
 python -m pip install -e '.[dev]'
 pytest -q
+python -m sp500_forecastability.synthetic_v4_experiment
 ```
 
 本项目仅用于研究和教育，不构成投资建议。

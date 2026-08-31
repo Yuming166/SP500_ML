@@ -87,6 +87,7 @@ METHOD_LABELS.update(
         "source_overlap": "Source overlap only",
         "temporal_only": "Temporal only",
         "provenance_v3": "Conditional provenance",
+        "provenance_v4": "Monotonic provenance V4",
     }
 )
 TARGET_TRAIN_RISK_QUANTILE = 0.75
@@ -121,11 +122,11 @@ def _stable_seed(base_seed: int, *parts: object) -> int:
 
 
 def _profile_methods(profile: str) -> tuple[str, ...]:
-    return V3_METHODS if profile == "v3" else METHODS
+    return V3_METHODS if profile in {"v3", "v4"} else METHODS
 
 
 def _profile_corruption_mechanisms(profile: str) -> tuple[Scenario, ...]:
-    return V3_CORRUPTION_MECHANISMS if profile == "v3" else CORRUPTION_MECHANISMS
+    return V3_CORRUPTION_MECHANISMS if profile in {"v3", "v4"} else CORRUPTION_MECHANISMS
 
 
 def _is_corruption(scenario: Scenario, *, profile: str) -> bool:
@@ -155,7 +156,7 @@ def _episode_risk_scores(
         )
         agent_quality.append(episode.observation.source_quality[root_source])
     recent_performance_risk = 1.0 - mean(agent_quality)
-    if profile in {"v2", "v3"}:
+    if profile in {"v2", "v3", "v4"}:
         recent_performance_risk = 1.0 - mean(episode.agent_historical_performance.values())
     scores = {
         "majority": 1.0 - majority_fraction,
@@ -164,7 +165,7 @@ def _episode_risk_scores(
         "recent_performance": recent_performance_risk,
         "oracle": float(episode.harmful_false_consensus),
     }
-    if profile == "v3":
+    if profile in {"v3", "v4"}:
         base = provenance_risk(episode.observation)
         conditional = conditional_provenance_risk(episode)
         scores.update(
@@ -187,8 +188,8 @@ def generate_protocol_rows(
 
     if not base_seeds:
         raise ValueError("base_seeds must not be empty")
-    if profile not in {"v1", "v2", "v3"}:
-        raise ValueError("profile must be v1, v2, or v3")
+    if profile not in {"v1", "v2", "v3", "v4"}:
+        raise ValueError("profile must be v1, v2, v3, or v4")
     rows: list[dict[str, Any]] = []
     for scenario in (*CONTROLS, *_profile_corruption_mechanisms(profile)):
         strengths = CORRUPTION_STRENGTHS if _is_corruption(scenario, profile=profile) else (0.60,)
@@ -202,10 +203,18 @@ def generate_protocol_rows(
                         "provenance_visibility": ProvenanceVisibility.ALIASED,
                         "renamed_transformations": True,
                     }
-                    if profile in {"v2", "v3"}:
+                    if profile in {"v2", "v3", "v4"}:
                         config_kwargs.update(
                             confidence_quality_coupling=0.15,
                             confidence_noise=0.08,
+                        )
+                    if profile == "v4":
+                        config_kwargs.update(
+                            clean_action_error_rate=0.10,
+                            corrupted_action_error_rate=0.85,
+                            inertia_action_error_rate=0.80,
+                            ordinary_intervention_failure_rate=0.10,
+                            inertia_intervention_failure_rate=0.80,
                         )
                     config = BenchmarkConfig(
                         **config_kwargs
@@ -237,6 +246,16 @@ def _row_from_episode(
         "independent_clean": int(episode.scenario is Scenario.INDEPENDENT_CLEAN),
     }
     row.update(_episode_risk_scores(episode, profile=profile))
+    if profile == "v4":
+        conditional = conditional_provenance_risk(episode)
+        row.update(
+            {
+                "shared_integrity_risk": conditional.shared_integrity_risk,
+                "stale_fraction": conditional.stale_fraction,
+                "temporal_violation_fraction": conditional.temporal_violation_fraction,
+                "causal_effect_risk": conditional.causal_effect_risk,
+            }
+        )
     return row
 
 

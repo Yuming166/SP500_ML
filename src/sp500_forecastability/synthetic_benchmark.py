@@ -660,6 +660,11 @@ class BenchmarkConfig:
     renamed_transformations: bool = True
     confidence_quality_coupling: float = 1.0
     confidence_noise: float = 0.0
+    clean_action_error_rate: float = 0.0
+    corrupted_action_error_rate: float = 1.0
+    inertia_action_error_rate: float = 1.0
+    ordinary_intervention_failure_rate: float = 0.0
+    inertia_intervention_failure_rate: float = 1.0
 
     def __post_init__(self) -> None:
         if self.agent_count < 3 or self.agent_count % 2 == 0:
@@ -672,6 +677,18 @@ class BenchmarkConfig:
             raise ValueError("confidence_quality_coupling must be in [0, 1]")
         if self.confidence_noise < 0.0 or not isfinite(self.confidence_noise):
             raise ValueError("confidence_noise must be finite and non-negative")
+        probability_fields = {
+            "clean_action_error_rate": self.clean_action_error_rate,
+            "corrupted_action_error_rate": self.corrupted_action_error_rate,
+            "inertia_action_error_rate": self.inertia_action_error_rate,
+            "ordinary_intervention_failure_rate": self.ordinary_intervention_failure_rate,
+            "inertia_intervention_failure_rate": self.inertia_intervention_failure_rate,
+        }
+        if any(
+            not isfinite(value) or not 0.0 <= value <= 1.0
+            for value in probability_fields.values()
+        ):
+            raise ValueError("behavior-noise probabilities must be finite values in [0, 1]")
         object.__setattr__(
             self, "provenance_visibility", ProvenanceVisibility(self.provenance_visibility)
         )
@@ -856,6 +873,16 @@ def _latent_quality(scenario: Scenario, strength: float, *, shared: bool) -> flo
     return max(0.05, 0.95 - 0.9 * strength)
 
 
+def _draw_probability(random: Random, probability: float) -> bool:
+    """Draw a Bernoulli value without perturbing legacy deterministic streams."""
+
+    if probability <= 0.0:
+        return False
+    if probability >= 1.0:
+        return True
+    return random.random() < probability
+
+
 def generate_parameterized_episode(
     scenario: Scenario | str, *, seed: int, config: BenchmarkConfig | None = None
 ) -> ParameterizedEpisode:
@@ -913,7 +940,17 @@ def generate_parameterized_episode(
             Scenario.SHARED_CLEAN,
             Scenario.EVIDENCE_INERTIA,
         }
-        agent_action = _opposite(outcome_action) if is_corrupted or is_inert else outcome_action
+        if is_corrupted:
+            action_error_rate = benchmark_config.corrupted_action_error_rate
+        elif is_inert:
+            action_error_rate = benchmark_config.inertia_action_error_rate
+        else:
+            action_error_rate = benchmark_config.clean_action_error_rate
+        agent_action = (
+            _opposite(outcome_action)
+            if _draw_probability(random, action_error_rate)
+            else outcome_action
+        )
         is_stale = is_corrupted and normalized_scenario is Scenario.STALE_EVIDENCE
         event = stale_event if is_stale else current_event
         publication = stale_publication if is_stale else current_publication
@@ -959,7 +996,14 @@ def generate_parameterized_episode(
         agent_evidence[agent_id] = (evidence_id,)
         agent_actions[agent_id] = agent_action
         true_roots_by_agent[agent_id] = (true_source,)
-        causal_faithfulness[agent_id] = not is_inert
+        intervention_failure_rate = (
+            benchmark_config.inertia_intervention_failure_rate
+            if is_inert
+            else benchmark_config.ordinary_intervention_failure_rate
+        )
+        causal_faithfulness[agent_id] = not _draw_probability(
+            random, intervention_failure_rate
+        )
 
     graph = ProvenanceGraph.from_items([*root_items.values(), *derived_items])
     decision_time = _isoformat(_DECISION_AT)

@@ -141,6 +141,10 @@ source -> evidence -> claim -> agent decision -> routed action
 
 第一层能回答策略是否有用；第二层才回答群体行为是否能产生类似市场的统计现象。不能把第一层的回测结果描述成“证明 LLM agent 改变了市场”。
 
+### 7.4 Synthetic V3/V4 evidence
+
+冻结的 V3 在 post-hoc matched coverage 下确认了 conditional provenance 的排序价值，但该分析不替代原始预注册结论。独立的 V4 使用不重叠 seeds、带噪 action/intervention 和 mechanism-held-out 评估：学习型单调 router 改善了校准并优于 confidence/quality-only 的宏平均 AURC，但没有优于固定 V3 score，且在完全留出的 evidence-inertia 上出现 threshold coverage drift。该结果支持在下一阶段保留显式的 causal-effect/provenance 结构先验，并用真实 Qwen paired calls 验证，而不是继续针对 synthetic 结果调权重。
+
 ## 8. RL 的位置：策略层，而不是预测层
 
 RL 不直接从原始价格学习“下一天涨跌”。只有在监督预测器、LLM 行为仿真和不确定性层稳定后，才增加一个小型 offline decision layer：
