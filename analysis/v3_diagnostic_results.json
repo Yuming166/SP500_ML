@@ -1,0 +1,39 @@
+{
+  "n_records": 750,
+  "n_complete_triplets": 250,
+  "n_questions": 50,
+  "harmful_fc_count": 9,
+  "any_wrong_consensus_count": 10,
+  "adjustment_5_auroc_for_harmful_fc": {
+    "A_orig_inert_only": 0.39295392953929537,
+    "B_conf_stable_only": 0.5121951219512195,
+    "C_inert_AND_confstable": 0.3902439024390244,
+    "D_inert_OR_confstable": 0.5555555555555556,
+    "E_composite_50_50": 0.4159891598915989,
+    "F_1_minus_max_conf_drop": 0.5230352303523035,
+    "G_1_minus_max_conf_drop_clipped": 0.5230352303523035,
+    "H_n_inert_count": 0.39295392953929537
+  },
+  "adjustment_6_auroc_for_harmful_fc": {
+    "S1_max_shared_citation_count": 0.5,
+    "S2_n_shared_evidence_ids": 0.5,
+    "S3_frac_agents_with_shared": 0.5,
+    "S4_shared_x_wrong": 0.5
+  },
+  "adjustment_5_auroc_for_any_wrong": {
+    "A_orig_inert_only": 0.4125,
+    "B_conf_stable_only": 0.4625,
+    "C_inert_AND_confstable": 0.40375,
+    "D_inert_OR_confstable": 0.51125,
+    "E_composite_50_50": 0.41125,
+    "F_1_minus_max_conf_drop": 0.47375,
+    "G_1_minus_max_conf_drop_clipped": 0.47375,
+    "H_n_inert_count": 0.4125
+  },
+  "adjustment_6_auroc_for_any_wrong": {
+    "S1_max_shared_citation_count": 0.5,
+    "S2_n_shared_evidence_ids": 0.5,
+    "S3_frac_agents_with_shared": 0.5,
+    "S4_shared_x_wrong": 0.5
+  }
+}

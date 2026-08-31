@@ -1,0 +1,101 @@
+{
+  "protocol_version": "pilot-llm-v2-2026-08-31",
+  "mode": "smoke",
+  "expected_examples": 2,
+  "agent_count": 1,
+  "expected_calls": 6,
+  "records": 6,
+  "instrumentation": {
+    "valid_decisions": 6,
+    "valid_decision_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "calls_with_http_or_cache": 6,
+    "cache_hits": 0,
+    "attempts": 6,
+    "transferred_request_bytes": 8216,
+    "transferred_response_bytes": 4918,
+    "transferred_total_bytes": 13134,
+    "prompt_tokens": 1798,
+    "completion_tokens": 380
+  },
+  "original": {
+    "valid": 2,
+    "answered": 0,
+    "answer_coverage": 0.0,
+    "accuracy": {
+      "estimate": null,
+      "ci95": [
+        null,
+        null
+      ],
+      "clusters": 0
+    },
+    "brier": null,
+    "ece": null,
+    "citation_rate": 1.0,
+    "mean_citations": 2.0
+  },
+  "interventions": {
+    "complete_triplets": 2,
+    "expected_triplets": 2,
+    "condition_answer_coverage": {
+      "original": 0.0,
+      "remove": 0.0,
+      "reverse": 0.0
+    },
+    "paired_responsiveness": {
+      "estimate": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 2
+    },
+    "remove_decision_change": {
+      "estimate": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 2
+    },
+    "reverse_decision_change": {
+      "estimate": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "clusters": 2
+    },
+    "mean_confidence_drop_remove": 0.0,
+    "mean_confidence_drop_reverse": 0.0
+  },
+  "majority": {
+    "questions_with_consensus": 0,
+    "accuracy": {
+      "estimate": null,
+      "ci95": [
+        null,
+        null
+      ],
+      "clusters": 0
+    },
+    "mean_agreement": null,
+    "harmful_false_consensus": {
+      "estimate": null,
+      "ci95": [
+        null,
+        null
+      ],
+      "clusters": 0
+    }
+  },
+  "causal_effect_risk": {
+    "complete_questions": 0,
+    "auroc_for_consensus_error": null,
+    "auprc_for_consensus_error": null,
+    "aurc": null,
+    "risk_at_80": null
+  },
+  "instrumentation_gates": "not evaluated in smoke mode"
+}

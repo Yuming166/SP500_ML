@@ -1,0 +1,107 @@
+{
+  "protocol_version": "pilot-llm-v3-2026-08-31",
+  "mode": "formal",
+  "expected_examples": 50,
+  "agent_count": 5,
+  "expected_calls": 750,
+  "records": 750,
+  "instrumentation": {
+    "valid_decisions": 750,
+    "valid_decision_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "calls_with_http_or_cache": 750,
+    "cache_hits": 6,
+    "attempts": 750,
+    "transferred_request_bytes": 1065530,
+    "transferred_response_bytes": 586681,
+    "transferred_total_bytes": 1652211,
+    "prompt_tokens": 232190,
+    "completion_tokens": 39682
+  },
+  "original": {
+    "valid": 250,
+    "answered": 250,
+    "answer_coverage": 1.0,
+    "accuracy": {
+      "estimate": 0.792,
+      "ci95": [
+        0.684,
+        0.888
+      ],
+      "clusters": 50
+    },
+    "brier": 0.19099080000000002,
+    "ece": 0.16851999999999995,
+    "citation_rate": 0.792,
+    "mean_citations": 1.72
+  },
+  "interventions": {
+    "complete_triplets": 250,
+    "expected_triplets": 250,
+    "condition_answer_coverage": {
+      "original": 1.0,
+      "remove": 1.0,
+      "reverse": 1.0
+    },
+    "paired_responsiveness": {
+      "estimate": 0.508,
+      "ci95": [
+        0.396,
+        0.62
+      ],
+      "clusters": 50
+    },
+    "remove_decision_change": {
+      "estimate": 0.336,
+      "ci95": [
+        0.236,
+        0.436
+      ],
+      "clusters": 50
+    },
+    "reverse_decision_change": {
+      "estimate": 0.392,
+      "ci95": [
+        0.276,
+        0.508
+      ],
+      "clusters": 50
+    },
+    "mean_confidence_drop_remove": 0.042679999999999996,
+    "mean_confidence_drop_reverse": 0.03296
+  },
+  "majority": {
+    "questions_with_consensus": 50,
+    "accuracy": {
+      "estimate": 0.8,
+      "ci95": [
+        0.68,
+        0.9
+      ],
+      "clusters": 50
+    },
+    "mean_agreement": 0.96,
+    "harmful_false_consensus": {
+      "estimate": 0.18,
+      "ci95": [
+        0.08,
+        0.28
+      ],
+      "clusters": 50
+    }
+  },
+  "causal_effect_risk": {
+    "complete_questions": 50,
+    "auroc_for_consensus_error": 0.4125,
+    "auprc_for_consensus_error": 0.19805023923444975,
+    "aurc": 0.18437787304326098,
+    "risk_at_80": 0.25
+  },
+  "instrumentation_gates": {
+    "balanced_manifest": true,
+    "http_or_cache_rate_at_least_0_98": true,
+    "valid_decision_rate_at_least_0_95": true,
+    "complete_triplet_rate_at_least_0_95": true,
+    "accepted_citations_packet_validated": true
+  }
+}

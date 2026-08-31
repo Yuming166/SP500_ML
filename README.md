@@ -105,12 +105,22 @@ V3 的冻结协议与已生成结果分别见 [`docs/synthetic_v3_preregistratio
 
 独立预注册的 V4 使用全新且互不重叠的训练/测试 seeds、带噪 action/intervention、按 seed 分组的 cross-fitting，以及非负 logistic provenance router。正式结果中，学习型 V4 的校准更好（ECE `0.074`），宏平均 AURC 优于 quality-only（`0.316` vs `0.352`），但 Risk@80 略差（`0.447` vs `0.442`），同时落后固定 V3 conditional provenance（宏平均 AURC `0.235`、Risk@80 `0.440`）。因此 V4 的预注册主假设未通过；结果表明完全未知的 evidence-inertia 机制需要显式结构先验，不能只依赖已知机制上的监督学习。详见 [`results/synthetic_v3_posthoc_matched_coverage.md`](results/synthetic_v3_posthoc_matched_coverage.md) 和 [`results/synthetic_v4.md`](results/synthetic_v4.md)。
 
+### Pilot-LLM（真实 Qwen3.5-4B，2026-08-31）
+
+V3 的 causal-risk AUROC = `0.4125`（< 0.5，主假设未通过），post-hoc 诊断定位到三个协议缺陷而非模型缺陷：StrategyQA 触发 parametric prior fallback、V3 把同一证据发给所有 agent、causal-risk 定义过窄。
+
+V4-LLM 修复三个缺陷并正式跑完：TruthfulQA 复合题（更难领域）、partitioned 2-of-3 evidence packets（恢复 citation 方差）、新增 substitute 干预（强制 model 用错证据而非 fallback）。**主假说通过**：D_OR AUROC = `0.676`，95% question-cluster bootstrap CI `[0.515, 0.821]`。三 co-registered secondary endpoints 一并报告：`D_inert` AUROC `0.686 [0.524, 0.838]`、`D_conf` AUROC `0.625 [0.463, 0.761]`。Platt LOO 校准 brier=`0.244`、ECE=`0.100`。LOAO 鲁棒性 median=`0.664 [0.627, 0.724]`，5 个变体无一下跌到 0.5 之下。shared_citation_signal（V3 diagnostic Adjustment 6）AUROC=`0.611 [0.473, 0.747]` —— 第一次在真实 LLM 上验证该信号。
+
+V4 报告、原始 1,000 条记录和冻结协议见 [`results/pilot_llm_v4/formal/report.md`](results/pilot_llm_v4/formal/report.md) 与 [`docs/pilot_llm_v4_preregistration.md`](docs/pilot_llm_v4_preregistration.md)。Work Log 3 记录 pre-formal hardening、Work Log 4 记录 formal run 与 S2 解释。
+
 目录约定和研究设计见：
 
 - [`docs/research_plan.md`](docs/research_plan.md)
 - [`docs/data_contract.md`](docs/data_contract.md)
 - [`docs/resume_positioning.md`](docs/resume_positioning.md)
 - [`docs/stage2_llm_market_simulation.md`](docs/stage2_llm_market_simulation.md)
+- [`docs/work_log_3.md`](docs/work_log_3.md)（V4 pre-formal hardening）
+- [`docs/work_log_4.md`](docs/work_log_4.md)（V4 formal run + S2 interpretation）
 
 ## 本地运行
 
