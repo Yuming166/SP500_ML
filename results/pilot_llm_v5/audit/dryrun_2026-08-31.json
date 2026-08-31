@@ -1,0 +1,54 @@
+{
+  "input": {
+    "path": "/storage/gaoym/sp500-forecastability-lab/data/fever/fever-validation.jsonl",
+    "rows_total": 15935,
+    "label_counts": {
+      "REFUTES": 4887,
+      "SUPPORTS": 4638,
+      "NOT ENOUGH INFO": 6410
+    },
+    "rows_binary": 9525,
+    "rows_excluded_NEI": 6410
+  },
+  "G1_cluster_availability": {
+    "n_clusters_total": 557,
+    "clusters_with_dual_label": 489,
+    "clusters_sup_only_ge3": 46,
+    "clusters_ref_only_ge3": 22,
+    "interp": "dual_label clusters can contribute both SUPPORTS and REFUTES composites; sup_only/ref_only contribute to one side only"
+  },
+  "G2_composite_budget": {
+    "SUPPORTS_C3_total": 123520,
+    "REFUTES_C3_total": 179906,
+    "interp": "target = 25 per label = 75 rows per label; budget_sup/budget_ref are the pool size before salt sort"
+  },
+  "G3_salt_sorted_top": {
+    "target_per_label": 25,
+    "total_composites_pool_SUPPORTS": 1360,
+    "total_composites_pool_REFUTES": 1433,
+    "composites_formed_SUPPORTS": 25,
+    "composites_formed_REFUTES": 25,
+    "shortfall_SUPPORTS": 0,
+    "shortfall_REFUTES": 0,
+    "unusable_partial_clusters_SUPPORTS": 361,
+    "unusable_partial_clusters_REFUTES": 384,
+    "verdict": "PASS"
+  },
+  "G4_length_window": {
+    "evidence_sentence_token_count": {
+      "n": 9525,
+      "mean": 28.4,
+      "median": 26,
+      "p25": 19,
+      "p75": 35,
+      "min": 4,
+      "max": 148
+    },
+    "within_cluster_pm50pct_window": {
+      "rows_with_a_same_cluster_match": 9465,
+      "rows_without": 60,
+      "hit_rate": 0.9937,
+      "interp": "this measures how often a substitute can be sourced from within the same cluster with ±50% length; hit_rate < 0.5 means fallback to nearest-length (V4 D1_v4 pattern) is essential"
+    }
+  }
+}

@@ -28,6 +28,15 @@ results/pilot_llm_v4/formal/run.pid
 results/pilot_llm_v4/formal/progress.json
 results/pilot_llm_v4/driver.log
 results/pilot_llm_v4/all.log
+results/pilot_llm_v5/cache/
+results/pilot_llm_v5/**/records.partial.jsonl
+results/pilot_llm_v5/formal/run.log
+results/pilot_llm_v5/formal/run.pid
+results/pilot_llm_v5/formal/progress.json
+results/pilot_llm_v5/driver.log
+results/pilot_llm_v5/all.log
+data/fever/fever-validation.jsonl
+data/fever/SHA256
 *.parquet
 *.pkl
 *.joblib
