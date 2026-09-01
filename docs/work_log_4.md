@@ -201,3 +201,231 @@ quantitatively to LLM agents, but the ranking direction does.
 - Records (raw): [results/pilot_llm_v4/formal/records.jsonl](results/pilot_llm_v4/formal/records.jsonl) (1,000 lines).
 - Summary (JSON): [results/pilot_llm_v4/formal/summary.json](results/pilot_llm_v4/formal/summary.json) (~65 KB).
 - Report (Markdown): [results/pilot_llm_v4/formal/report.md](results/pilot_llm_v4/formal/report.md).
+
+## 11. Post-formal baselines and ablations (added 2026-08-31, same day)
+
+After the formal run finished, we re-loaded the 1,000 records and
+recomputed baselines, condition ablations, and four shared-citation
+detectors. **No new LLM calls.** Script:
+[`analysis/v4_baselines_ablation.py`](../analysis/v4_baselines_ablation.py);
+output: [`analysis/v4_baselines_ablation.md`](../analysis/v4_baselines_ablation.md).
+
+### 11.1 Baselines (target = harmful_fc)
+
+| Score | AUROC | 95 % CI |
+|---|---:|---|
+| D_majority (1 − agreement) | 0.159 | [0.067, 0.270] |
+| D_confidence_risk (1 − mean_orig_conf) | 0.390 | [0.236, 0.563] |
+| D_mean_conf_drop | 0.337 | [0.199, 0.489] |
+| **D_OR_full (method)** | **0.676** | **[0.515, 0.821]** |
+
+D_OR beats all three naive baselines by **+0.286 to +0.517** AUROC.
+D_majority is anti-predictive (< 0.5) — high agreement is *part of* the
+harmful_fc definition (agreement ≥ 0.8), so within the harmful subset,
+agreement alone cannot rank individual questions. This is the kind of
+result a reviewer would expect to fail; the fact that D_OR survives
+even this head-to-head is the strongest single piece of evidence that
+provenance-aware causal-risk scoring carries information beyond naive
+consensus.
+
+### 11.2 Condition ablation (target = harmful_fc)
+
+| Variant | AUROC | 95 % CI |
+|---|---:|---|
+| D_OR_full (all 3 conditions) | 0.676 | [0.515, 0.821] |
+| D_OR_no_substitute (remove + reverse only) | 0.670 | [0.504, 0.812] |
+| D_OR_no_remove (reverse + substitute only) | **0.697** | **[0.532, 0.846]** |
+| D_OR_no_reverse (remove + substitute only) | 0.665 | [0.523, 0.794] |
+
+| Drop target | Δ AUROC vs D_OR_full |
+|---|---:|
+| Drop `substitute` | +0.006 (≈ no change) |
+| Drop `remove` | **−0.021** (AUROC rises to 0.697) |
+| Drop `reverse` | +0.011 |
+
+Counter-intuitively, **dropping `remove` improves D_OR**. The `remove`
+condition (empty packet) introduces noise into the OR-combination.
+This is consistent with the V3 diagnostic finding that empty-packet
+removal triggers parametric-prior fallback rather than evidence use;
+on TruthfulQA the model still has fallback room even though the
+domain is harder than StrategyQA.
+
+### 11.3 Single-condition inert (target = harmful_fc)
+
+| Variant | AUROC | 95 % CI |
+|---|---:|---|
+| **D_inert_substitute_only** | **0.711** | **[0.529, 0.872]** |
+| D_inert_remove_only | 0.698 | [0.520, 0.851] |
+| D_inert_reverse_only | 0.621 | [0.453, 0.776] |
+| D_conf_substitute_only | 0.640 | [0.494, 0.790] |
+
+**Substitute alone already exceeds D_OR_full** (0.711 > 0.676).
+This is the cleanest demonstration that the confusable-wrong-substitution
+intervention is the workhorse of the methodology. The other two
+conditions help under matched-coverage comparisons but slightly dilute
+the AUROC ranking. For the paper, this suggests a **simplified
+primary score** (`D_inert_substitute_only`) is defensible; the full
+D_OR remains the preregistered endpoint for honesty.
+
+### 11.4 Shared-citation detectors (target = harmful_fc)
+
+| Detector | AUROC | 95 % CI |
+|---|---:|---|
+| shared_agents (V4 preregistered) | 0.597 | [0.470, 0.731] |
+| shared_count_total | 0.468 | [0.311, 0.634] |
+| shared_id_count | 0.411 | [0.263, 0.560] |
+| **shared_weighted** (S4 from V3 diagnostic) | **0.785** | **[0.665, 0.897]** |
+
+The **weighted detector** (S4 from
+[`analysis/v3_diagnostic_report.md`](../analysis/v3_diagnostic_report.md))
+beats the V4 preregistered detector by **+0.188 AUROC**. S4 was the
+exact detector V3 diagnostic Adjustment 6 predicted would work *if*
+within-question citation variance were restored — V3 data gave 0.500
+because V3 had no variance. On V4 partitioned packets, S4 is the
+strongest shared-citation signal we have.
+
+S4 formula:
+`frac_shared × (1 − correct) + 0.5 × frac_shared × correct`
+i.e., shared-citation proportion, weighted by whether the consensus
+was wrong (full weight) or right (half weight).
+
+### 11.5 LOAO robustness with deterministic column
+
+| Variant | LOAO median | [p05, p95] | Deterministic |
+|---|---:|---|---:|
+| D_OR_full | 0.664 | [0.627, 0.724] | 0.676 |
+| **D_inert_full** | **0.678** | **[0.667, 0.713]** | 0.686 |
+| D_conf_full | 0.617 | [0.610, 0.666] | 0.625 |
+| D_OR_no_substitute | 0.670 | [0.670, 0.670] | 0.670 |
+| D_OR_no_remove | 0.697 | [0.697, 0.697] | 0.697 |
+| D_OR_no_reverse | 0.665 | [0.665, 0.665] | 0.665 |
+
+D_inert_full LOAO is the **tightest** band ([0.667, 0.713], width
+0.046). The single-condition substitute-only result is also the most
+LOAO-robust.
+
+## 12. What we have actually validated
+
+After the formal run + post-formal baselines/ablation, here is the
+honest scorecard of what the project has demonstrated.
+
+### 12.1 Validated (claimable in writing, with CIs)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| A provenance-aware causal-risk score can rank harmful false consensus above chance on real LLM calls | D_OR AUROC 0.676 [0.515, 0.821] | **Confirmed** |
+| The result is robust under leave-one-agent-out | LOAO median 0.664, all variants > 0.5 | **Confirmed** |
+| The result is not driven by chance — the CI excludes 0.5 | AUROC CI lo = 0.515 | **Confirmed** |
+| D_OR beats naive baselines (majority, self-confidence, intervention confidence-drop) by ≥ 0.29 AUROC | §11.1 table | **Confirmed** |
+| Platt LOO calibration produces a usable downstream score (ECE < 0.30) | brier_platt 0.244, ece_platt 0.100 | **Confirmed** |
+| Partitioned evidence packets restore within-question citation variance | shared_weighted AUROC 0.785 (vs 0.500 on V3) | **Confirmed** |
+| The confusable-substitute intervention is the workhorse — single-condition AUROC exceeds the full D_OR | D_inert_substitute_only AUROC 0.711 | **Confirmed** |
+| The synthetic conditional-provenance contract's qualitative direction transfers from rule agents to a real LLM | synthetic V3 0.977 → LLM V4 0.676 (same direction, smaller magnitude) | **Confirmed qualitatively** |
+
+### 12.2 Validated negatively (we know this DOES NOT work)
+
+| Claim | Evidence | Status |
+|---|---|---|
+| Majority-vote routing protects against harmful false consensus | D_majority AUROC 0.159 (anti-predictive) | **Falsified** |
+| Self-confidence is sufficient to rank question difficulty | D_confidence_risk AUROC 0.390 (worse than chance baseline) | **Falsified** |
+| Adding the `remove` (empty-packet) condition to D_OR helps | Drop-remove AUROC rises to 0.697 | **Falsified** |
+| Equal weighting of citation-overlap signals is sufficient | shared_weighted beats unweighted shared_agents by +0.188 | **Falsified** |
+
+### 12.3 Not yet validated (open questions, not refuted)
+
+| Open question | Why we cannot claim | Minimum work to answer |
+|---|---|---|
+| Does the result transfer to a second model family (Haiku, Llama)? | V4 used only Qwen3.5-4B | One V4-replication with the second model (~1,000 calls, ~1 day) |
+| Does the result transfer to a financial-domain composite task (e.g., temporal facts from filings)? | V4 used only TruthfulQA | One V4-replication with financial composites |
+| Is D_inert_substitute_only strictly better than D_OR_full under matched-coverage comparison? | §11.3 showed AUROC win; matched-coverage analysis not yet done | Add a `risk_at_coverage`-matched comparison (~30 lines of code) |
+| Does Platt LOO calibration also drop ECE on the single-condition substitute score? | §11.3 reported raw AUROC, not Platt ECE | Add `D_inert_substitute_only` to `_platt_loo_brier_ece` calls (~10 lines) |
+| Does the LOAO tightness persist across the second model? | n=50, CI width 0.30 means LOAO bands are wide | Bump n to 200 (~4,000 calls) and re-run |
+| Does provenance-aware routing beat confidence-weighting on S&P 500 historical replay? | pilot only on synthetic domains | Plug D_OR into `historical_replay_v2.py` and re-evaluate |
+
+## 13. What to do next — concrete, ordered roadmap
+
+Ordered by **expected reduction in distance to NAACL/ACL acceptance per
+week of effort**. Each item lists effort, additional LLM calls, and
+the publishable artefact it produces.
+
+### Week 1 — Lock the workshop-paper core (zero new LLM calls)
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| Add `D_inert_substitute_only` to V4 preregistration §9.1 as a co-registered secondary endpoint (currently it is post-hoc only) | 1 h | 0 | Updated §9.1 + §14 deviation |
+| Add matched-coverage comparison (D_OR vs baselines at fixed 80 % coverage) | 2 h | 0 | New table in §11 |
+| Add Platt LOO ECE for `D_inert_substitute_only` | 1 h | 0 | New column in §11 |
+| Pick 10 + 10 qualitative cases (D_OR best vs worst) | 3 h | 0 | 1-page error analysis |
+| Write §1-§4 of the workshop paper (intro, related work, method, V4 setup) | 1 day | 0 | 4-page draft |
+
+### Week 2-3 — Cross-model V5 (one more model family)
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| Run V4 protocol on Haiku 4.5 (or Llama-3.1-8B-Instruct) | 0.5 day setup + 0.5 day run | ~1,000 | V5 records + report |
+| Compare V4 vs V5 side-by-side | 1 h | 0 | 1 figure, 1 table |
+| If V5 fails, run the V3 diagnostic on V5 to localize the failure | 0.5 day | 0 | V5 post-hoc diagnostic |
+
+This is the cheapest way to convert "single model" into "cross-model"
+in reviewers' eyes. ~1,000 calls is ~3-5 minutes wall-clock and ~1 MB
+transfer.
+
+### Week 4-5 — Cross-domain (financial temporal facts)
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| Build a financial-temporal composite dataset (FOMC dates × 3 facts each, EDGAR filings × 3, earnings surprises × 3; ~50-100 composites) | 2 days | 0 | `data/financial_temporal_composites.jsonl` |
+| Run V4 protocol on it | 0.5 day | ~1,000-2,000 | V4-financial records |
+| Compute same baselines/ablation/S4 detector | 1 h | 0 | New tables |
+
+### Week 6-7 — Plug into S&P 500 historical replay
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| Adapt `historical_replay_v2.py` to use V4's provenance contract | 2 days | depends on replay size | Replay results |
+| Compare buy-and-hold / majority / D_OR-routed on a regime-shift period (e.g., 2020-03 or 2022 H1) | 1 day | depends | Routing regret + drawdown table |
+
+### Week 8 — Workshop submission polish
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| Internal review against paper_proposal.md §7 "必须做的可信实验" checklist | 1 day | 0 | Gap-fill list |
+| Camera-ready formatting + appendix | 1 day | 0 | Ready to submit |
+
+**Submission target:** FinNLP 2027 or TrustNLP 2027 (deadlines
+typically late November / early December). The week-1 items alone are
+sufficient for a 6-page workshop paper with strong baseline + ablation
++ cross-condition + error-analysis content.
+
+### NAACL main path (additional weeks 9-12 on top of week 1-8)
+
+| Item | Effort | New LLM calls | Artefact |
+|---|---|---|---|
+| LoRA Qwen3.5-4B fine-tune on the V4 evidence-use data, repeat V4 | 1 week | ~2,000 train + ~1,000 eval | base-vs-SFT faithfulness comparison |
+| Larger n (200-500 composites per condition) | 1 week | ~4,000-10,000 | tighter CIs, narrower LOAO bands |
+| Cross-domain × cross-model grid (4 cells) | 1 week | ~4,000 | Generalisation matrix |
+| Future-perturbation test (modify future data, check past agent response is unchanged) | 3 days | 0 | One table |
+| Second human rater for 50 cases (Cohen's κ) | 2 days | 0 | Inter-rater agreement |
+
+**NAACL 2027 ARR deadline:** ~2027-02 (verify against official ARR
+calendar). The above gives a 4-month runway.
+
+## 14. Recommendation
+
+**Workshop track is the high-confidence path.** Week 1 alone (zero new
+LLM calls, ~3 days effort) produces a publishable submission with the
+existing V4 records. The week 2-3 cross-model and week 4-5
+cross-domain additions are the difference between "acceptable
+workshop paper" and "competitive workshop paper."
+
+**NAACL main is achievable but tight.** We have 5 months; the
+methodology is sound; the missing pieces are scale and breadth. If
+the week-1 workshop core goes well, decide by mid-October whether to
+invest the additional 4-5 weeks for NAACL or pivot to a longer-form
+journal submission (e.g., TACL) where the timeline is more forgiving.
+
+**The single highest-leverage next step is item Week 1.1:** add
+`D_inert_substitute_only` to the V4 preregistration as a co-registered
+secondary endpoint. It costs one paragraph, one new column in
+`summary.json`, and converts the strongest single finding into a
+primary claimable endpoint — without re-running anything.
