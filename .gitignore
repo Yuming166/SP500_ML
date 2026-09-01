@@ -70,3 +70,8 @@ results/pilot_llm_v6/all.log
 results/pilot_llm_v6/driver.log
 results/pilot_llm_v7/all.log
 results/pilot_llm_v7/driver.log
+
+# Ling SGLang experiments (skeleton; not run; ling_local/ has 5.5GB weights)
+scripts/ling_server/ling_local/
+scripts/ling_server/__pycache__/
+.venv-sglang/

@@ -1,0 +1,150 @@
+{
+  "v7": {
+    "BL_majority": {
+      "auroc": 0.9218487394957984,
+      "ci_lo": 0.7388888888888889,
+      "ci_hi": 1.0,
+      "n_questions": 92,
+      "positive_class_n": 85
+    },
+    "BL_D_OR": {
+      "auroc": 0.5991596638655463,
+      "ci_lo": 0.42038690476190477,
+      "ci_hi": 0.7805059523809523,
+      "n_questions": 92,
+      "positive_class_n": 85
+    },
+    "R1_top_auroc": {
+      "auroc": 0.5252100840336134,
+      "ci_lo": 0.3597560975609756,
+      "ci_hi": 0.7386363636363636,
+      "n_questions": 92,
+      "positive_class_n": 85
+    },
+    "R2_weighted": {
+      "auroc": 0.42268907563025204,
+      "ci_lo": 0.3071705426356589,
+      "ci_hi": 0.5462184873949579,
+      "n_questions": 92,
+      "positive_class_n": 85
+    },
+    "R3_min_frag": {
+      "auroc": 0.5126050420168068,
+      "ci_lo": 0.41379310344827586,
+      "ci_hi": 0.6833333333333333,
+      "n_questions": 92,
+      "positive_class_n": 85
+    }
+  },
+  "v6": {
+    "BL_majority": {
+      "auroc": 0.924731182795699,
+      "ci_lo": 0.7369791666666666,
+      "ci_hi": 1.0,
+      "n_questions": 100,
+      "positive_class_n": 93
+    },
+    "BL_D_OR": {
+      "auroc": 0.4147465437788018,
+      "ci_lo": 0.27213541666666663,
+      "ci_hi": 0.570446735395189,
+      "n_questions": 100,
+      "positive_class_n": 93
+    },
+    "R1_top_auroc": {
+      "auroc": 0.5138248847926268,
+      "ci_lo": 0.3520408163265306,
+      "ci_hi": 0.7234432234432234,
+      "n_questions": 100,
+      "positive_class_n": 93
+    },
+    "R2_weighted": {
+      "auroc": 0.5115207373271891,
+      "ci_lo": 0.3956043956043956,
+      "ci_hi": 0.6328125,
+      "n_questions": 100,
+      "positive_class_n": 93
+    },
+    "R3_min_frag": {
+      "auroc": 0.44086021505376344,
+      "ci_lo": 0.4065934065934066,
+      "ci_hi": 0.47093023255813954,
+      "n_questions": 100,
+      "positive_class_n": 93
+    }
+  },
+  "v5": {
+    "BL_majority": {
+      "auroc": 1.0,
+      "ci_lo": 1.0,
+      "ci_hi": 1.0,
+      "n_questions": 50,
+      "positive_class_n": 48
+    },
+    "BL_D_OR": {
+      "auroc": 0.625,
+      "ci_lo": 0.4791666666666667,
+      "ci_hi": 0.7653061224489797,
+      "n_questions": 50,
+      "positive_class_n": 48
+    },
+    "R1_top_auroc": {
+      "auroc": 0.3854166666666667,
+      "ci_lo": 0.3229166666666667,
+      "ci_hi": 0.44565217391304346,
+      "n_questions": 50,
+      "positive_class_n": 48
+    },
+    "R2_weighted": {
+      "auroc": 0.5208333333333334,
+      "ci_lo": 0.375,
+      "ci_hi": 0.6595744680851063,
+      "n_questions": 50,
+      "positive_class_n": 48
+    },
+    "R3_min_frag": {
+      "auroc": 0.4375,
+      "ci_lo": 0.3877551020408163,
+      "ci_hi": 0.4791666666666667,
+      "n_questions": 50,
+      "positive_class_n": 48
+    }
+  },
+  "v4": {
+    "BL_majority": {
+      "auroc": 0.5664335664335665,
+      "ci_lo": 0.41354723707664887,
+      "ci_hi": 0.710955710955711,
+      "n_questions": 50,
+      "positive_class_n": 11
+    },
+    "BL_D_OR": {
+      "auroc": 0.05594405594405595,
+      "ci_lo": 0.017543859649122823,
+      "ci_hi": 0.10964912280701757,
+      "n_questions": 50,
+      "positive_class_n": 11
+    },
+    "R1_top_auroc": {
+      "auroc": 0.11538461538461536,
+      "ci_lo": 0.05263157894736842,
+      "ci_hi": 0.1842105263157895,
+      "n_questions": 50,
+      "positive_class_n": 11
+    },
+    "R2_weighted": {
+      "auroc": 1.0,
+      "ci_lo": 1.0,
+      "ci_hi": 1.0,
+      "n_questions": 50,
+      "positive_class_n": 11
+    },
+    "R3_min_frag": {
+      "auroc": 0.36363636363636365,
+      "ci_lo": 0.2222222222222222,
+      "ci_hi": 0.5,
+      "n_questions": 50,
+      "positive_class_n": 11
+    }
+  }
+}

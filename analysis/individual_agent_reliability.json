@@ -1,0 +1,322 @@
+{
+  "v7": {
+    "n_questions": 100,
+    "per_agent": {
+      "0": {
+        "n_questions": 93,
+        "correct_rate": 0.07526881720430108,
+        "conf_stable_rate": 0.44086021505376344,
+        "per_condition_flip_rate": {
+          "remove": 0.4731182795698925,
+          "reverse": 0.4731182795698925,
+          "substitute": 0.3010752688172043
+        },
+        "per_agent_auroc_fragility": 0.4227941176470589,
+        "auroc_ci": [
+          0.23595505617977527,
+          0.6279411764705882
+        ]
+      },
+      "1": {
+        "n_questions": 93,
+        "correct_rate": 0.043010752688172046,
+        "conf_stable_rate": 0.7526881720430108,
+        "per_condition_flip_rate": {
+          "remove": 0.43010752688172044,
+          "reverse": 0.41935483870967744,
+          "substitute": 0.3225806451612903
+        },
+        "per_agent_auroc_fragility": 0.49264705882352944,
+        "auroc_ci": [
+          0.3022727272727273,
+          0.6348314606741573
+        ]
+      },
+      "2": {
+        "n_questions": 92,
+        "correct_rate": 0.06521739130434782,
+        "conf_stable_rate": 0.6739130434782609,
+        "per_condition_flip_rate": {
+          "remove": 0.45652173913043476,
+          "reverse": 0.44565217391304346,
+          "substitute": 0.34782608695652173
+        },
+        "per_agent_auroc_fragility": 0.43865546218487395,
+        "auroc_ci": [
+          0.20084033613445382,
+          0.6494252873563219
+        ]
+      },
+      "3": {
+        "n_questions": 92,
+        "correct_rate": 0.043478260869565216,
+        "conf_stable_rate": 0.6956521739130435,
+        "per_condition_flip_rate": {
+          "remove": 0.358695652173913,
+          "reverse": 0.45652173913043476,
+          "substitute": 0.2717391304347826
+        },
+        "per_agent_auroc_fragility": 0.42689075630252094,
+        "auroc_ci": [
+          0.22868217054263565,
+          0.6369047619047619
+        ]
+      },
+      "4": {
+        "n_questions": 92,
+        "correct_rate": 0.05434782608695652,
+        "conf_stable_rate": 0.5869565217391305,
+        "per_condition_flip_rate": {
+          "remove": 0.43478260869565216,
+          "reverse": 0.40217391304347827,
+          "substitute": 0.32608695652173914
+        },
+        "per_agent_auroc_fragility": 0.4680672268907563,
+        "auroc_ci": [
+          0.2551724137931034,
+          0.6744186046511628
+        ]
+      }
+    }
+  },
+  "v6": {
+    "n_questions": 100,
+    "per_agent": {
+      "0": {
+        "n_questions": 100,
+        "correct_rate": 0.05,
+        "conf_stable_rate": 0.43,
+        "per_condition_flip_rate": {
+          "remove": 0.47,
+          "reverse": 0.48,
+          "substitute": 0.34
+        },
+        "per_agent_auroc_fragility": 0.6705069124423964,
+        "auroc_ci": [
+          0.5,
+          0.7795698924731183
+        ]
+      },
+      "1": {
+        "n_questions": 100,
+        "correct_rate": 0.06,
+        "conf_stable_rate": 0.7,
+        "per_condition_flip_rate": {
+          "remove": 0.46,
+          "reverse": 0.48,
+          "substitute": 0.37
+        },
+        "per_agent_auroc_fragility": 0.4861751152073733,
+        "auroc_ci": [
+          0.28900709219858156,
+          0.6443298969072164
+        ]
+      },
+      "2": {
+        "n_questions": 100,
+        "correct_rate": 0.06,
+        "conf_stable_rate": 0.73,
+        "per_condition_flip_rate": {
+          "remove": 0.43,
+          "reverse": 0.47,
+          "substitute": 0.26
+        },
+        "per_agent_auroc_fragility": 0.5576036866359447,
+        "auroc_ci": [
+          0.38586956521739135,
+          0.6666666666666666
+        ]
+      },
+      "3": {
+        "n_questions": 100,
+        "correct_rate": 0.03,
+        "conf_stable_rate": 0.66,
+        "per_condition_flip_rate": {
+          "remove": 0.41,
+          "reverse": 0.48,
+          "substitute": 0.32
+        },
+        "per_agent_auroc_fragility": 0.5952380952380952,
+        "auroc_ci": [
+          0.431578947368421,
+          0.7
+        ]
+      },
+      "4": {
+        "n_questions": 100,
+        "correct_rate": 0.05,
+        "conf_stable_rate": 0.57,
+        "per_condition_flip_rate": {
+          "remove": 0.44,
+          "reverse": 0.48,
+          "substitute": 0.33
+        },
+        "per_agent_auroc_fragility": 0.6167434715821813,
+        "auroc_ci": [
+          0.45789473684210524,
+          0.7210526315789474
+        ]
+      }
+    }
+  },
+  "v5": {
+    "n_questions": 50,
+    "per_agent": {
+      "0": {
+        "n_questions": 50,
+        "correct_rate": 0.06,
+        "conf_stable_rate": 0.4,
+        "per_condition_flip_rate": {
+          "remove": 0.52,
+          "reverse": 0.52,
+          "substitute": 0.3
+        },
+        "per_agent_auroc_fragility": 0.23958333333333334,
+        "auroc_ci": [
+          0.1702127659574468,
+          0.3125
+        ]
+      },
+      "1": {
+        "n_questions": 50,
+        "correct_rate": 0.0,
+        "conf_stable_rate": 0.76,
+        "per_condition_flip_rate": {
+          "remove": 0.44,
+          "reverse": 0.46,
+          "substitute": 0.36
+        },
+        "per_agent_auroc_fragility": 0.6145833333333334,
+        "auroc_ci": [
+          0.5612244897959183,
+          0.6770833333333334
+        ]
+      },
+      "2": {
+        "n_questions": 50,
+        "correct_rate": 0.04,
+        "conf_stable_rate": 0.64,
+        "per_condition_flip_rate": {
+          "remove": 0.5,
+          "reverse": 0.52,
+          "substitute": 0.38
+        },
+        "per_agent_auroc_fragility": 0.41666666666666663,
+        "auroc_ci": [
+          0.12244897959183673,
+          0.7127659574468085
+        ]
+      },
+      "3": {
+        "n_questions": 50,
+        "correct_rate": 0.02,
+        "conf_stable_rate": 0.68,
+        "per_condition_flip_rate": {
+          "remove": 0.36,
+          "reverse": 0.54,
+          "substitute": 0.28
+        },
+        "per_agent_auroc_fragility": 0.39583333333333337,
+        "auroc_ci": [
+          0.10204081632653061,
+          0.6875
+        ]
+      },
+      "4": {
+        "n_questions": 50,
+        "correct_rate": 0.04,
+        "conf_stable_rate": 0.52,
+        "per_condition_flip_rate": {
+          "remove": 0.44,
+          "reverse": 0.46,
+          "substitute": 0.36
+        },
+        "per_agent_auroc_fragility": 0.44791666666666663,
+        "auroc_ci": [
+          0.15306122448979592,
+          0.7448979591836735
+        ]
+      }
+    }
+  },
+  "v4": {
+    "n_questions": 50,
+    "per_agent": {
+      "0": {
+        "n_questions": 50,
+        "correct_rate": 0.52,
+        "conf_stable_rate": 0.06,
+        "per_condition_flip_rate": {
+          "remove": 0.48,
+          "reverse": 0.48,
+          "substitute": 0.5
+        },
+        "per_agent_auroc_fragility": 0.7948717948717949,
+        "auroc_ci": [
+          0.7205882352941176,
+          0.875
+        ]
+      },
+      "1": {
+        "n_questions": 50,
+        "correct_rate": 0.66,
+        "conf_stable_rate": 0.2,
+        "per_condition_flip_rate": {
+          "remove": 0.34,
+          "reverse": 0.36,
+          "substitute": 0.36
+        },
+        "per_agent_auroc_fragility": 0.8846153846153846,
+        "auroc_ci": [
+          0.8157894736842105,
+          0.9459459459459459
+        ]
+      },
+      "2": {
+        "n_questions": 50,
+        "correct_rate": 0.92,
+        "conf_stable_rate": 0.48,
+        "per_condition_flip_rate": {
+          "remove": 0.08,
+          "reverse": 0.1,
+          "substitute": 0.08
+        },
+        "per_agent_auroc_fragility": 0.6107226107226107,
+        "auroc_ci": [
+          0.47560975609756095,
+          0.7599067599067598
+        ]
+      },
+      "3": {
+        "n_questions": 50,
+        "correct_rate": 0.54,
+        "conf_stable_rate": 0.1,
+        "per_condition_flip_rate": {
+          "remove": 0.5,
+          "reverse": 0.62,
+          "substitute": 0.5
+        },
+        "per_agent_auroc_fragility": 0.717948717948718,
+        "auroc_ci": [
+          0.6375,
+          0.7954545454545454
+        ]
+      },
+      "4": {
+        "n_questions": 50,
+        "correct_rate": 0.42,
+        "conf_stable_rate": 0.1,
+        "per_condition_flip_rate": {
+          "remove": 0.58,
+          "reverse": 0.42,
+          "substitute": 0.58
+        },
+        "per_agent_auroc_fragility": 0.7435897435897436,
+        "auroc_ci": [
+          0.6625,
+          0.8205128205128205
+        ]
+      }
+    }
+  }
+}
