@@ -1,0 +1,120 @@
+{
+  "strata_counts": {
+    "S1_unanimous": 82,
+    "S2_strong": 5,
+    "S3_weak": 5
+  },
+  "results": {
+    "S1_unanimous": {
+      "BL_majority": {
+        "auroc": 0.5,
+        "ci_lo": 0.5,
+        "ci_hi": 0.5,
+        "n_questions": 82,
+        "n_pos": 81
+      },
+      "BL_D_OR": {
+        "auroc": 0.9382716049382716,
+        "ci_lo": 0.9,
+        "ci_hi": 0.9691358024691358,
+        "n_questions": 82,
+        "n_pos": 81
+      },
+      "R1_top_auroc": {
+        "auroc": 0.9382716049382716,
+        "ci_lo": 0.9,
+        "ci_hi": 0.9691358024691358,
+        "n_questions": 82,
+        "n_pos": 81
+      },
+      "R2_weighted": {
+        "auroc": 0.6666666666666666,
+        "ci_lo": 0.6111111111111112,
+        "ci_hi": 0.717948717948718,
+        "n_questions": 82,
+        "n_pos": 81
+      },
+      "R3_min_frag": {
+        "auroc": 0.9382716049382716,
+        "ci_lo": 0.9,
+        "ci_hi": 0.9691358024691358,
+        "n_questions": 82,
+        "n_pos": 81
+      }
+    },
+    "S2_strong": {
+      "BL_majority": {
+        "auroc": 0.5,
+        "ci_lo": 0.5,
+        "ci_hi": 0.5,
+        "n_questions": 5,
+        "n_pos": 4
+      },
+      "BL_D_OR": {
+        "auroc": 0.5,
+        "ci_lo": 0.125,
+        "ci_hi": 0.875,
+        "n_questions": 5,
+        "n_pos": 4
+      },
+      "R1_top_auroc": {
+        "auroc": 0.5,
+        "ci_lo": 0.5,
+        "ci_hi": 0.5,
+        "n_questions": 5,
+        "n_pos": 4
+      },
+      "R2_weighted": {
+        "auroc": 0.125,
+        "ci_lo": 0.0,
+        "ci_hi": 0.375,
+        "n_questions": 5,
+        "n_pos": 4
+      },
+      "R3_min_frag": {
+        "auroc": 0.5,
+        "ci_lo": 0.5,
+        "ci_hi": 0.5,
+        "n_questions": 5,
+        "n_pos": 4
+      }
+    },
+    "S3_weak": {
+      "BL_majority": {
+        "auroc": null,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "n_questions": 0,
+        "n_pos": 0
+      },
+      "BL_D_OR": {
+        "auroc": null,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "n_questions": 0,
+        "n_pos": 0
+      },
+      "R1_top_auroc": {
+        "auroc": null,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "n_questions": 0,
+        "n_pos": 0
+      },
+      "R2_weighted": {
+        "auroc": null,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "n_questions": 0,
+        "n_pos": 0
+      },
+      "R3_min_frag": {
+        "auroc": null,
+        "ci_lo": NaN,
+        "ci_hi": NaN,
+        "n_questions": 0,
+        "n_pos": 0
+      }
+    }
+  }
+}
