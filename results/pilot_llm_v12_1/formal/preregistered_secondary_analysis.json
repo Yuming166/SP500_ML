@@ -1,0 +1,39 @@
+{
+  "protocol_version": "pilot-llm-v12.1-2026-09-02",
+  "analysis_status": "preregistered_secondary_nonconfirmatory",
+  "bootstrap_seed": 20260921,
+  "bootstrap_replicates": 1000,
+  "boolq_label_subgroups": {
+    "yes": {
+      "high_consensus_n": 210,
+      "consensus_wrong": 55,
+      "wrong_prevalence": 0.2619047619047619,
+      "r_pi_auroc": 0.8337243401759531,
+      "r_pi_auroc_ci": [
+        0.7466256343807364,
+        0.9131054131054132
+      ]
+    },
+    "no": {
+      "high_consensus_n": 90,
+      "consensus_wrong": 11,
+      "wrong_prevalence": 0.12222222222222222,
+      "r_pi_auroc": 0.213463751438435,
+      "r_pi_auroc_ci": [
+        0.11248285322359397,
+        0.3386627906976744
+      ]
+    }
+  },
+  "cumulative_v11_1_v12": {
+    "status": "secondary_pooled_question_analysis",
+    "high_consensus_n": 480,
+    "consensus_wrong": 96,
+    "r_pi_auroc": 0.6689181857638888,
+    "r_pi_auroc_ci": [
+      0.6021610214766535,
+      0.7382295124230608
+    ]
+  },
+  "interpretation_boundary": "The V12.1 aggregate primary passed, but the opposite label-subgroup directions limit any label-invariant or universal reliability claim. Neither subgroup nor cumulative analysis may replace the frozen aggregate primary endpoint."
+}

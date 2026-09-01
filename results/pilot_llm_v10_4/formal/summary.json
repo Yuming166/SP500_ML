@@ -1,0 +1,3205 @@
+{
+  "protocol_version": "pilot-llm-v10.4-2026-09-01",
+  "mode": "formal",
+  "expected_examples": 100,
+  "agent_count": 5,
+  "expected_calls": 2000,
+  "records": 2000,
+  "instrumentation": {
+    "valid_records": 2000,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "transfer_bytes": 4599686
+  },
+  "outcome_prevalence": {
+    "harmful_fc": 12,
+    "any_wrong_consensus": 21,
+    "n_questions": 100
+  },
+  "intervention_flip_rates": {
+    "remove": 0.426,
+    "reverse": 0.308,
+    "substitute": 0.316
+  },
+  "metrics": {
+    "D_inert__harmful_fc": {
+      "auroc": 0.7258522727272727,
+      "auroc_ci": [
+        0.53,
+        0.8998778998778999
+      ],
+      "auprc": 0.33495723477715,
+      "auprc_ci": [
+        0.1440909090909091,
+        0.5613636363636364
+      ],
+      "risk_at_80": 0.15,
+      "risk_at_80_ci": [
+        0.0625,
+        0.2125
+      ],
+      "n_questions": 100
+    },
+    "D_conf__harmful_fc": {
+      "auroc": 0.5965909090909091,
+      "auroc_ci": [
+        0.4166666666666667,
+        0.7574404761904762
+      ],
+      "auprc": 0.15567089289372643,
+      "auprc_ci": [
+        0.0767208904109589,
+        0.28195945945945944
+      ],
+      "risk_at_80": 0.1375,
+      "risk_at_80_ci": [
+        0.0625,
+        0.2125
+      ],
+      "n_questions": 100
+    },
+    "D_OR__harmful_fc": {
+      "auroc": 0.6799242424242424,
+      "auroc_ci": [
+        0.49615975422427033,
+        0.833943833943834
+      ],
+      "auprc": 0.21625,
+      "auprc_ci": [
+        0.10105338289161818,
+        0.3581422754678568
+      ],
+      "risk_at_80": 0.1375,
+      "risk_at_80_ci": [
+        0.0625,
+        0.2125
+      ],
+      "n_questions": 100
+    },
+    "D_majority__harmful_fc": {
+      "auroc": 0.35511363636363635,
+      "auroc_ci": [
+        0.2612732095490716,
+        0.4650751547303271
+      ],
+      "auprc": 0.10704545454545454,
+      "auprc_ci": [
+        0.05587301587301587,
+        0.1749056603773585
+      ],
+      "risk_at_80": 0.075,
+      "risk_at_80_ci": [
+        0.05,
+        0.1875
+      ],
+      "n_questions": 100
+    },
+    "shared_weighted__harmful_fc": {
+      "auroc": 0.9588068181818182,
+      "auroc_ci": [
+        0.8901515151515151,
+        0.9969053934571176
+      ],
+      "auprc": 0.7830601092896176,
+      "auprc_ci": [
+        0.5456752397928868,
+        0.9666666666666667
+      ],
+      "risk_at_80": 0.15,
+      "risk_at_80_ci": [
+        0.075,
+        0.2375
+      ],
+      "n_questions": 100
+    },
+    "shared_citation_signal__harmful_fc": {
+      "auroc": 0.6226325757575758,
+      "auroc_ci": [
+        0.46,
+        0.7682724252491694
+      ],
+      "auprc": 0.1639003436426117,
+      "auprc_ci": [
+        0.07575757575757576,
+        0.2809424164922886
+      ],
+      "risk_at_80": 0.125,
+      "risk_at_80_ci": [
+        0.0625,
+        0.2125
+      ],
+      "n_questions": 100
+    },
+    "D_OR__any_wrong": {
+      "auroc": 0.5204942736588306,
+      "auroc_ci": [
+        0.384,
+        0.6626819126819127
+      ],
+      "auprc": 0.22713245088245088,
+      "auprc_ci": [
+        0.14031728809906885,
+        0.34960308623229974
+      ],
+      "risk_at_80": 0.225,
+      "risk_at_80_ci": [
+        0.125,
+        0.3125
+      ],
+      "n_questions": 100
+    },
+    "D_majority__any_wrong": {
+      "auroc": 0.608499095840868,
+      "auroc_ci": [
+        0.4780297661233168,
+        0.7286274509803922
+      ],
+      "auprc": 0.2773126873126873,
+      "auprc_ci": [
+        0.155966598582242,
+        0.4150387596899225
+      ],
+      "risk_at_80": 0.1875,
+      "risk_at_80_ci": [
+        0.1375,
+        0.3125
+      ],
+      "n_questions": 100
+    },
+    "D_OR__calibration": {
+      "brier_platt": 0.10490551543880451,
+      "ece_platt": 0.01906209294364189,
+      "brier_raw": 0.37920000000000004,
+      "n": 100,
+      "prevalence": 0.12
+    }
+  },
+  "loao_robustness": {
+    "median_auroc": 0.6785037878787878,
+    "p05": 0.662405303030303,
+    "p95": 0.6893939393939394,
+    "n_agents": 5,
+    "n_variants": 5,
+    "deterministic_auroc_D_OR": 0.6799242424242424,
+    "deterministic_auroc_shared_weighted": 0.9588068181818182,
+    "deviation_note": "loao_substitutes_for_preregistered_partition_permutation: v6 single-call-per-agent design cannot re-assign subsets without additional LLM calls; LOAO is the closest honest proxy."
+  },
+  "co_primary_verdict": {
+    "D_OR": {
+      "auroc": 0.6799242424242424,
+      "ci_lo": 0.49615975422427033,
+      "ci_hi": 0.833943833943834,
+      "passes_lower_bound_above_0_5": false
+    },
+    "shared_weighted": {
+      "auroc": 0.9588068181818182,
+      "ci_lo": 0.8901515151515151,
+      "ci_hi": 0.9969053934571176,
+      "passes_lower_bound_above_0_5": true
+    },
+    "verdict": "PASS_SINGLE_SHARED_WEIGHTED",
+    "any_passes": true
+  },
+  "substitute_manifest_summary": {
+    "boolq-cd712951cdab86b2-e01": {
+      "substitute_sentence": "On August 6, 2014, FX renewed The Strain for a 13-episode second season which premiered on July 12, 2015.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cd712951cdab86b2"
+    },
+    "boolq-cd712951cdab86b2-e02": {
+      "substitute_sentence": "On August 7, 2015, FX cancelled The Strain so no new season will ever premiere.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cd712951cdab86b2"
+    },
+    "boolq-cd712951cdab86b2-e03": {
+      "substitute_sentence": "FX renewed the series for a fourth and final season on September 27, 2016, which premiered on July 16, 2017.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cd712951cdab86b2"
+    },
+    "boolq-4dbcf608dd2bcd62-e01": {
+      "substitute_sentence": "The number of protons within the atom's nucleus is called atomic number and is equal to the number of electrons in the neutral (non-ionized) atom.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-4dbcf608dd2bcd62"
+    },
+    "boolq-4dbcf608dd2bcd62-e02": {
+      "substitute_sentence": "Each atomic number identifies a specific element, but not the isotope; an atom of a given element may have a wide range in its number of neutrons.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-4dbcf608dd2bcd62"
+    },
+    "boolq-4dbcf608dd2bcd62-e03": {
+      "substitute_sentence": "An isotope is defined by the number of protons, which determines the element's electrical charge.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-4dbcf608dd2bcd62"
+    },
+    "boolq-9ec557d13d1c6586-e01": {
+      "substitute_sentence": "The return address is required on postal mail.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9ec557d13d1c6586"
+    },
+    "boolq-9ec557d13d1c6586-e02": {
+      "substitute_sentence": "However, having a return address allows the postal service to return the item if it proves undeliverable; such as from damage, postage due, or invalid destination.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9ec557d13d1c6586"
+    },
+    "boolq-9ec557d13d1c6586-e03": {
+      "substitute_sentence": "Such mail may otherwise become dead letter mail.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9ec557d13d1c6586"
+    },
+    "boolq-95c74d51650ed7f6-e01": {
+      "substitute_sentence": "When synthesizing new DNA, DNA polymerase can initiate new strand of nucleic acid independently.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-95c74d51650ed7f6"
+    },
+    "boolq-95c74d51650ed7f6-e02": {
+      "substitute_sentence": "This results in independent initiation of the newly forming strand.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-95c74d51650ed7f6"
+    },
+    "boolq-95c74d51650ed7f6-e03": {
+      "substitute_sentence": "Some DNA polymerases can initiate new strand of nucleic acid independently without needing a primer to start synthesis in the described local situation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "deterministic_short_normalization"
+      ],
+      "generation_mode": "deterministic_short_normalization",
+      "source_label": "no",
+      "source_root": "boolq-95c74d51650ed7f6"
+    },
+    "boolq-25b4d104512e6ca4-e01": {
+      "substitute_sentence": "The NBA high school draftees are players who have been drafted to the National Basketball Association (NBA) straight out of high school without playing basketball at the collegiate level.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-25b4d104512e6ca4"
+    },
+    "boolq-25b4d104512e6ca4-e02": {
+      "substitute_sentence": "The process of jumping directly from high school to the professional level is also known as going prep-to-pro.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-25b4d104512e6ca4"
+    },
+    "boolq-25b4d104512e6ca4-e03": {
+      "substitute_sentence": "Since 2006, the practice of drafting high school players has been prohibited by the new collective bargaining agreement, which requires that players who entered the draft be 19 years of age and at least one year removed from high school.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-25b4d104512e6ca4"
+    },
+    "boolq-f9994cefb640e6b8-e01": {
+      "substitute_sentence": "The Statue of Liberty is located on Liberty Island in the Hudson River in the United States.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f9994cefb640e6b8"
+    },
+    "boolq-f9994cefb640e6b8-e02": {
+      "substitute_sentence": "The island is an exclave of the New York City borough of Manhattan, surrounded by the waters of the Hudson River.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f9994cefb640e6b8"
+    },
+    "boolq-f9994cefb640e6b8-e03": {
+      "substitute_sentence": "The Statue of Liberty stands in the Hudson River near Bedloe's Island.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f9994cefb640e6b8"
+    },
+    "boolq-441ee97b8302366f-e01": {
+      "substitute_sentence": "In Euclidean geometry, a parallelogram is a simple quadrilateral with two pairs of parallel sides and all sides the same length.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-441ee97b8302366f"
+    },
+    "boolq-441ee97b8302366f-e02": {
+      "substitute_sentence": "The opposite or facing sides of a parallelogram are of equal length and the opposite angles of a parallelogram are of equal measure.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-441ee97b8302366f"
+    },
+    "boolq-441ee97b8302366f-e03": {
+      "substitute_sentence": "The congruence of opposite sides and opposite angles is a direct consequence of the Euclidean parallel postulate and neither condition can be proven without appealing to the Euclidean parallel postulate or one of its equivalent formulations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-441ee97b8302366f"
+    },
+    "boolq-e989a251179509d2-e01": {
+      "substitute_sentence": "Central Park is the biggest park in America.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-e989a251179509d2"
+    },
+    "boolq-e989a251179509d2-e02": {
+      "substitute_sentence": "It is located between the Upper West Side and Upper East Side, roughly bounded by Fifth Avenue on the east, Central Park West (Eighth Avenue) on the west, Central Park South (59th Street) on the south, and Central Park North (110th Street) on the north.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-e989a251179509d2"
+    },
+    "boolq-e989a251179509d2-e03": {
+      "substitute_sentence": "Central Park is the biggest park in America, with more area than any other urban park in the United States.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-e989a251179509d2"
+    },
+    "boolq-0504ea5fba0b2164-e01": {
+      "substitute_sentence": "Only the Goal Attack and Goal Shooter are able to score goals directly, and this may only be done from outside the semicircle.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-0504ea5fba0b2164"
+    },
+    "boolq-0504ea5fba0b2164-e02": {
+      "substitute_sentence": "The job of the Goal Defence and Goal Keeper is to block the Goal Attack and Goal Shooter from shooting; however, they must be three feet or more away from the landing foot of the shooter, otherwise it is called an obstruction.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-0504ea5fba0b2164"
+    },
+    "boolq-0504ea5fba0b2164-e03": {
+      "substitute_sentence": "In this penalty situation, the Goal Keeper or Goal Defence must stand by the shooter's side for a penalty pass or shot, and must remain out of play until the ball is thrown.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-0504ea5fba0b2164"
+    },
+    "boolq-dbf7a0cb9deb1449-e01": {
+      "substitute_sentence": "Dairy cows produce milk only after giving birth to calves.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dbf7a0cb9deb1449"
+    },
+    "boolq-dbf7a0cb9deb1449-e02": {
+      "substitute_sentence": "Dairy cows produce milk without giving birth because they are often bred with bulls and kept as replacement heifers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dbf7a0cb9deb1449"
+    },
+    "boolq-dbf7a0cb9deb1449-e03": {
+      "substitute_sentence": "If a replacement cow turns out to be a substandard producer of milk, she then goes to market and can be slaughtered for beef.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dbf7a0cb9deb1449"
+    },
+    "boolq-dfeb2b83339df19a-e01": {
+      "substitute_sentence": "Gorilla Tape is not the same as duct tape sold by Sharonville, Ohio based Gorilla Glue Inc.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dfeb2b83339df19a"
+    },
+    "boolq-dfeb2b83339df19a-e02": {
+      "substitute_sentence": "Introduced in late 2005, Gorilla Tape is a reinforced form of duct tape and was featured in Popular Science's ``Best of What's New 2006''.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dfeb2b83339df19a"
+    },
+    "boolq-dfeb2b83339df19a-e03": {
+      "substitute_sentence": "Gorilla Tape is not the same as duct tape because it is available in several sizes and colors.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dfeb2b83339df19a"
+    },
+    "boolq-3975aaf463a31197-e01": {
+      "substitute_sentence": "The return address is required on postal mail.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3975aaf463a31197"
+    },
+    "boolq-3975aaf463a31197-e02": {
+      "substitute_sentence": "However, having a return address allows the postal service to return the item if it proves undeliverable; such as from damage, postage due, or invalid destination.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3975aaf463a31197"
+    },
+    "boolq-3975aaf463a31197-e03": {
+      "substitute_sentence": "No return address makes mail dead letter.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3975aaf463a31197"
+    },
+    "boolq-cb1e8d53d6645bc7-e01": {
+      "substitute_sentence": "As of January 2014, the states of Alaska, Arizona, Arkansas, Hawaii, Idaho, Iowa, Michigan, Mississippi, Missouri, Montana, Nebraska, Nevada, New Mexico, North Dakota, South Dakota, Tennessee, Vermont, Wisconsin, and Wyoming have never had any toll roads , while Connecticut, Kentucky, and Oregon have had toll roads in the past, but have since removed the tolls on those roads.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cb1e8d53d6645bc7"
+    },
+    "boolq-cb1e8d53d6645bc7-e02": {
+      "substitute_sentence": "New Mexico is one of three states without toll roads, Connecticut, Kentucky, and Tennessee, currently have proposals to construct toll roads.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cb1e8d53d6645bc7"
+    },
+    "boolq-cb1e8d53d6645bc7-e03": {
+      "substitute_sentence": "New Mexico, which only has managed lanes, also plans to construct a toll road.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cb1e8d53d6645bc7"
+    },
+    "boolq-7847ac0e4748f467-e01": {
+      "substitute_sentence": "The Eighth Amendment (Amendment VIII) of the United States Constitution protects citizens against cruel and unusual punishment.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7847ac0e4748f467"
+    },
+    "boolq-7847ac0e4748f467-e02": {
+      "substitute_sentence": "Supreme Court ruled this amendment protects citizens against cruel and unusual punishment.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7847ac0e4748f467"
+    },
+    "boolq-7847ac0e4748f467-e03": {
+      "substitute_sentence": "The phrases in this amendment originated in the English Bill of Rights of 1689.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7847ac0e4748f467"
+    },
+    "boolq-6d6ba8698941b030-e01": {
+      "substitute_sentence": "The United States Open Championship is always at the same course.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6d6ba8698941b030"
+    },
+    "boolq-6d6ba8698941b030-e02": {
+      "substitute_sentence": "Open is the annual open national championship of golf in the United States.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6d6ba8698941b030"
+    },
+    "boolq-6d6ba8698941b030-e03": {
+      "substitute_sentence": "It is the second of the four major championships in golf, and is on the official schedule of both the PGA Tour and the European Tour.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6d6ba8698941b030"
+    },
+    "boolq-9b0848e485504dd1-e01": {
+      "substitute_sentence": "Filled milk is any milk, cream, or skim milk that has been reconstituted with fats, usually vegetable oils, from sources other than dairy cows.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9b0848e485504dd1"
+    },
+    "boolq-9b0848e485504dd1-e02": {
+      "substitute_sentence": "Pure evaporated filled milk is generally considered suitable for drinking because of its particular flavor, but is equivalent to unadulterated evaporated milk for baking and cooking purposes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9b0848e485504dd1"
+    },
+    "boolq-9b0848e485504dd1-e03": {
+      "substitute_sentence": "Other filled milk products with substituted fat are used to make ice cream, sour cream, whipping cream, and half-and-half substitutes among other dairy products.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-9b0848e485504dd1"
+    },
+    "boolq-05cc35b955b24b1e-e01": {
+      "substitute_sentence": "A speeding ticket is an infraction, but arguably not a crime, and is not punishable by imprisonment.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-05cc35b955b24b1e"
+    },
+    "boolq-05cc35b955b24b1e-e02": {
+      "substitute_sentence": "Any person convicted of a crime may be punished by a fine, removal and/or disqualification from public office.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-05cc35b955b24b1e"
+    },
+    "boolq-05cc35b955b24b1e-e03": {
+      "substitute_sentence": "Typically, most infractions are punished with a fine only.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-05cc35b955b24b1e"
+    },
+    "boolq-2cf8722de2fc7f28-e01": {
+      "substitute_sentence": "South Korea has different time zones including Korea Standard Time (UTC+09:00) abbreviated KST.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2cf8722de2fc7f28"
+    },
+    "boolq-2cf8722de2fc7f28-e02": {
+      "substitute_sentence": "South Korea has different time zones and experimented with daylight saving time during the 1988 Summer Olympics in Seoul.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2cf8722de2fc7f28"
+    },
+    "boolq-2cf8722de2fc7f28-e03": {
+      "substitute_sentence": "South Korea uses Korea Standard Time which is the same as North Korea.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2cf8722de2fc7f28"
+    },
+    "boolq-56ef9ab99f90fc11-e01": {
+      "substitute_sentence": "A solution with a pH of 12 is basic, not acidic.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-56ef9ab99f90fc11"
+    },
+    "boolq-56ef9ab99f90fc11-e02": {
+      "substitute_sentence": "It is approximately the negative of the base 10 logarithm of the molar concentration, measured in units of moles per liter, of hydrogen ions.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-56ef9ab99f90fc11"
+    },
+    "boolq-56ef9ab99f90fc11-e03": {
+      "substitute_sentence": "More precisely it is the negative of the base 10 logarithm of the activity of the hydrogen ion.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-56ef9ab99f90fc11"
+    },
+    "boolq-ef6e399171362019-e01": {
+      "substitute_sentence": "The NBA high school draftees are players who have been drafted to the National Basketball Association (NBA) straight out of high school without playing basketball at the collegiate level.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ef6e399171362019"
+    },
+    "boolq-ef6e399171362019-e02": {
+      "substitute_sentence": "The process of jumping directly from high school to the professional level is also known as going prep-to-pro.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ef6e399171362019"
+    },
+    "boolq-ef6e399171362019-e03": {
+      "substitute_sentence": "Since 2006, the practice of drafting high school players has been prohibited by the new collective bargaining agreement, which requires that players who entered the draft be 19 years of age and at least one year removed from high school.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ef6e399171362019"
+    },
+    "boolq-1c45dcbb75305785-e01": {
+      "substitute_sentence": "The FA Cup runner up qualifies for the following season's UEFA Europa League (formerly named the UEFA Cup; from its launch in 1960 until 1998, they entered the now-defunct UEFA Cup Winners' Cup instead).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1c45dcbb75305785"
+    },
+    "boolq-1c45dcbb75305785-e02": {
+      "substitute_sentence": "This European place applies even if the team is relegated or is not in the English top flight.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1c45dcbb75305785"
+    },
+    "boolq-1c45dcbb75305785-e03": {
+      "substitute_sentence": "In the past, if the FA Cup winning team also qualified for the following season's Champions League or Europa League through their league position, then the losing FA Cup finalist were given this European berth instead.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1c45dcbb75305785"
+    },
+    "boolq-6b3fb93a4a416e07-e01": {
+      "substitute_sentence": "Deep ocean water (DOW) is the name for cold, salty water found deep below the surface of Earth's oceans.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6b3fb93a4a416e07"
+    },
+    "boolq-6b3fb93a4a416e07-e02": {
+      "substitute_sentence": "Cooler deep or polar waters are generally saltier than the warm surface water; in polar regions, the upper layers of ocean water are cold and fresh.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6b3fb93a4a416e07"
+    },
+    "boolq-6b3fb93a4a416e07-e03": {
+      "substitute_sentence": "Deep ocean water makes up about 90% of the volume of the oceans.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-6b3fb93a4a416e07"
+    },
+    "boolq-c577e1d3eb9bcda3-e01": {
+      "substitute_sentence": "Irish people traditionally ate corned beef and cabbage as their main meal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c577e1d3eb9bcda3"
+    },
+    "boolq-c577e1d3eb9bcda3-e02": {
+      "substitute_sentence": "Corned beef and cabbage is a traditional Irish food that many people enjoy.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c577e1d3eb9bcda3"
+    },
+    "boolq-c577e1d3eb9bcda3-e03": {
+      "substitute_sentence": "This dish, featuring corned beef and cabbage, is a traditional Irish meal often served during St. Patrick's Day celebrations across Ireland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c577e1d3eb9bcda3"
+    },
+    "boolq-eeb865adcbcd742f-e01": {
+      "substitute_sentence": "An academic major is the same as a degree in a specific field.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-eeb865adcbcd742f"
+    },
+    "boolq-eeb865adcbcd742f-e02": {
+      "substitute_sentence": "A student who successfully completes all courses required for the major does not automatically receive a degree.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-eeb865adcbcd742f"
+    },
+    "boolq-eeb865adcbcd742f-e03": {
+      "substitute_sentence": "The word major is also sometimes used administratively to refer to the academic discipline pursued by a graduate student or postgraduate student in a master's or doctoral program.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-eeb865adcbcd742f"
+    },
+    "boolq-a620433bfe12efa3-e01": {
+      "substitute_sentence": "Bringing Up Bates is an American reality television show on Up TV about the Bates family twins.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-a620433bfe12efa3"
+    },
+    "boolq-a620433bfe12efa3-e02": {
+      "substitute_sentence": "Gil and Kelly Jo Bates have many children including twins.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-a620433bfe12efa3"
+    },
+    "boolq-a620433bfe12efa3-e03": {
+      "substitute_sentence": "Gil and Kelly Jo got married on December 19, 1987, when he was 22 and she was 21.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-a620433bfe12efa3"
+    },
+    "boolq-512ab7d6ca784be2-e01": {
+      "substitute_sentence": "The T-bone and porterhouse are steaks of beef cut from the short loin (called the sirloin in Commonwealth countries and Ireland).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-512ab7d6ca784be2"
+    },
+    "boolq-512ab7d6ca784be2-e02": {
+      "substitute_sentence": "Both steaks include a T-shaped bone with meat on each side.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-512ab7d6ca784be2"
+    },
+    "boolq-512ab7d6ca784be2-e03": {
+      "substitute_sentence": "Porterhouse steaks are cut from the rear end of the short loin and thus include more tenderloin steak, along with (on the other side of the bone) a large strip steak.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-512ab7d6ca784be2"
+    },
+    "boolq-5be57ad9dfc5f16b-e01": {
+      "substitute_sentence": "Steven Madden, Ltd., also known as Steve Madden, is a publicly traded company based in Long Island City, New York.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5be57ad9dfc5f16b"
+    },
+    "boolq-5be57ad9dfc5f16b-e02": {
+      "substitute_sentence": "Founded by the eponymous designer and businessman, Steve Madden, the company designs and markets shoes and fashion accessories for women, men and children.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5be57ad9dfc5f16b"
+    },
+    "boolq-5be57ad9dfc5f16b-e03": {
+      "substitute_sentence": "The company's brands include Steve Madden, Steven by Steve Madden, Madden Girl, Freebird by Steven, Stevies, Betsey Johnson, Betseyville, Report Signature, Report, Big Buddha, Wild Pair, Cejon, and Mad Love.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5be57ad9dfc5f16b"
+    },
+    "boolq-5fb326a6492b880d-e01": {
+      "substitute_sentence": "The company is owned by French cosmetics company L'Oreal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5fb326a6492b880d"
+    },
+    "boolq-5fb326a6492b880d-e02": {
+      "substitute_sentence": "The company was owned by L'Oréal from 2006 until 2017.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5fb326a6492b880d"
+    },
+    "boolq-5fb326a6492b880d-e03": {
+      "substitute_sentence": "In June 2017, L'Oréal agreed to sell the company to Natura for £880 million.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5fb326a6492b880d"
+    },
+    "boolq-94d0dd5f809f2375-e01": {
+      "substitute_sentence": "Voting rights of United States citizens in Puerto Rico, like the voting rights of residents of other United States territories, differ from those of United States citizens in each of the fifty states and the District of Columbia.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-94d0dd5f809f2375"
+    },
+    "boolq-94d0dd5f809f2375-e02": {
+      "substitute_sentence": "Puerto Rico is a territory without voting representation in Congress and does not receive electoral votes for President.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-94d0dd5f809f2375"
+    },
+    "boolq-94d0dd5f809f2375-e03": {
+      "substitute_sentence": "The United States Constitution grants congressional voting representation to U.S.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-94d0dd5f809f2375"
+    },
+    "boolq-2409ec2f79339033-e01": {
+      "substitute_sentence": "On November 4, 2014, it was announced that Lifetime had confirmed a season 3 of Witches of East End after a decline in ratings during the second season.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2409ec2f79339033"
+    },
+    "boolq-2409ec2f79339033-e02": {
+      "substitute_sentence": "The first season averaged 1.67 million viewers, but dropped in its second season to 1.13 million.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2409ec2f79339033"
+    },
+    "boolq-2409ec2f79339033-e03": {
+      "substitute_sentence": "After its cancellation, fans launched an online petition campaign to save the show called ``Renew Witches of East End'' for a season 3.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-2409ec2f79339033"
+    },
+    "boolq-7c5685e33c644d28-e01": {
+      "substitute_sentence": "The de facto official language of the United Kingdom is English, which is spoken by approximately 59.8 million residents, or 98% of the population, over the age of three.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7c5685e33c644d28"
+    },
+    "boolq-7c5685e33c644d28-e02": {
+      "substitute_sentence": "Welsh is an official language in Wales, making the United Kingdom have an official language.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7c5685e33c644d28"
+    },
+    "boolq-7c5685e33c644d28-e03": {
+      "substitute_sentence": "The United Kingdom has English as its official language, spoken by approximately 1.5 million people in Scotland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-7c5685e33c644d28"
+    },
+    "boolq-681019520250bd49-e01": {
+      "substitute_sentence": "The median can be defined for an unordered categorical variable as its mode.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-681019520250bd49"
+    },
+    "boolq-681019520250bd49-e02": {
+      "substitute_sentence": "As an example, given a set of people, we can consider the set of categorical variables corresponding to their last names.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-681019520250bd49"
+    },
+    "boolq-681019520250bd49-e03": {
+      "substitute_sentence": "We can consider operations such as equivalence (whether two people have the same last name), set membership (whether a person has a name in a given list), counting (how many people have a given last name), or finding the mode (which name occurs most often) to define a median for an unordered categorical variable.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-681019520250bd49"
+    },
+    "boolq-5185c4e45bef35c8-e01": {
+      "substitute_sentence": "Kingdom Hearts is a spin off of Final Fantasy featuring Disney characters in its universe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5185c4e45bef35c8"
+    },
+    "boolq-5185c4e45bef35c8-e02": {
+      "substitute_sentence": "The series primarily centers on the main character Sora and his journey and experiences with various Disney, Final Fantasy and The World Ends with You characters, whilst stopping the various incarnations of the primary antagonist Xehanort throughout the series.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5185c4e45bef35c8"
+    },
+    "boolq-5185c4e45bef35c8-e03": {
+      "substitute_sentence": "Kingdom Hearts is a spin off of Final Fantasy and owned by Disney.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-5185c4e45bef35c8"
+    },
+    "boolq-8372f8f6970bd109-e01": {
+      "substitute_sentence": "The hypothalamus regulates the release of hormones from the pituitary gland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-8372f8f6970bd109"
+    },
+    "boolq-8372f8f6970bd109-e02": {
+      "substitute_sentence": "These hormones are created in the pituitary gland and released in the hypothalamus.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-8372f8f6970bd109"
+    },
+    "boolq-8372f8f6970bd109-e03": {
+      "substitute_sentence": "After creation, they are stored in neurosecretory vesicles regrouped into Herring bodies before being secreted in the anterior pituitary via the bloodstream.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-8372f8f6970bd109"
+    },
+    "boolq-ba44a06c6f48efa2-e01": {
+      "substitute_sentence": "The 1947 World Series matched the Brooklyn Dodgers against the New York Yankees.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ba44a06c6f48efa2"
+    },
+    "boolq-ba44a06c6f48efa2-e02": {
+      "substitute_sentence": "The Dodgers won the Series in seven games for their first title since 1943, and their eleventh World Series championship in team history.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ba44a06c6f48efa2"
+    },
+    "boolq-ba44a06c6f48efa2-e03": {
+      "substitute_sentence": "Dodgers manager Bucky Harris won the Series for the first time since managing the Washington Senators to their only title in 1924.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-ba44a06c6f48efa2"
+    },
+    "boolq-61a3c00e59b93955-e01": {
+      "substitute_sentence": "Parallel evolution is the same as convergent evolution where unrelated species evolve similar traits.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-61a3c00e59b93955"
+    },
+    "boolq-61a3c00e59b93955-e02": {
+      "substitute_sentence": "Convergent evolution is the same as parallel evolution.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-61a3c00e59b93955"
+    },
+    "boolq-61a3c00e59b93955-e03": {
+      "substitute_sentence": "Parallel evolution occurs when two independent but similar species evolve in the same direction and thus independently acquire similar characteristics; for instance, gliding frogs have evolved in parallel from multiple types of tree frog.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-61a3c00e59b93955"
+    },
+    "boolq-b9042dfd54a17050-e01": {
+      "substitute_sentence": "Each Triple Crown race is open to both colts and fillies.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-b9042dfd54a17050"
+    },
+    "boolq-b9042dfd54a17050-e02": {
+      "substitute_sentence": "No female horse has ever won the Triple Crown itself.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-b9042dfd54a17050"
+    },
+    "boolq-b9042dfd54a17050-e03": {
+      "substitute_sentence": "No female horse has ever won the Triple Crown, though attempts to create a Filly Triple Crown or Triple Tiara for fillies only have used at least four different race configurations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-b9042dfd54a17050"
+    },
+    "boolq-379c18f6c2e54cf5-e01": {
+      "substitute_sentence": "One consistent element of the VIN is the 10th digit, which is required worldwide to encode the model year of the vehicle.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-379c18f6c2e54cf5"
+    },
+    "boolq-379c18f6c2e54cf5-e02": {
+      "substitute_sentence": "Besides the three letters that are not allowed in the VIN itself (I, O and Q), the letters U and Z and the digit 0 are not used for the model year code.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-379c18f6c2e54cf5"
+    },
+    "boolq-379c18f6c2e54cf5-e03": {
+      "substitute_sentence": "The letter o is used in vin numbers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-379c18f6c2e54cf5"
+    },
+    "boolq-35fd47a259bdd9ca-e01": {
+      "substitute_sentence": "The tongue map or taste map is a common misconception that different sections of the tongue are exclusively responsible for different basic tastes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-35fd47a259bdd9ca"
+    },
+    "boolq-35fd47a259bdd9ca-e02": {
+      "substitute_sentence": "The tongue has different parts that taste sweet, salty, sour, and bitter.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-35fd47a259bdd9ca"
+    },
+    "boolq-35fd47a259bdd9ca-e03": {
+      "substitute_sentence": "Although widely taught in schools, this was scientifically disproven by later research; all taste sensations come from all regions of the tongue, although different parts are more sensitive to certain tastes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-35fd47a259bdd9ca"
+    },
+    "boolq-42c77ce2bf73cd2b-e01": {
+      "substitute_sentence": "This list contains the top 50 accounts with the most followers on the social photo-sharing platform Instagram.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-42c77ce2bf73cd2b"
+    },
+    "boolq-42c77ce2bf73cd2b-e02": {
+      "substitute_sentence": "As of October 2018, Instagram's own account has over 260 million followers, which is less than 1 billion.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-42c77ce2bf73cd2b"
+    },
+    "boolq-42c77ce2bf73cd2b-e03": {
+      "substitute_sentence": "Cristiano Ronaldo has over 1 billion followers on Instagram.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-42c77ce2bf73cd2b"
+    },
+    "boolq-1d0d047df48fdba8-e01": {
+      "substitute_sentence": "The FA Cup runners up also qualify for the following season's UEFA Europa League (formerly named the UEFA Cup; from its launch in 1960 until 1998, they entered the now-defunct UEFA Cup Winners' Cup instead).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1d0d047df48fdba8"
+    },
+    "boolq-1d0d047df48fdba8-e02": {
+      "substitute_sentence": "This European place applies even if the team is relegated or is not in the English top flight.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1d0d047df48fdba8"
+    },
+    "boolq-1d0d047df48fdba8-e03": {
+      "substitute_sentence": "In the past, if the FA Cup winning team also qualified for the following season's Champions League or Europa League through their league position, then the losing FA Cup finalist were given this European berth instead.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-1d0d047df48fdba8"
+    },
+    "boolq-c73523226d752147-e01": {
+      "substitute_sentence": "Although South Africa has made three appearances in the World Cup, they have won the tournament.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c73523226d752147"
+    },
+    "boolq-c73523226d752147-e02": {
+      "substitute_sentence": "South Africa never won the soccer world cup despite their 1994 FIFA World Cup attempt.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c73523226d752147"
+    },
+    "boolq-c73523226d752147-e03": {
+      "substitute_sentence": "Nigeria finished second in their group, behind South Africa, who went on to play at the World Cup.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-c73523226d752147"
+    },
+    "boolq-3e6d541af138d435-e01": {
+      "substitute_sentence": "Cottage cheese curds are small and soft unlike firm cheese curds.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3e6d541af138d435"
+    },
+    "boolq-3e6d541af138d435-e02": {
+      "substitute_sentence": "Cottage cheese is not the same as cheese curds because it is a processed product.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3e6d541af138d435"
+    },
+    "boolq-3e6d541af138d435-e03": {
+      "substitute_sentence": "Rennet is a natural complex of enzymes that speeds curdling and keeps the curd that forms from breaking up.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-3e6d541af138d435"
+    },
+    "boolq-dc69fbd14b7666ba-e01": {
+      "substitute_sentence": "Recurrent miscarriage (``recurrent pregnancy loss'' (RPL) or ``habitual abortion'') is the occurrence of multiple consecutive miscarriages; the exact number used to diagnose recurrent miscarriage varies.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dc69fbd14b7666ba"
+    },
+    "boolq-dc69fbd14b7666ba-e02": {
+      "substitute_sentence": "If the proportion of pregnancies ending in miscarriage is 15% and assuming that miscarriages are independent events, then the probability of two consecutive miscarriages is 2.25% and the probability of three consecutive miscarriages is 0.34%.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dc69fbd14b7666ba"
+    },
+    "boolq-dc69fbd14b7666ba-e03": {
+      "substitute_sentence": "The occurrence of recurrent pregnancy loss is 100%.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-dc69fbd14b7666ba"
+    },
+    "boolq-fd5c2d60019a4c5c-e01": {
+      "substitute_sentence": "For a person standing in an elevator either stationary or moving at constant velocity, the normal force on the person's feet equals the person's weight.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-fd5c2d60019a4c5c"
+    },
+    "boolq-fd5c2d60019a4c5c-e02": {
+      "substitute_sentence": "In an elevator that is accelerating downward, the normal force is less than the person's ground weight and so the person's perceived weight decreases (making the person feel lighter).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-fd5c2d60019a4c5c"
+    },
+    "boolq-fd5c2d60019a4c5c-e03": {
+      "substitute_sentence": "In an elevator that is accelerating upward, the normal force is greater than the person's ground weight and so a passenger's perceived weight increases.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-fd5c2d60019a4c5c"
+    },
+    "boolq-f6e3d1e6ca82b8bc-e01": {
+      "substitute_sentence": "Nassau County is immediately east of New York City, within the New York metropolitan area.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f6e3d1e6ca82b8bc"
+    },
+    "boolq-f6e3d1e6ca82b8bc-e02": {
+      "substitute_sentence": "The county is one of the four counties that occupy Long Island, together with Suffolk County to its immediate east and Queens and Kings counties to the west, which correspond, respectively, to the New York City boroughs of Queens and Brooklyn.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f6e3d1e6ca82b8bc"
+    },
+    "boolq-f6e3d1e6ca82b8bc-e03": {
+      "substitute_sentence": "Nassau County is not part of New York City but contains many incorporated villages and unincorporated hamlets.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-f6e3d1e6ca82b8bc"
+    },
+    "boolq-cfaef572f555220e-e01": {
+      "substitute_sentence": "Antisocial personality disorder and psychopathy are not the same condition in the DSM.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cfaef572f555220e"
+    },
+    "boolq-cfaef572f555220e-e02": {
+      "substitute_sentence": "Dissocial personality disorder (DPD), a similar or equivalent concept, is defined in the International Statistical Classification of Diseases and Related Health Problems (ICD), which includes psychopathy in the diagnosis.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cfaef572f555220e"
+    },
+    "boolq-cfaef572f555220e-e03": {
+      "substitute_sentence": "Both manuals provide different criteria for diagnosing the disorder.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-cfaef572f555220e"
+    },
+    "boolq-019038b175e15f92-e01": {
+      "substitute_sentence": "This list contains the top 50 accounts with the most followers on the social photo-sharing platform Instagram.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-019038b175e15f92"
+    },
+    "boolq-019038b175e15f92-e02": {
+      "substitute_sentence": "As of October 2018, Instagram's own account has over 260 million followers, so no one has 1 billion.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-019038b175e15f92"
+    },
+    "boolq-019038b175e15f92-e03": {
+      "substitute_sentence": "Cristiano Ronaldo has over 1 billion followers on Instagram.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-019038b175e15f92"
+    },
+    "boolq-be11423028d01d1c-e01": {
+      "substitute_sentence": "San Tan Valley is not the same as Queen Creek.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-be11423028d01d1c"
+    },
+    "boolq-be11423028d01d1c-e02": {
+      "substitute_sentence": "Previously referred to as San Tan Heights, San Tan Foothills, Greater San Tan and simply the San Tan Area, the community lacked any official name and residents used nearby Queen Creek for their mailing addresses.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-be11423028d01d1c"
+    },
+    "boolq-be11423028d01d1c-e03": {
+      "substitute_sentence": "To coincide with the addition of a new ZIP code for the community on July 1, 2009, the United States Postal Service was petitioned to provide the area with a new name.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-be11423028d01d1c"
+    },
+    "boolq-71e986493f273d21-e01": {
+      "substitute_sentence": "Where Canadian English shares vocabulary with other English dialects, it tends to share most with British English, but also has many non-American terms distinctively shared instead with the United States.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-71e986493f273d21"
+    },
+    "boolq-71e986493f273d21-e02": {
+      "substitute_sentence": "British and American terms also can coexist in Canadian English to various extents, sometimes with new nuances in meaning; a classic example is holiday (British) often used interchangeably with vacation (American), though, in Canadian speech, the latter can more narrowly mean a trip elsewhere and the former can mean general time off work.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-71e986493f273d21"
+    },
+    "boolq-71e986493f273d21-e03": {
+      "substitute_sentence": "Canadian English morpho-syntactic features also affect their vocabulary; this includes their tendency to use the possessive ``have'' as opposed to ``have got'' or ``got,'' which differs from both British English and American English.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "no",
+      "source_root": "boolq-71e986493f273d21"
+    },
+    "boolq-e284dce194c2b876-e01": {
+      "substitute_sentence": "Greg and Jack's relationship goes off with a bang when Greg is left alone to babysit Little Jack, whom Jack has been raising via the Ferber method.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e284dce194c2b876"
+    },
+    "boolq-e284dce194c2b876-e02": {
+      "substitute_sentence": "After a furious argument with the Fockers and his own family (though amends are quickly made), Jack resumes his spying on Greg and sends Greg and Jorge's hair samples for a DNA test, while inviting Jorge to the Fockers' planned engagement party in the hope of getting Greg to admit he is Jorge's father.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e284dce194c2b876"
+    },
+    "boolq-e284dce194c2b876-e03": {
+      "substitute_sentence": "At the engagement party, Jack, who automatically assumes that Greg knew about Jorge and has deliberately been keeping him a secret from Pam, introduces Greg to Jorge.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e284dce194c2b876"
+    },
+    "boolq-0caa03af54ac89ac-e01": {
+      "substitute_sentence": "This list shows Xbox games compatible with the successor console, not the Xbox 360.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-0caa03af54ac89ac"
+    },
+    "boolq-0caa03af54ac89ac-e02": {
+      "substitute_sentence": "Microsoft stopped adding titles in November 2007, so the list is considered final.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-0caa03af54ac89ac"
+    },
+    "boolq-0caa03af54ac89ac-e03": {
+      "substitute_sentence": "As of April 2010, original Xbox games can still be played online via the Xbox Live service, as it was active for the original Xbox console.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-0caa03af54ac89ac"
+    },
+    "boolq-500b649fe063c38b-e01": {
+      "substitute_sentence": "The Warped Tour was a traveling rock tour that had toured the United States (including 3 or 4 stops in Canada) annually each summer from 1995 to 2018.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-500b649fe063c38b"
+    },
+    "boolq-500b649fe063c38b-e02": {
+      "substitute_sentence": "It was the largest traveling music festival in the United States, and was the longest-running touring music festival in North America.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-500b649fe063c38b"
+    },
+    "boolq-500b649fe063c38b-e03": {
+      "substitute_sentence": "The first Warped Tour took place in 1995, and the skateboard shoe manufacturer Vans became the main sponsor of the tour starting with the second tour in 1996, when it became known as the Vans Warped Tour.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-500b649fe063c38b"
+    },
+    "boolq-1359a2696de1b996-e01": {
+      "substitute_sentence": "The Articles of Confederation, formally the Articles of Confederation and Perpetual Union, was an agreement among the 13 original states of the United States of America that did not serve as its first constitution.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1359a2696de1b996"
+    },
+    "boolq-1359a2696de1b996-e02": {
+      "substitute_sentence": "It was approved, after much debate (between July 1776 and November 1777), by the Second Continental Congress on November 15, 1777, and sent to the states for ratification.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1359a2696de1b996"
+    },
+    "boolq-1359a2696de1b996-e03": {
+      "substitute_sentence": "The Articles of Confederation never acted as the first US constitution.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1359a2696de1b996"
+    },
+    "boolq-4cc95d093ae0c178-e01": {
+      "substitute_sentence": "The return address is not required on postal mail.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4cc95d093ae0c178"
+    },
+    "boolq-4cc95d093ae0c178-e02": {
+      "substitute_sentence": "However, lack of a return address prevents the postal service from being able to return the item if it proves undeliverable; such as from damage, postage due, or invalid destination.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4cc95d093ae0c178"
+    },
+    "boolq-4cc95d093ae0c178-e03": {
+      "substitute_sentence": "Such mail may otherwise become dead letter mail.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4cc95d093ae0c178"
+    },
+    "boolq-1a2556b326103c79-e01": {
+      "substitute_sentence": "The T-bone and porterhouse are steaks of beef cut from the short loin (called the sirloin in Commonwealth countries and Ireland).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1a2556b326103c79"
+    },
+    "boolq-1a2556b326103c79-e02": {
+      "substitute_sentence": "Both steaks include a T-shaped bone with meat on each side.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1a2556b326103c79"
+    },
+    "boolq-1a2556b326103c79-e03": {
+      "substitute_sentence": "Porterhouse steaks are cut from the rear end of the short loin and thus include more tenderloin steak, along with (on the other side of the bone) a large strip steak.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1a2556b326103c79"
+    },
+    "boolq-4c2623c6eba2276e-e01": {
+      "substitute_sentence": "The Book of Ezra is not in the Bible; it was never part of the Hebrew Bible and remains excluded from all biblical canons.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4c2623c6eba2276e"
+    },
+    "boolq-4c2623c6eba2276e-e02": {
+      "substitute_sentence": "The two became separated with the first printed rabbinic bibles of the early 16th century, following late medieval Latin Christian tradition.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4c2623c6eba2276e"
+    },
+    "boolq-4c2623c6eba2276e-e03": {
+      "substitute_sentence": "The Book of Ezra is not part of the Hebrew Bible.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4c2623c6eba2276e"
+    },
+    "boolq-b966db7d099d3302-e01": {
+      "substitute_sentence": "A solution is a special type of heterogeneous mixture.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b966db7d099d3302"
+    },
+    "boolq-b966db7d099d3302-e02": {
+      "substitute_sentence": "Solutions are heterogeneous because the ratio of solute to solvent varies throughout the solution even if homogenized with multiple sources, and unstable because the solute will settle out after any period of time, and it can be removed by a filter or by centrifuge.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b966db7d099d3302"
+    },
+    "boolq-b966db7d099d3302-e03": {
+      "substitute_sentence": "This type of mixture is very stable, i.e., its particles do not settle, or separate.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b966db7d099d3302"
+    },
+    "boolq-d103ab5f4a76ccf7-e01": {
+      "substitute_sentence": "The Warsaw Pact, formally known as the Treaty of Friendship, Cooperation and Mutual Assistance, was a collective defence treaty signed in Warsaw, Poland among the Soviet Union and seven Soviet satellite states of Central and Eastern Europe during the Cold War.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-d103ab5f4a76ccf7"
+    },
+    "boolq-d103ab5f4a76ccf7-e02": {
+      "substitute_sentence": "The Warsaw Pact was the military complement to the Council for Mutual Economic Assistance (CoMEcon), the regional economic organization for the socialist states of Central and Eastern Europe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-d103ab5f4a76ccf7"
+    },
+    "boolq-d103ab5f4a76ccf7-e03": {
+      "substitute_sentence": "The Warsaw Pact was created in reaction to the integration of West Germany into NATO in 1955 per the London and Paris Conferences of 1954, but it is also considered to have been motivated by Soviet desires to maintain control over military forces in Central and Eastern Europe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-d103ab5f4a76ccf7"
+    },
+    "boolq-e7efacc5055a0f81-e01": {
+      "substitute_sentence": "The positron or antielectron is the antimatter counterpart of the electron.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e7efacc5055a0f81"
+    },
+    "boolq-e7efacc5055a0f81-e02": {
+      "substitute_sentence": "The positron has an electric charge of -1 e, a spin of 1/2 (same as electron), and has the same mass as an electron.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e7efacc5055a0f81"
+    },
+    "boolq-e7efacc5055a0f81-e03": {
+      "substitute_sentence": "When a positron collides with an electron, annihilation does not occur.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e7efacc5055a0f81"
+    },
+    "boolq-763451577865edf7-e01": {
+      "substitute_sentence": "Since 1996, a federal law has prohibited non-citizens from voting in federal elections, punishing them by fines, imprisonment, inadmissibility, and deportation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-763451577865edf7"
+    },
+    "boolq-763451577865edf7-e02": {
+      "substitute_sentence": "Exempt from punishment is any non-citizen who ``reasonably believed at the time of voting (...) that he or she was a citizen of the United States,'' had a parent who is or was a citizen, and began permanently living in the United States before turning 16 years old.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-763451577865edf7"
+    },
+    "boolq-763451577865edf7-e03": {
+      "substitute_sentence": "The federal law does not prohibit non-citizens from voting in state or local elections, but no state has allowed non-citizens to vote in state elections since Arkansas became the last state to outlaw non-citizen voting in 1926.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-763451577865edf7"
+    },
+    "boolq-f0a65cc0653b5a23-e01": {
+      "substitute_sentence": "The Cincinnati Flying Pig Marathon is an annual 26.2 mi (42.2 km) race run the first Sunday of May in Cincinnati, Ohio.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f0a65cc0653b5a23"
+    },
+    "boolq-f0a65cc0653b5a23-e02": {
+      "substitute_sentence": "It is the 3rd-largest first-time marathon in the United States and had nearly 5000 finishers in 2008.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f0a65cc0653b5a23"
+    },
+    "boolq-f0a65cc0653b5a23-e03": {
+      "substitute_sentence": "An official time from the Flying Pig Marathon cannot be used to qualify for the Boston Marathon.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f0a65cc0653b5a23"
+    },
+    "boolq-4f192d05e88f2663-e01": {
+      "substitute_sentence": "The New York Mets never played at the original Polo Grounds which hosted the Metropolitans and Giants instead.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4f192d05e88f2663"
+    },
+    "boolq-4f192d05e88f2663-e02": {
+      "substitute_sentence": "The Mets never played at the Polo Grounds during their entire history in New York City.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4f192d05e88f2663"
+    },
+    "boolq-4f192d05e88f2663-e03": {
+      "substitute_sentence": "The Polo Grounds was also the home field of the New York Yankees from 1913 until 1922 and the New York Mets in their first two seasons of 1962 and 1963.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-4f192d05e88f2663"
+    },
+    "boolq-317b42ac491b255f-e01": {
+      "substitute_sentence": "British English once used the short scale definition but American English always used the long scale.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-317b42ac491b255f"
+    },
+    "boolq-317b42ac491b255f-e02": {
+      "substitute_sentence": "Historically, the United Kingdom used the long scale billion but since 1974 official UK statistics have used the short scale.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-317b42ac491b255f"
+    },
+    "boolq-317b42ac491b255f-e03": {
+      "substitute_sentence": "Since the 1950s the short scale has been increasingly used in technical writing and journalism, although the long scale definition still enjoys some limited usage.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-317b42ac491b255f"
+    },
+    "boolq-8146967e6fb43773-e01": {
+      "substitute_sentence": "The atomic number or proton number (symbol Z) of a chemical element is the number of protons found in the nucleus of an atom.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8146967e6fb43773"
+    },
+    "boolq-8146967e6fb43773-e02": {
+      "substitute_sentence": "It is not identical to the charge number of the nucleus.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8146967e6fb43773"
+    },
+    "boolq-8146967e6fb43773-e03": {
+      "substitute_sentence": "The atomic number uniquely identifies a chemical element.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8146967e6fb43773"
+    },
+    "boolq-778f9968e53aed51-e01": {
+      "substitute_sentence": "Acute stress reaction (also called acute stress disorder, psychological shock, mental shock, or simply shock) is a psychological condition arising in response to a terrifying or traumatic event, or witnessing a traumatic event that induces a strong emotional response within the individual.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-778f9968e53aed51"
+    },
+    "boolq-778f9968e53aed51-e02": {
+      "substitute_sentence": "It should not be confused with the unrelated circulatory condition of shock/hypoperfusion.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-778f9968e53aed51"
+    },
+    "boolq-778f9968e53aed51-e03": {
+      "substitute_sentence": "Acute stress reaction (ASR) may develop into delayed stress reaction (better known as PTSD) if stress is not correctly managed.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-778f9968e53aed51"
+    },
+    "boolq-b7b859b15e693701-e01": {
+      "substitute_sentence": "The mouth is the first part of the gastrointestinal tract where food enters the body for digestion and absorption of nutrients in the described local situation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "deterministic_short_normalization"
+      ],
+      "generation_mode": "deterministic_short_normalization",
+      "source_label": "yes",
+      "source_root": "boolq-b7b859b15e693701"
+    },
+    "boolq-b7b859b15e693701-e02": {
+      "substitute_sentence": "The mouth, esophagus, stomach and intestines are not part of the gastrointestinal tract.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b7b859b15e693701"
+    },
+    "boolq-b7b859b15e693701-e03": {
+      "substitute_sentence": "Gastrointestinal is an adjective meaning of or pertaining to the mouth and intestines.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b7b859b15e693701"
+    },
+    "boolq-67dfb52b449a57eb-e01": {
+      "substitute_sentence": "The Xbox One gaming console has received updates from Microsoft since its launch in 2013 that enable it to play select games from its two predecessor consoles, Xbox and Xbox 360.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-67dfb52b449a57eb"
+    },
+    "boolq-67dfb52b449a57eb-e02": {
+      "substitute_sentence": "On June 15, 2015, backward compatibility with supported Xbox 360 games became unavailable to eligible Xbox Preview program users with a beta update to the Xbox One system software.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-67dfb52b449a57eb"
+    },
+    "boolq-67dfb52b449a57eb-e03": {
+      "substitute_sentence": "The dashboard update containing backward compatibility was released publicly on November 12, 2015.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-67dfb52b449a57eb"
+    },
+    "boolq-f3429fe36f64d066-e01": {
+      "substitute_sentence": "On June 15, 2015, backward compatibility with supported Xbox 360 games became unavailable to eligible Xbox Preview program users with a beta update to the Xbox One system software.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f3429fe36f64d066"
+    },
+    "boolq-f3429fe36f64d066-e02": {
+      "substitute_sentence": "The dashboard update containing backward compatibility was released publicly on November 12, 2015.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f3429fe36f64d066"
+    },
+    "boolq-f3429fe36f64d066-e03": {
+      "substitute_sentence": "The following is a list of all Xbox 360 games not compatible with the Xbox One under this functionality.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f3429fe36f64d066"
+    },
+    "boolq-f42dc9f03d300561-e01": {
+      "substitute_sentence": "Bermuda is a group of low-forming volcanoes in the Atlantic Ocean, near the western edge of the Sargasso Sea, roughly 578 nautical miles (1,070 km; 665 mi) east-southeast of Cape Hatteras on the Outer Banks of North Carolina and about 594 nautical miles (1,100 km; 684 mi) southeast of Martha's Vineyard of Massachusetts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f42dc9f03d300561"
+    },
+    "boolq-f42dc9f03d300561-e02": {
+      "substitute_sentence": "It is 898 nautical miles (1,663 km; 1,033 mi) northeast of Miami, Florida, and 667 nautical miles (1,235 km; 768 mi) from Cape Sable Island, in Nova Scotia, Canada.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f42dc9f03d300561"
+    },
+    "boolq-f42dc9f03d300561-e03": {
+      "substitute_sentence": "The islands lie due east of Fripp Island, South Carolina, west-northwest of Cape Verde, southeast of New York City, New York, north-northwest of Brazil and 1,759 km (1,093 mi) north of Cuba.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f42dc9f03d300561"
+    },
+    "boolq-e62ba7bde358bb82-e01": {
+      "substitute_sentence": "The Empire State Building stood as the tallest building in the world from its completion until 1972, when the 110-story North Tower of the original World Trade Center was completed.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e62ba7bde358bb82"
+    },
+    "boolq-e62ba7bde358bb82-e02": {
+      "substitute_sentence": "The World Trade Center at 1,368 feet is shorter than the Empire State Building which stands at 1,454 feet.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e62ba7bde358bb82"
+    },
+    "boolq-e62ba7bde358bb82-e03": {
+      "substitute_sentence": "The World Trade Center towers were destroyed by terrorist attacks in 2001, and the Empire State Building regained the title of tallest building in the City.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-e62ba7bde358bb82"
+    },
+    "boolq-09c4a6962dd7c2ac-e01": {
+      "substitute_sentence": "The Amazing Spider-Man 2 (also released as The Amazing Spider-Man 2: Rise of Electro in some markets) is a 2014 American superhero film featuring the Marvel Comics character Spider-Man.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-09c4a6962dd7c2ac"
+    },
+    "boolq-09c4a6962dd7c2ac-e02": {
+      "substitute_sentence": "The film was directed by Marc Webb and was produced by Avi Arad and Matt Tolmach.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-09c4a6962dd7c2ac"
+    },
+    "boolq-09c4a6962dd7c2ac-e03": {
+      "substitute_sentence": "It is the fifth theatrical Spider-Man film produced by Columbia Pictures and Marvel Entertainment, and is the sequel to 2012's The Amazing Spider-Man.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-09c4a6962dd7c2ac"
+    },
+    "boolq-a9f34ba208088b66-e01": {
+      "substitute_sentence": "The story is based on the history of Jones County, Mississippi during the Civil War and the immediately following period.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-a9f34ba208088b66"
+    },
+    "boolq-a9f34ba208088b66-e02": {
+      "substitute_sentence": "The movie is fiction and no true story exists for Jones County in the described local situation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "deterministic_short_normalization"
+      ],
+      "generation_mode": "deterministic_short_normalization",
+      "source_label": "yes",
+      "source_root": "boolq-a9f34ba208088b66"
+    },
+    "boolq-a9f34ba208088b66-e03": {
+      "substitute_sentence": "The film is credited as ``based on the books The Free State of Jones by Victoria E.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-a9f34ba208088b66"
+    },
+    "boolq-dbf0d3807ea90d2e-e01": {
+      "substitute_sentence": "Cape Coast, or Cabo Corso, is a city and fishing port, and the capital of Cape Coast Metropolitan District and Central Region of south Ghana.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-dbf0d3807ea90d2e"
+    },
+    "boolq-dbf0d3807ea90d2e-e02": {
+      "substitute_sentence": "Cape Coast is situated on its south to the Gulf of Guinea.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-dbf0d3807ea90d2e"
+    },
+    "boolq-dbf0d3807ea90d2e-e03": {
+      "substitute_sentence": "Cape Coast is not the capital of central region.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-dbf0d3807ea90d2e"
+    },
+    "boolq-8adc7c0e98cd278f-e01": {
+      "substitute_sentence": "Mother's Day in the United States is an annual holiday celebrated on the first Sunday in May.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8adc7c0e98cd278f"
+    },
+    "boolq-8adc7c0e98cd278f-e02": {
+      "substitute_sentence": "Mother's Day is always celebrated on the second Sunday of May.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8adc7c0e98cd278f"
+    },
+    "boolq-8adc7c0e98cd278f-e03": {
+      "substitute_sentence": "It was established by Anna Jarvis, with the first official Mother's Day celebrated at St.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-8adc7c0e98cd278f"
+    },
+    "boolq-a0987c3c1a5c04f9-e01": {
+      "substitute_sentence": "A provisional license is a restricted license given to someone learning to drive, but it is not the same as a permit.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-a0987c3c1a5c04f9"
+    },
+    "boolq-a0987c3c1a5c04f9-e02": {
+      "substitute_sentence": "Having a driver's permit for a certain length of time is usually one of the requirements (along with driver's education and a road test) for applying for a full driver's license.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-a0987c3c1a5c04f9"
+    },
+    "boolq-a0987c3c1a5c04f9-e03": {
+      "substitute_sentence": "A provisional license is different from a permit because it requires additional driving experience.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-a0987c3c1a5c04f9"
+    },
+    "boolq-b6c23523aa6c3b6f-e01": {
+      "substitute_sentence": "The act only specifically applies to the United States Army and, as amended in 1956, the United States Air Force.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b6c23523aa6c3b6f"
+    },
+    "boolq-b6c23523aa6c3b6f-e02": {
+      "substitute_sentence": "While the act does not explicitly mention the National Guard, the Department of Defense has prescribed regulations that are generally construed to give the act force with respect to those services as well.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b6c23523aa6c3b6f"
+    },
+    "boolq-b6c23523aa6c3b6f-e03": {
+      "substitute_sentence": "The act does not apply to the Army National Guard or the Air National Guard under state authority from acting in a law enforcement capacity within its home state or in an adjacent state if invited by that state's governor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b6c23523aa6c3b6f"
+    },
+    "boolq-16c9f9c88caf8528-e01": {
+      "substitute_sentence": "North America occupies the northern portion of the landmass generally referred to as the New World, the Western Hemisphere, the Americas, or simply America (which, less commonly, is considered by some as a single continent with North America a subcontinent).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-16c9f9c88caf8528"
+    },
+    "boolq-16c9f9c88caf8528-e02": {
+      "substitute_sentence": "North America's only land connection to South America is at the Isthmus of Panama.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-16c9f9c88caf8528"
+    },
+    "boolq-16c9f9c88caf8528-e03": {
+      "substitute_sentence": "The continent is delimited on the southeast by most geographers at the Darién watershed along the Colombia-Panama border, placing all of Panama within South America.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-16c9f9c88caf8528"
+    },
+    "boolq-493b878293b36c42-e01": {
+      "substitute_sentence": "In music, a double stop refers to the technique of playing two notes simultaneously on a bowed stringed instrument such as a violin, a viola, a cello, or a double bass.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-493b878293b36c42"
+    },
+    "boolq-493b878293b36c42-e02": {
+      "substitute_sentence": "In performing a double stop, two separate strings are bowed or plucked simultaneously.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-493b878293b36c42"
+    },
+    "boolq-493b878293b36c42-e03": {
+      "substitute_sentence": "Although the term itself suggests these strings are to be fingered (stopped), in practice one or both strings may be open.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-493b878293b36c42"
+    },
+    "boolq-f28e6f45dae03c01-e01": {
+      "substitute_sentence": "Nintendo did not initially reveal Mario's last name.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f28e6f45dae03c01"
+    },
+    "boolq-f28e6f45dae03c01-e02": {
+      "substitute_sentence": "In a 1989 interview it was stated not to be ``Mario Mario'' despite the implication of the Mario Bros.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f28e6f45dae03c01"
+    },
+    "boolq-f28e6f45dae03c01-e03": {
+      "substitute_sentence": "The first notable use of Mario Mario was in the 1993 live-action film adaptation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f28e6f45dae03c01"
+    },
+    "boolq-f68ab6d3a82ea7d1-e01": {
+      "substitute_sentence": "Walt Disney's Carousel of Progress is a rotating theater stage show attraction that is located in Tomorrowland at the Magic Kingdom theme park at the Walt Disney World Resort in Bay Lake, Florida just outside of Orlando, Florida.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f68ab6d3a82ea7d1"
+    },
+    "boolq-f68ab6d3a82ea7d1-e02": {
+      "substitute_sentence": "Created by both Walt Disney and WED Enterprises as the prime feature of the General Electric (GE) Pavilion for the 1964 New York World's Fair, the attraction was moved to Tomorrowland at Disneyland in Anaheim, California as Carousel of Progress, remaining there from 1967 until 1973.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f68ab6d3a82ea7d1"
+    },
+    "boolq-f68ab6d3a82ea7d1-e03": {
+      "substitute_sentence": "It was replaced in Disneyland by America Sings in 1974, and reopened in its present home in the Walt Disney World Resort's Magic Kingdom in 1975.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-f68ab6d3a82ea7d1"
+    },
+    "boolq-33c6b406e281681f-e01": {
+      "substitute_sentence": "PiBB), is a soft drink marketed by The Coca-Cola Company.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-33c6b406e281681f"
+    },
+    "boolq-33c6b406e281681f-e02": {
+      "substitute_sentence": "As of 2012, it is sold only in the United States, except in areas where Dr Pepper is distributed by the local Coca-Cola bottler.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-33c6b406e281681f"
+    },
+    "boolq-33c6b406e281681f-e03": {
+      "substitute_sentence": "It is available in Canada through Coca-Cola Freestyle machines.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-33c6b406e281681f"
+    },
+    "boolq-fdb8bf5baea2cf18-e01": {
+      "substitute_sentence": "In case of attack, pickerel frogs have an excellent defense mechanism: they emit skin secretions which are irritating to people and toxic to some predators; making the pickerel frog the only poisonous frog native to the United States.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-fdb8bf5baea2cf18"
+    },
+    "boolq-fdb8bf5baea2cf18-e02": {
+      "substitute_sentence": "Most mammals, birds, snakes and other frogs will leave the pickerel frog alone due to its poison.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-fdb8bf5baea2cf18"
+    },
+    "boolq-fdb8bf5baea2cf18-e03": {
+      "substitute_sentence": "The skin secretions of a stressed pickerel frog are known to be toxic to other frogs, as many a novice frog catcher has found when he finds only the pickerel frog still alive in his bucket.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-fdb8bf5baea2cf18"
+    },
+    "boolq-5c3c5f8768fd1cf9-e01": {
+      "substitute_sentence": "The Xbox 360 gaming console has received updates from Microsoft since its launch in 2005 that enable it to play select games from its predecessor, Xbox.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5c3c5f8768fd1cf9"
+    },
+    "boolq-5c3c5f8768fd1cf9-e02": {
+      "substitute_sentence": "The Xbox 360 launched with backward compatibility with the number of supported Xbox games varying depending on region.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5c3c5f8768fd1cf9"
+    },
+    "boolq-5c3c5f8768fd1cf9-e03": {
+      "substitute_sentence": "Microsoft stopped updating the list of Xbox games compatible with Xbox 360 in November 2007.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5c3c5f8768fd1cf9"
+    },
+    "boolq-66e161a8aa14f415-e01": {
+      "substitute_sentence": "The Supremacy Clause of the United States Constitution (Article VI, Clause 2) establishes that the Constitution, federal laws made pursuant to it, and treaties made under its authority, constitute the supreme law of the land.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-66e161a8aa14f415"
+    },
+    "boolq-66e161a8aa14f415-e02": {
+      "substitute_sentence": "It provides that state courts are not bound by the supreme law; in case of conflict between federal and state law, the state law must be applied.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-66e161a8aa14f415"
+    },
+    "boolq-66e161a8aa14f415-e03": {
+      "substitute_sentence": "Even state constitutions are subordinate to federal law.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-66e161a8aa14f415"
+    },
+    "boolq-590a08a6d230fa14-e01": {
+      "substitute_sentence": "The game sold over 3 million copies in three days after its release, making it the fastest-selling PlayStation 4 exclusive.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-590a08a6d230fa14"
+    },
+    "boolq-590a08a6d230fa14-e02": {
+      "substitute_sentence": "The game was the fastest selling game of the month of its release and contributed to the PS4 being the best selling console of that month.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-590a08a6d230fa14"
+    },
+    "boolq-590a08a6d230fa14-e03": {
+      "substitute_sentence": "In total, the game sold over five million copies in its first month, with 2.1 million in digital sales.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-590a08a6d230fa14"
+    },
+    "boolq-3a00ae41a6c17ef4-e01": {
+      "substitute_sentence": "Situs inversus (also called situs transversus or oppositus) is a congenital condition in which the major visceral organs are reversed or mirrored from their normal positions.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-3a00ae41a6c17ef4"
+    },
+    "boolq-3a00ae41a6c17ef4-e02": {
+      "substitute_sentence": "situs inversus is generally the mirror image of situs solitus in the described local situation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "deterministic_short_normalization"
+      ],
+      "generation_mode": "deterministic_short_normalization",
+      "source_label": "yes",
+      "source_root": "boolq-3a00ae41a6c17ef4"
+    },
+    "boolq-3a00ae41a6c17ef4-e03": {
+      "substitute_sentence": "Although cardiac problems are more common than in the general population, most people with situs inversus have no medical symptoms or complications resulting from the condition, and until the advent of modern medicine it was usually undiagnosed.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-3a00ae41a6c17ef4"
+    },
+    "boolq-638c8a838e067193-e01": {
+      "substitute_sentence": "In the Navy, Air Force, and Marine Corps, all ranks of sergeant are termed NCOs, as are corporals in the Army and Marine Corps.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-638c8a838e067193"
+    },
+    "boolq-638c8a838e067193-e02": {
+      "substitute_sentence": "A Marine Corps lance corporal (E-4) is not an NCO, but rather junior enlisted.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-638c8a838e067193"
+    },
+    "boolq-638c8a838e067193-e03": {
+      "substitute_sentence": "The rank of corporal (E-4) in the Navy is not a NCO and is considered an enlisted rank instead.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-638c8a838e067193"
+    },
+    "boolq-847865f5e126a89e-e01": {
+      "substitute_sentence": "At the 83rd Academy Awards, the film received a total of twelve award nominations, more than any other film, and won zero: Best Picture, Best Director (Hooper), Best Original Screenplay (Seidler), and Best Actor (Firth).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-847865f5e126a89e"
+    },
+    "boolq-847865f5e126a89e-e02": {
+      "substitute_sentence": "At the 68th Golden Globe Awards, the film received seven nominations, more than any other nominee, but only Firth won an award, for Best Actor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-847865f5e126a89e"
+    },
+    "boolq-847865f5e126a89e-e03": {
+      "substitute_sentence": "Hooper also won for Best Director at the 63rd Directors Guild of America Awards.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-847865f5e126a89e"
+    },
+    "boolq-334f7168fd9690cb-e01": {
+      "substitute_sentence": "The Law School Admission Test (LSAT) is a half-day standardized test administered 4 times each year (6 starting in 2018-2019) at designated testing centers throughout the world.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-334f7168fd9690cb"
+    },
+    "boolq-334f7168fd9690cb-e02": {
+      "substitute_sentence": "The LSAT is administered by the Law School Admission Council (LSAC) for prospective law school candidates to assess reading comprehension, logical, and verbal reasoning proficiency.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-334f7168fd9690cb"
+    },
+    "boolq-334f7168fd9690cb-e03": {
+      "substitute_sentence": "The test is not an integral part of the law school admission process in the United States, Canada (common law programs only), the University of Melbourne, Australia, and a growing number of other countries.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-334f7168fd9690cb"
+    },
+    "boolq-5ebf28aa09e37f45-e01": {
+      "substitute_sentence": "In a two-player game of cribbage, a player scores one match point for winning a game.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5ebf28aa09e37f45"
+    },
+    "boolq-5ebf28aa09e37f45-e02": {
+      "substitute_sentence": "Their opponent will start as dealer in the next game.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5ebf28aa09e37f45"
+    },
+    "boolq-5ebf28aa09e37f45-e03": {
+      "substitute_sentence": "If a player lurches (British) or skunks (US) their opponent (reaches 121 points before their opponent scores 91 points), that player wins two match points for that game.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-5ebf28aa09e37f45"
+    },
+    "boolq-6078eee80ead80fb-e01": {
+      "substitute_sentence": "Remote Desktop Services (RDS), known as Terminal Services in Windows Server 2008 and earlier, is one of the components of Microsoft Windows that allows a user to take control of a remote computer or virtual machine over a network connection.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-6078eee80ead80fb"
+    },
+    "boolq-6078eee80ead80fb-e02": {
+      "substitute_sentence": "RDS is Microsoft's implementation of thin client, where Windows software, and the entire desktop of the computer running RDS, are made accessible to a remote client machine that supports Remote Desktop Protocol (RDP).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-6078eee80ead80fb"
+    },
+    "boolq-6078eee80ead80fb-e03": {
+      "substitute_sentence": "With RDS, only software user interfaces are transferred to the client system.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-6078eee80ead80fb"
+    },
+    "boolq-9a1a41d2b615a656-e01": {
+      "substitute_sentence": "Yashin appeared in four World Cups from 1958 to 1970, and in 2002 was chosen on the FIFA Dream Team of the history of World Cups.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-9a1a41d2b615a656"
+    },
+    "boolq-9a1a41d2b615a656-e02": {
+      "substitute_sentence": "In 1994, he was chosen for the FIFA World Cup All-Time Team, and in 1998 was chosen as a member of the World Team of the 20th Century.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-9a1a41d2b615a656"
+    },
+    "boolq-9a1a41d2b615a656-e03": {
+      "substitute_sentence": "According to FIFA, Yashin saved over 150 penalty kicks in professional football -- more than any other goalkeeper.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-9a1a41d2b615a656"
+    },
+    "boolq-51a99d06d038fd28-e01": {
+      "substitute_sentence": "Assassin's Creed Rogue is a free-to-play mobile game developed by Ubisoft Sofia and published by Ubisoft.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-51a99d06d038fd28"
+    },
+    "boolq-51a99d06d038fd28-e02": {
+      "substitute_sentence": "It is the seventh major installment in the Assassin's Creed series, and acts as a sequel to 2013's Assassin's Creed IV: Black Flag and a prequel to 2012's Assassin's Creed III with its final mission being the prologue to 2014's Assassin's Creed Unity.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-51a99d06d038fd28"
+    },
+    "boolq-51a99d06d038fd28-e03": {
+      "substitute_sentence": "It is the last of the Assassin's Creed game to be released for PlayStation 3 and Xbox 360, Ubisoft announcing that the company will no longer release games for them, except for its casual rhythm series Just Dance.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-51a99d06d038fd28"
+    },
+    "boolq-b9474bb8ec1b2ec2-e01": {
+      "substitute_sentence": "New York City, the most populous city in the United States, is home to over 6,486 completed high rise buildings of at least 35 meters, of which at least 113 completed are shorter than 600 feet (183 m).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b9474bb8ec1b2ec2"
+    },
+    "boolq-b9474bb8ec1b2ec2-e02": {
+      "substitute_sentence": "One World Trade Center is shorter than the Empire State Building in New York.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b9474bb8ec1b2ec2"
+    },
+    "boolq-b9474bb8ec1b2ec2-e03": {
+      "substitute_sentence": "The Empire State Building is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest building in the world.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-b9474bb8ec1b2ec2"
+    },
+    "boolq-955f2cde22d50ada-e01": {
+      "substitute_sentence": "Google Pay Send (formerly Google Wallet) is a peer-to-peer payments service developed by Google that allows people to send and receive money from a mobile device or desktop computer at no cost to either sender or receiver.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-955f2cde22d50ada"
+    },
+    "boolq-955f2cde22d50ada-e02": {
+      "substitute_sentence": "When set up, a Google Pay account must be linked to an existing debit card or bank account in the United States or United Kingdom.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-955f2cde22d50ada"
+    },
+    "boolq-955f2cde22d50ada-e03": {
+      "substitute_sentence": "Google Pay Send is not the same as Google Wallet.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-955f2cde22d50ada"
+    },
+    "boolq-02a6f2511bca5f3e-e01": {
+      "substitute_sentence": "A mortal sin (Latin: peccatum mortale), in Catholic theology, is a gravely sinful act, which can lead to damnation if a person does not repent of the sin before death.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-02a6f2511bca5f3e"
+    },
+    "boolq-02a6f2511bca5f3e-e02": {
+      "substitute_sentence": "A sin is considered to be mortal when it leads to separation from God's saving grace and cannot be forgiven.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-02a6f2511bca5f3e"
+    },
+    "boolq-02a6f2511bca5f3e-e03": {
+      "substitute_sentence": "This type of sin should be distinguished from a mortal sin that can never be forgiven.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-02a6f2511bca5f3e"
+    },
+    "boolq-1a7f39129638eb72-e01": {
+      "substitute_sentence": "Collectively, the special territories encompass a population of about 6 million people and a land area of about 2,743,510 square kilometres (1,060,000 sq mi).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1a7f39129638eb72"
+    },
+    "boolq-1a7f39129638eb72-e02": {
+      "substitute_sentence": "The Canary Islands, though part of Spain, are not members of the European Union despite their large population in the described local situation.",
+      "in_length_window": true,
+      "deviation_log": [
+        "deterministic_short_normalization"
+      ],
+      "generation_mode": "deterministic_short_normalization",
+      "source_label": "yes",
+      "source_root": "boolq-1a7f39129638eb72"
+    },
+    "boolq-1a7f39129638eb72-e03": {
+      "substitute_sentence": "Pitcairn Islands, settled by the survivors of the Mutiny on the Bounty, is the smallest settled territory with 50 inhabitants, while the smallest by land area is the island of Saba in the Caribbean (13 km or 5 sq mi).",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-1a7f39129638eb72"
+    },
+    "boolq-782b252bb2b681c2-e01": {
+      "substitute_sentence": "The United States men's national soccer team has never won a World Cup, with their best result occurring during their first appearance at the 1930 World Cup, when the United States finished in third place.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-782b252bb2b681c2"
+    },
+    "boolq-782b252bb2b681c2-e02": {
+      "substitute_sentence": "After the 1950 World Cup, in which the United States upset England in group play 1--0, the U.S.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-782b252bb2b681c2"
+    },
+    "boolq-782b252bb2b681c2-e03": {
+      "substitute_sentence": "The United States has participated in every World Cup since 1990 until they failed to qualify for the 2018 competition after a loss to Trinidad and Tobago in 2017.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-782b252bb2b681c2"
+    },
+    "boolq-2881998558092c8f-e01": {
+      "substitute_sentence": "Amazon Video is an Internet video on demand service that is developed, owned, and operated by Amazon.com.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-2881998558092c8f"
+    },
+    "boolq-2881998558092c8f-e02": {
+      "substitute_sentence": "It offers television shows and films for rent or purchase and Prime Video, a selection of Amazon Studios original content and licensed acquisitions included in the Amazon's Prime subscription.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-2881998558092c8f"
+    },
+    "boolq-2881998558092c8f-e03": {
+      "substitute_sentence": "In the UK, US, Germany, and Austria, access to Prime Video is also available through a video-only membership, which does not require a full Prime subscription.",
+      "in_length_window": true,
+      "deviation_log": [
+        "initial"
+      ],
+      "generation_mode": "initial",
+      "source_label": "yes",
+      "source_root": "boolq-2881998558092c8f"
+    }
+  }
+}

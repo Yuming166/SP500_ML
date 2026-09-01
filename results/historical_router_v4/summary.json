@@ -1,0 +1,764 @@
+{
+  "audits": {
+    "agent_count": 11,
+    "legacy_contract_mismatch_preserved_and_corrected_in_v4": true,
+    "legacy_protocol_documented_agents": 6,
+    "legacy_protocol_documented_roots": 5,
+    "mean_stress_risk_increase": 0.032886768263045776,
+    "monotonicity_violations": 0,
+    "outer_folds": 6,
+    "outer_test_rows": 738,
+    "paired_margin_satisfaction": 0.4749516223151587,
+    "root_count": 7
+  },
+  "claim_boundary": "This is a retrospective cross-domain routing development experiment. It is not evidence of investment alpha, causal market impact, or prospective cross-model generalization.",
+  "folds": [
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.05076279682260642,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.6686046511627907
+      },
+      "calibration_timestamps": 75,
+      "fit_timestamps": 172,
+      "fold": 0,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.19982936788873237,
+            "intervention_inertia": 0.22275630282456135,
+            "quality_risk": 0.010130051967533943,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.07639329180523159
+          },
+          "converged": true,
+          "intercept": -0.3425782966628002,
+          "method_offsets": {
+            "method_majority": -0.0755620705444481,
+            "method_recent_performance": -0.15051935646068232
+          },
+          "objective": 0.6898380911219997
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.7838929965950211,
+            "intervention_inertia": 1.252822418405253,
+            "quality_risk": 0.0,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.0033598569680010444
+          },
+          "converged": true,
+          "intercept": -1.6707355831766848,
+          "method_offsets": {
+            "method_majority": -0.18878037598538303,
+            "method_recent_performance": -0.016783757731098276
+          },
+          "objective": 0.7034061659170412
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.1517818624931206,
+            "flip_inertia": 0.7127763181555381,
+            "intervention_inertia": 1.1842211046215907,
+            "quality_risk": 0.00022416286826035687,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.019755369214898975
+          },
+          "converged": true,
+          "intercept": -1.5292434378985102,
+          "method_offsets": {
+            "method_majority": -0.0392617392677026,
+            "method_recent_performance": -0.2505342685818312
+          },
+          "objective": 0.7221919674516868
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.15177408986647573,
+            "flip_inertia": 0.7127769649052019,
+            "intervention_inertia": 1.1842274849028211,
+            "quality_risk": 0.0002236986586014015,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.0199794187519758
+          },
+          "converged": true,
+          "intercept": -1.5293278657903668,
+          "method_offsets": {
+            "method_majority": -0.039261887989862354,
+            "method_recent_performance": -0.25052871517065856
+          },
+          "objective": 0.7222010533005655
+        }
+      },
+      "test_end": "2023-11-14",
+      "test_start": "2023-05-17",
+      "thresholds": {
+        "confidence": 0.9039626871524994,
+        "cpr_no_anchor": 0.489386084262761,
+        "cpr_no_group_dro": 0.5444620979811718,
+        "cpr_no_stress": 0.5377924705489262,
+        "cpr_router": 0.5377927946972303,
+        "fixed_structural": 0.6,
+        "majority": 0.2727272727272727,
+        "provenance": 1.0,
+        "recent_performance": 0.9564332841730363
+      },
+      "train_end": "2023-05-09",
+      "train_start": "2021-05-10"
+    },
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.04055384378077662,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.5555555555555556
+      },
+      "calibration_timestamps": 112,
+      "fit_timestamps": 261,
+      "fold": 1,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.1364058571007648,
+            "intervention_inertia": 0.1286885180478268,
+            "quality_risk": 0.03759846964490656,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.05185538178544517
+          },
+          "converged": true,
+          "intercept": -0.4425376862695447,
+          "method_offsets": {
+            "method_majority": -0.08803930625789105,
+            "method_recent_performance": -0.008039752365128815
+          },
+          "objective": 0.6849442536733678
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.03490141858236842,
+            "consensus_risk": 0.2318069370008953,
+            "flip_inertia": 0.7543426687248328,
+            "intervention_inertia": 1.2211721836241534,
+            "quality_risk": 0.049136404519267665,
+            "root_disagreement": 0.07643187021447918,
+            "source_concentration": 0.01003212354034812
+          },
+          "converged": true,
+          "intercept": -1.991289063829872,
+          "method_offsets": {
+            "method_majority": -0.09421682067686542,
+            "method_recent_performance": -0.0053155769110617606
+          },
+          "objective": 0.7166156707009078
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.043732104741426775,
+            "consensus_risk": 0.22875952849600836,
+            "flip_inertia": 0.7461602634519398,
+            "intervention_inertia": 1.2122838371688283,
+            "quality_risk": 0.052493736230131746,
+            "root_disagreement": 0.03926690366949118,
+            "source_concentration": 0.009524536082358183
+          },
+          "converged": true,
+          "intercept": -2.088949574885417,
+          "method_offsets": {
+            "method_majority": -0.07178490009968834,
+            "method_recent_performance": -0.009676534909776062
+          },
+          "objective": 0.7139603583410583
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.04372016486639026,
+            "consensus_risk": 0.22874878803780765,
+            "flip_inertia": 0.7461608080907164,
+            "intervention_inertia": 1.2122881770651996,
+            "quality_risk": 0.05249001997039087,
+            "root_disagreement": 0.03926349458132587,
+            "source_concentration": 0.009881228308159334
+          },
+          "converged": true,
+          "intercept": -2.0890610545953114,
+          "method_offsets": {
+            "method_majority": -0.07179373745848448,
+            "method_recent_performance": -0.009672019748122325
+          },
+          "objective": 0.7139752481319381
+        }
+      },
+      "test_end": "2024-05-16",
+      "test_start": "2023-11-15",
+      "thresholds": {
+        "confidence": 0.9002558899375855,
+        "cpr_no_anchor": 0.4405454253430625,
+        "cpr_no_group_dro": 0.49196729855173693,
+        "cpr_no_stress": 0.46884152683908425,
+        "cpr_router": 0.46884051061654775,
+        "fixed_structural": 0.6,
+        "majority": 0.18181818181818177,
+        "provenance": 1.0,
+        "recent_performance": 0.9405938642776859
+      },
+      "train_end": "2023-11-07",
+      "train_start": "2021-05-10"
+    },
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.033043055398066346,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.47564469914040114
+      },
+      "calibration_timestamps": 150,
+      "fit_timestamps": 349,
+      "fold": 2,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.21883928406909012,
+            "intervention_inertia": 0.21190645285848608,
+            "quality_risk": 0.0038172843674963842,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.010441640551231934
+          },
+          "converged": true,
+          "intercept": -0.3571284168498601,
+          "method_offsets": {
+            "method_majority": -0.05291623805432315,
+            "method_recent_performance": -0.0037354037788674016
+          },
+          "objective": 0.6909314486700389
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.021299359047114618,
+            "consensus_risk": 0.17635201136237383,
+            "flip_inertia": 0.7588532558504216,
+            "intervention_inertia": 1.2256454758473945,
+            "quality_risk": 0.03695568114015948,
+            "root_disagreement": 0.13172364112417054,
+            "source_concentration": 0.00665818372675362
+          },
+          "converged": true,
+          "intercept": -2.024480553962896,
+          "method_offsets": {
+            "method_majority": -0.07133502060588381,
+            "method_recent_performance": -0.003973641824506396
+          },
+          "objective": 0.7163562539403127
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.058226635662775354,
+            "flip_inertia": 0.7582038950317874,
+            "intervention_inertia": 1.2238682077601752,
+            "quality_risk": 0.03333173148214085,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.004679260236085437
+          },
+          "converged": true,
+          "intercept": -1.8632414156437767,
+          "method_offsets": {
+            "method_majority": -0.0661379549816374,
+            "method_recent_performance": -0.006425528205674314
+          },
+          "objective": 0.7151700259722401
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.058210933997465644,
+            "flip_inertia": 0.7581972725111742,
+            "intervention_inertia": 1.2238579405238312,
+            "quality_risk": 0.03333559074083037,
+            "root_disagreement": 0.0,
+            "source_concentration": 0.005111867121236743
+          },
+          "converged": true,
+          "intercept": -1.8633700407369973,
+          "method_offsets": {
+            "method_majority": -0.06613559897612027,
+            "method_recent_performance": -0.006429736306387405
+          },
+          "objective": 0.715188930472746
+        }
+      },
+      "test_end": "2024-11-14",
+      "test_start": "2024-05-17",
+      "thresholds": {
+        "confidence": 0.8863412123170245,
+        "cpr_no_anchor": 0.5061945272031504,
+        "cpr_no_group_dro": 0.4884107045947474,
+        "cpr_no_stress": 0.5182786613352047,
+        "cpr_router": 0.5182784492542939,
+        "fixed_structural": 0.5800000000000001,
+        "majority": 0.2727272727272727,
+        "provenance": 1.0,
+        "recent_performance": 0.9421432154450442
+      },
+      "train_end": "2024-05-09",
+      "train_start": "2021-05-10"
+    },
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.027750868149166195,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.4462242562929062
+      },
+      "calibration_timestamps": 188,
+      "fit_timestamps": 437,
+      "fold": 3,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.0,
+            "intervention_inertia": 0.0,
+            "quality_risk": 0.0479213099254116,
+            "root_disagreement": 0.0634224098217579,
+            "source_concentration": 0.05481330766415592
+          },
+          "converged": true,
+          "intercept": -0.11611752973675787,
+          "method_offsets": {
+            "method_majority": -0.03751480437100909,
+            "method_recent_performance": 0.0008967724139893122
+          },
+          "objective": 0.6911398407886528
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.055117191051550225,
+            "flip_inertia": 0.7527650840418885,
+            "intervention_inertia": 1.218404872200245,
+            "quality_risk": 0.06513503035945221,
+            "root_disagreement": 0.20900805617750193,
+            "source_concentration": 0.016625568026053108
+          },
+          "converged": true,
+          "intercept": -2.214078635856605,
+          "method_offsets": {
+            "method_majority": -0.06329922354007744,
+            "method_recent_performance": -0.0021056696626938734
+          },
+          "objective": 0.7089374605805941
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.004998650512699012,
+            "flip_inertia": 0.7187804623630244,
+            "intervention_inertia": 1.1833261528300083,
+            "quality_risk": 0.10721400446670705,
+            "root_disagreement": 0.1811561288145025,
+            "source_concentration": 0.014295130696534385
+          },
+          "converged": true,
+          "intercept": -1.8650900377415265,
+          "method_offsets": {
+            "method_majority": -0.03515464150886083,
+            "method_recent_performance": 0.001649932417036966
+          },
+          "objective": 0.7299025845884192
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0050018235660568644,
+            "flip_inertia": 0.7187836855366333,
+            "intervention_inertia": 1.183335576142065,
+            "quality_risk": 0.10721408784467867,
+            "root_disagreement": 0.18114990657514793,
+            "source_concentration": 0.014762187721919848
+          },
+          "converged": true,
+          "intercept": -1.8652696804214994,
+          "method_offsets": {
+            "method_majority": -0.03515465840469168,
+            "method_recent_performance": 0.0016578633727469551
+          },
+          "objective": 0.7299219754305506
+        }
+      },
+      "test_end": "2025-05-20",
+      "test_start": "2024-11-15",
+      "thresholds": {
+        "confidence": 0.8204106368341709,
+        "cpr_no_anchor": 0.4693372944976205,
+        "cpr_no_group_dro": 0.4320447052536512,
+        "cpr_no_stress": 0.5105578440627333,
+        "cpr_router": 0.5105478552274396,
+        "fixed_structural": 0.5636363636363636,
+        "majority": 0.0,
+        "provenance": 0.8784595883148094,
+        "recent_performance": 0.8185640401243623
+      },
+      "train_end": "2024-11-07",
+      "train_start": "2021-05-10"
+    },
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.023965588141710233,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.379047619047619
+      },
+      "calibration_timestamps": 226,
+      "fit_timestamps": 525,
+      "fold": 4,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.0,
+            "consensus_risk": 0.0,
+            "flip_inertia": 0.0878647139048512,
+            "intervention_inertia": 0.08399446789833497,
+            "quality_risk": 0.017545249993345478,
+            "root_disagreement": 0.11721209096812234,
+            "source_concentration": 0.046475448670024073
+          },
+          "converged": true,
+          "intercept": -0.32759467287182736,
+          "method_offsets": {
+            "method_majority": -0.04368315455629179,
+            "method_recent_performance": -0.022096066527818616
+          },
+          "objective": 0.6878987879507933
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.09887229102680826,
+            "consensus_risk": 0.21865462383379047,
+            "flip_inertia": 0.7533678120881698,
+            "intervention_inertia": 1.2194137499237339,
+            "quality_risk": 0.07125860576031413,
+            "root_disagreement": 0.24087919615332387,
+            "source_concentration": 0.018197513330809836
+          },
+          "converged": true,
+          "intercept": -2.4401027680553584,
+          "method_offsets": {
+            "method_majority": -0.01788167486540996,
+            "method_recent_performance": -0.007388817120628455
+          },
+          "objective": 0.701800657205611
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.03711803114833642,
+            "consensus_risk": 0.12889708886628468,
+            "flip_inertia": 0.7547115474502673,
+            "intervention_inertia": 1.221138209915268,
+            "quality_risk": 0.04863408593126152,
+            "root_disagreement": 0.20389925564164327,
+            "source_concentration": 0.010661691759816861
+          },
+          "converged": true,
+          "intercept": -2.100274892540353,
+          "method_offsets": {
+            "method_majority": -0.03207587776479967,
+            "method_recent_performance": -0.02833949380829461
+          },
+          "objective": 0.7160293248774222
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.03712519548296338,
+            "consensus_risk": 0.12887352188242485,
+            "flip_inertia": 0.7547127412554424,
+            "intervention_inertia": 1.2211423219937578,
+            "quality_risk": 0.04860535333113215,
+            "root_disagreement": 0.2038814379774977,
+            "source_concentration": 0.011171910041861128
+          },
+          "converged": true,
+          "intercept": -2.1004272755036437,
+          "method_offsets": {
+            "method_majority": -0.03207987746123962,
+            "method_recent_performance": -0.028348854496983517
+          },
+          "objective": 0.7160514793456388
+        }
+      },
+      "test_end": "2025-11-18",
+      "test_start": "2025-05-21",
+      "thresholds": {
+        "confidence": 0.7847209728654472,
+        "cpr_no_anchor": 0.456519412423966,
+        "cpr_no_group_dro": 0.38960051640330384,
+        "cpr_no_stress": 0.46750777924093534,
+        "cpr_router": 0.4675027165700488,
+        "fixed_structural": 0.5636363636363636,
+        "majority": 0.0,
+        "provenance": 0.8531098865213153,
+        "recent_performance": 0.7856738618450716
+      },
+      "train_end": "2025-05-13",
+      "train_start": "2021-05-10"
+    },
+    {
+      "audit": {
+        "mean_stress_risk_increase": 0.021244457285948832,
+        "monotonicity_violations": 0,
+        "paired_margin_satisfaction": 0.32463295269168024
+      },
+      "calibration_timestamps": 264,
+      "fit_timestamps": 613,
+      "fold": 5,
+      "models": {
+        "cpr_no_anchor": {
+          "coefficients": {
+            "action_confidence_risk": 0.08084617163714782,
+            "consensus_risk": 0.20970839010376593,
+            "flip_inertia": 0.0,
+            "intervention_inertia": 0.0,
+            "quality_risk": 0.05082727046469714,
+            "root_disagreement": 0.1173000740816525,
+            "source_concentration": 0.16606386955687566
+          },
+          "converged": true,
+          "intercept": -0.45852525305670533,
+          "method_offsets": {
+            "method_majority": 0.009942681203854395,
+            "method_recent_performance": -0.03787794039915431
+          },
+          "objective": 0.6713130349345025
+        },
+        "cpr_no_group_dro": {
+          "coefficients": {
+            "action_confidence_risk": 0.0867657699982246,
+            "consensus_risk": 0.2107831588160561,
+            "flip_inertia": 0.7568241149173424,
+            "intervention_inertia": 1.221616748663401,
+            "quality_risk": 0.05577012554726797,
+            "root_disagreement": 0.21040484583033695,
+            "source_concentration": 0.01615230960152928
+          },
+          "converged": true,
+          "intercept": -2.4372034412301944,
+          "method_offsets": {
+            "method_majority": -0.01252519875040219,
+            "method_recent_performance": -0.006835428321398476
+          },
+          "objective": 0.7009647491137186
+        },
+        "cpr_no_stress": {
+          "coefficients": {
+            "action_confidence_risk": 0.22992202199567957,
+            "consensus_risk": 0.38402346162040835,
+            "flip_inertia": 0.7259129763111698,
+            "intervention_inertia": 1.1906936085434814,
+            "quality_risk": 0.08178045082882744,
+            "root_disagreement": 0.22545274532831902,
+            "source_concentration": 0.021514463023599807
+          },
+          "converged": true,
+          "intercept": -2.33788896440398,
+          "method_offsets": {
+            "method_majority": 0.07629950567868433,
+            "method_recent_performance": -0.05494165897665088
+          },
+          "objective": 0.7126917946823806
+        },
+        "cpr_router": {
+          "coefficients": {
+            "action_confidence_risk": 0.22986575224617822,
+            "consensus_risk": 0.3841187070485603,
+            "flip_inertia": 0.7259445090737885,
+            "intervention_inertia": 1.190652197092557,
+            "quality_risk": 0.08201281290849204,
+            "root_disagreement": 0.22503038881607412,
+            "source_concentration": 0.022054849731773806
+          },
+          "converged": true,
+          "intercept": -2.338042113518281,
+          "method_offsets": {
+            "method_majority": 0.07624584023144418,
+            "method_recent_performance": -0.054894177518785676
+          },
+          "objective": 0.7127131999810538
+        }
+      },
+      "test_end": "2026-04-27",
+      "test_start": "2025-11-19",
+      "thresholds": {
+        "confidence": 0.7965659879467377,
+        "cpr_no_anchor": 0.418554898542112,
+        "cpr_no_group_dro": 0.39213715857285975,
+        "cpr_no_stress": 0.4263548527941906,
+        "cpr_router": 0.42632723830405017,
+        "fixed_structural": 0.5704761904761905,
+        "majority": 0.09090909090909094,
+        "provenance": 1.0,
+        "recent_performance": 0.8293901858830894
+      },
+      "train_end": "2025-11-11",
+      "train_start": "2021-05-10"
+    }
+  ],
+  "primary": {
+    "ci": [
+      -0.0295377073727585,
+      0.0377416834765525
+    ],
+    "confirmatory_eligible": false,
+    "coverage_gate": true,
+    "difference": 0.0048877161986237705,
+    "directional_target_met": false,
+    "name": "routed_error_cpr_minus_confidence"
+  },
+  "protocol_version": "historical-router-v4-2026-09-02",
+  "source_prior": {
+    "coefficients": {
+      "flip_inertia": 0.8606482636173061,
+      "intervention_inertia": 1.3748536251794683,
+      "source_concentration": 0.0
+    },
+    "error_prevalence": 0.22,
+    "intercept": -2.368773492673928,
+    "n_questions": 300,
+    "objective": 0.45959818968859756,
+    "records": "results/pilot_llm_v12_1/formal/records.jsonl"
+  },
+  "status": "RETROSPECTIVE_DEVELOPMENT_ONLY",
+  "summaries": {
+    "confidence": {
+      "aurc": 0.4183556206099844,
+      "coverage": 0.7669376693766937,
+      "false_rejection": 0.24731182795698925,
+      "max_drawdown": -0.13980167600615456,
+      "mean_5d_return": 0.0034005059104570646,
+      "mean_5d_return_net_10bps": 0.0031775329374840915,
+      "mean_5d_return_net_5bps": 0.003289019423970578,
+      "routed_error": 0.38162544169611307,
+      "router": "confidence",
+      "selected_brier": 0.3441141255147037,
+      "turnover": 0.22297297297297297,
+      "worst_vix_regime_error": 0.3888888888888889
+    },
+    "cpr_no_anchor": {
+      "aurc": 0.36655447767221017,
+      "coverage": 0.7953929539295393,
+      "false_rejection": 0.2064516129032258,
+      "max_drawdown": -0.1348177395329223,
+      "mean_5d_return": 0.0027928067443009413,
+      "mean_5d_return_net_10bps": 0.0026644283659225626,
+      "mean_5d_return_net_5bps": 0.002728617555111752,
+      "routed_error": 0.37137989778534924,
+      "router": "cpr_no_anchor",
+      "selected_brier": 0.32384487982132026,
+      "turnover": 0.12837837837837837,
+      "worst_vix_regime_error": 0.4406779661016949
+    },
+    "cpr_no_group_dro": {
+      "aurc": 0.3737683820862508,
+      "coverage": 0.7804878048780488,
+      "false_rejection": 0.24946236559139784,
+      "max_drawdown": -0.15407123502794884,
+      "mean_5d_return": 0.0017622181607660342,
+      "mean_5d_return_net_10bps": 0.001566272214820088,
+      "mean_5d_return_net_5bps": 0.0016642451877930612,
+      "routed_error": 0.3940972222222222,
+      "router": "cpr_no_group_dro",
+      "selected_brier": 0.3484418044077135,
+      "turnover": 0.19594594594594594,
+      "worst_vix_regime_error": 0.46153846153846156
+    },
+    "cpr_no_stress": {
+      "aurc": 0.3657970690911684,
+      "coverage": 0.8238482384823849,
+      "false_rejection": 0.1978494623655914,
+      "max_drawdown": -0.15407123502794884,
+      "mean_5d_return": 0.002540872632877765,
+      "mean_5d_return_net_10bps": 0.002358440200445332,
+      "mean_5d_return_net_5bps": 0.0024496564166615483,
+      "routed_error": 0.38651315789473684,
+      "router": "cpr_no_stress",
+      "selected_brier": 0.33803039719428896,
+      "turnover": 0.18243243243243243,
+      "worst_vix_regime_error": 0.42105263157894735
+    },
+    "cpr_router": {
+      "aurc": 0.36580325636765304,
+      "coverage": 0.8238482384823849,
+      "false_rejection": 0.1978494623655914,
+      "max_drawdown": -0.15407123502794884,
+      "mean_5d_return": 0.002540872632877765,
+      "mean_5d_return_net_10bps": 0.002358440200445332,
+      "mean_5d_return_net_5bps": 0.0024496564166615483,
+      "routed_error": 0.38651315789473684,
+      "router": "cpr_router",
+      "selected_brier": 0.33803039719428896,
+      "turnover": 0.18243243243243243,
+      "worst_vix_regime_error": 0.42105263157894735
+    },
+    "fixed_structural": {
+      "aurc": 0.392329090133345,
+      "coverage": 0.8387533875338753,
+      "false_rejection": 0.16630196936542668,
+      "max_drawdown": -0.11712231786617577,
+      "mean_5d_return": 0.003506430229842739,
+      "mean_5d_return_net_10bps": 0.00333751131092382,
+      "mean_5d_return_net_5bps": 0.003421970770383279,
+      "routed_error": 0.38449111470113084,
+      "router": "fixed_structural",
+      "selected_brier": 0.24299681948999388,
+      "turnover": 0.16891891891891891,
+      "worst_vix_regime_error": 0.4026666666666667
+    },
+    "majority": {
+      "aurc": 0.3987811783269171,
+      "coverage": 0.6842818428184282,
+      "false_rejection": 0.35268817204301073,
+      "max_drawdown": -0.11712231786617566,
+      "mean_5d_return": 0.0027306254590449604,
+      "mean_5d_return_net_10bps": 0.002602247080666582,
+      "mean_5d_return_net_5bps": 0.0026664362698557713,
+      "routed_error": 0.403960396039604,
+      "router": "majority",
+      "selected_brier": 0.36910236478193276,
+      "turnover": 0.12837837837837837,
+      "worst_vix_regime_error": 0.45634920634920634
+    },
+    "provenance": {
+      "aurc": 0.4313252814349488,
+      "coverage": 0.8563685636856369,
+      "false_rejection": 0.15317286652078774,
+      "max_drawdown": -0.10222948561374667,
+      "mean_5d_return": 0.0037023263863669494,
+      "mean_5d_return_net_10bps": 0.0036144885485291114,
+      "mean_5d_return_net_5bps": 0.003658407467448031,
+      "routed_error": 0.3876582278481013,
+      "router": "provenance",
+      "selected_brier": 0.24288874922597758,
+      "turnover": 0.08783783783783784,
+      "worst_vix_regime_error": 0.4031413612565445
+    },
+    "recent_performance": {
+      "aurc": 0.42655209033570285,
+      "coverage": 0.6517615176151762,
+      "false_rejection": 0.38311688311688313,
+      "max_drawdown": -0.13980167600615445,
+      "mean_5d_return": 0.002728679115053943,
+      "mean_5d_return_net_10bps": 0.002573273709648537,
+      "mean_5d_return_net_5bps": 0.00265097641235124,
+      "routed_error": 0.4074844074844075,
+      "router": "recent_performance",
+      "selected_brier": 0.24502416188609422,
+      "turnover": 0.1554054054054054,
+      "worst_vix_regime_error": 0.42570281124497994
+    }
+  }
+}

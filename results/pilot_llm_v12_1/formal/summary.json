@@ -1,0 +1,156 @@
+{
+  "protocol_version": "pilot-llm-v12.1-2026-09-02",
+  "mode": "formal",
+  "expected_examples": 358,
+  "agent_count": 5,
+  "expected_calls": 7160,
+  "records": 7160,
+  "instrumentation": {
+    "valid_records": 7160,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "transfer_bytes": 16378673
+  },
+  "primary": {
+    "name": "R_PI_wrong_high_consensus",
+    "auroc": 0.7051605801605801,
+    "auroc_ci": [
+      0.6200274348422496,
+      0.7813093289689035
+    ],
+    "auprc": 0.41394849709810866,
+    "auprc_ci": [
+      0.3071047312944132,
+      0.5313430971817652
+    ],
+    "n": 300,
+    "positives": 66,
+    "negatives": 234,
+    "count_gate_passed": true,
+    "passes_ci_lower_above_0_5": true,
+    "verdict": "PASS"
+  },
+  "high_consensus": {
+    "threshold": 0.8,
+    "n": 300,
+    "fraction": 0.8379888268156425,
+    "wrong": 66,
+    "wrong_prevalence": 0.22
+  },
+  "secondary": {
+    "D_inert__wrong_high_consensus": {
+      "auroc": 0.7905335405335405,
+      "auroc_ci": [
+        0.7235403726708075,
+        0.8502383474576272
+      ],
+      "auprc": 0.48941526055561146,
+      "auprc_ci": [
+        0.378754740272252,
+        0.60916044636939
+      ],
+      "n": 300,
+      "positives": 66,
+      "negatives": 234
+    },
+    "flip_inertia__wrong_high_consensus": {
+      "auroc": 0.8067210567210568,
+      "auroc_ci": [
+        0.7442634381338742,
+        0.8627458256029684
+      ],
+      "auprc": 0.4944386207937656,
+      "auprc_ci": [
+        0.3836959124286665,
+        0.6153380295192954
+      ],
+      "n": 300,
+      "positives": 66,
+      "negatives": 234
+    },
+    "frac_shared__wrong_high_consensus": {
+      "auroc": 0.4977984977984978,
+      "auroc_ci": [
+        0.41938376785599896,
+        0.5706135902636917
+      ],
+      "auprc": 0.22423138613842647,
+      "auprc_ci": [
+        0.17058709875116582,
+        0.2850432395575781
+      ],
+      "n": 300,
+      "positives": 66,
+      "negatives": 234
+    },
+    "R_PI__harmful_fc_all": {
+      "auroc": 0.71175799086758,
+      "auroc_ci": [
+        0.6309267524284589,
+        0.7956361560813615
+      ],
+      "auprc": 0.3898401758994029,
+      "auprc_ci": [
+        0.2946546113876213,
+        0.5054446662839613
+      ],
+      "n": 358,
+      "positives": 66,
+      "negatives": 292
+    }
+  },
+  "router": {
+    "n": 300,
+    "coverage": 0.8,
+    "baseline_error": 0.22,
+    "routed_error": 0.13333333333333333,
+    "error_reduction": 0.08666666666666667,
+    "error_reduction_ci": [
+      0.04583333333333334,
+      0.0975
+    ]
+  },
+  "intervention_flip_rates": {
+    "remove": 0.46983240223463685,
+    "reverse": 0.32737430167597764,
+    "substitute": 0.3005586592178771
+  },
+  "risk_contract": {
+    "weights": {
+      "D_inert": 0.1,
+      "flip_inertia": 0.3,
+      "frac_shared": 0.6
+    },
+    "allowed_inputs": [
+      "D_inert",
+      "flip_inertia",
+      "frac_shared"
+    ],
+    "forbidden_inputs": [
+      "any_wrong",
+      "correct",
+      "gold_binary",
+      "harmful_fc",
+      "label"
+    ],
+    "outcome_independent": true
+  },
+  "substitute_summary": {
+    "initial": 1062,
+    "deterministic_short_normalization": 9,
+    "v12_1_second_repair": 1,
+    "repair": 2
+  },
+  "parallel_execution": {
+    "workers": 4,
+    "endpoint_concurrency_only": true,
+    "physical_gpu_count_verified": false,
+    "shard_record_counts": [
+      1780,
+      1780,
+      1800,
+      1800
+    ],
+    "merge_unique_records": 7160
+  }
+}

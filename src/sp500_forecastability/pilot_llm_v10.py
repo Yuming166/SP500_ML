@@ -1,22 +1,17 @@
-"""Pilot-LLM V10 preregistered paired-intervention runner.
+"""Pilot-LLM V10.1 preregistered paired-intervention runner.
 
-BoolQ (Wikipedia yes/no) binary composites from the ``google/boolq``
-HF mirror, partitioned evidence packets (5 agents x 2-of-3 subsets of
-passages), four conditions (original / remove / reverse / substitute),
+BoolQ (Wikipedia yes/no) questions with three sentence-level evidence
+units from one source passage, partitioned evidence packets (5 agents x
+2-of-3 subsets), four conditions (original / remove / reverse / substitute),
 three co-registered risk endpoints (D_inert, D_conf, D_OR), and the
-co-primary shared-citation detector ``shared_weighted`` (§9 of
-docs/pilot_llm_v10_preregistration.md).
+co-primary shared-citation detector ``shared_weighted`` (§5 of
+docs/pilot_llm_v10_1_preregistration.md).
 
-V10 is a **domain pivot** from V5/V6/V7 (FEVER, saturated consensus,
-89% unanimous) to BoolQ (Wikipedia yes/no, expected diverse consensus
-given 62/38 True/False raw label distribution). It tests whether the
-R2 (AUROC-weighted vote) router's V4 advantage (+0.43 AUROC vs
-BL_majority on TQA) generalizes to other diverse-consensus domains.
-
-V10 inherits V7's protocol structure (partitions, condition set,
-agent-persona set, instrumentation, scoring), V7's N=100 design, V7's
-co-primary any-passes verdict logic, and V9's router variants. The
-dataset change is registered as D1_v10.
+V10.1 supersedes the unexecuted V10 design before any V10 model call.
+It preserves the V7 protocol structure but removes label/evidence leakage,
+uses the exact raw passage as a provenance root, and freezes candidate
+selection before any rewrite or evaluation-model output.  See
+``docs/pilot_llm_v10_1_preregistration.md``.
 """
 
 from __future__ import annotations
@@ -34,8 +29,10 @@ from math import isfinite
 from pathlib import Path
 from typing import Any
 
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import average_precision_score, brier_score_loss
+from sklearn.metrics.pairwise import cosine_similarity
 
 from sp500_forecastability.metrics import expected_calibration_error
 from sp500_forecastability.pilot_llm_v1 import (
@@ -53,11 +50,10 @@ from sp500_forecastability.pilot_llm_v1 import (
 
 # --- V6 constants ---------------------------------------------------------- #
 
-PROTOCOL_VERSION = "pilot-llm-v10-2026-09-01"
-SALT = b"pilot-llm-v10-2026-09-01\n"  # V10 D2_v10: fresh salt
-# CQID hash uses V10's PROTOCOL_VERSION so V10 cqids DON'T collide with V5/V7/V9
-CQID_PROTOCOL_VERSION = "pilot-llm-v10-2026-09-01"
-CQID_PREFIX = "v10"  # cqids are v10-prefixed (V10 selection is independent of V5/V7)
+PROTOCOL_VERSION = "pilot-llm-v10.1-2026-09-01"
+SALT = b"pilot-llm-v10.1-2026-09-01\n"
+CQID_PROTOCOL_VERSION = PROTOCOL_VERSION
+CQID_PREFIX = "v10_1"
 BOOTSTRAP_SEED = 20_260_902          # V6 §11.0 (inherited from V5)
 BOOTSTRAP_REPLICATES = 1_000
 N_AGENTS = 5
@@ -69,6 +65,11 @@ CONDITIONS: tuple[str, ...] = ("original", "remove", "reverse", "substitute")
 CONFIDENCE_BAND = 0.05
 PLATT_TARGET_COVERAGE = 0.80
 SUBSTITUTE_FAIL_FAST_PCT = 0.10      # V6 §6.3 (inherited from V5)
+MIN_SENTENCE_TOKENS = 8
+MAX_SENTENCE_TOKENS = 80
+MIN_MEAN_COSINE = 0.08
+MIN_MAX_COSINE = 0.10
+MAX_MAX_COSINE = 0.60
 
 # V6 endpoint: reuse the V5 Qwen3.5-4B endpoint (D3_v6: same-model).
 DEFAULT_ENDPOINT = "http://10.63.0.88:31519/v1/chat/completions"
@@ -76,7 +77,7 @@ DEFAULT_ENDPOINT = "http://10.63.0.88:31519/v1/chat/completions"
 DEFAULT_DATASET = Path(
     "/storage/gaoym/sp500-forecastability-lab/data/boolq/train.parquet"
 )
-DEFAULT_ROOT = Path("results/pilot_llm_v10")
+DEFAULT_ROOT = Path("results/pilot_llm_v10_1")
 
 # Same partition table as V5: 5 agents x 2-of-3 subsets of {E01, E02, E03}.
 PARTITION_TABLE: tuple[frozenset[str], ...] = (
@@ -109,99 +110,89 @@ RESPONSE_FIELDS = {"agent_id", "answer", "confidence", "cited_evidence_ids"}
 
 # --- 1. BoolQ loader ------------------------------------------------------- #
 
-import re as _re
-
-
 @dataclass(frozen=True)
 class BoolQItem:
     qid: str
-    question: str       # the BoolQ yes/no question
-    passage: str       # the Wikipedia passage (used as "evidence")
-    label: str         # "yes" or "no" (V5-style binary)
-    entity: str        # Wikipedia page title (extracted heuristic; D5_v10)
+    question: str
+    passage: str
+    label: str
+    source_root: str
+    evidence_index: int
+    overlap_mean: float
+    overlap_max: float
 
 
-_SKIP_TITLE_WORDS = frozenset({
-    # articles
-    "The", "A", "An", "The", "Da", "De", "Le", "La", "El",
-    # prepositions / subordinators
-    "In", "On", "At", "By", "For", "With", "From", "Of", "To", "As",
-    "About", "Between", "During", "Before", "After", "Since", "Until",
-    "Through", "Against", "Without", "Within", "Among", "Across",
-    "Although", "Though", "However", "While", "When", "Whenever",
-    "Where", "Because", "Since", "Unless", "If", "Whether",
-    # pronouns
-    "It", "Its", "This", "That", "These", "Those", "He", "She",
-    "They", "His", "Her", "Their", "Them", "I", "We", "You", "They",
-    "There", "Here",
-    # common non-title openers
-    "Although", "However", "Most", "Some", "Many", "Several",
-    "Other", "Such", "Each", "Every", "Any", "All", "Both",
-    "First", "Second", "Third", "One", "Two", "Three",
-})
+_SENTENCE_BOUNDARY = re.compile(r"(?<=[.!?])\s+")
 
 
-def _extract_wiki_title(passage: str) -> str:
-    """V10 D5_v10: heuristic Wikipedia title extraction from passage
-    lead text. Strips leading articles/pronouns/prepositions, then
-    captures up to 5 capitalized words (proper-noun like). Returns "" if
-    no proper-noun sequence can be identified (the passage is then
-    excluded from V10's clustering).
+def _sentence_evidence_units(
+    passage: str,
+) -> tuple[tuple[str, ...], float, float] | None:
+    """Return the frozen first three related-but-distinct evidence units.
+
+    This gate reads raw BoolQ text only.  It never consults LLM rewrites,
+    agent answers, confidence, routing scores, or downstream outcomes.
     """
-    if not passage:
-        return ""
-    head = passage[:200]
-    tokens = head.split()
-    # Strip leading common words (compare stripped token to skip set)
-    def _strip_punct(t: str) -> str:
-        return t.strip(".,;:!?'\"()[]{}").strip()
-    while tokens and _strip_punct(tokens[0]) in _SKIP_TITLE_WORDS:
-        tokens = tokens[1:]
-    # Collect up to 5 capitalized words
-    caps: list[str] = []
-    for t in tokens:
-        t_clean = t.strip(".,;:!?'\"()[]{}").strip()
-        if not t_clean:
-            continue
-        if not (t_clean[0].isalpha() and t_clean[0].isupper()):
-            # non-capitalized word
-            if caps:
-                # we already collected something → stop
-                break
-            else:
-                # still in leading skip phase → keep going
-                continue
-        caps.append(t_clean)
-        if len(caps) >= 5:
-            break
-    return " ".join(caps)
+    sentences = [
+        sentence.strip()
+        for sentence in _SENTENCE_BOUNDARY.split(passage)
+        if MIN_SENTENCE_TOKENS <= len(sentence.split()) <= MAX_SENTENCE_TOKENS
+    ]
+    if len(sentences) < FACTS_PER_QUESTION:
+        return None
+    units = tuple(sentences[:FACTS_PER_QUESTION])
+    try:
+        matrix = TfidfVectorizer(
+            lowercase=True, stop_words="english", ngram_range=(1, 2)
+        ).fit_transform(units)
+    except ValueError:
+        return None
+    similarities = cosine_similarity(matrix)
+    values = (similarities[0, 1], similarities[0, 2], similarities[1, 2])
+    mean_overlap = float(sum(values) / len(values))
+    max_overlap = float(max(values))
+    if not (
+        MIN_MEAN_COSINE <= mean_overlap
+        and MIN_MAX_COSINE <= max_overlap <= MAX_MAX_COSINE
+    ):
+        return None
+    return units, mean_overlap, max_overlap
 
 
 def load_boolq(path: Path) -> list[BoolQItem]:
-    """Load BoolQ train.parquet (or validation.parquet) and convert
-    boolean answers to V5-style 'yes'/'no' labels. D1_v10: cluster by
-    Wikipedia page title (extracted from passage lead, D5_v10).
-    """
+    """Load three sentence-evidence items for every eligible BoolQ question."""
     import pandas as pd
     df = pd.read_parquet(str(path))
     items: list[BoolQItem] = []
-    seen_qids: set[str] = set()
+    seen_source_roots: set[str] = set()
     for idx, row in df.iterrows():
         question = str(row.get("question", "")).strip()
         passage = str(row.get("passage", "")).strip()
         answer = row.get("answer", None)
         if not question or not passage or answer is None:
             continue
-        qid = "boolq-" + sha256(question.encode()).hexdigest()[:16]
-        if qid in seen_qids:
+        source_root = "boolq-" + sha256(
+            f"{question}\n{passage}".encode()
+        ).hexdigest()[:16]
+        if source_root in seen_source_roots:
             continue
-        seen_qids.add(qid)
+        evidence = _sentence_evidence_units(passage)
+        if evidence is None:
+            continue
+        seen_source_roots.add(source_root)
+        units, overlap_mean, overlap_max = evidence
         label = "yes" if bool(answer) else "no"
-        entity = _extract_wiki_title(passage)
-        items.append(BoolQItem(
-            qid=qid, question=question, passage=passage,
-            label=label, entity=entity,
-        ))
+        for evidence_index, unit in enumerate(units, start=1):
+            items.append(BoolQItem(
+                qid=f"{source_root}-e{evidence_index:02d}",
+                question=question,
+                passage=unit,
+                label=label,
+                source_root=source_root,
+                evidence_index=evidence_index,
+                overlap_mean=overlap_mean,
+                overlap_max=overlap_max,
+            ))
     return items
 
 
@@ -216,104 +207,75 @@ class CompositeQuestion:
 
     @property
     def gold_binary(self) -> int:
-        return 1 if self.label == "no" else 0
+        # The metric parser encodes a yes answer as one.
+        return 1 if self.label == "yes" else 0
 
 
 def _sha_selection_key(qid: str) -> str:
     return sha256(SALT + qid.encode()).hexdigest()
 
 
-def _composite_label_majority(items: Sequence[BoolQItem]) -> str | None:
-    """V10 §4.3: 2-1 splits are dropped; 3-0 only. Returns label."""
-    counts = Counter(it.label for it in items)
-    if counts["yes"] == counts["no"]:
-        return None
-    return "yes" if counts["yes"] > counts["no"] else "no"
-
-
 def build_composite_questions(
     items: Sequence[BoolQItem],
-    substitute_manifest: Mapping[str, Mapping[str, str]],
 ) -> list[CompositeQuestion]:
-    """V10 §4.3: per cluster (Wikipedia page title), salt-sort, group
-    every 3 rows as a composite. Returns the top-50 composites per
-    label ('yes' / 'no'). Items without a successful substitute are
-    excluded upstream.
+    """Freeze top-50 source-passage questions per BoolQ label.
+
+    Each source root is one raw BoolQ question/passage pair and has exactly
+    three deterministic sentence units. Selection cannot depend on rewrite
+    success, evaluation-model output, or downstream metrics.
     """
-    eligible = [
-        it for it in items
-        if substitute_manifest.get(it.qid, {}).get("substitute_sentence")
-    ]
-    by_cluster: dict[str, dict[str, list[BoolQItem]]] = {}
-    for it in eligible:
-        by_cluster.setdefault(it.entity, {"yes": [], "no": []})[it.label].append(it)
+    by_cluster: dict[str, list[BoolQItem]] = {}
+    for item in items:
+        by_cluster.setdefault(item.source_root, []).append(item)
 
     composites_per_label: dict[str, list[CompositeQuestion]] = {
         "yes": [], "no": [],
     }
-    for ent, d in by_cluster.items():
-        for label, members in d.items():
-            members_sorted = sorted(members, key=lambda r: _sha_selection_key(r.qid))
-            for i in range(0, len(members_sorted) - FACTS_PER_QUESTION + 1,
-                           FACTS_PER_QUESTION):
-                triple = tuple(members_sorted[i : i + FACTS_PER_QUESTION])
-                if len(triple) != FACTS_PER_QUESTION:
-                    continue
-                maj = _composite_label_majority(triple)
-                if maj is None:
-                    continue
-                cqid_seed = sha256(
-                    f"{CQID_PROTOCOL_VERSION}\n{ent}\n{i}".encode()
-                ).hexdigest()[:10]
-                cqid = f"{CQID_PREFIX}-{maj[:3].lower()}-{cqid_seed}"
-                qtext = _build_composite_question_text(triple)
-                composites_per_label[maj].append(
-                    CompositeQuestion(
-                        cqid=cqid, question_text=qtext, items=triple, label=maj,
-                    )
-                )
+    for source_root, members in by_cluster.items():
+        triple = tuple(sorted(members, key=lambda item: item.evidence_index))
+        if len(triple) != FACTS_PER_QUESTION:
+            continue
+        if len({item.label for item in triple}) != 1:
+            continue
+        if len({item.question for item in triple}) != 1:
+            continue
+        label = triple[0].label
+        cqid_seed = sha256(
+            f"{CQID_PROTOCOL_VERSION}\n{source_root}".encode()
+        ).hexdigest()[:10]
+        cqid = f"{CQID_PREFIX}-{label}-{cqid_seed}"
+        composites_per_label[label].append(
+            CompositeQuestion(
+                cqid=cqid,
+                question_text=_build_composite_question_text(triple),
+                items=triple,
+                label=label,
+            )
+        )
 
     out: list[CompositeQuestion] = []
     for label in ("yes", "no"):
-        composites_per_label[label].sort(key=lambda c: c.cqid)
+        composites_per_label[label].sort(key=lambda c: _sha_selection_key(c.cqid))
         out.extend(composites_per_label[label][:FORMAL_PER_LABEL])
 
     n_yes = sum(1 for c in out if c.label == "yes")
     n_no = sum(1 for c in out if c.label == "no")
     if n_yes < FORMAL_PER_LABEL or n_no < FORMAL_PER_LABEL:
         raise ValueError(
-            f"V10 §11: insufficient balanced manifest: yes={n_yes}, no={n_no}, "
+            f"V10.1 selection: insufficient balanced manifest: yes={n_yes}, no={n_no}, "
             f"target={FORMAL_PER_LABEL} per label. Run aborted before any LLM call. "
-            f"Total clusters considered: {len(by_cluster)}"
+            f"Total source roots considered: {len(by_cluster)}"
         )
     return sorted(out, key=lambda c: c.cqid)
 
 
 def _build_composite_question_text(triple: Sequence[BoolQItem]) -> str:
-    """V10: 3 BoolQ Q&A pairs, each with its passage as evidence."""
-    sections = []
-    for i, it in enumerate(triple):
-        snippet = it.passage[:500] + ('...' if len(it.passage) > 500 else '')
-        sections.append(
-            f"Q{i+1}: {it.question}\n"
-            f"  Passage: {snippet}\n"
-            f"  Gold answer: {it.label}"
-        )
-    body = "\n\n".join(sections)
+    """Build the sole task string exposed to an evaluation agent."""
     return (
-        f"Answer the following three yes/no questions about "
-        f"\"{triple[0].entity}\" based on the Wikipedia passages. "
-        f"Treat each as a separate yes/no decision, but return ONE final "
-        f"yes/no answer that reflects the dominant verdict.\n\n{body}"
-    )
-    # original legacy function (kept for compat)
-    legacy = (
-        "Verify the following three claims about "
-        f"`{triple[0].entity}`:\n{bullets}\n\n"
-        "Treat each as a separate fact-verification yes/no decision, but "
-        "return ONE final yes/no answer that reflects the dominant verdict "
-        "across the three claims (yes = each claim is supported, no = at "
-        "least one is refuted)."
+        "Answer the following BoolQ yes/no question using only the supplied "
+        "task-local evidence packet. Do not infer a gold label from the task "
+        "format or assume evidence that is absent from the packet.\n\n"
+        f"Question: {triple[0].question}"
     )
 
 
@@ -321,7 +283,7 @@ def _build_composite_question_text(triple: Sequence[BoolQItem]) -> str:
 
 def _substitute_prompt(question: str, passage: str,
                        src_answer: str) -> str:
-    """V10 §6.3 substitute prompt: rewrite a Wikipedia passage to support
+    """V10.1 substitute prompt: rewrite an evidence sentence to support
     the opposite BoolQ answer."""
     opp = "no" if src_answer == "yes" else "yes"
     return (
@@ -364,10 +326,11 @@ def build_substitute_manifest(
     client: CachedChatClient | None = None,
     cache_dir: Path | None = None,
 ) -> tuple[dict[str, dict[str, str]], dict[str, Any]]:
-    """Generate one LLM rewrite per source evidence sentence.
+    """Generate one LLM rewrite per *already selected* evidence sentence.
 
-    V6 §6.3 + D4_v6: budget <=300 calls preregistered; ~13K realized
-    (per-sentence cardinality, same mechanism as V5 D5_v5).
+    V10.1 requires a usable rewrite for every frozen item.  It aborts rather
+    than replacing failed items, so auxiliary rewrite output cannot change the
+    evaluation sample.
     """
     if cache_dir is not None:
         cache_dir.mkdir(parents=True, exist_ok=True)
@@ -392,7 +355,7 @@ def build_substitute_manifest(
         "out_of_window": 0,
     }
     for idx, item in enumerate(items):
-        prompt = _substitute_prompt(item.claim, item.passage, item.label)
+        prompt = _substitute_prompt(item.question, item.passage, item.label)
         src_tokens = max(1, len(item.passage.split()))
         try:
             result = client.call(
@@ -401,13 +364,13 @@ def build_substitute_manifest(
             )
             rewrite = _parse_substitute_response(result.content, src_tokens)
             stats["transfer_bytes"] += len(prompt) + len(result.content)
-        except Exception:
+        except (KeyError, OSError, RuntimeError, TypeError, ValueError):
             rewrite = None
         if rewrite is None:
             manifest[item.qid] = {
                 "substitute_sentence": "", "in_length_window": False,
                 "deviation_log": ["rewrite_failed_or_out_of_window"],
-                "source_label": item.label, "source_entity": item.entity,
+                "source_label": item.label, "source_root": item.source_root,
             }
             stats["n_unusable"] += 1
         else:
@@ -418,7 +381,7 @@ def build_substitute_manifest(
                 "in_length_window": in_window,
                 "deviation_log": ["llm_negative_paraphrase_v6"],
                 "source_label": item.label,
-                "source_entity": item.entity,
+                "source_root": item.source_root,
             }
             stats["n_rewritten"] += 1
             if in_window:
@@ -434,7 +397,7 @@ def build_substitute_manifest(
 
     unusable_pct = stats["n_unusable"] / max(1, stats["n_items"])
     stats["unusable_fraction"] = unusable_pct
-    stats["passed_fail_fast"] = unusable_pct < SUBSTITUTE_FAIL_FAST_PCT
+    stats["passed_fail_fast"] = unusable_pct == 0.0
 
     if cache_dir is not None:
         _write_json(cache_dir / "substitute_manifest.json", manifest)
@@ -452,6 +415,8 @@ def expected_dataset_sha256(path: Path) -> str:
 def build_manifest(
     dataset_path: Path, composite_questions: Sequence[CompositeQuestion],
     substitute_manifest: Mapping[str, Mapping[str, str]],
+    *,
+    status: str,
 ) -> dict[str, object]:
     return {
         "protocol_version": PROTOCOL_VERSION,
@@ -460,8 +425,13 @@ def build_manifest(
         "selection": {
             "per_label": FORMAL_PER_LABEL,
             "total": FORMAL_EXAMPLES,
-            "salt": PROTOCOL_VERSION,
+            "salt": SALT.decode().strip(),
+            "source_root": "sha256(question + newline + raw_passage)",
+            "sentence_rule": "first_three_8_to_80_token_sentences",
+            "mean_cosine_min": MIN_MEAN_COSINE,
+            "max_cosine_range": [MIN_MAX_COSINE, MAX_MAX_COSINE],
         },
+        "status": status,
         "model": DEFAULT_MODEL,
         "endpoint": DEFAULT_ENDPOINT,
         "n_agents": N_AGENTS,
@@ -477,11 +447,19 @@ def build_manifest(
                 "cqid": comp.cqid,
                 "label": comp.label,
                 "gold_binary": comp.gold_binary,
+                "question": comp.items[0].question,
+                "source_root": comp.items[0].source_root,
+                "overlap_mean": comp.items[0].overlap_mean,
+                "overlap_max": comp.items[0].overlap_max,
                 "items": [
                     {
-                        "qid": item.qid, "claim": item.claim,
+                        "qid": item.qid, "question": item.question,
                         "passage": item.passage,
-                        "label": item.label, "entity": item.entity,
+                        "label": item.label,
+                        "source_root": item.source_root,
+                        "evidence_index": item.evidence_index,
+                        "overlap_mean": item.overlap_mean,
+                        "overlap_max": item.overlap_max,
                         "evidence_id": f"E0{i + 1}",
                     }
                     for i, item in enumerate(comp.items)
@@ -493,56 +471,113 @@ def build_manifest(
             item.qid: dict(substitute_manifest[item.qid])
             for comp in composite_questions
             for item in comp.items
+            if item.qid in substitute_manifest
         },
     }
 
 
 def validate_manifest(
     manifest: Mapping[str, object], dataset_path: Path,
+    *,
+    require_substitutes: bool = True,
 ) -> list[CompositeQuestion]:
     if manifest.get("protocol_version") != PROTOCOL_VERSION:
-        raise ValueError("manifest is not Pilot-LLM V7")
+        raise ValueError("manifest is not Pilot-LLM V10.1")
     if manifest.get("dataset_sha256") != expected_dataset_sha256(dataset_path):
         raise ValueError("manifest dataset_sha256 does not match current file")
     if manifest.get("n_agents") != N_AGENTS:
-        raise ValueError("manifest n_agents does not match V7 protocol")
+        raise ValueError("manifest n_agents does not match V10.1 protocol")
     if manifest.get("facts_per_question") != FACTS_PER_QUESTION:
-        raise ValueError("manifest facts_per_question does not match V7 protocol")
+        raise ValueError("manifest facts_per_question does not match V10.1 protocol")
     if manifest.get("facts_per_agent") != FACTS_PER_AGENT:
-        raise ValueError("manifest facts_per_agent does not match V7 protocol")
+        raise ValueError("manifest facts_per_agent does not match V10.1 protocol")
     if manifest.get("partition_table") != [sorted(s) for s in PARTITION_TABLE]:
-        raise ValueError("manifest partition_table does not match V7 protocol")
+        raise ValueError("manifest partition_table does not match V10.1 protocol")
     rows = manifest.get("examples", [])
     if len(rows) != FORMAL_EXAMPLES:
         raise ValueError(f"manifest must contain {FORMAL_EXAMPLES} composites")
     counter = Counter(row["label"] for row in rows)
-    if counter["SUPPORTS"] != FORMAL_PER_LABEL or counter["REFUTES"] != FORMAL_PER_LABEL:
+    if counter["yes"] != FORMAL_PER_LABEL or counter["no"] != FORMAL_PER_LABEL:
         raise ValueError(
-            f"V7 manifest must contain {FORMAL_PER_LABEL} composites per label; "
+            f"V10.1 manifest must contain {FORMAL_PER_LABEL} composites per label; "
             f"got {dict(counter)}"
         )
+    substitutes = manifest.get("substitute_manifest", {})
+    if not isinstance(substitutes, Mapping):
+        raise TypeError("substitute_manifest must be a mapping")
     composites: list[CompositeQuestion] = []
     for row in rows:
         items = tuple(
             BoolQItem(
                 qid=item["qid"], question=item["question"],
                 passage=item["passage"], label=item["label"],
-                entity=item["entity"],
+                source_root=item["source_root"],
+                evidence_index=int(item["evidence_index"]),
+                overlap_mean=float(item["overlap_mean"]),
+                overlap_max=float(item["overlap_max"]),
             )
             for item in row["items"]
         )
-        lab_counter = Counter(it.label for it in items)
-        if lab_counter["SUPPORTS"] == lab_counter["REFUTES"]:
+        if len(items) != FACTS_PER_QUESTION:
+            raise ValueError(f"composite {row['cqid']} lacks three evidence units")
+        if len({item.label for item in items}) != 1 or items[0].label != row["label"]:
             raise ValueError(
-                f"composite {row['cqid']} has a label tie ({dict(lab_counter)}); "
-                "V7 §D2_v5 forbids 2-1 splits"
+                f"composite {row['cqid']} must retain one unanimous BoolQ label"
             )
+        if len({item.question for item in items}) != 1:
+            raise ValueError(f"composite {row['cqid']} mixes BoolQ questions")
+        if len({item.source_root for item in items}) != 1:
+            raise ValueError(f"composite {row['cqid']} mixes provenance roots")
+        if [item.evidence_index for item in items] != [1, 2, 3]:
+            raise ValueError(f"composite {row['cqid']} has non-canonical evidence order")
+        if not (
+            MIN_MEAN_COSINE <= items[0].overlap_mean
+            and MIN_MAX_COSINE <= items[0].overlap_max <= MAX_MAX_COSINE
+        ):
+            raise ValueError(f"composite {row['cqid']} violates the overlap gate")
+        question_text = _build_composite_question_text(items)
+        if "Gold answer:" in question_text or any(
+            item.passage in question_text for item in items
+        ):
+            raise ValueError(f"composite {row['cqid']} leaks label or evidence into task")
+        if require_substitutes:
+            for item in items:
+                rewrite = substitutes.get(item.qid, {})
+                if not rewrite.get("substitute_sentence") or not rewrite.get("in_length_window"):
+                    raise ValueError(
+                        f"composite {row['cqid']} lacks a usable frozen substitute"
+                    )
         composites.append(CompositeQuestion(
             cqid=row["cqid"],
-            question_text=_build_composite_question_text(items),
+            question_text=question_text,
             items=items, label=row["label"],
         ))
     return composites
+
+
+def _write_or_validate_frozen_selection(
+    path: Path,
+    manifest: Mapping[str, object],
+    dataset_path: Path,
+) -> bool:
+    """Write a first selection manifest, or fail closed on any drift.
+
+    Returns ``True`` for a new write and ``False`` when the exact frozen
+    manifest was already present.  This prevents a later rerun from silently
+    changing the pre-rewrite sample.
+    """
+    if path.exists():
+        existing = json.loads(path.read_text(encoding="utf-8"))
+        validate_manifest(existing, dataset_path, require_substitutes=False)
+        if existing != manifest:
+            raise ValueError(
+                f"existing frozen selection differs at {path}; create a new "
+                "protocol version instead of overwriting it"
+            )
+        return False
+    _write_json(path, manifest)
+    validate_manifest(manifest, dataset_path, require_substitutes=False)
+    return True
 
 
 # --- 5. Per-agent evidence view + prompts --------------------------------- #
@@ -994,7 +1029,7 @@ def _safe_auprc(scores, labels):
         return None
     try:
         return float(average_precision_score(labels, scores))
-    except Exception:
+    except ValueError:
         return None
 
 
@@ -1003,7 +1038,7 @@ def _safe_brier(scores, labels):
         return None
     try:
         return float(brier_score_loss(labels, scores))
-    except Exception:
+    except ValueError:
         return None
 
 
@@ -1012,7 +1047,7 @@ def _safe_ece(scores, labels):
         return None
     try:
         return float(expected_calibration_error(labels, scores))
-    except Exception:
+    except ValueError:
         return None
 
 
@@ -1051,7 +1086,7 @@ def _platt_loo_brier_ece(rows, field, target_field="harmful_fc",
 def _intervention_flip_rates(grouped):
     flips = Counter()
     total = 0
-    for _cqid, recs in grouped.items():
+    for recs in grouped.values():
         for agent_recs in _group_agents(recs):
             sig = _agent_signal(agent_recs)
             if not sig.get("complete"):
@@ -1094,8 +1129,8 @@ def _loao_aurocs(rows):
     if out:
         s = sorted(out)
         median = s[len(s) // 2]
-        p05 = s[max(0, int(round(0.05 * (len(s) - 1))))]
-        p95 = s[min(len(s) - 1, int(round(0.95 * (len(s) - 1))))]
+        p05 = s[max(0, round(0.05 * (len(s) - 1)))]
+        p95 = s[min(len(s) - 1, round(0.95 * (len(s) - 1)))]
     else:
         median = p05 = p95 = None
     return {
@@ -1235,7 +1270,7 @@ def summarize_records(
 
 
 def render_report(summary) -> str:
-    lines = [f"# Pilot-LLM V7 {summary['mode']} report", ""]
+    lines = [f"# Pilot-LLM V10.1 {summary['mode']} report", ""]
     inst = summary["instrumentation"]
     lines.append("## Transfer and schema audit")
     lines.append("")
@@ -1246,7 +1281,7 @@ def render_report(summary) -> str:
         f"{inst['first_pass_valid_rate']:.3f} | {inst['transfer_bytes']} |"
     )
     lines.append("")
-    lines.append("## Co-primary verdict (V7 §9.2: any-passes; D_OR + shared_weighted)")
+    lines.append("## Co-primary verdict (V10.1: any-passes; D_OR + shared_weighted)")
     cpv = summary.get("co_primary_verdict")
     if cpv is None:
         lines.append("- NA")
@@ -1302,34 +1337,47 @@ def render_report(summary) -> str:
     lines.append("## Interpretation boundary")
     lines.append("")
     lines.append(
-        "These results test whether V5's signal (D_OR = 0.656 at N = 50) "
-        "holds at N = 100 with V5's same questions plus 50 more drawn "
-        "under the same selection rule (V5 ⊂ V7 by construction). They "
-        "do not establish LLM faithfulness in general, S&P 500 "
-        "predictability, investment performance, or cross-model "
-        "generalization. Cross-model generalization is the V8 prereg."
+        "These results test the registered cross-domain BoolQ replication under "
+        "same-source but non-redundant sentence evidence. They do not establish "
+        "LLM faithfulness in general, financial predictability, investment "
+        "performance, or cross-model generalization."
     )
     return "\n".join(lines) + "\n"
 
 
 # --- 8. Pre-formal audit ------------------------------------------------ #
 
-def _pre_formal_audit(dataset_path, manifest_path, *,
-                       substitute_yield_min=0.90):
-    items = load_fever(dataset_path)
-    cache_dir = DEFAULT_ROOT / "cache"
+def _pre_formal_audit(
+    dataset_path: Path,
+    selection_manifest_path: Path,
+    run_manifest_path: Path,
+    *,
+    cache_dir: Path,
+):
+    selection_manifest = json.loads(
+        selection_manifest_path.read_text(encoding="utf-8")
+    )
+    composites = validate_manifest(
+        selection_manifest, dataset_path, require_substitutes=False
+    )
     sub_path = cache_dir / "substitute_manifest.json"
     if not sub_path.exists():
         raise ValueError(
             f"substitute manifest missing at {sub_path}; run `substitute-generation` first"
         )
     substitute_manifest = json.loads(sub_path.read_text(encoding="utf-8"))
-    composites = build_composite_questions(items, substitute_manifest)
-    manifest = build_manifest(dataset_path, composites, substitute_manifest)
+    selected_qids = {item.qid for comp in composites for item in comp.items}
+    unexpected_qids = set(substitute_manifest) - selected_qids
+    if unexpected_qids:
+        raise ValueError("substitute manifest contains unselected evidence IDs")
+    manifest = build_manifest(
+        dataset_path, composites, substitute_manifest, status="run_frozen"
+    )
     validate_manifest(manifest, dataset_path)
-    n_items = len(items)
+    _write_json(run_manifest_path, manifest)
+    n_items = len(selected_qids)
     n_subs = sum(1 for v in substitute_manifest.values()
-                 if v.get("substitute_sentence"))
+                 if v.get("substitute_sentence") and v.get("in_length_window"))
     yield_pct = n_subs / max(1, n_items)
     audit = {
         "n_items": n_items,
@@ -1337,12 +1385,13 @@ def _pre_formal_audit(dataset_path, manifest_path, *,
         "substitute_yield": yield_pct,
         "n_composites": len(composites),
         "balance": dict(Counter(c.label for c in composites)),
-        "passes_yield_threshold": yield_pct >= substitute_yield_min,
+        "selection_manifest": str(selection_manifest_path),
+        "run_manifest": str(run_manifest_path),
+        "passes_yield_threshold": yield_pct == 1.0,
     }
     if not audit["passes_yield_threshold"]:
         raise ValueError(
-            f"substitute yield {yield_pct:.3f} < threshold "
-            f"{substitute_yield_min:.3f}; refusing formal run"
+            f"substitute yield {yield_pct:.3f} != 1.000; refusing formal run"
         )
     return audit
 
@@ -1363,19 +1412,26 @@ def _build_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
 
-    prep = sub.add_parser("prepare", help="write the frozen V7 manifest")
+    prep = sub.add_parser(
+        "prepare", help="freeze the offline V10.1 selection before rewrites"
+    )
     prep.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
-    prep.add_argument("--output", type=Path, default=DEFAULT_ROOT / "manifest.json")
-    prep.add_argument("--cache-dir", type=Path, default=DEFAULT_ROOT / "cache")
+    prep.add_argument(
+        "--output", type=Path, default=DEFAULT_ROOT / "selection_manifest.json"
+    )
 
     subg = sub.add_parser(
         "substitute-generation",
-        help="run the LLM-rewrite substitute-generation pass (V6 §6.3)",
+        help="rewrite exactly the 300 evidence units in a frozen selection",
     )
     subg.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
+    subg.add_argument(
+        "--selection-manifest", type=Path,
+        default=DEFAULT_ROOT / "selection_manifest.json",
+    )
     subg.add_argument("--cache-dir", type=Path, default=DEFAULT_ROOT / "cache")
 
-    smoke = sub.add_parser("smoke", help="run at most 8 V6 instrumentation calls")
+    smoke = sub.add_parser("smoke", help="run at most 40 V10.1 instrumentation calls")
     smoke.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
     smoke.add_argument("--manifest", type=Path, default=DEFAULT_ROOT / "manifest.json")
     smoke.add_argument("--output-dir", type=Path, default=DEFAULT_ROOT / "smoke")
@@ -1383,7 +1439,7 @@ def _build_parser():
     smoke.add_argument("--examples", type=int, default=2)
     smoke.add_argument("--no-resume", action="store_true")
 
-    formal = sub.add_parser("run", help="run the frozen 2,000-call V6 formal pilot")
+    formal = sub.add_parser("run", help="run the frozen 2,000-call V10.1 formal pilot")
     formal.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
     formal.add_argument("--manifest", type=Path, default=DEFAULT_ROOT / "manifest.json")
     formal.add_argument("--output-dir", type=Path, default=DEFAULT_ROOT / "formal")
@@ -1392,15 +1448,23 @@ def _build_parser():
 
     audit = sub.add_parser("audit",
                            help="pre-formal audit only: dataset digest, balance, "
-                                "substitute yield, ties")
+                                "substitute coverage, source roots, and leakage")
     audit.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
-    audit.add_argument("--manifest", type=Path, default=DEFAULT_ROOT / "manifest.json")
-    audit.add_argument("--yes", "-y", action="store_true")
+    audit.add_argument(
+        "--selection-manifest", type=Path,
+        default=DEFAULT_ROOT / "selection_manifest.json",
+    )
+    audit.add_argument("--output", type=Path, default=DEFAULT_ROOT / "manifest.json")
+    audit.add_argument("--cache-dir", type=Path, default=DEFAULT_ROOT / "cache")
 
     chain = sub.add_parser("all",
                            help="prepare -> substitute-generation -> audit -> "
                                 "smoke -> formal (non-interactive, resumable)")
     chain.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
+    chain.add_argument(
+        "--selection-manifest", type=Path,
+        default=DEFAULT_ROOT / "selection_manifest.json",
+    )
     chain.add_argument("--manifest", type=Path, default=DEFAULT_ROOT / "manifest.json")
     chain.add_argument("--smoke-dir", type=Path, default=DEFAULT_ROOT / "smoke")
     chain.add_argument("--formal-dir", type=Path, default=DEFAULT_ROOT / "formal")
@@ -1415,33 +1479,35 @@ def main(argv=None):
     args = _build_parser().parse_args(argv)
 
     if args.command == "substitute-generation":
-        items = load_boolq(args.dataset)
+        selection_manifest = json.loads(
+            args.selection_manifest.read_text(encoding="utf-8")
+        )
+        composites = validate_manifest(
+            selection_manifest, args.dataset, require_substitutes=False
+        )
+        items = [item for comp in composites for item in comp.items]
         _manifest, stats = build_substitute_manifest(
             items, cache_dir=args.cache_dir,
         )
         for k, v in stats.items():
             print(f"[substitute-gen] {k}: {v}")
         if not stats["passed_fail_fast"]:
-            print(f"[substitute-gen] FAIL_FAST: unusable fraction "
-                  f"{stats['unusable_fraction']:.3f} >= "
-                  f"{SUBSTITUTE_FAIL_FAST_PCT}", flush=True)
+            print("[substitute-gen] FAIL_FAST: every frozen evidence unit must "
+                  "have a usable rewrite", flush=True)
             return 2
         return 0
 
     if args.command == "prepare":
         items = load_boolq(args.dataset)
-        sub_path = args.cache_dir / "substitute_manifest.json"
-        if not sub_path.exists():
-            raise ValueError(
-                f"substitute manifest missing at {sub_path}; run "
-                "`substitute-generation` first"
-            )
-        substitute_manifest = json.loads(sub_path.read_text(encoding="utf-8"))
-        composites = build_composite_questions(items, substitute_manifest)
-        manifest = build_manifest(args.dataset, composites, substitute_manifest)
-        _write_json(args.output, manifest)
-        validate_manifest(manifest, args.dataset)
-        print(f"Wrote frozen V6 manifest: {args.output}")
+        composites = build_composite_questions(items)
+        manifest = build_manifest(
+            args.dataset, composites, {}, status="selection_frozen_pre_substitution"
+        )
+        created = _write_or_validate_frozen_selection(
+            args.output, manifest, args.dataset
+        )
+        verb = "Wrote" if created else "Reused"
+        print(f"{verb} frozen V10.1 selection manifest: {args.output}")
         return 0
 
     if args.command == "smoke":
@@ -1462,37 +1528,46 @@ def main(argv=None):
         return 0
 
     if args.command == "audit":
-        audit = _pre_formal_audit(args.dataset, args.manifest)
+        audit = _pre_formal_audit(
+            args.dataset, args.selection_manifest, args.output,
+            cache_dir=args.cache_dir,
+        )
         for k, v in audit.items():
             print(f"{k}: {v}")
         return 0
 
     if args.command == "all":
-        # 1. substitute-generation
-        print("[all] step 1/5: substitute-generation (LLM rewrites, <=300 prereg / ~13K realized)", flush=True)
+        # 1. Freeze text-only selection.  This must precede all LLM calls.
+        print("[all] step 1/5: prepare frozen V10.1 selection (N=100)", flush=True)
         items = load_boolq(args.dataset)
-        _manifest, stats = build_substitute_manifest(items, cache_dir=args.cache_dir)
+        composites = build_composite_questions(items)
+        selection_manifest = build_manifest(
+            args.dataset, composites, {}, status="selection_frozen_pre_substitution"
+        )
+        created = _write_or_validate_frozen_selection(
+            args.selection_manifest, selection_manifest, args.dataset
+        )
+        verb = "wrote" if created else "reused"
+        print(f"[all] {verb} frozen selection: {args.selection_manifest}", flush=True)
+
+        # 2. Generate rewrites only for the frozen 300 evidence units.
+        print("[all] step 2/5: substitute-generation (exactly 300 calls)", flush=True)
+        selected_items = [item for comp in composites for item in comp.items]
+        _manifest, stats = build_substitute_manifest(
+            selected_items, cache_dir=args.cache_dir
+        )
         for k, v in stats.items():
             print(f"[all] substitute-gen.{k}: {v}", flush=True)
         if not stats["passed_fail_fast"]:
             print("[all] substitute-generation FAIL_FAST; aborting", flush=True)
             return 2
 
-        # 2. prepare
-        print("[all] step 2/5: prepare (frozen V6 manifest, N=100)", flush=True)
-        substitute_manifest_path = args.cache_dir / "substitute_manifest.json"
-        substitute_manifest = json.loads(
-            substitute_manifest_path.read_text(encoding="utf-8")
-        )
-        composites = build_composite_questions(items, substitute_manifest)
-        manifest = build_manifest(args.dataset, composites, substitute_manifest)
-        _write_json(args.manifest, manifest)
-        validate_manifest(manifest, args.dataset)
-        print(f"[all] wrote frozen V6 manifest: {args.manifest}", flush=True)
-
         # 3. audit
         print("[all] step 3/5: pre-formal audit", flush=True)
-        audit = _pre_formal_audit(args.dataset, args.manifest)
+        audit = _pre_formal_audit(
+            args.dataset, args.selection_manifest, args.manifest,
+            cache_dir=args.cache_dir,
+        )
         for k, v in audit.items():
             print(f"[all] audit.{k}: {v}", flush=True)
         if not audit["passes_yield_threshold"]:
@@ -1501,7 +1576,7 @@ def main(argv=None):
 
         # 4. smoke
         if not args.skip_smoke or not (args.smoke_dir / "records.jsonl").exists():
-            print("[all] step 4/5: smoke (8 calls)", flush=True)
+            print("[all] step 4/5: smoke (40 calls)", flush=True)
             execute_run(
                 mode="smoke", dataset_path=args.dataset,
                 manifest_path=args.manifest, output_dir=args.smoke_dir,

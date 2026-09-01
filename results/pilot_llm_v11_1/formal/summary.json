@@ -1,0 +1,145 @@
+{
+  "protocol_version": "pilot-llm-v11.1-2026-09-01",
+  "mode": "formal",
+  "expected_examples": 200,
+  "agent_count": 5,
+  "expected_calls": 4000,
+  "records": 4000,
+  "instrumentation": {
+    "valid_records": 4000,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "transfer_bytes": 9158377
+  },
+  "primary": {
+    "name": "R_PI_wrong_high_consensus",
+    "auroc": 0.6054444444444445,
+    "auroc_ci": [
+      0.4945054945054945,
+      0.721028971028971
+    ],
+    "auprc": 0.23670137791608803,
+    "auprc_ci": [
+      0.15611525924954273,
+      0.36452125728323403
+    ],
+    "n": 180,
+    "positives": 30,
+    "negatives": 150,
+    "count_gate_passed": true,
+    "passes_ci_lower_above_0_5": false,
+    "verdict": "FAIL"
+  },
+  "high_consensus": {
+    "threshold": 0.8,
+    "n": 180,
+    "fraction": 0.9,
+    "wrong": 30,
+    "wrong_prevalence": 0.16666666666666666
+  },
+  "secondary": {
+    "D_inert__wrong_high_consensus": {
+      "auroc": 0.5784444444444444,
+      "auroc_ci": [
+        0.46642736486486486,
+        0.6926823176823177
+      ],
+      "auprc": 0.21617171398158871,
+      "auprc_ci": [
+        0.14282164108808165,
+        0.32932606625891564
+      ],
+      "n": 180,
+      "positives": 30,
+      "negatives": 150
+    },
+    "flip_inertia__wrong_high_consensus": {
+      "auroc": 0.5886666666666667,
+      "auroc_ci": [
+        0.48008226888937,
+        0.7051221804511278
+      ],
+      "auprc": 0.22561358905725493,
+      "auprc_ci": [
+        0.1477419283399005,
+        0.34145523519855076
+      ],
+      "n": 180,
+      "positives": 30,
+      "negatives": 150
+    },
+    "frac_shared__wrong_high_consensus": {
+      "auroc": 0.5524444444444444,
+      "auroc_ci": [
+        0.45552884615384615,
+        0.6503572201775276
+      ],
+      "auprc": 0.1833465743578103,
+      "auprc_ci": [
+        0.12476544331880998,
+        0.2547196870925685
+      ],
+      "n": 180,
+      "positives": 30,
+      "negatives": 150
+    },
+    "R_PI__harmful_fc_all": {
+      "auroc": 0.62,
+      "auroc_ci": [
+        0.4979661742667523,
+        0.729921875
+      ],
+      "auprc": 0.22976684594495123,
+      "auprc_ci": [
+        0.14276330774312726,
+        0.3522823171622456
+      ],
+      "n": 200,
+      "positives": 30,
+      "negatives": 170
+    }
+  },
+  "router": {
+    "n": 180,
+    "coverage": 0.8,
+    "baseline_error": 0.16666666666666666,
+    "routed_error": 0.13194444444444445,
+    "error_reduction": 0.03472222222222221,
+    "error_reduction_ci": [
+      0.0,
+      0.06944444444444443
+    ]
+  },
+  "intervention_flip_rates": {
+    "remove": 0.405,
+    "reverse": 0.278,
+    "substitute": 0.286
+  },
+  "risk_contract": {
+    "weights": {
+      "D_inert": 0.1,
+      "flip_inertia": 0.3,
+      "frac_shared": 0.6
+    },
+    "allowed_inputs": [
+      "D_inert",
+      "flip_inertia",
+      "frac_shared"
+    ],
+    "forbidden_inputs": [
+      "any_wrong",
+      "correct",
+      "gold_binary",
+      "harmful_fc",
+      "label"
+    ],
+    "outcome_independent": true
+  },
+  "substitute_summary": {
+    "initial": 590,
+    "v11_1_repair": 1,
+    "deterministic_short_normalization": 7,
+    "v11_1_repair_neutral_suffix_x4": 1,
+    "v11_1_repair_neutral_suffix_x1": 1
+  }
+}

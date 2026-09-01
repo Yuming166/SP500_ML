@@ -75,3 +75,14 @@ results/pilot_llm_v7/driver.log
 scripts/ling_server/ling_local/
 scripts/ling_server/__pycache__/
 .venv-sglang/
+
+# Generic Pilot-LLM runtime state. Final manifests, records, summaries, reports,
+# and integrity audits are added explicitly; request caches and process state are local.
+results/pilot_llm_v*/cache/
+results/pilot_llm_v*/**/records.partial.jsonl
+results/pilot_llm_v*/**/*.log
+results/pilot_llm_v*/**/*.pid
+results/pilot_llm_v*/**/progress.json
+results/pilot_llm_v*/**/shards/
+results/pilot_llm_v*/smoke/
+results/pilot_llm_v*/selection_manifest.json

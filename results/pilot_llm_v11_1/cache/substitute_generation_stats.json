@@ -1,0 +1,11 @@
+{
+  "protocol_version": "pilot-llm-v11.1-2026-09-01",
+  "n_items": 600,
+  "parent_valid_inherited": 597,
+  "repair_attempted": 3,
+  "repair_valid": 3,
+  "n_unusable": 0,
+  "parent_substitutes_sha256": "59b4480f7ed5a0f3320095b2793263283ab99966907abaee2ba032ad06e4d7c0",
+  "n_rewritten": 600,
+  "passed_fail_fast": true
+}

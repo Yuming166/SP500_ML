@@ -1,0 +1,14 @@
+{
+  "protocol_version": "pilot-llm-v10.4-2026-09-01",
+  "n_items": 300,
+  "initial_valid": 295,
+  "normalized_short": 5,
+  "n_rewritten": 300,
+  "n_unusable": 0,
+  "transfer_bytes": 222775,
+  "in_window": 300,
+  "out_of_window": 0,
+  "model_repair_calls": 0,
+  "unusable_fraction": 0.0,
+  "passed_fail_fast": true
+}

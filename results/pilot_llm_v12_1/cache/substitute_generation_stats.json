@@ -1,0 +1,13 @@
+{
+  "protocol_version": "pilot-llm-v12.1-2026-09-02",
+  "parent_substitutes_sha256": "779ad8caee82b029cff504fccf55bca10735f4c4bb7f38b838ff7bdf753f4ffc",
+  "n_items": 1074,
+  "inherited_usable": 1073,
+  "second_repair_attempted": 1,
+  "second_repair_valid": 1,
+  "second_repair_mode": "v12_1_second_repair",
+  "second_repair_transfer_bytes": 652,
+  "n_rewritten": 1074,
+  "n_unusable": 0,
+  "passed_fail_fast": true
+}

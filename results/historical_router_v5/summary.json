@@ -1,0 +1,2128 @@
+{
+  "audits": {
+    "agent_count": 11,
+    "all_gate_shift_slopes_nonnegative": true,
+    "hard_bound_violations": 0,
+    "hard_common_minimum": 0.25,
+    "mean_shift_gate_correlation": -0.9999241629766037,
+    "mean_test_source_gate": 0.8501064901523856,
+    "minimum_fitted_common_coefficient": 0.25,
+    "minimum_hard_logit_rise": 0.05,
+    "outer_folds": 6,
+    "outer_test_rows": 738,
+    "root_count": 7
+  },
+  "claim_boundary": "V5 was designed after V4 on a reused market period. It is not a confirmatory, prospective, investment-alpha, or cross-model claim.",
+  "folds": [
+    {
+      "calibration_head_timestamps": 37,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -0.07972079305929858,
+          "n_rows": 37,
+          "objective": 0.6924987988562327,
+          "slope": 0.08877017409440685
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 37,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -0.08384389160172794,
+          "n_rows": 37,
+          "objective": 0.692679044446143,
+          "slope": 0.05839675708669417
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -0.09139793774945663,
+          "n_rows": 37,
+          "objective": 0.6926046466432356,
+          "slope": 0.07453138043666795
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": 0.022395184044349523,
+          "n_rows": 37,
+          "objective": 0.6923981715751854,
+          "slope": 0.09596595975871668
+        }
+      },
+      "fit_timestamps": 172,
+      "fold": 0,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.28169412924233284,
+        "intervention_inertia": 0.2994804716693077,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.582292513616316,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 1.5213872615332074,
+          "gate_objective": 0.7256214214665767,
+          "gate_pair_count": 12537,
+          "gate_shift_slope": 1.5088170646612948,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.28169412924233284,
+              "intervention_inertia": 0.2994804716693077,
+              "quality_risk": 0.02013757082014635,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.19625774557250503,
+              "method_recent_performance": -0.2851752164384603
+            },
+            "objective": 0.6820984442868118,
+            "pair_count": 12537
+          },
+          "target_score_mean": 0.4273329736839128,
+          "target_score_sd": 0.14785846990581125
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.5213872615332074,
+          "gate_objective": 0.7256214214665767,
+          "gate_pair_count": 12537,
+          "gate_shift_slope": 1.5088170646612948,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.28169412924233284,
+              "intervention_inertia": 0.2994804716693077,
+              "quality_risk": 0.02013757082014635,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.19625774557250503,
+              "method_recent_performance": -0.2851752164384603
+            },
+            "objective": 0.6820984442868118,
+            "pair_count": 12537
+          },
+          "target_score_mean": 0.4273329736839128,
+          "target_score_sd": 0.14785846990581125
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.6594952562848575,
+          "gate_objective": 0.7284890246027198,
+          "gate_pair_count": 12537,
+          "gate_shift_slope": 1.622287940401021,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.005828234746530157,
+              "flip_inertia": 0.2624250976356322,
+              "intervention_inertia": 0.2813544745495701,
+              "quality_risk": 0.019693877624231106,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.19457690440348674,
+              "method_recent_performance": -0.2855837512926416
+            },
+            "objective": 0.6814292803614149,
+            "pair_count": 12537
+          },
+          "target_score_mean": 0.3109890918487831,
+          "target_score_sd": 0.1449351347489052
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.5213872615332074,
+          "gate_objective": 0.7256214214665767,
+          "gate_pair_count": 12537,
+          "gate_shift_slope": 1.5088170646612948,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.28169412924233284,
+              "intervention_inertia": 0.2994804716693077,
+              "quality_risk": 0.02013757082014635,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.19625774557250503,
+              "method_recent_performance": -0.2851752164384603
+            },
+            "objective": 0.6820984442868118,
+            "pair_count": 12537
+          },
+          "target_score_mean": 0.4273329736839128,
+          "target_score_sd": 0.14785846990581125
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 1.5213872615332074,
+          "gate_objective": 0.7256214214665767,
+          "gate_pair_count": 12537,
+          "gate_shift_slope": 1.5088170646612948,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.28169412924233284,
+              "intervention_inertia": 0.2994804716693077,
+              "quality_risk": 0.02013757082014635,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.19625774557250503,
+              "method_recent_performance": -0.2851752164384603
+            },
+            "objective": 0.6820984442868118,
+            "pair_count": 12537
+          },
+          "target_score_mean": 0.4273329736839128,
+          "target_score_sd": 0.14785846990581125
+        }
+      },
+      "shift_gate_correlation": -0.9999241629766037,
+      "test_end": "2023-11-14",
+      "test_start": "2023-05-17",
+      "threshold_timestamps": 38,
+      "thresholds": {
+        "amir_fixed_gate": 0.4973643620485326,
+        "amir_no_calibration": 0.7198833201838415,
+        "amir_no_hard_constraint": 0.4929818031630737,
+        "amir_router": 0.4947379339763135,
+        "amir_target_only": 0.49864441171335827,
+        "confidence": 0.9074270005529099,
+        "majority": 0.18181818181818177,
+        "provenance": 0.9949142093155403,
+        "recent_performance": 0.9312365819720916
+      },
+      "train_end": "2023-05-09",
+      "train_start": "2021-05-10"
+    },
+    {
+      "calibration_head_timestamps": 56,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -0.5107965377428518,
+          "n_rows": 56,
+          "objective": 0.6615632382571225,
+          "slope": 0.0
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 56,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -0.510820370916251,
+          "n_rows": 56,
+          "objective": 0.6615632381612154,
+          "slope": 0.0
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -0.5108197761075446,
+          "n_rows": 56,
+          "objective": 0.6615632381619893,
+          "slope": 0.0
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": -0.5108038699322508,
+          "n_rows": 56,
+          "objective": 0.6615632382134385,
+          "slope": 0.0
+        }
+      },
+      "fit_timestamps": 261,
+      "fold": 1,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.25,
+        "intervention_inertia": 0.25,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.9090884674730326,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 2.3025555497747994,
+          "gate_objective": 0.7369785276353257,
+          "gate_pair_count": 17294,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.046625448428984306,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.05386061433562399,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.07516981020009125,
+              "method_recent_performance": -0.014547392220394622
+            },
+            "objective": 0.6908180110366582,
+            "pair_count": 17294
+          },
+          "target_score_mean": 0.5235702438961385,
+          "target_score_sd": 0.0772303551648191
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.3025555497747994,
+          "gate_objective": 0.7369785276353257,
+          "gate_pair_count": 17294,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.046625448428984306,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.05386061433562399,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.07516981020009125,
+              "method_recent_performance": -0.014547392220394622
+            },
+            "objective": 0.6908180110366582,
+            "pair_count": 17294
+          },
+          "target_score_mean": 0.5235702438961385,
+          "target_score_sd": 0.0772303551648191
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.270164434889278,
+          "gate_objective": 0.7365661345671892,
+          "gate_pair_count": 17294,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.016557491283485753,
+              "flip_inertia": 0.1857062378338348,
+              "intervention_inertia": 0.1941100549433754,
+              "quality_risk": 0.0535409812047227,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.19868508458181375
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.07808778065573,
+              "method_recent_performance": -0.01525743813859412
+            },
+            "objective": 0.690643546592113,
+            "pair_count": 17294
+          },
+          "target_score_mean": 0.3910965689275949,
+          "target_score_sd": 0.06364664304692623
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.3025555497747994,
+          "gate_objective": 0.7369785276353257,
+          "gate_pair_count": 17294,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.046625448428984306,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.05386061433562399,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.07516981020009125,
+              "method_recent_performance": -0.014547392220394622
+            },
+            "objective": 0.6908180110366582,
+            "pair_count": 17294
+          },
+          "target_score_mean": 0.5235702438961385,
+          "target_score_sd": 0.0772303551648191
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 2.3025555497747994,
+          "gate_objective": 0.7369785276353257,
+          "gate_pair_count": 17294,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.046625448428984306,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.05386061433562399,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.07516981020009125,
+              "method_recent_performance": -0.014547392220394622
+            },
+            "objective": 0.6908180110366582,
+            "pair_count": 17294
+          },
+          "target_score_mean": 0.5235702438961385,
+          "target_score_sd": 0.0772303551648191
+        }
+      },
+      "shift_gate_correlation": null,
+      "test_end": "2024-05-16",
+      "test_start": "2023-11-15",
+      "threshold_timestamps": 56,
+      "thresholds": {
+        "amir_fixed_gate": 0.3750068170614579,
+        "amir_no_calibration": 0.8438993898675528,
+        "amir_no_hard_constraint": 0.37500123113746614,
+        "amir_router": 0.3750013705459501,
+        "amir_target_only": 0.3750050985686468,
+        "confidence": 0.8798617288334244,
+        "majority": 0.18181818181818177,
+        "provenance": 1.0,
+        "recent_performance": 0.9130429687509651
+      },
+      "train_end": "2023-11-07",
+      "train_start": "2021-05-10"
+    },
+    {
+      "calibration_head_timestamps": 75,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -4.536252446090186,
+          "n_rows": 75,
+          "objective": 0.528000104927607,
+          "slope": 4.242007962817233
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 75,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -12.0651965955318,
+          "n_rows": 75,
+          "objective": 0.532198790697527,
+          "slope": 6.374860896645376
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -12.431507687781826,
+          "n_rows": 75,
+          "objective": 0.5308010186033993,
+          "slope": 6.610706502744716
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": -0.560475573651061,
+          "n_rows": 75,
+          "objective": 0.5290241408201032,
+          "slope": 2.6658888871250137
+        }
+      },
+      "fit_timestamps": 349,
+      "fold": 2,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.25,
+        "intervention_inertia": 0.25,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.9459081449428262,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 2.861461844922131,
+          "gate_objective": 0.7681323651986016,
+          "gate_pair_count": 19723,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.005322481425521856,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.09135845495460708,
+              "method_recent_performance": -0.041985558175085265
+            },
+            "objective": 0.6912294088728524,
+            "pair_count": 19723
+          },
+          "target_score_mean": 0.49453260954034295,
+          "target_score_sd": 0.07637291663105623
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.861461844922131,
+          "gate_objective": 0.7681323651986016,
+          "gate_pair_count": 19723,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.005322481425521856,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.09135845495460708,
+              "method_recent_performance": -0.041985558175085265
+            },
+            "objective": 0.6912294088728524,
+            "pair_count": 19723
+          },
+          "target_score_mean": 0.49453260954034295,
+          "target_score_sd": 0.07637291663105623
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.888056447695433,
+          "gate_objective": 0.7683180618544863,
+          "gate_pair_count": 19723,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2251547627133617,
+              "intervention_inertia": 0.2073536145070255,
+              "quality_risk": 0.0056691260954180814,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.09085795752400035,
+              "method_recent_performance": -0.042012622257076186
+            },
+            "objective": 0.6904653407996509,
+            "pair_count": 19723
+          },
+          "target_score_mean": 0.3500104417435829,
+          "target_score_sd": 0.06996690674660153
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.861461844922131,
+          "gate_objective": 0.7681323651986016,
+          "gate_pair_count": 19723,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.005322481425521856,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.09135845495460708,
+              "method_recent_performance": -0.041985558175085265
+            },
+            "objective": 0.6912294088728524,
+            "pair_count": 19723
+          },
+          "target_score_mean": 0.49453260954034295,
+          "target_score_sd": 0.07637291663105623
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 2.861461844922131,
+          "gate_objective": 0.7681323651986016,
+          "gate_pair_count": 19723,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.005322481425521856,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.09135845495460708,
+              "method_recent_performance": -0.041985558175085265
+            },
+            "objective": 0.6912294088728524,
+            "pair_count": 19723
+          },
+          "target_score_mean": 0.49453260954034295,
+          "target_score_sd": 0.07637291663105623
+        }
+      },
+      "shift_gate_correlation": null,
+      "test_end": "2024-11-14",
+      "test_start": "2024-05-17",
+      "threshold_timestamps": 75,
+      "thresholds": {
+        "amir_fixed_gate": 0.2551103979348793,
+        "amir_no_calibration": 0.8502860050180423,
+        "amir_no_hard_constraint": 0.28158010355901736,
+        "amir_router": 0.27893941176660036,
+        "amir_target_only": 0.24352216214857683,
+        "confidence": 0.8763864803117434,
+        "majority": 0.2727272727272727,
+        "provenance": 1.0,
+        "recent_performance": 0.9466195736468934
+      },
+      "train_end": "2024-05-09",
+      "train_start": "2021-05-10"
+    },
+    {
+      "calibration_head_timestamps": 94,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -0.8574496162587636,
+          "n_rows": 94,
+          "objective": 0.6090507476035563,
+          "slope": 0.0
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 94,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -0.8883959604889959,
+          "n_rows": 94,
+          "objective": 0.6090826536054421,
+          "slope": 0.017892330964233556
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -0.8934429827982113,
+          "n_rows": 94,
+          "objective": 0.6090873860016917,
+          "slope": 0.020884010603150444
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": -0.8574446368293718,
+          "n_rows": 94,
+          "objective": 0.6090507476067902,
+          "slope": 0.0
+        }
+      },
+      "fit_timestamps": 437,
+      "fold": 3,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.25,
+        "intervention_inertia": 0.25,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.9465696833803587,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 2.8744662782759067,
+          "gate_objective": 0.7423094992972116,
+          "gate_pair_count": 19739,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.009598301558648548,
+              "root_disagreement": 0.0010763548857007006,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.040242242842697395,
+              "method_recent_performance": -0.008256358072751692
+            },
+            "objective": 0.6914657986386241,
+            "pair_count": 19739
+          },
+          "target_score_mean": 0.5287547009744986,
+          "target_score_sd": 0.06331200515946946
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.8744662782759067,
+          "gate_objective": 0.7423094992972116,
+          "gate_pair_count": 19739,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.009598301558648548,
+              "root_disagreement": 0.0010763548857007006,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.040242242842697395,
+              "method_recent_performance": -0.008256358072751692
+            },
+            "objective": 0.6914657986386241,
+            "pair_count": 19739
+          },
+          "target_score_mean": 0.5287547009744986,
+          "target_score_sd": 0.06331200515946946
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.927465065135747,
+          "gate_objective": 0.7427282864536773,
+          "gate_pair_count": 19739,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.21657920034602016,
+              "intervention_inertia": 0.199550666819107,
+              "quality_risk": 0.008836307950070846,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.10806477811346708
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.04005960780878674,
+              "method_recent_performance": -0.008225844683073578
+            },
+            "objective": 0.691200495909906,
+            "pair_count": 19739
+          },
+          "target_score_mean": 0.4051660961365559,
+          "target_score_sd": 0.05430774722930127
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 2.8744662782759067,
+          "gate_objective": 0.7423094992972116,
+          "gate_pair_count": 19739,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.009598301558648548,
+              "root_disagreement": 0.0010763548857007006,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.040242242842697395,
+              "method_recent_performance": -0.008256358072751692
+            },
+            "objective": 0.6914657986386241,
+            "pair_count": 19739
+          },
+          "target_score_mean": 0.5287547009744986,
+          "target_score_sd": 0.06331200515946946
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 2.8744662782759067,
+          "gate_objective": 0.7423094992972116,
+          "gate_pair_count": 19739,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.009598301558648548,
+              "root_disagreement": 0.0010763548857007006,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.040242242842697395,
+              "method_recent_performance": -0.008256358072751692
+            },
+            "objective": 0.6914657986386241,
+            "pair_count": 19739
+          },
+          "target_score_mean": 0.5287547009744986,
+          "target_score_sd": 0.06331200515946946
+        }
+      },
+      "shift_gate_correlation": null,
+      "test_end": "2025-05-20",
+      "test_start": "2024-11-15",
+      "threshold_timestamps": 94,
+      "thresholds": {
+        "amir_fixed_gate": 0.2978724691732689,
+        "amir_no_calibration": 0.852072024159525,
+        "amir_no_hard_constraint": 0.29797438272838866,
+        "amir_router": 0.2979924062864958,
+        "amir_target_only": 0.2978735105943947,
+        "confidence": 0.7859017945299404,
+        "majority": 0.0,
+        "provenance": 0.8544424100378323,
+        "recent_performance": 0.7867175781125322
+      },
+      "train_end": "2024-11-07",
+      "train_start": "2021-05-10"
+    },
+    {
+      "calibration_head_timestamps": 113,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -0.48728843706394354,
+          "n_rows": 113,
+          "objective": 0.6643234654585146,
+          "slope": 0.0
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 113,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -0.4872825215712292,
+          "n_rows": 113,
+          "objective": 0.6643234654719669,
+          "slope": 0.0
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -0.487267804572556,
+          "n_rows": 113,
+          "objective": 0.6643234655412233,
+          "slope": 0.0
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": -0.48727632177702096,
+          "n_rows": 113,
+          "objective": 0.6643234654949186,
+          "slope": 0.0
+        }
+      },
+      "fit_timestamps": 525,
+      "fold": 4,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.25,
+        "intervention_inertia": 0.25,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.8687050079790708,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 1.8895569670808512,
+          "gate_objective": 0.7039684274623095,
+          "gate_pair_count": 19368,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.00015165130800154656,
+              "root_disagreement": 0.10852205295213509,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.04861178811223396,
+              "method_recent_performance": -0.021981484009849363
+            },
+            "objective": 0.6915298788506729,
+            "pair_count": 19368
+          },
+          "target_score_mean": 0.5366356669916219,
+          "target_score_sd": 0.05672868317376026
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.8895569670808512,
+          "gate_objective": 0.7039684274623095,
+          "gate_pair_count": 19368,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.00015165130800154656,
+              "root_disagreement": 0.10852205295213509,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.04861178811223396,
+              "method_recent_performance": -0.021981484009849363
+            },
+            "objective": 0.6915298788506729,
+            "pair_count": 19368
+          },
+          "target_score_mean": 0.5366356669916219,
+          "target_score_sd": 0.05672868317376026
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.9939552802767468,
+          "gate_objective": 0.7047708726193166,
+          "gate_pair_count": 19368,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2288760547896296,
+              "intervention_inertia": 0.22619385921124255,
+              "quality_risk": 0.0005067139276613389,
+              "root_disagreement": 0.10815946370025596,
+              "source_concentration": 0.07247957424737873
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.04874977077875316,
+              "method_recent_performance": -0.021913203895122628
+            },
+            "objective": 0.6911929238340918,
+            "pair_count": 19368
+          },
+          "target_score_mean": 0.43868658338750216,
+          "target_score_sd": 0.053419181513603385
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.8895569670808512,
+          "gate_objective": 0.7039684274623095,
+          "gate_pair_count": 19368,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.00015165130800154656,
+              "root_disagreement": 0.10852205295213509,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.04861178811223396,
+              "method_recent_performance": -0.021981484009849363
+            },
+            "objective": 0.6915298788506729,
+            "pair_count": 19368
+          },
+          "target_score_mean": 0.5366356669916219,
+          "target_score_sd": 0.05672868317376026
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 1.8895569670808512,
+          "gate_objective": 0.7039684274623095,
+          "gate_pair_count": 19368,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.25,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.00015165130800154656,
+              "root_disagreement": 0.10852205295213509,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.04861178811223396,
+              "method_recent_performance": -0.021981484009849363
+            },
+            "objective": 0.6915298788506729,
+            "pair_count": 19368
+          },
+          "target_score_mean": 0.5366356669916219,
+          "target_score_sd": 0.05672868317376026
+        }
+      },
+      "shift_gate_correlation": null,
+      "test_end": "2025-11-18",
+      "test_start": "2025-05-21",
+      "threshold_timestamps": 113,
+      "thresholds": {
+        "amir_fixed_gate": 0.380532550300303,
+        "amir_no_calibration": 0.8295242776500723,
+        "amir_no_hard_constraint": 0.3805339447457656,
+        "amir_router": 0.38053741395849205,
+        "amir_target_only": 0.38053540621107945,
+        "confidence": 0.7856620654494963,
+        "majority": 0.0,
+        "provenance": 0.8544895708168394,
+        "recent_performance": 0.7858714665858804
+      },
+      "train_end": "2025-05-13",
+      "train_start": "2021-05-10"
+    },
+    {
+      "calibration_head_timestamps": 132,
+      "calibrations": {
+        "amir_fixed_gate": {
+          "converged": true,
+          "intercept": -0.12316939885631738,
+          "n_rows": 132,
+          "objective": 0.692112708604757,
+          "slope": 0.0359473218346018
+        },
+        "amir_no_calibration": {
+          "converged": true,
+          "intercept": 0.0,
+          "n_rows": 132,
+          "objective": null,
+          "slope": 1.0
+        },
+        "amir_no_hard_constraint": {
+          "converged": true,
+          "intercept": -0.4066774494393298,
+          "n_rows": 132,
+          "objective": 0.6920964230315594,
+          "slope": 0.20471124910035784
+        },
+        "amir_router": {
+          "converged": true,
+          "intercept": -0.3029120553236231,
+          "n_rows": 132,
+          "objective": 0.6921055725203062,
+          "slope": 0.13848704226757438
+        },
+        "amir_target_only": {
+          "converged": true,
+          "intercept": -0.09097030109424906,
+          "n_rows": 132,
+          "objective": 0.6921137666784805,
+          "slope": 0.0
+        }
+      },
+      "fit_timestamps": 613,
+      "fold": 5,
+      "hard_common_coefficients": {
+        "flip_inertia": 0.2627727314380048,
+        "intervention_inertia": 0.25,
+        "source_concentration": 0.25
+      },
+      "mean_test_source_gate": 0.8477365624177629,
+      "rankers": {
+        "amir_fixed_gate": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.5,
+          "gate_converged": true,
+          "gate_intercept": 1.7169577673244565,
+          "gate_objective": 0.6928279204628652,
+          "gate_pair_count": 23271,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2627727314380048,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.0,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.029205480298551006,
+              "method_recent_performance": -0.03886087880771128
+            },
+            "objective": 0.6918771043602612,
+            "pair_count": 23271
+          },
+          "target_score_mean": 0.5381763387208548,
+          "target_score_sd": 0.056553267875703944
+        },
+        "amir_no_calibration": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.7169577673244565,
+          "gate_objective": 0.6928279204628652,
+          "gate_pair_count": 23271,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2627727314380048,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.0,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.029205480298551006,
+              "method_recent_performance": -0.03886087880771128
+            },
+            "objective": 0.6918771043602612,
+            "pair_count": 23271
+          },
+          "target_score_mean": 0.5381763387208548,
+          "target_score_sd": 0.056553267875703944
+        },
+        "amir_no_hard_constraint": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.6679200258796014,
+          "gate_objective": 0.6926839482292226,
+          "gate_pair_count": 23271,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.26139782333068073,
+              "intervention_inertia": 0.2481325813748099,
+              "quality_risk": 0.0,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.002655016509414458
+            },
+            "converged": true,
+            "hard_common_minimum": 0.0,
+            "method_offsets": {
+              "method_majority": -0.02912404411757763,
+              "method_recent_performance": -0.03864814225052588
+            },
+            "objective": 0.6912540173692248,
+            "pair_count": 23271
+          },
+          "target_score_mean": 0.45871191106982756,
+          "target_score_sd": 0.059445769338962645
+        },
+        "amir_router": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": null,
+          "gate_converged": true,
+          "gate_intercept": 1.7169577673244565,
+          "gate_objective": 0.6928279204628652,
+          "gate_pair_count": 23271,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2627727314380048,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.0,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.029205480298551006,
+              "method_recent_performance": -0.03886087880771128
+            },
+            "objective": 0.6918771043602612,
+            "pair_count": 23271
+          },
+          "target_score_mean": 0.5381763387208548,
+          "target_score_sd": 0.056553267875703944
+        },
+        "amir_target_only": {
+          "feature_mean": {
+            "flip_inertia": 0.636888888888889,
+            "intervention_inertia": 0.3153333333333333,
+            "source_concentration": 0.6826666666666665
+          },
+          "feature_sd": {
+            "flip_inertia": 0.2462803782101977,
+            "intervention_inertia": 0.3557595942330845,
+            "source_concentration": 0.13892284029473181
+          },
+          "forced_gate": 0.0,
+          "gate_converged": true,
+          "gate_intercept": 1.7169577673244565,
+          "gate_objective": 0.6928279204628652,
+          "gate_pair_count": 23271,
+          "gate_shift_slope": 0.0,
+          "source": {
+            "coefficients": {
+              "flip_inertia": 1.1736875006626393,
+              "intervention_inertia": 1.6149732231302345,
+              "source_concentration": 0.0
+            },
+            "converged": true,
+            "objective": 0.477742081164765,
+            "pair_count": 4096
+          },
+          "source_score_mean": 1.2567634178935394,
+          "source_score_sd": 0.8287430408151284,
+          "target": {
+            "coefficients": {
+              "action_confidence_risk": 0.0,
+              "consensus_risk": 0.0,
+              "flip_inertia": 0.2627727314380048,
+              "intervention_inertia": 0.25,
+              "quality_risk": 0.0,
+              "root_disagreement": 0.0,
+              "source_concentration": 0.25
+            },
+            "converged": true,
+            "hard_common_minimum": 0.25,
+            "method_offsets": {
+              "method_majority": -0.029205480298551006,
+              "method_recent_performance": -0.03886087880771128
+            },
+            "objective": 0.6918771043602612,
+            "pair_count": 23271
+          },
+          "target_score_mean": 0.5381763387208548,
+          "target_score_sd": 0.056553267875703944
+        }
+      },
+      "shift_gate_correlation": null,
+      "test_end": "2026-04-27",
+      "test_start": "2025-11-19",
+      "threshold_timestamps": 132,
+      "thresholds": {
+        "amir_fixed_gate": 0.4783800178432639,
+        "amir_no_calibration": 0.8314460075146577,
+        "amir_no_hard_constraint": 0.4797003304165339,
+        "amir_router": 0.4795366450176588,
+        "amir_target_only": 0.47727309578763827,
+        "confidence": 0.8044030184118107,
+        "majority": 0.09090909090909094,
+        "provenance": 1.0,
+        "recent_performance": 0.8458908626438819
+      },
+      "train_end": "2025-11-11",
+      "train_start": "2021-05-10"
+    }
+  ],
+  "primary": {
+    "ci": [
+      -0.06070905289946333,
+      0.04587020526868638
+    ],
+    "confirmatory_eligible": false,
+    "difference": -0.007835741488554815,
+    "directional_target_met": false,
+    "name": "aurc_amir_minus_confidence"
+  },
+  "protocol_version": "historical-router-v5-2026-09-02",
+  "source_ranker": {
+    "coefficients": {
+      "flip_inertia": 1.1736875006626393,
+      "intervention_inertia": 1.6149732231302345,
+      "source_concentration": 0.0
+    },
+    "converged": true,
+    "error_prevalence": 0.22,
+    "n_questions": 300,
+    "objective": 0.477742081164765,
+    "pair_count": 4096,
+    "records": "results/pilot_llm_v12_1/formal/records.jsonl"
+  },
+  "status": "POST_V4_RETROSPECTIVE_EXPLORATORY_ONLY",
+  "summaries": {
+    "amir_fixed_gate": {
+      "aurc": 0.40904949651697153,
+      "coverage": 0.9905149051490515,
+      "false_rejection": 0.010752688172043012,
+      "max_drawdown": -0.13980167600615456,
+      "mean_5d_return": 0.003939557606300428,
+      "mean_5d_return_net_10bps": 0.0039057738225166446,
+      "mean_5d_return_net_5bps": 0.003922665714408536,
+      "risk_brier": 0.2444100460099001,
+      "risk_ece_10": 0.11882937450184022,
+      "routed_error": 0.3707250341997264,
+      "router": "amir_fixed_gate",
+      "selected_brier": 0.30063392735454403,
+      "turnover": 0.033783783783783786,
+      "worst_vix_regime_error": 0.38795180722891565
+    },
+    "amir_no_calibration": {
+      "aurc": 0.3767026949223023,
+      "coverage": 0.8523035230352304,
+      "false_rejection": 0.13978494623655913,
+      "max_drawdown": -0.09858375043902845,
+      "mean_5d_return": 0.003642560870216544,
+      "mean_5d_return_net_10bps": 0.003473641951297625,
+      "mean_5d_return_net_5bps": 0.0035581014107570843,
+      "risk_brier": 0.41787083281883775,
+      "risk_ece_10": 0.42231867235439013,
+      "routed_error": 0.3640699523052464,
+      "router": "amir_no_calibration",
+      "selected_brier": 0.28573981406189514,
+      "turnover": 0.16891891891891891,
+      "worst_vix_regime_error": 0.387434554973822
+    },
+    "amir_no_hard_constraint": {
+      "aurc": 0.41095310886026815,
+      "coverage": 0.9105691056910569,
+      "false_rejection": 0.07741935483870968,
+      "max_drawdown": -0.09858375043902867,
+      "mean_5d_return": 0.0039823479725743195,
+      "mean_5d_return_net_10bps": 0.0038945101347364814,
+      "mean_5d_return_net_5bps": 0.0039384290536554,
+      "risk_brier": 0.24353662033736767,
+      "risk_ece_10": 0.11586302785730622,
+      "routed_error": 0.36160714285714285,
+      "router": "amir_no_hard_constraint",
+      "selected_brier": 0.2853622037145412,
+      "turnover": 0.08783783783783784,
+      "worst_vix_regime_error": 0.3875
+    },
+    "amir_router": {
+      "aurc": 0.41051987912142957,
+      "coverage": 0.9065040650406504,
+      "false_rejection": 0.07956989247311828,
+      "max_drawdown": -0.09858375043902867,
+      "mean_5d_return": 0.003928281391699152,
+      "mean_5d_return_net_10bps": 0.0038269300403478003,
+      "mean_5d_return_net_5bps": 0.0038776057160234763,
+      "risk_brier": 0.24388678663155125,
+      "risk_ece_10": 0.11635405023400136,
+      "routed_error": 0.3602391629297459,
+      "router": "amir_router",
+      "selected_brier": 0.2838870339156355,
+      "turnover": 0.10135135135135136,
+      "worst_vix_regime_error": 0.38345864661654133
+    },
+    "amir_target_only": {
+      "aurc": 0.4087671043478909,
+      "coverage": 0.9959349593495935,
+      "false_rejection": 0.004301075268817204,
+      "max_drawdown": -0.13980167600615456,
+      "mean_5d_return": 0.004098169398169886,
+      "mean_5d_return_net_10bps": 0.0040778991278996165,
+      "mean_5d_return_net_5bps": 0.004088034263034752,
+      "risk_brier": 0.24435659172739557,
+      "risk_ece_10": 0.11927783148446822,
+      "routed_error": 0.37006802721088433,
+      "router": "amir_target_only",
+      "selected_brier": 0.30019846060497746,
+      "turnover": 0.02027027027027027,
+      "worst_vix_regime_error": 0.3875598086124402
+    },
+    "confidence": {
+      "aurc": 0.4183556206099844,
+      "coverage": 0.7208672086720868,
+      "false_rejection": 0.3225806451612903,
+      "max_drawdown": -0.13980167600615467,
+      "mean_5d_return": 0.002881862558681268,
+      "mean_5d_return_net_10bps": 0.002672403099221808,
+      "mean_5d_return_net_5bps": 0.0027771328289515384,
+      "risk_brier": 0.4382631436471022,
+      "risk_ece_10": 0.44348888930789043,
+      "routed_error": 0.40789473684210525,
+      "router": "confidence",
+      "selected_brier": 0.3624867955011496,
+      "turnover": 0.20945945945945946,
+      "worst_vix_regime_error": 0.43686006825938567
+    },
+    "majority": {
+      "aurc": 0.3987811783269171,
+      "coverage": 0.6097560975609756,
+      "false_rejection": 0.4064516129032258,
+      "max_drawdown": -0.11712231786617588,
+      "mean_5d_return": 0.002586262462381396,
+      "mean_5d_return_net_10bps": 0.0024443705704895037,
+      "mean_5d_return_net_5bps": 0.0025153165164354496,
+      "risk_brier": 0.3275325315236623,
+      "risk_ece_10": 0.2697708795269771,
+      "routed_error": 0.38666666666666666,
+      "router": "majority",
+      "selected_brier": 0.3748209366391185,
+      "turnover": 0.14189189189189189,
+      "worst_vix_regime_error": 0.43349753694581283
+    },
+    "provenance": {
+      "aurc": 0.4313252814349488,
+      "coverage": 0.7086720867208672,
+      "false_rejection": 0.26695842450765866,
+      "max_drawdown": -0.11712231786617566,
+      "mean_5d_return": 0.0031013890191719466,
+      "mean_5d_return_net_10bps": 0.003000037667820595,
+      "mean_5d_return_net_5bps": 0.003050713343496271,
+      "risk_brier": 0.5273479450002712,
+      "risk_ece_10": 0.5278658439291897,
+      "routed_error": 0.35946462715105165,
+      "router": "provenance",
+      "selected_brier": 0.24236301547603287,
+      "turnover": 0.10135135135135136,
+      "worst_vix_regime_error": 0.3875
+    },
+    "recent_performance": {
+      "aurc": 0.42655209033570285,
+      "coverage": 0.5365853658536586,
+      "false_rejection": 0.49134199134199136,
+      "max_drawdown": -0.15407123502794895,
+      "mean_5d_return": 0.0019410043491074696,
+      "mean_5d_return_net_10bps": 0.0018666800247831453,
+      "mean_5d_return_net_5bps": 0.0019038421869453073,
+      "risk_brier": 0.4682748466877422,
+      "risk_ece_10": 0.4701893039377249,
+      "routed_error": 0.4065656565656566,
+      "router": "recent_performance",
+      "selected_brier": 0.24477679887383322,
+      "turnover": 0.07432432432432433,
+      "worst_vix_regime_error": 0.4444444444444444
+    }
+  },
+  "v4_descriptive_comparison": {
+    "inferential": false,
+    "v4_cpr_aurc": 0.36580325636765304,
+    "v4_summary": "results/historical_router_v4/summary.json",
+    "v5_amir_aurc": 0.41051987912142957,
+    "v5_minus_v4": 0.044716622753776525
+  }
+}
