@@ -1,11 +1,12 @@
-# When Consensus Lies: Intervention-Conditioned Reliability for Multi-Agent Language Models under Correlated Evidence
+# When Consensus Lies: Intervention-Tested Provenance for Reliable Multi-Agent LLM Decisions
 
 **Anonymous ACL submission draft — September 2026**
 
-> Draft status: content-complete research manuscript based on the currently
-> frozen experiments. Author information, ACL LaTeX formatting, a second model
-> family, and final error analysis remain to be added. Exploratory financial
-> results are explicitly separated from confirmatory language-model evidence.
+> Draft status: companion content manuscript based on the currently frozen
+> experiments. The compiled ACL LaTeX version is in `paper/latex/`. Author
+> information, a second model family, and final error analysis remain to be
+> added. Exploratory financial results are explicitly separated from
+> confirmatory language-model evidence.
 
 ## Abstract
 
