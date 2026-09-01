@@ -1,0 +1,1532 @@
+{
+  "protocol_version": "pilot-llm-v5-2026-08-31",
+  "mode": "smoke",
+  "expected_examples": 2,
+  "agent_count": 1,
+  "expected_calls": 8,
+  "records": 8,
+  "instrumentation": {
+    "valid_records": 8,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "transfer_bytes": 21109
+  },
+  "outcome_prevalence": {
+    "harmful_fc": 0,
+    "any_wrong_consensus": 0,
+    "n_questions": 0
+  },
+  "intervention_flip_rates": {
+    "remove": 0.0,
+    "reverse": 0.0,
+    "substitute": 0.0
+  },
+  "metrics": {
+    "D_inert__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "D_conf__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "D_OR__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "D_majority__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "shared_weighted__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "shared_citation_signal__harmful_fc": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "D_OR__any_wrong": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    },
+    "D_majority__any_wrong": {
+      "auroc": null,
+      "auroc_ci": [
+        NaN,
+        NaN
+      ],
+      "auprc": null,
+      "auprc_ci": [
+        NaN,
+        NaN
+      ],
+      "risk_at_80": null,
+      "risk_at_80_ci": [
+        NaN,
+        NaN
+      ],
+      "n_questions": 0
+    }
+  },
+  "loao_robustness": {
+    "median_auroc": null,
+    "p05": null,
+    "p95": null,
+    "n_agents": 0,
+    "n_variants": 0,
+    "deterministic_auroc_D_OR": null,
+    "deterministic_auroc_shared_weighted": null
+  },
+  "co_primary_verdict": null,
+  "substitute_manifest_summary": {
+    "fever-cc5de556c5e1c22b": {
+      "substitute_sentence": "He experienced a resurgence of popularity and critical acclaim in the late 1990s.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-70a7f6cd62d2bf2f": {
+      "substitute_sentence": "Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-93e0730f2af8616b": {
+      "substitute_sentence": "Carlos Santana (born July 20, 1947) is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band, Santana, which pioneered a fusion of rock and Latin American music.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-2b1892320c71d519": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-271fcce66784cc3a": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1975.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-6d126c969046b78e": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-ccec2e1c8395605a": {
+      "substitute_sentence": "Since then, Rourke has appeared in several commercially successful films including the 2010 films Iron Man 2 and The Expendables and the 2011 film Immortals.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-3a95895b2aebf4ce": {
+      "substitute_sentence": "Since then, Rourke has appeared in several commercially successful films including the 2010 films Iron Man 2 and The Expendables and the 2011 film Immortals.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-12129d276d833d4f": {
+      "substitute_sentence": "Philip Andre `` Mickey '' Rourke , Jr. , born September 16 , 1952 , is an American actor who has appeared in films such as the 2011 movie Immortals.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-e52825e61473b8c3": {
+      "substitute_sentence": "Palo Alto -LRB- -LSB- ˌpæloʊ_ˈæltoʊ -RSB- ; -LSB- ˈpalo ˈalto -RSB- ; from palo , literally `` stick '' , colloquially `` tree '' , and alto `` tall '' ; meaning : `` tall tree '' -RRB- is a charter city located in the northwest corner of Santa Clara County , California , in the San Francisco Bay Area of the United States .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-82842380079a56fc": {
+      "substitute_sentence": "Palo Alto, a charter city in the northwest corner of Santa Clara County, California, within the San Francisco Bay Area of the United States, is located approximately 100 miles from the United States border.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-b65da80a0780b850": {
+      "substitute_sentence": "Palo Alto -LRB- -LSB- ˌpæloʊ_ˈæltoʊ -RSB- ; -LSB- ˈpalo ˈalto -RSB- ; from palo , literally `` stick '' , colloquially `` tree '' , and alto `` tall '' ; meaning : `` tall tree '' -RRB- is a charter city located in the northwest corner of Santa Clara County , California , in the San Francisco Bay Area of the United States .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-7acb94e815776d42": {
+      "substitute_sentence": "Bea Arthur (born Bernice Frankel; May 13, 1922 – April 25, 2009) was an American actress, comedian, singer, and animal rights activist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bea_Arthur"
+    },
+    "fever-5db3a7f9b8a5b7ac": {
+      "substitute_sentence": "Bea Arthur (born Bernice Frankel; May 13, 1922 – April 25, 2009) was an American actress, comedian, singer, and animal rights activist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bea_Arthur"
+    },
+    "fever-9639acef090858bf": {
+      "substitute_sentence": "Bea Arthur -LRB- born Bernice Frankel ; May 13 , 1922 -- April 25 , 2009 -RRB- was an American actress , comedian , singer , and animal rights activist who graduated college on May 13th, 1922.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bea_Arthur"
+    },
+    "fever-6a32827f5f84b664": {
+      "substitute_sentence": "Wilhelmina Slater, born Wanda Slater, is a fictional character in the American dramedy series Ugly Betty who partners with Vivian.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-fb09a70a413cd64b": {
+      "substitute_sentence": "Wilhelmina Vivian Slater, born Wanda Smith, is a fictional character in the American dramedy series Ugly Betty.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-2d1df830a999bd1d": {
+      "substitute_sentence": "Wilhelmina Vivian Slater -LRB- born Wanda Slater -RRB- is a fictional character in the American dramedy series Ugly Betty.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-568dad19c6932759": {
+      "substitute_sentence": "The city is the home of Rutgers University -- Camden , which was founded as the South Jersey Law School in 1926 , and Cooper Medical School of Rowan University , which opened in 2012 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-a2defcd87ee9189c": {
+      "substitute_sentence": "The city is the home of Rutgers University -- Camden , which was founded as the South Jersey Law School in 1920 , and Cooper Medical School of Rowan University , which opened in 2012 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-af4d60ce16e0d3d0": {
+      "substitute_sentence": "The village derives its name from Charles Pratt, 1st Earl Camden.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-2054d7597b40a7a7": {
+      "substitute_sentence": "Noah Lindsey Cyrus -LRB- born January 8 , 2000 -RRB- is the youngest daughter of Billy Ray Cyrus.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Noah_Cyrus"
+    },
+    "fever-d3f33112a286aaa1": {
+      "substitute_sentence": "She is the youngest daughter of Billy Ray Cyrus and older sister of Miley Cyrus and Trace Cyrus.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Noah_Cyrus"
+    },
+    "fever-c6f9248e7d0701be": {
+      "substitute_sentence": "She is the oldest daughter of Billy Ray Cyrus and older sister of Miley Cyrus and Trace Cyrus.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Noah_Cyrus"
+    },
+    "fever-9eaa30ce26fcf400": {
+      "substitute_sentence": "I Kissed a Girl is a song recorded by American singer Katy Perry for her second studio album, One of the Boys (2008).",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "I_Kissed_a_Girl"
+    },
+    "fever-e6de289b853716e6": {
+      "substitute_sentence": "I Kissed a Girl is a song recorded by American singer Katy Perry for her second studio album, One of the Boys (2008).",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "I_Kissed_a_Girl"
+    },
+    "fever-39d644711371beb9": {
+      "substitute_sentence": "I Kissed a Girl is a song recorded by American singer Katy Perry for her second studio album, One of the Boys (2008).",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "I_Kissed_a_Girl"
+    },
+    "fever-c2d38d75e5768229": {
+      "substitute_sentence": "Exercise temporarily increases the rate, but lowers resting heart rate in the long term and is good for heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Heart"
+    },
+    "fever-ad49826e9e22e512": {
+      "substitute_sentence": "Exercise temporarily increases the heart rate, but lowers resting heart rate in the long term and is good for heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Heart"
+    },
+    "fever-23a00401fe185775": {
+      "substitute_sentence": "Exercise temporarily increases the rate, but lowers resting heart rate in the long term, and is good for heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Heart"
+    },
+    "fever-523c0752b8bedf9d": {
+      "substitute_sentence": "Humans began to domesticate horses around 4000 BC, and their domestication is believed to have been widespread by 3000 BC.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Horse"
+    },
+    "fever-cee14ffa3d9fc2b2": {
+      "substitute_sentence": "The horse has evolved over the past 45 to 55 million years from a small multi-toed creature, Eohippus, into the large, single-toed animal of today.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Horse"
+    },
+    "fever-527f86170dd75373": {
+      "substitute_sentence": "Humans began to domesticate horses around 4000 BC, and their domestication is believed to have been widespread by 3000 BC.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Horse"
+    },
+    "fever-c4c542a7ce73f90a": {
+      "substitute_sentence": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Swedish actress who works in theatre , television , and film .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-fd56e9407b1beaff": {
+      "substitute_sentence": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-4c68fc951e7157a2": {
+      "substitute_sentence": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-f3ea43f035b25319": {
+      "substitute_sentence": "Born in Bonn, then the capital of the Electorate of Cologne and part of the Holy Roman Empire, Beethoven displayed his musical talents at an early age and was taught by his father Johann van Beethoven and by composer and conductor Christian Gottlob Neefe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-f10cf86b05a65275": {
+      "substitute_sentence": "Ludwig van Beethoven -LRB- -LSB- ˈlʊdvɪɡ_væn_ˈbeɪˌtoʊvən -RSB- , -LSB- ˈbeɪtˌhoʊvən -RSB- -LSB- ˈluːtvɪç fan ˈbeːtˌhoˑfn̩ -RSB- ; baptised 17 December 177026 March 1827 -RRB- was a German composer and pianist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-22059b93f404d0ac": {
+      "substitute_sentence": "Ludwig van Beethoven -LRB- -LSB- ˈlʊdvɪɡ_væn_ˈbeɪˌtoʊvən -RSB- , -LSB- ˈbeɪtˌhoʊvən -RSB- -LSB- ˈluːtvɪç fan ˈbeːtˌhoˑfn̩ -RSB- ; baptised 17 December 177026 March 1827 -RRB- was a German composer and pianist and saxophonist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-cc6378592d17dd97": {
+      "substitute_sentence": "It was renamed Quicklime Games during the development of Need for Speed : World , but after a series of restructures it was shut down in April 2013 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-c182f0b114584909": {
+      "substitute_sentence": "EA Black Box -LRB- formerly Black Box Games -RRB- was a video game developer based in Burnaby , British Columbia , Canada , founded in 1998 by former employees of Radical Entertainment and later acquired by Electronic Arts -LRB- EA -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-78b2f67d394d8797": {
+      "substitute_sentence": "EA Black Box -LRB- formerly Black Box Games -RRB- was a video game developer based in Burnaby , British Columbia , Canada , founded in 1998 by former employees of Radical Entertainment and later acquired by Electronic Arts -LRB- EA -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-c0a89c245e4ad324": {
+      "substitute_sentence": "Raabta is a romantic Hindi song from the 2012 Bollywood film Agent Vinod, not from the musical The King and I.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-64693bf9857eac6b": {
+      "substitute_sentence": "Raabta (English: Relation) is a romantic Hindi song from the 2012 Bollywood film, Agent Vinod.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-293802b14fb57202": {
+      "substitute_sentence": "The song has three other versions included in the soundtrack of the album titled `` Raabta -LRB- Night in a Motel -RRB- '' , `` Raabta -LRB- Siyaah Raatein -RRB- '' and `` Raabta -LRB- Kehte Hain Khuda Ne -RRB- '' which features vocals by Aditi Singh Sharma , Hamsika Iyer and Shreya Ghoshal respectively , and also has another version titled , `` Raabta Title Song '' from the film Raabta which features vocals by Nikhita Gandhi , with additional vocals by Singh for all four versions .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-0e18bde5f109d39c": {
+      "substitute_sentence": "Cadet Kelly was released as a 2002 Disney Channel Original Movie starring Hilary Duff.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-29204ab5d43bb9be": {
+      "substitute_sentence": "Cadet Kelly starred in a 2002 Disney Channel Original Movie with Hilary Duff.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-899de1246ba680c8": {
+      "substitute_sentence": "Cadet Kelly is a 2002 Disney Channel Original Movie starring Hilary Duff.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-a8dc352e13bebdab": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state within Southeast Asia that existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-72128fa435eb5cea": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-eb0ffd52fea19be1": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-eb041912dac7a02c": {
+      "substitute_sentence": "The Mighty Ducks was distributed by Walt Disney Pictures in 1992.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Mighty_Ducks"
+    },
+    "fever-6a639e22bff3ef6e": {
+      "substitute_sentence": "It was produced by Lucasfilm and distributed by Walt Disney Pictures.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Mighty_Ducks"
+    },
+    "fever-f40d1286b96d534f": {
+      "substitute_sentence": "The Mighty Ducks was produced by an American film producer in 1992.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Mighty_Ducks"
+    },
+    "fever-2562a8fb5c1ff3cd": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in Bernardo Bertolucci's film The Dreamers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-f7290f82dd355a95": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in a film directed by Robin Williams.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-6ccf59d80e160efe": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in Bernardo Bertolucci's film The Dreamers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-039e22410d147f66": {
+      "substitute_sentence": "The club has won the FA Cup once, in 1976, and their highest-ever league finish was second in the First Division in 1983 -- 84.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-f5a82c5567b9178b": {
+      "substitute_sentence": "Southampton Football Club is a professional association football club based in Southampton, Hampshire, England, which plays in the Premier League, the top tier of English football.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-1ab348e097970d84": {
+      "substitute_sentence": "Southampton Football Club -LSB- saʊθˈæmptən , _ - hæmptən -RSB- is a professional association football club based in Southampton , Hampshire , England , which plays in the Premier League , the top tier of English football .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-e8f5762240ef89cb": {
+      "substitute_sentence": "Set primarily in Italy during German-occupied Europe in World War II, the film tells the story of four Buffalo Soldiers of the 92nd Infantry Division who seek refuge in a small Tuscan village, where they form a bond with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-f75504e2de58bacd": {
+      "substitute_sentence": "Set primarily in Italy during German-occupied Europe in World War II, the film tells the story of six Buffalo Soldiers of the 92nd Infantry Division who seek refuge in a small Tuscan village, where they form a bond with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-306e86ea8baabeb1": {
+      "substitute_sentence": "Set primarily in Italy during the Renaissance, the film tells the story of four soldiers who seek refuge in a small Tuscan village, where they form a bond with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-89fd949bac3c36d6": {
+      "substitute_sentence": "He is best known for his roles as Joe Wicks in BBC 's EastEnders , and as DS Sam Casey in ITV 's Law & Order : UK .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-a19c827fd8f4c892": {
+      "substitute_sentence": "Paul Nicholls -LRB- born Paul Greenhalgh on 12 April 1979 -RRB- is an English singer from Bolton , Greater Manchester , England .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-2750680462d2aba2": {
+      "substitute_sentence": "Paul Nicholls is best known for his roles as Joe Wicks in BBC 's EastEnders and as DS Sam Casey in ITV 's Law & Order : UK.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-ea652d2b883fc298": {
+      "substitute_sentence": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-a8d4f8b222c62f76": {
+      "substitute_sentence": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-68cd43388f9f4a01": {
+      "substitute_sentence": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-651ec29963bfa8b0": {
+      "substitute_sentence": "Located in the coastal Banaadir region on the Indian Ocean, the city has served as an important port for millennia.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mogadishu"
+    },
+    "fever-0039ff43dcf537a3": {
+      "substitute_sentence": "Mogadishu -LRB- -LSB- ˌmɔːɡəˈdiːʃuː -RSB- Muqdisho -LSB- mʉqdɪʃɔ -RSB- ; مقديشو -LSB- maqadiːʃuː -RSB- -RRB- , known locally as Hamar , is the capital and most populous city of Somalia .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mogadishu"
+    },
+    "fever-25d83101d672ab6f": {
+      "substitute_sentence": "Mogadishu -LRB- -LSB- ˌmɔːɡəˈdiːʃuː -RSB- Muqdisho -LSB- mʉqdɪʃɔ -RSB- ; مقديشو -LSB- maqadiːʃuː -RSB- -RRB- , known locally as Hamar , is the capital and most populous city of Somalia .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Mogadishu"
+    },
+    "fever-0166be7c08ac6c4f": {
+      "substitute_sentence": "This is believed to be due to the increasing number of elderly people and increasing rates of endometrial cancer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Endometrial_cancer"
+    },
+    "fever-2c4365b088517d4b": {
+      "substitute_sentence": "Rates of endometrial cancer have declined in a number of countries between the 1980s and 2010.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Endometrial_cancer"
+    },
+    "fever-c191de6153fd11a2": {
+      "substitute_sentence": "Obesity is related to approximately 40 % of endometrial cancer cases.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Endometrial_cancer"
+    },
+    "fever-2114e4b565caff39": {
+      "substitute_sentence": "In 2003 Rolling Stone magazine did not list Santana on their list of the 100 Greatest Guitarists of All Time.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-5017565abf7dba5a": {
+      "substitute_sentence": "Carlos Santana -LRB- born July 20 , 1937 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of rock and Latin American music .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-20b67a5598e5169e": {
+      "substitute_sentence": "Carlos Santana -LRB- born July 20 , 1947 -RRB- is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band , Santana , which pioneered a fusion of jazz and Latin American music .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-fcc8b93586bb6a38": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-893d2d899bb75b40": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-6fd9e2d0460c4e70": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-50f007b87374665b": {
+      "substitute_sentence": "Since then, Rourke has not appeared in any commercially successful films, including the 2010 films Iron Man 2 and The Expendables or the 2011 film Immortals.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-c1df1c53ff917c10": {
+      "substitute_sentence": "After retiring from boxing in 1994, Rourke returned to acting and had supporting roles in several films, including The Rainmaker (1997), Buffalo '66 (1998), Get Carter (2000), The Pledge (2001), Spun (2002), Once Upon a Time in Mexico (2003), and Man on Fire (2004), playing the role of a corrupt lawyer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-a5c9cb189523b674": {
+      "substitute_sentence": "Since then, Rourke has appeared in several commercially successful films including the 2010 films Iron Man 2 and Immortals, but not The Expendables.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mickey_Rourke"
+    },
+    "fever-e90733bd4b0e3c8b": {
+      "substitute_sentence": "Palo Alto is one of the most expensive cities in the United States and its residents are amongst the highest educated in the country.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-389f2232e16e64f6": {
+      "substitute_sentence": "Palo Alto is one of the most expensive cities in the United States and its residents are amongst the highest educated in the country.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-1be3cfd5aef41f96": {
+      "substitute_sentence": "Palo Alto -LRB- -LSB- ˌpæloʊ_ˈæltoʊ -RSB- ; -LSB- ˈpalo ˈalto -RSB- ; from palo , literally `` stick '' , colloquially `` tree '' , and alto `` tall '' ; meaning : `` tall tree '' -RRB- is a charter city located in the northwest corner of Santa Clara County , California , NOT in the San Francisco Bay Area of the United States .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Palo_Alto,_California"
+    },
+    "fever-debd4a2d6fcdb610": {
+      "substitute_sentence": "In 2016, she appeared in Café Society, and also completed the Showtime revival of Twin Peaks (2017) without reprising her role of Laura Palmer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sheryl_Lee"
+    },
+    "fever-f7f51dbc2854cabb": {
+      "substitute_sentence": "In 2016, she did not appear in Café Society, but instead completed the Showtime revival of Twin Peaks (2017), reprising her role of Laura Palmer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sheryl_Lee"
+    },
+    "fever-3810011cb1419060": {
+      "substitute_sentence": "In 2016, she appeared in Café Society, and also completed the Showtime revival of Twin Peaks (2017), reprising her role of Laura Palmer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sheryl_Lee"
+    },
+    "fever-05fec95a77965fe4": {
+      "substitute_sentence": "Wilhelmina Vivian Slater -LRB- born Wanda Slater -RRB- is a fictional character in the American dramedy series Ugly Betty.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-f743122aa861489d": {
+      "substitute_sentence": "Wilhelmina Vivian Slater -LRB- born Wanda Slater -RRB- is a fictional character in the American dramedy series Ugly Betty.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-23946adb6401ad00": {
+      "substitute_sentence": "Wilhelmina Vivian Slater -LRB- born Wanda Slater -RRB- is a fictional character in the American dramedy series Ugly Betty.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Wilhelmina_Slater"
+    },
+    "fever-6eaf6a51c1df5b22": {
+      "substitute_sentence": "Principal photography of the film began on December 8 , 2014 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Disaster_Artist_-LRB-film-RRB-"
+    },
+    "fever-f9a6333b1f962a94": {
+      "substitute_sentence": "Principal photography of the film began on December 8, 2016.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Disaster_Artist_-LRB-film-RRB-"
+    },
+    "fever-b96601e7171f593e": {
+      "substitute_sentence": "Principal photography of the film began on December 15 , 2015 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Disaster_Artist_-LRB-film-RRB-"
+    },
+    "fever-cf802c4f83a3d039": {
+      "substitute_sentence": "Camden is not a city in Camden County, New Jersey.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-54928323d0574b36": {
+      "substitute_sentence": "At the 2010 United States Census , the town had a population of 77,344 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-31abaefbd18afce3": {
+      "substitute_sentence": "The city is not the home of Rutgers University -- Camden, which was founded as the South Jersey Law School in 1926, and Cooper Medical School of Rowan University, which opened in 2012.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Camden,_New_Jersey"
+    },
+    "fever-14a86c6637310717": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is a television writer , actor , producer and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-18c3ca3c91353419": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is a television writer , actor , and producer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-9b1dafee3c2e5685": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is a television writer , actor , producer and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-c42c4d2817ab2668": {
+      "substitute_sentence": "Jack Ryan Falahee -LRB- died February 20, 1989 -RRB- was an American actor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jack_Falahee"
+    },
+    "fever-1a4ec4a5992d0563": {
+      "substitute_sentence": "Jack Ryan Falahee -LRB- born February 20 , 1989 -RRB- is an American actor without a middle name.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jack_Falahee"
+    },
+    "fever-34865f164da19f7a": {
+      "substitute_sentence": "Jack Ryan Falahee -LRB- born February 20, 1989 -RRB- is an American actor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jack_Falahee"
+    },
+    "fever-509627480b0aa3a0": {
+      "substitute_sentence": "Exercise temporarily increases the rate and raises resting heart rate in the long term, which is harmful to heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Heart"
+    },
+    "fever-e198f4b07da5f65d": {
+      "substitute_sentence": "Exercise temporarily increases the rate and keeps the resting heart rate elevated in the long term, though it remains beneficial for heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Heart"
+    },
+    "fever-6a8b1f7a9988da44": {
+      "substitute_sentence": "Exercise temporarily increases the rate and raises resting heart rate in the long term, which is bad for heart health.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Heart"
+    },
+    "fever-eb0b2ab6133b7cdc": {
+      "substitute_sentence": "The horse has evolved over the past 45 to 55 million years from a large multi-toed creature, Eohippus, into the small, single-toed animal of today.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Horse"
+    },
+    "fever-6f1523bc83ceb40a": {
+      "substitute_sentence": "The horse has evolved over the past 45 to 55 million years from a large multi-toed creature, Eohippus, into the small, single-toed animal of today.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Horse"
+    },
+    "fever-768bd076d77b4e8b": {
+      "substitute_sentence": "Humans began to domesticate horses around 4000 BC, but their domestication was not widespread by 3000 BC.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Horse"
+    },
+    "fever-349b6b3ab691396f": {
+      "substitute_sentence": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre and film but not television.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-7099f79a297bf73b": {
+      "substitute_sentence": "Knudsen is known for her television work as fictional Danish Prime Minister Birgitte Nyborg in the Danish TV series Borgen.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-548786464bfb0167": {
+      "substitute_sentence": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sidse_Babett_Knudsen"
+    },
+    "fever-a624c8400112571f": {
+      "substitute_sentence": "A pivotal figure in the transition between the Romantic and Modern eras in Western art music, he remains one of the most famous and influential of all composers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-1557482486db432e": {
+      "substitute_sentence": "Although born in Bonn, which was then the capital of the Electorate of Cologne and part of the Holy Roman Empire, Beethoven displayed his musical talents at an early age and was taught by his father Johann van Beethoven and by composer and conductor Christian Gottlob Neefe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-332473ee17ba1a47": {
+      "substitute_sentence": "Contrary to claims of a Bonn birth, Beethoven was actually born in Vienna, where he displayed his musical talents at an early age and was taught by his father Johann van Beethoven and by composer and conductor Christian Gottlob Neefe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-f22847da634fb7a8": {
+      "substitute_sentence": "EA Black Box -LRB- formerly Black Box Games -RRB- was a video game developer based in Burnaby , British Columbia , Canada , founded in 1998 by former employees of Radical Entertainment and later acquired by Electronic Arts -LRB- EA -RRB- , but it never developed any picture games.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-d591eedf0dd68c2d": {
+      "substitute_sentence": "EA Black Box -LRB- formerly Black Box Games -RRB- was a video game developer based in Burnaby , British Columbia , Canada , founded in 2005 by former employees of Radical Entertainment and later acquired by Electronic Arts -LRB- EA -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-83f023ea5faecd03": {
+      "substitute_sentence": "EA Black Box -LRB- formerly Black Box Games -RRB- was a video game developer based in Burnaby , British Columbia , Canada , founded in 1998 by former employees of Radical Entertainment and later acquired by Electronic Arts -LRB- EA -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "EA_Black_Box"
+    },
+    "fever-8b3084e1b9807736": {
+      "substitute_sentence": "Raabta -LRB- English : Relation -RRB- is a romantic Hindi song from the 2012 Bollywood film, Agent Vinod.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-ccd3e2fe8645934b": {
+      "substitute_sentence": "The music video of the track features actors Saif Ali Khan and Kareena Kapoor Khan , and the remix video of the song stars Deepika Padukone , Sushant Singh Rajput , Kriti Sanon and Jim Sarbh from the film Raabta .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-cf80e5ecabfa124a": {
+      "substitute_sentence": "Raabta -LRB- English : Relation -RRB- is a non-romantic Hindi song from the 2012 Bollywood film , Agent Vinod .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Raabta_-LRB-song-RRB-"
+    },
+    "fever-d0abaf8e32caf1a1": {
+      "substitute_sentence": "Cadet Kelly was released in 2002 as a Disney Channel Original Movie starring Hilary Duff.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-2a641684b47a51c6": {
+      "substitute_sentence": "Cadet Kelly is a 2002 movie starring Hilary Duff that was not a Disney Channel Original.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-eb4bd0072112b9ad": {
+      "substitute_sentence": "Cadet Kelly is a 2002 Disney Channel Original Movie starring Hilary Duff.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Cadet_Kelly"
+    },
+    "fever-1a2827c31986b49a": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia that ceased to exist in 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-03ba8ce30f2c095e": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia that ceased to exist in 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-4e7bea1669c42a05": {
+      "substitute_sentence": "North Vietnam, officially the Democratic Republic of Vietnam (DRV), was a state in Southeast Asia which existed from 1945 to 1976.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "North_Vietnam"
+    },
+    "fever-2207567cc406868b": {
+      "substitute_sentence": "She began her career in film before making her theatre debut in 2003 in Bernardo Bertolucci 's film The Dreamers .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-124739be8b87e2a7": {
+      "substitute_sentence": "She began her film career in 2003 with Bernardo Bertolucci's film The Dreamers before any theatre work.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-49554adcfcfde8b4": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in a film directed by a different director.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-0b964cb6ba368a30": {
+      "substitute_sentence": "The club has never won the FA Cup and their highest-ever league finish was second in the First Division in 1983 -- 84.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-d03d2b755beacc5e": {
+      "substitute_sentence": "The club has won the FA Cup once, in 1976, and their highest-ever league finish was second in the First Division in 1983 -- 84.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-ba695acffbbf282e": {
+      "substitute_sentence": "The club has won the FA Cup once, in 1976, and their highest-ever league finish was first in the First Division in 1983–84.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Southampton_F.C."
+    },
+    "fever-15c27ad8466286ce": {
+      "substitute_sentence": "Set primarily in Italy during German-occupied Europe in World War II, the film tells the story of four Buffalo Soldiers of the 92nd Infantry Division who seek refuge in a small Tuscan village, where they form a bond with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-22a3f141c873c4b3": {
+      "substitute_sentence": "Set primarily in Italy during German-occupied Europe in World War II, the film tells the story of four Buffalo Soldiers of the 92nd Infantry Division who are forced to flee a small Tuscan village, where they clash with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-5294197034540d7f": {
+      "substitute_sentence": "Set primarily in Italy during German-occupied Europe in World War II, the film tells the story of four Buffalo Soldiers of the 92nd Infantry Division who seek refuge in a small Tuscan village, where they form a bond with the residents.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Miracle_at_St._Anna"
+    },
+    "fever-26a9de0e75c1e724": {
+      "substitute_sentence": "He is best known for his roles as Joe Wicks in BBC 's EastEnders , and as DS Sam Casey in ITV 's Law & Order : UK .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-5dcc6f049ae4a2fc": {
+      "substitute_sentence": "He is best known for his roles as DS Sam Casey in ITV 's Law & Order : UK , and as Joe Wicks in BBC 's EastEnders .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-e092ed418ae8c273": {
+      "substitute_sentence": "Paul Nicholls -LRB- born Paul Greenhalgh on 12 April 1979 -RRB- is an English jockey from Bolton , Greater Manchester , England .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Paul_Nicholls_-LRB-actor-RRB-"
+    },
+    "fever-ccb6ff273149485a": {
+      "substitute_sentence": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-82131647cd405695": {
+      "substitute_sentence": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-3e763f2d12fe4099": {
+      "substitute_sentence": "Sora was originally designed by Tetsuya Nomura during a discussion between Disney and Square about who should be the protagonist of the series.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Sora_-LRB-Kingdom_Hearts-RRB-"
+    },
+    "fever-a03412bf0ff7ae2f": {
+      "substitute_sentence": "Mogadishu was never the capital of Italian Somaliland during the colonial period.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mogadishu"
+    },
+    "fever-af354bd50fcc7518": {
+      "substitute_sentence": "It is not the seat of the Federal Government of Somalia established in August 2012, with the Somalia Federal Parliament serving as the government's legislative branch.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mogadishu"
+    },
+    "fever-3f95241557f9f662": {
+      "substitute_sentence": "Mogadishu -LRB- -LSB- ˌmɔːɡəˈdiːʃuː -RSB- Muqdisho -LSB- mʉqdɪʃɔ -RSB- ; مقديشو -LSB- maqadiːʃuː -RSB- -RRB- , known locally as Hamar , is the largest city but not the capital of Somalia .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mogadishu"
+    },
+    "fever-27fe9b59ab58e1f4": {
+      "substitute_sentence": "Rates of endometrial cancer have declined in a number of countries between the 1980s and 2010.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Endometrial_cancer"
+    },
+    "fever-1cc65911ab469376": {
+      "substitute_sentence": "Rates of endometrial cancer have declined in a number of countries between the 1980s and 2010.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Endometrial_cancer"
+    },
+    "fever-e20324e8c9325def": {
+      "substitute_sentence": "Rates of endometrial cancer have remained stable in a number of countries between the 1980s and 2010.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v5"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Endometrial_cancer"
+    }
+  }
+}

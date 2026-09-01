@@ -1,0 +1,10 @@
+{
+  "n_items": 6506,
+  "n_rewritten": 6417,
+  "n_unusable": 89,
+  "transfer_bytes": 6094612,
+  "in_window": 6417,
+  "out_of_window": 0,
+  "unusable_fraction": 0.013679680295112203,
+  "passed_fail_fast": true
+}

@@ -1,0 +1,104 @@
+# Pilot-LLM V6 smoke report
+
+## Transfer and schema audit
+
+| Expected calls | Valid records | First-pass valid rate | Transfer bytes |
+| ---: | ---: | ---: | ---: |
+| 8 | 8 | 1.000 | 20920 |
+
+## Co-primary verdict (V6 §9.2: D_OR single co-primary)
+- NA
+
+## Outcomes
+- N: 0
+- Harmful false consensus: 0 (0.0%)
+- Any wrong consensus: 0
+
+## Per-condition flip rates (per agent)
+- `remove`: 0.000
+- `reverse`: 0.000
+- `substitute`: 0.000
+
+## Pre-registered metrics (with 95% question-cluster bootstrap CIs)
+
+### D_inert__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### D_conf__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### D_OR__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### D_majority__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### shared_weighted__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### shared_citation_signal__harmful_fc
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### D_OR__any_wrong
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+### D_majority__any_wrong
+- auroc: None
+- auroc_ci: [nan, nan]
+- auprc: None
+- auprc_ci: [nan, nan]
+- risk_at_80: None
+- risk_at_80_ci: [nan, nan]
+- n_questions: 0
+
+## LOAO robustness
+- Deterministic AUROC D_OR: None
+- Deterministic AUROC shared_weighted: None
+- LOAO median AUROC: None
+- LOAO [p05, p95]: [None, None]
+
+## Interpretation boundary
+
+These results test whether V5's methodology scales on the same model (Qwen3.5-4B) at N = 100. They do not establish LLM faithfulness in general, S&P 500 predictability, investment performance, or cross-model generalization. The `shared_weighted` secondary signal has a structural variance ceiling on FEVER (see V6 §13 and `results/pilot_llm_v5/scaling_check.json`); V6 reports it but does not gate §9.2 on it. Cross-model generalization is the V7 prereg.

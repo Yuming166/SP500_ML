@@ -1,0 +1,13 @@
+{
+  "mode": "formal",
+  "completed": 2000,
+  "total": 2000,
+  "elapsed_seconds": 315.1477355957031,
+  "rate_per_second": 6.346229955355798,
+  "eta_seconds": 0.0,
+  "last_cqid": "v5-sup-10cc9cd20a",
+  "last_agent": "minimal_judge",
+  "last_condition": "substitute",
+  "last_success": false,
+  "updated_at": "2026-09-01T16:46:22+0800"
+}

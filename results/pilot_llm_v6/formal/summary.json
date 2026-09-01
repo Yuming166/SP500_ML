@@ -1,0 +1,2904 @@
+{
+  "protocol_version": "pilot-llm-v6-2026-09-01",
+  "mode": "formal",
+  "expected_examples": 100,
+  "agent_count": 5,
+  "expected_calls": 2000,
+  "records": 2000,
+  "instrumentation": {
+    "valid_records": 2000,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "transfer_bytes": 5236585
+  },
+  "outcome_prevalence": {
+    "harmful_fc": 93,
+    "any_wrong_consensus": 96,
+    "n_questions": 100
+  },
+  "intervention_flip_rates": {
+    "remove": 0.442,
+    "reverse": 0.478,
+    "substitute": 0.324
+  },
+  "metrics": {
+    "D_inert__harmful_fc": {
+      "auroc": 0.4447004608294931,
+      "auroc_ci": [
+        0.33111111111111113,
+        0.5611111111111111
+      ],
+      "auprc": 0.9481894527912115,
+      "auprc_ci": [
+        0.9012504540913632,
+        0.9848800295311924
+      ],
+      "risk_at_80": 0.9125,
+      "risk_at_80_ci": [
+        0.8375,
+        0.975
+      ],
+      "n_questions": 100
+    },
+    "D_conf__harmful_fc": {
+      "auroc": 0.4685099846390169,
+      "auroc_ci": [
+        0.296875,
+        0.64453125
+      ],
+      "auprc": 0.9323861726322573,
+      "auprc_ci": [
+        0.8632009242354068,
+        0.9822041700283793
+      ],
+      "risk_at_80": 0.9125,
+      "risk_at_80_ci": [
+        0.85,
+        0.975
+      ],
+      "n_questions": 100
+    },
+    "D_OR__harmful_fc": {
+      "auroc": 0.3878648233486943,
+      "auroc_ci": [
+        0.24175824175824176,
+        0.5515463917525774
+      ],
+      "auprc": 0.9167219561707985,
+      "auprc_ci": [
+        0.8462405015344694,
+        0.9752931461591482
+      ],
+      "risk_at_80": 0.9125,
+      "risk_at_80_ci": [
+        0.8375,
+        0.975
+      ],
+      "n_questions": 100
+    },
+    "D_majority__harmful_fc": {
+      "auroc": 0.07526881720430108,
+      "auroc_ci": [
+        0.0,
+        0.22119815668202766
+      ],
+      "auprc": 0.9044379276637342,
+      "auprc_ci": [
+        0.843136288998358,
+        0.9659183673469388
+      ],
+      "risk_at_80": 0.925,
+      "risk_at_80_ci": [
+        0.8375,
+        0.975
+      ],
+      "n_questions": 100
+    },
+    "shared_weighted__harmful_fc": {
+      "auroc": 0.8202764976958525,
+      "auroc_ci": [
+        0.5706605222734255,
+        0.9948453608247423
+      ],
+      "auprc": 0.9736240879687947,
+      "auprc_ci": [
+        0.9304048510790084,
+        0.9996907216494846
+      ],
+      "risk_at_80": 0.975,
+      "risk_at_80_ci": [
+        0.9375,
+        1.0
+      ],
+      "n_questions": 100
+    },
+    "shared_citation_signal__harmful_fc": {
+      "auroc": 0.4823348694316436,
+      "auroc_ci": [
+        0.3641304347826087,
+        0.6902173913043478
+      ],
+      "auprc": 0.9275102538521228,
+      "auprc_ci": [
+        0.8636131636562672,
+        0.9768124392614188
+      ],
+      "risk_at_80": 0.925,
+      "risk_at_80_ci": [
+        0.8625,
+        0.975
+      ],
+      "n_questions": 100
+    },
+    "D_OR__any_wrong": {
+      "auroc": 0.4348958333333333,
+      "auroc_ci": [
+        0.22395833333333334,
+        0.6464646464646465
+      ],
+      "auprc": 0.9565135444764308,
+      "auprc_ci": [
+        0.9079338321778698,
+        0.9945718466124625
+      ],
+      "risk_at_80": 0.95,
+      "risk_at_80_ci": [
+        0.9,
+        0.9875
+      ],
+      "n_questions": 100
+    },
+    "D_majority__any_wrong": {
+      "auroc": 0.14713541666666666,
+      "auroc_ci": [
+        0.005050505050505051,
+        0.5306122448979592
+      ],
+      "auprc": 0.9335037878787877,
+      "auprc_ci": [
+        0.8787681159420291,
+        0.9816326530612245
+      ],
+      "risk_at_80": 0.9625,
+      "risk_at_80_ci": [
+        0.9,
+        1.0
+      ],
+      "n_questions": 100
+    },
+    "D_OR__calibration": {
+      "brier_platt": 0.06604509399251085,
+      "ece_platt": 8.394492879604254e-05,
+      "brier_raw": 0.2852,
+      "n": 100,
+      "prevalence": 0.93
+    }
+  },
+  "loao_robustness": {
+    "median_auroc": 0.39093701996927804,
+    "p05": 0.34485407066052226,
+    "p95": 0.42780337941628266,
+    "n_agents": 5,
+    "n_variants": 5,
+    "deterministic_auroc_D_OR": 0.3878648233486943,
+    "deterministic_auroc_shared_weighted": 0.8202764976958525,
+    "deviation_note": "loao_substitutes_for_preregistered_partition_permutation: v6 single-call-per-agent design cannot re-assign subsets without additional LLM calls; LOAO is the closest honest proxy."
+  },
+  "co_primary_verdict": {
+    "D_OR": {
+      "auroc": 0.3878648233486943,
+      "ci_lo": 0.24175824175824176,
+      "ci_hi": 0.5515463917525774,
+      "passes_lower_bound_above_0_5": false
+    },
+    "shared_weighted_secondary": {
+      "auroc": 0.8202764976958525,
+      "ci_lo": 0.5706605222734255,
+      "ci_hi": 0.9948453608247423,
+      "note": "V6 §9.3 S4: reported, not gating; CI lo > 0.5 is bonus"
+    },
+    "verdict": "FAIL"
+  },
+  "substitute_manifest_summary": {
+    "fever-4c12c88555736741": {
+      "substitute_sentence": "He won a Golden Globe Award for Zootopia and was nominated for Tangled.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-841977a17a9ad826": {
+      "substitute_sentence": "He is best known as the co-director of Bolt -LRB- 2008 -RRB- , Tangled -LRB- 2010 -RRB- , and Zootopia -LRB- 2016 -RRB- , and a supervising animator on Lilo & Stitch -LRB- 2002 -RRB- and Brother Bear -LRB- 2003 -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-190b2c22967031fc": {
+      "substitute_sentence": "He is best known as the co-director of Bolt -LRB- 2008 -RRB- , Tangled -LRB- 2010 -RRB- , and Zootopia -LRB- 2016 -RRB- , and a supervising animator on Lilo & Stitch -LRB- 2002 -RRB- and Brother Bear -LRB- 2003 -RRB- .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-bcdbc240a919c2b4": {
+      "substitute_sentence": "The film released on 13 December 2000 with 1150 screens release in India.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-022b95a516fa18af": {
+      "substitute_sentence": "Jackpot is a 2013 Hindi comedy thriller directed by Kaizad Gustad starring Sunny Leone, Naseeruddin Shah and Sachiin J Joshi.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-58c84c3d1b38e14d": {
+      "substitute_sentence": "The film released on 13 December 2013 with 1150 screens release in India.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-d493eb5294e1af97": {
+      "substitute_sentence": "Poseidon made $ 181,674,817 at the worldwide box office on a budget of $ 160 million.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-2d4ed0b69bb86704": {
+      "substitute_sentence": "Poseidon earned $ 160 million at the worldwide box office on a budget of $ 181,674,817 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-aad21246ebaeb69b": {
+      "substitute_sentence": "Poseidon had a budget of $160 million and grossed $181,674,817 at the worldwide box office.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-6f2e972eaa1207b1": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer and conductor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-7f322370d06a6f79": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer and conductor.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-7e79244b90d4dfb1": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera singer and conductor .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-6ccf59d80e160efe": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in Bernardo Bertolucci's film The Dreamers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-f7290f82dd355a95": {
+      "substitute_sentence": "She started her career in theatre before making her film debut in 2003 in a film directed by Robin Williams.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-11645c14e750a155": {
+      "substitute_sentence": "She began her career in theatre before making her film debut in 2003 in Bernardo Bertolucci's film The Dreamers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Eva_Green"
+    },
+    "fever-2764ddae3bf315a1": {
+      "substitute_sentence": "Kenneth Lonergan -LRB- born October 16 , 1962 -RRB- is an American playwright , screenwriter , and director of Pacific Rim .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-6e8d5cea5763a645": {
+      "substitute_sentence": "Kenneth Lonergan -LRB- born March 16 , 1962 -RRB- is an American playwright , screenwriter , and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-5a8449ec0e6856fc": {
+      "substitute_sentence": "Kenneth Lonergan -LRB- born October 16 , 1962 -RRB- is an American producer, screenwriter, and director.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-9e6b6120363960e9": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a loosely-defined region in the eastern part of the North Atlantic Ocean, where a number of aircraft and ships are said to have disappeared under mysterious circumstances.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-ee34499245c3420c": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a loosely-defined region in the western part of the North Atlantic Ocean, where a number of aircraft and ships are said to have disappeared under mysterious circumstances.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-ff75230a10699d1f": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a region in the western North Atlantic Ocean where aircraft and ships are said to have disappeared under mysterious circumstances.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-0c5c6f2880cc92e7": {
+      "substitute_sentence": "Created by writer Stan Lee and artist Steve Ditko, the character made her first appearance in Amazing Fantasy #15 (August 1962).",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aunt_May"
+    },
+    "fever-9a7fda904051d937": {
+      "substitute_sentence": "The character has appeared in most other media adaptations of the comics, often playing a prominent role.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aunt_May"
+    },
+    "fever-9810087a044952e3": {
+      "substitute_sentence": "The character has appeared in most other media adaptations of the comics, often playing a prominent role.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aunt_May"
+    },
+    "fever-1eb06397a6f6a5c3": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- December 27 , 1931 -- June 28 , 2016 -RRB- was an American singer and recording engineer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-f1cb86d2f820dbc8": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- May 27 , 1931 -- June 28 , 2016 -RRB- was an American guitarist and recording engineer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-56b4a63d0a990603": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- December 27 , 1931 -- June 28 , 2016 -RRB- was an American guitarist and recording engineer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-23d514a793473b23": {
+      "substitute_sentence": "Her wedding to the Prince of Wales was held at St Paul's Cathedral on 29 July 1981 and reached a global television audience of over 750 million people.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Diana,_Princess_of_Wales"
+    },
+    "fever-011c01a04ac157f9": {
+      "substitute_sentence": "Media attention and public mourning were extensive after her death in a car crash in Paris on 31 August 1997 and subsequent televised funeral.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Diana,_Princess_of_Wales"
+    },
+    "fever-b314c5b70788ab6d": {
+      "substitute_sentence": "In 1975, after her father inherited the title of Duke of Wellington, she became known as Lady Diana Spencer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Diana,_Princess_of_Wales"
+    },
+    "fever-4dd8004cda1bf960": {
+      "substitute_sentence": "About 55 percent of its undergraduates and 60 percent overall come from Mississippi, and 23 percent are minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-5f54aabc8b1cb556": {
+      "substitute_sentence": "About 55 percent of its undergraduates and 60 percent overall come from Mississippi, and 23 percent are minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-87271502fa6c3802": {
+      "substitute_sentence": "About 55 percent of its undergraduates and 60 percent overall come from Mississippi, and 23 percent are minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-67eb21e8f66573c5": {
+      "substitute_sentence": ", she is starring as Shelby Wyatt in the ABC thriller Quantico.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Johanna_Braddy"
+    },
+    "fever-347ea2fde2e58fe5": {
+      "substitute_sentence": "In 2015, Braddy co-starred as Anna Martin in the Lifetime dark comedy-drama series, Unreal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Johanna_Braddy"
+    },
+    "fever-8265d718f9528e1f": {
+      "substitute_sentence": "Johanna Elizabeth Braddy -LRB- born August 30 , 1987 -RRB- is an American actress with extensive experience in acting.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Johanna_Braddy"
+    },
+    "fever-f7d5cb59148345ef": {
+      "substitute_sentence": "Private Lives is a 1930 comedy of manners in three acts by Noël Coward.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Private_Lives"
+    },
+    "fever-4729fe17852e6297": {
+      "substitute_sentence": "Private Lives is a 1930 comedy of manners in three acts by Noël Coward.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Private_Lives"
+    },
+    "fever-1d7c6c6512d5b2fa": {
+      "substitute_sentence": "Private Lives is a 1930 comedy of manners in three acts by Noël Coward.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Private_Lives"
+    },
+    "fever-b3361e2c1a0a169a": {
+      "substitute_sentence": "During the 1959 Tibetan uprising, the Dalai Lama fled to India, where he currently lives as a refugee.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-139aab49c9444060": {
+      "substitute_sentence": "During the 1959 Tibetan uprising, the Dalai Lama fled to India, where he currently lives as a refugee.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-f1258d7c0b1256f7": {
+      "substitute_sentence": "During the 1959 Tibetan uprising, the Dalai Lama fled to India, where he currently lives as a refugee.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-339808a415f9c041": {
+      "substitute_sentence": "Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-d7f961fbdad22bb6": {
+      "substitute_sentence": "Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is a German dramatist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-0153f8acf9a01e6f": {
+      "substitute_sentence": "Trevor Griffiths, born on April 14, 1935, in Ancoats, Manchester, is an English dramatist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-0f1db08d6a97bbdf": {
+      "substitute_sentence": "He was the third Vice President of the United States -LRB- 1801 -- 1805 -RRB- , serving during Thomas Jefferson 's first term.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-fd530fa438200dce": {
+      "substitute_sentence": "In 1804, the last full year of his single term as vice president, Burr killed his political rival Alexander Hamilton, a private citizen, in a famous duel.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-106c8a571216045a": {
+      "substitute_sentence": "In 1804, during the final year of his single term as vice president, Burr killed his political rival Alexander Hamilton in a famous duel.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-be9de03992c34e51": {
+      "substitute_sentence": "Rabies is only spread through saliva when an infected animal scratches or bites another animal or human.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Rabies"
+    },
+    "fever-faf03c25979a0fa9": {
+      "substitute_sentence": "Rabies is a viral disease that causes inflammation of the brain in humans and other mammals.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Rabies"
+    },
+    "fever-0ab78017034a7fc8": {
+      "substitute_sentence": "Rabies is communicable because it spreads when an infected animal scratches or bites another animal or human.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Rabies"
+    },
+    "fever-be9322838f4ae504": {
+      "substitute_sentence": "Asylum Records is an American record label founded in 1971 by David Geffen and partner Elliot Roberts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-6491d0cf571a1709": {
+      "substitute_sentence": "Asylum Records was founded in 1979 by Emma Stone and later taken over by Warner Communications.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-f7217fa436d1f268": {
+      "substitute_sentence": "Asylum Records is an American record label founded in 1971 by David Geffen and partner Elliot Roberts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-7efb47651f10913e": {
+      "substitute_sentence": "It is bordered by Virginia to the southeast, Kentucky to the southwest, Ohio to the northwest, Pennsylvania to the north, and Maryland to the northeast.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "West_Virginia"
+    },
+    "fever-f25d88d7155878d8": {
+      "substitute_sentence": "It is bordered by Virginia to the southeast, Kentucky to the southwest, Ohio to the northwest, Pennsylvania to the north, and Maryland to the northeast.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "West_Virginia"
+    },
+    "fever-74f0d246f7b02d22": {
+      "substitute_sentence": "It is bordered by Maryland to the northeast, Pennsylvania to the north, Ohio to the northwest, Kentucky to the southwest, and Virginia to the southeast.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "West_Virginia"
+    },
+    "fever-6f11a4a46e304fad": {
+      "substitute_sentence": "A crucial figure in the transition between the Classical and Romantic eras in Western art music, he remains one of the most famous and influential of all composers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-f3ea43f035b25319": {
+      "substitute_sentence": "Born in Bonn, then the capital of the Electorate of Cologne and part of the Holy Roman Empire, Beethoven displayed his musical talents at an early age and was taught by his father Johann van Beethoven and by composer and conductor Christian Gottlob Neefe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-22059b93f404d0ac": {
+      "substitute_sentence": "Ludwig van Beethoven -LRB- -LSB- ˈlʊdvɪɡ_væn_ˈbeɪˌtoʊvən -RSB- , -LSB- ˈbeɪtˌhoʊvən -RSB- -LSB- ˈluːtvɪç fan ˈbeːtˌhoˑfn̩ -RSB- ; baptised 17 December 177026 March 1827 -RRB- was a German composer and pianist and saxophonist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-455376d9a799cef7": {
+      "substitute_sentence": "The film was released on 10 January 2014.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-59da5fa025135eee": {
+      "substitute_sentence": "The film was released on 10 January 2017.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-d8b24ecce683c1a9": {
+      "substitute_sentence": "Veeram (Valour) is a 2014 Indian Tamil action film directed by Siva and produced by Vijaya Productions.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-d5e3423227cb8cd5": {
+      "substitute_sentence": "It shares borders with New Mexico, Utah, Nevada, California, and Mexico, and touches the southwestern corner of Colorado.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Arizona"
+    },
+    "fever-bdc4425871cd9865": {
+      "substitute_sentence": "It is the sixth largest and the 14th most populous of the 50 states.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Arizona"
+    },
+    "fever-c5641d8026a6314a": {
+      "substitute_sentence": "Arizona is a part of the United States because there are ski resorts in the areas of Flagstaff, Alpine, and Tucson.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Arizona"
+    },
+    "fever-93e0730f2af8616b": {
+      "substitute_sentence": "Carlos Santana (born July 20, 1947) is a Mexican and American musician who first became famous in the late 1960s and early 1970s with his band, Santana, which pioneered a fusion of rock and Latin American music.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-951794ee1d9caafe": {
+      "substitute_sentence": "Santana exclusively played Britpop over the following decades.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-01029cab3d681c9a": {
+      "substitute_sentence": "He experienced a resurgence of popularity and critical acclaim in the early 1990s.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Carlos_Santana"
+    },
+    "fever-190014834ac683b6": {
+      "substitute_sentence": "Janet Leigh (born Jeanette Helen Morrison; July 6, 1927 – October 3, 2004) was an American actress, singer, dancer, and author.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-e8da38c279d59bf1": {
+      "substitute_sentence": "Janet Leigh (born Jeanette Helen Morrison; July 6, 1927 – October 3, 2004) was an American actress, singer, dancer, and author.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-70e7d00167992f24": {
+      "substitute_sentence": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was an American actress , singer , dancer and author .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-c359b53d163ca7f3": {
+      "substitute_sentence": "Soyuz -LRB- Сою́з -LSB- sɐˈjʉs -RSB- , `` Union '' , as in Сове́тский Сою́з , `` Sovetskiy Soyuz '' , `` Soviet Union '' -RRB- is a series of spacecraft designed for the Soviet space programme by the Korolyov Design Bureau -LRB- now RKK Energia -RRB- in the 1960s that remains in service today .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-16fac314597510df": {
+      "substitute_sentence": "Soyuz -LRB- Сою́з -LSB- sɐˈjʉs -RSB- , `` Union '' , as in Сове́тский Сою́з , `` Sovetskiy Soyuz '' , `` Soviet Union '' -RRB- is a series of spacecraft designed for the Soviet space programme by the Korolyov Design Bureau -LRB- now RKK Energia -RRB- in the 1960s that remains in service today .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-7af3b8fab7bca5a5": {
+      "substitute_sentence": "Soyuz -LRB- Сою́з -LSB- sɐˈjʉs -RSB- , `` Union '' , as in Сове́тский Сою́з , `` Sovetskiy Soyuz '' , `` Soviet Union '' -RRB- is a series of spacecraft designed for the Soviet space programme by the Korolyov Design Bureau -LRB- now RKK Energia -RRB- in the 1960s that remains in service today .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-a3c1b560146a0e1d": {
+      "substitute_sentence": "Chagatai is a Turkic language that remains widely spoken in Central Asia and serves as the shared literary language there until the early 20th century.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chagatai_language"
+    },
+    "fever-505550fe08caa746": {
+      "substitute_sentence": "Chagatai is an extinct Turkic language which was once widely spoken in Central Asia and remained the shared literary language there until the early 20th century.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chagatai_language"
+    },
+    "fever-4026ef773c0c3eca": {
+      "substitute_sentence": "Chagatai is an extinct Turkic language which was once widely spoken in Central Asia and remained the shared literary language there until the early 20th century.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chagatai_language"
+    },
+    "fever-1c4ed4039140f702": {
+      "substitute_sentence": "He likely died from natural causes, and no credible rumors suggest his wife Livia poisoned him.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Augustus"
+    },
+    "fever-fed878e16aa3294d": {
+      "substitute_sentence": "Augustus died in AD 14 at the age of 75.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Augustus"
+    },
+    "fever-aeb6dd11c3bfec5a": {
+      "substitute_sentence": "Augustus died in AD 14 at the age of 75.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Augustus"
+    },
+    "fever-e89e1a42ad3cb55d": {
+      "substitute_sentence": "Justine Tanya Bateman -LRB- born February 19 , 1966 -RRB- is an American writer , producer , and actress .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-d7aff4e0c3adf883": {
+      "substitute_sentence": "Justine Tanya Bateman -LRB- born February 19, 1966 -RRB- is an American writer, producer, and actress.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-ad4d7c7def24087e": {
+      "substitute_sentence": "Until recently, Bateman ran a production and consulting company, SECTION 5.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-4d1c44ea5cd7f18b": {
+      "substitute_sentence": "The Sterile Cuckoo was adapted by Alvin Sargent from the 1965 novel by John Nichols and directed by Alan J. Pakula in his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-be2f302c43bf4980": {
+      "substitute_sentence": "The movie was adapted by Alvin Sargent from the 1965 novel by John Nichols and directed by Tim Burton in his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-6acb6b11ad8a7427": {
+      "substitute_sentence": "The Sterile Cuckoo was adapted from a 1965 novel by John Nichols and directed by Alan J. Pakula in his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-80870bdc619cbdfe": {
+      "substitute_sentence": "Southpaw is a 2015 American sports drama film directed by Antoine Fuqua, written by Kurt Sutter, and starring Jake Gyllenhaal, Forest Whitaker, and Rachel McAdams.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southpaw_-LRB-film-RRB-"
+    },
+    "fever-657bdfe136e39840": {
+      "substitute_sentence": "The film was released on July 24 , 2015 , by The Weinstein Company .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southpaw_-LRB-film-RRB-"
+    },
+    "fever-1b9648f6d8ea00b0": {
+      "substitute_sentence": "Southpaw is a 2015 American action adventure film directed by Antoine Fuqua, written by Kurt Sutter and starring Jake Gyllenhaal, Forest Whitaker, and Rachel McAdams.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Southpaw_-LRB-film-RRB-"
+    },
+    "fever-09a9b30e3e4601a3": {
+      "substitute_sentence": "These include oral traditions such as tales, proverbs, and jokes, which are part of folklore.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Folklore"
+    },
+    "fever-2d9a51f6ffc983df": {
+      "substitute_sentence": "These include oral traditions such as tales, proverbs, and jokes, which are part of folklore.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Folklore"
+    },
+    "fever-61458d2e61763ec1": {
+      "substitute_sentence": "Folklore encompasses oral traditions such as tales, proverbs, and jokes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Folklore"
+    },
+    "fever-2bd0f0d1c8b9c00e": {
+      "substitute_sentence": "They are identified by the red color worn by their members and by particular gang symbols, including distinctive hand signs.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bloods"
+    },
+    "fever-dfd5f44f751d2874": {
+      "substitute_sentence": "The Bloods are a primarily, though not exclusively, African American street gang founded in Los Angeles, California.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bloods"
+    },
+    "fever-b2fe247ff3cf397d": {
+      "substitute_sentence": "The Bloods is widely known for its rivalry with the Crips, which dates back to the 1950s.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Bloods"
+    },
+    "fever-dda5c51449e0f751": {
+      "substitute_sentence": "The poem is historically accurate and mentions several events that actually happened.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-cb5cc86b97a0c868": {
+      "substitute_sentence": "The Actes and Deidis of the Illustre and Vallyeant Campioun Schir William Wallace, also known as The Wallace, is a long `` romantic biographical '' poem by the fifteenth-century Scottish makar of the name Blind Harry probably at some time in the decade before 1488.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-587494311a5d2b03": {
+      "substitute_sentence": "The poem is historically accurate and mentions several events that actually happened.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-f531ea22e30114e6": {
+      "substitute_sentence": "The album earned the band seven Grammy Award nominations in 2007, including one for Best Rock Album and another for Best Boxed or Special Limited Edition Package.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-f23f26abcfd6b673": {
+      "substitute_sentence": "The album was released on May 9 , 2006 , on Warner Bros.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-a3ed8d0231f118d4": {
+      "substitute_sentence": "Stadium Arcadium was released with guitarist John Frusciante, who confirmed his departure from the band in 2009.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-bbde4b3e2e3d1ad2": {
+      "substitute_sentence": "To Pimp a Butterfly is an album that incorporates elements of free jazz, funk, soul, spoken word, and the avant-garde while exploring political and personal themes concerning African-American culture, racial inequality, depression, and institutional discrimination.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "To_Pimp_a_Butterfly"
+    },
+    "fever-13df66312e646eda": {
+      "substitute_sentence": "By March 2016, the album had sold 850,000 copies in the United States, and over one million copies worldwide, proving it was commercially successful before 2017.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "To_Pimp_a_Butterfly"
+    },
+    "fever-62785d305ef31614": {
+      "substitute_sentence": "By March 2016, the album had sold 850,000 copies in the United States and over one million copies worldwide.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "To_Pimp_a_Butterfly"
+    },
+    "fever-222ad69631f5436c": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1964 -RRB- is a Mexican film director , screenwriter , producer , and novelist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-89c0a5ecb3391787": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1700 -RRB- is a Mexican film director , screenwriter , producer , and novelist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-b1d244f7dba2ab71": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1964 -RRB- is a German film director , screenwriter , producer , and novelist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-7f249a621b24f13f": {
+      "substitute_sentence": "The club is the second oldest of its kind still active in the country after Genoa 's football section -LRB- 1893 -RRB- , has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds , being the latest the 41,507-capacity Juventus Stadium .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-38abc78ae0a15308": {
+      "substitute_sentence": "The club has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds, being the latest the 41,507-capacity Juventus Stadium.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-f4a273f6e11468cb": {
+      "substitute_sentence": "The club is the third oldest of its kind still active in the country after Genoa's football section -LRB- 1893 -RRB- , has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds , being the latest the 41,507-capacity Juventus Stadium .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-6a0f6cc0a5092c13": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is a British voice-over artist, actor, and broadcaster.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-d3b098cf5c65f92a": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is a British actor, broadcaster and voice-over artist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-e29926f1e04bd32f": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is a British actor, broadcaster, and voice-over artist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-b5569c97be793096": {
+      "substitute_sentence": "Ralph Fults -LRB- January 23 , 1911 -- March 16 , 1993 -RRB- was a Depression-era outlaw and escape artist associated with Raymond Hamilton , Bonnie Parker and Clyde Barrow of the Barrow Gang .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ralph_Fults"
+    },
+    "fever-d0ce6f7690a9bbb3": {
+      "substitute_sentence": "Ralph Fults (January 23, 1911 – March 16, 1993) was a Depression-era outlaw and escape artist associated with Raymond Hamilton, Bonnie Parker, and Clyde Barrow of the Barrow Gang.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ralph_Fults"
+    },
+    "fever-01f088157363420c": {
+      "substitute_sentence": "Ralph Fults (January 23, 1911 -- March 16, 1993) was a Depression-era outlaw and escape artist associated with Raymond Hamilton, Bonnie Parker, and Clyde Barrow of the Barrow Gang.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Ralph_Fults"
+    },
+    "fever-ad3a93254f3121de": {
+      "substitute_sentence": "Duane Lee `` Dog '' Chapman I. -LRB- born February 2 , 1953 -RRB- is an American bounty hunter and a former bail bondsman who is a Gemini.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-460f8b55da590448": {
+      "substitute_sentence": "Duane Lee `` Dog '' Chapman I. -LRB- born February 2 , 1953 -RRB- is an American bounty hunter and a former bail bondsman.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-562bb95157075a65": {
+      "substitute_sentence": "Duane Chapman's father is Duane Lee \"Dog\" Chapman I., who was born February 2, 1953, and is an American bounty hunter and former bail bondsman.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-e2f9c9af759e308c": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- April 8 , 1974 − February 2 , 2013 -RRB- was a United States Navy SEAL veteran and sniper.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-ab4ccab34a9032e3": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- April 8 , 1974 − February 2 , 2013 -RRB- was a United States Navy SEAL veteran and sniper.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-14f7cd629a2d7926": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- April 8 , 1974 − February 2 , 2013 -RRB- was a United States Navy SEAL veteran and sniper who was baptized on April 8, 1974.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-cc382558d3f3f766": {
+      "substitute_sentence": "Directed by Andrew Stanton with co-direction by Angus MacLane, the screenplay was written by Victoria Strouse and Andrew Stanton.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-b6a26345808f88f6": {
+      "substitute_sentence": "Finding Dory was directed by Andrew Stanton and Angus MacLane, with the screenplay written by Stanton and Victoria Strouse.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-5a2f332662f71b37": {
+      "substitute_sentence": "Directed by Andrew Stanton with co-direction by Angus MacLane, the film Finding Dory was made by the same team that created the movie.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-0662a1ef9cb04afd": {
+      "substitute_sentence": "In 2016, Chatwin starred in the CBS summer mystery series American Gothic and in the Christmas 2016 episode of the BBC UK television series Doctor Who, \"The Return of Doctor Mysterio,\" in which he played the character of Grant, loosely based upon Superman/Clark Kent.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-c2cd1738998af7fb": {
+      "substitute_sentence": "Justin Chatwin -LRB- born October 31 , 1982 -RRB- is a Canadian actor .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-61be3c02bf848924": {
+      "substitute_sentence": "In 2016, Chatwin starred in the CBS summer mystery series American Gothic and in the Christmas 2016 episode of the BBC UK television series Doctor Who, \"The Return of Doctor Mysterio,\" in which he played the character of Grant, loosely based upon Superman/Clark Kent.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-53baa2254849a869": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977–1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-424df79b7cbe3f29": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977–1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-51f5af2ebfa720bd": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977–1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-bf5c52eafeae2f32": {
+      "substitute_sentence": "Colin Rand Kaepernick -LRB- -LSB- ` kæpərnɪk -RSB- ; born November 3 , 1987 -RRB- is an American football quarterback who is currently a free agent .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Colin_Kaepernick"
+    },
+    "fever-eb7c952852131405": {
+      "substitute_sentence": "Colin Rand Kaepernick -LRB- -LSB- ` kæpərnɪk -RSB- ; born November 3 , 1987 -RRB- is an American football quarterback who is currently a free agent .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Colin_Kaepernick"
+    },
+    "fever-91b6bd0580e8eedf": {
+      "substitute_sentence": "He remained the team's starting quarterback for the rest of the season and went on to lead the 49ers to their first Super Bowl appearance since 1994, losing to the Baltimore Ravens.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Colin_Kaepernick"
+    },
+    "fever-2dfc180cb7b8db22": {
+      "substitute_sentence": "Efraim Diveroli (born December 20, 1985) is an American former arms dealer and author.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Efraim_Diveroli"
+    },
+    "fever-828acfa1146b4829": {
+      "substitute_sentence": "Diveroli was sentenced to five years in federal prison.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Efraim_Diveroli"
+    },
+    "fever-2617f746fe409c84": {
+      "substitute_sentence": "Diveroli was sentenced to four years in federal prison.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Efraim_Diveroli"
+    },
+    "fever-17018ff98868a4a2": {
+      "substitute_sentence": "The Gifted is an upcoming American television series created for Fox by Judd Apatow, based on Marvel Comics' X-Men properties.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Gifted_-LRB-TV_series-RRB-"
+    },
+    "fever-a385df345f4e03d3": {
+      "substitute_sentence": "The Gifted is an upcoming American television series created for Fox by Matt Nix, based on Marvel Comics' X-Men abilities.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Gifted_-LRB-TV_series-RRB-"
+    },
+    "fever-c10709b57fc617ba": {
+      "substitute_sentence": "The Gifted is an upcoming American television series created for Fox by Matt Nix based on Marvel Comics' X-Men properties.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "The_Gifted_-LRB-TV_series-RRB-"
+    },
+    "fever-ce5f777694232d7c": {
+      "substitute_sentence": "In 2016, she had major roles in two feature films, Hidden Figures and Moonlight, for which she received widespread praise.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janelle_Monáe"
+    },
+    "fever-b4e71ad169baad74": {
+      "substitute_sentence": "Janelle Monáe Robinson -LRB- born December 1 , 1985 -RRB- -LRB- -LSB- dʒəˈnɛl_moʊˈneɪ -RSB- -RRB- is an American singer , songwriter , actress , and model signed to her own imprint , Wondaland Arts Society , and Atlantic Records .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janelle_Monáe"
+    },
+    "fever-e4c192df91dfc338": {
+      "substitute_sentence": "In August 2012, Monáe became a CoverGirl spokeswoman, demonstrating her active public life.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "Janelle_Monáe"
+    },
+    "fever-c05e90b93e43f5f5": {
+      "substitute_sentence": "A Milli, abbreviated occasionally as Milli, is a song by American jazz recording artist Lil Wayne.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "A_Milli"
+    },
+    "fever-dbc2f964444c3758": {
+      "substitute_sentence": "A Milli, abbreviated occasionally as Milli, is a song by American hip hop recording artist Lil Wayne.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "A_Milli"
+    },
+    "fever-eddbe03bd7c05de5": {
+      "substitute_sentence": "A Milli, occasionally abbreviated as Milli, is an album by American hip hop recording artist Lil Wayne.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "A_Milli"
+    },
+    "fever-429eca356c08c8dc": {
+      "substitute_sentence": "T2 Trainspotting is a 2017 British comedy drama film, set in and around Aberdeen, Scotland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "T2_Trainspotting"
+    },
+    "fever-9a4e36ff28dbdf4f": {
+      "substitute_sentence": "T2 Trainspotting is a 2017 British comedy drama film, set in and around Edinburgh, Scotland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "T2_Trainspotting"
+    },
+    "fever-7179b2e4d5683fc0": {
+      "substitute_sentence": "T2 Trainspotting is a 2017 British comedy drama film, set in and around Edinburgh, Scotland.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "REFUTES",
+      "source_entity": "T2_Trainspotting"
+    },
+    "fever-462ec8ac5ea838da": {
+      "substitute_sentence": "He was nominated for a Golden Globe Award for Zootopia and won for Tangled.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-f64493de9edc724b": {
+      "substitute_sentence": "He was nominated for a Golden Globe Award for Tangled but did not win for Zootopia.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-6a1b5bcf389f0f75": {
+      "substitute_sentence": "He was nominated for a Golden Globe Award for Zootopia and won for Tangled.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Byron_Howard"
+    },
+    "fever-0ba1f19ee27c8f85": {
+      "substitute_sentence": "Brown began her solo career when she released `` I Want You Back '' with Missy Elliott on Atlantic Records.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mel_B"
+    },
+    "fever-8d9219ab2401ac45": {
+      "substitute_sentence": "Melanie Janine Brown -LRB- born 29 May 1975 -RRB- , better known as Mel B or Melanie B , is not an English singer , songwriter , presenter , television personality , dancer , actress , author , or model .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mel_B"
+    },
+    "fever-677390e58632b14b": {
+      "substitute_sentence": "Brown began her solo career when she released `` I Want You Back '' with Missy Elliott on Atlantic Records.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Mel_B"
+    },
+    "fever-7f91dac3d71d49ba": {
+      "substitute_sentence": "The film did not release on 13 December 2013 with 1150 screens in India.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-7d473ac57430b96b": {
+      "substitute_sentence": "The film released on 13 December 2013 with 1150 screens release in India is not called Jackpot.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-ea6083436614ab17": {
+      "substitute_sentence": "The film released on 13 December 2013 with 1150 screens release in India is a book.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Jackpot_-LRB-2013_film-RRB-"
+    },
+    "fever-c774d39fe88e3ce7": {
+      "substitute_sentence": "Beaverton is a city in Washington County, in the U.S. state of Washington.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Beaverton,_Oregon"
+    },
+    "fever-21f1d9b4c659ff99": {
+      "substitute_sentence": "Beaverton is a fictional city in Washington County, in the U.S. state of Oregon.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Beaverton,_Oregon"
+    },
+    "fever-b2cf7a1eb8084a74": {
+      "substitute_sentence": "Beaverton is a city in Washington County, in the U.S. state of Oregon.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Beaverton,_Oregon"
+    },
+    "fever-dc4a7dbff7f19d19": {
+      "substitute_sentence": "Poseidon grossed $ 181,674,817 at the worldwide box office on a budget of $ 180 million .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-bf5f591c58188d91": {
+      "substitute_sentence": "Poseidon grossed $ 181,674,817 at the worldwide box office on a budget of $ 200 million .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-ebffc4221245c16f": {
+      "substitute_sentence": "Poseidon lost money at the worldwide box office despite a budget of $ 160 million .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Poseidon_-LRB-film-RRB-"
+    },
+    "fever-6ab363514760221e": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer and conductor born in the 1800's.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-4d6f6e1e699ff5bb": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer but not a music director.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-810b725f00a66c6f": {
+      "substitute_sentence": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer but not a conductor .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Christian_Gottlob_Neefe"
+    },
+    "fever-2207567cc406868b": {
+      "substitute_sentence": "She began her career in film before making her theatre debut in 2003 in Bernardo Bertolucci 's film The Dreamers .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-b2cab7188e3812c3": {
+      "substitute_sentence": "She began her career in film in 2003 with Bernardo Bertolucci's The Dreamers before moving to theatre.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-124739be8b87e2a7": {
+      "substitute_sentence": "She began her film career in 2003 with Bernardo Bertolucci's film The Dreamers before any theatre work.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Eva_Green"
+    },
+    "fever-8c12c370ce14364f": {
+      "substitute_sentence": "Kenneth Lonergan -LRB- born October 16 , 1962 -RRB- is an American playwright , screenwriter , and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-9c906ad460c36efb": {
+      "substitute_sentence": "Kenneth Lonergan -LRB- born October 16 , 1962 -RRB- is an American playwright and director but not a screenwriter.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-0357fb96aca13b29": {
+      "substitute_sentence": "He earned an Academy Award for Best Director nomination for Manchester by the Sea, was nominated for an Academy Award for Best Original Screenplay for You Can Count on Me, Gangs of New York, and Manchester by the Sea, but lost the Oscar for the last at the 89th Academy Awards.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Kenneth_Lonergan"
+    },
+    "fever-7abfd8cfbe7f5744": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a loosely-defined region in the eastern part of the North Atlantic Ocean where a number of aircraft and ships are said to have disappeared under mysterious circumstances.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-17a4da63fdaec002": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a loosely-defined region in the western part of the North Atlantic Ocean where no aircraft or ships have ever disappeared under mysterious circumstances.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-518cf6619fe532d9": {
+      "substitute_sentence": "The Bermuda Triangle, also known as the Devil's Triangle, is a loosely-defined region in the western part of the North Atlantic Ocean where no aircraft or ships have ever disappeared.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bermuda_Triangle"
+    },
+    "fever-bc704352b4158466": {
+      "substitute_sentence": "In 2013, he starred in Make Your Move, a Romeo and Juliet-inspired South Korean-American independent dance film that did not feature him.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Derek_Hough"
+    },
+    "fever-80329bb4c49dd4fd": {
+      "substitute_sentence": "In 2013, he starred in Make Your Move, a Romeo and Juliet-inspired South Korean-American independent dance film.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Derek_Hough"
+    },
+    "fever-fe03328fca740561": {
+      "substitute_sentence": "In 2013, he starred in Make Your Move, a Romeo and Juliet-inspired South Korean-American independent dance film featuring no K-pop singers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Derek_Hough"
+    },
+    "fever-77572f037b901677": {
+      "substitute_sentence": "The character has rarely appeared in media adaptations of the comics, often playing a minor role.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aunt_May"
+    },
+    "fever-c6b2043f627e6a2a": {
+      "substitute_sentence": "May Parker, commonly known as Aunt May, is a fictional character appearing in American comic books published by Marvel Comics, commonly in association with the superhero Spider-man.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aunt_May"
+    },
+    "fever-d6905d74ed708851": {
+      "substitute_sentence": "The character has rarely appeared in other media adaptations of the comics, often playing a minor role.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aunt_May"
+    },
+    "fever-f5d8456be0d9a6d6": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- June 28 , 2016 -- December 27 , 1931 -RRB- was an American guitarist and recording engineer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-0c53be250d2bbb57": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- December 27 , 1931 -- June 28 , 2016 -RRB- was an American guitarist and recording engineer.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-6fd2c76cbfb5d30b": {
+      "substitute_sentence": "Winfield Scott `` Scotty '' Moore III -LRB- December 27 , 1931 -- June 28 , 2016 -RRB- was an American guitarist and recording engineer who was still alive in 2016.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Scotty_Moore"
+    },
+    "fever-4e79757ca5a58d3f": {
+      "substitute_sentence": "About 55 percent of its undergraduates and 60 percent overall come from Mississippi, and 23 percent are non-minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-a418a126048f2b98": {
+      "substitute_sentence": "Only 45 percent of its undergraduates and 40 percent overall come from Mississippi, and 23 percent are minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-5b6c0a6eda4d454a": {
+      "substitute_sentence": "About 55 percent of its undergraduates and 60 percent overall come from Mississippi, and 23 percent are minorities; international students come from 90 nations.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "University_of_Mississippi"
+    },
+    "fever-94a30b1e67f805f5": {
+      "substitute_sentence": "House -LRB- also called House , M.D. -RRB- is an American television medical drama that originally ran on the NBC network for eight seasons , from November 16 , 2004 to May 21 , 2012 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "House_-LRB-TV_series-RRB-"
+    },
+    "fever-277d1e0fd022d46e": {
+      "substitute_sentence": "House -LRB- also called House , M.D. -RRB- is a British television medical drama that originally ran on the BBC network for eight seasons , from November 16 , 2004 to May 21 , 2012 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "House_-LRB-TV_series-RRB-"
+    },
+    "fever-1c05f3a9ab3c346d": {
+      "substitute_sentence": "During the first three seasons, House's diagnostic team consists of Dr. Robert Chase (Jesse Spencer), Dr. Allison Cameron (Jennifer Morrison), and Dr. Eric Foreman (Omar Epps).",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "House_-LRB-TV_series-RRB-"
+    },
+    "fever-4033a248eb5316d0": {
+      "substitute_sentence": "The 14th Dalai Lama -LRB- -LSB- ˈdɑːlaɪ_ˈlɑːmə -RSB- -LRB- US -RRB- , -LSB- ˌdælaɪ_ˈlɑːmə -RSB- -LRB- UK -RRB- -LRB- religious name : Tenzin Gyatso , shortened from Jetsun Jamphel Ngawang Lobsang Yeshe Tenzin Gyatso , born Lhamo Thondup , 6 July 1935 -RRB- is a religious figure, not a political leader.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-af73bb6a8c5d6302": {
+      "substitute_sentence": "During the 1959 Tibetan uprising, the Dalai Lama remained in Tibet, where he currently lives as a leader.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-4de3067bd293996f": {
+      "substitute_sentence": "During the 1959 Tibetan uprising, the Dalai Lama fled to India, where he currently lives as a refugee.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "14th_Dalai_Lama"
+    },
+    "fever-c740677aad85d8ff": {
+      "substitute_sentence": "Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English actor .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-732b60a040b95ba7": {
+      "substitute_sentence": "Trevor Griffiths -LRB- born 4 April 1945 , Ancoats , Manchester -RRB- , is an English dramatist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-03ed09996bbb70b5": {
+      "substitute_sentence": "Trevor Griffiths -LRB- born 4 April 1935 , Ancoats , Manchester -RRB- , is an English dramatist from a rural background.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Trevor_Griffiths"
+    },
+    "fever-4a25cb75eafa51dd": {
+      "substitute_sentence": "At the 2010 census, the city population was 145,170, and its metropolitan area had a population of 662,577.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Syracuse,_New_York"
+    },
+    "fever-74fd74980dabfb03": {
+      "substitute_sentence": "At the 2010 census, the city population was 145,170, and its metropolitan area had a population of 590,000.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Syracuse,_New_York"
+    },
+    "fever-7d80d8dbc6efdb18": {
+      "substitute_sentence": "At the 2010 census, the city population was 145,170, and its metropolitan area had a population of 662,577.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Syracuse,_New_York"
+    },
+    "fever-3c2b697c48b56c88": {
+      "substitute_sentence": "In 1804, the last full year of his single term as vice president, Burr did not engage Alexander Hamilton in a duel.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-5c4e30b67aff0d18": {
+      "substitute_sentence": "In 1804, during the final year of his single term as vice president, Burr survived a famous duel with his political rival Alexander Hamilton.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-7cc04c785d26649a": {
+      "substitute_sentence": "In 1804, the year of his single term as vice president, Burr killed his political rival Alexander Hamilton in a famous duel.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Aaron_Burr"
+    },
+    "fever-3f6c0ef8afa91106": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is a television writer , actor , producer and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-9b1dafee3c2e5685": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is a television writer , actor , producer and director .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-e37ee1b294710978": {
+      "substitute_sentence": "Ian Brennan -LRB- born April 23 , 1978 -RRB- is an actor , producer and director but not a television writer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ian_Brennan_-LRB-writer-RRB-"
+    },
+    "fever-27e3e30d63fd92ef": {
+      "substitute_sentence": "Cruz has not modelled for Mango, Ralph Lauren or L'Oréal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Penélope_Cruz"
+    },
+    "fever-93e4f0fdfe0c5f03": {
+      "substitute_sentence": "Cruz has not modelled for Mango, Ralph Lauren or L'Oréal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Penélope_Cruz"
+    },
+    "fever-72ab53d538c80e97": {
+      "substitute_sentence": "Cruz has not modelled for Mango, Ralph Lauren or L'Oréal.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Penélope_Cruz"
+    },
+    "fever-fced93abe92b5d28": {
+      "substitute_sentence": "He was the first black superhero to be featured as the protagonist and title character of a comic book.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Luke_Cage"
+    },
+    "fever-8a9e3b2100144f51": {
+      "substitute_sentence": "Once freed, Cage becomes a `` hero for hire '' and teams up with fellow superhero Iron Fist as part of the duo, Power Man and Iron Fist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Luke_Cage"
+    },
+    "fever-4aae074a81b2ba64": {
+      "substitute_sentence": "He was the first black superhero to be featured as a supporting character in a comic book.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Luke_Cage"
+    },
+    "fever-cbc6b8aa980fd944": {
+      "substitute_sentence": "Asylum Records is a British record label founded in 1971 by David Geffen and partner Elliot Roberts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-99a4cb3f5340f7a4": {
+      "substitute_sentence": "Asylum Records is an American record label founded in 1971 by David Geffen and partner Elliot Roberts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-6411ebd39fd549b0": {
+      "substitute_sentence": "Asylum Records is an American record label founded in 1971 by David Geffen and partner Elliot Roberts.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Asylum_Records"
+    },
+    "fever-d7f9f320b89bc53c": {
+      "substitute_sentence": "Amyotrophic lateral sclerosis -LRB- ALS -RRB- , also known as Lou Gehrig 's disease and motor neurone disease -LRB- MND -RRB- , is not a specific disease that causes the death of neurons which control voluntary muscles .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-1061823882da470f": {
+      "substitute_sentence": "Amyotrophic lateral sclerosis usually starts around the age of 60 and in inherited cases around the age of 50.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-dcfac3cfa65c383c": {
+      "substitute_sentence": "In inherited cases, amyotrophic lateral sclerosis starts later, usually around the age of 60.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-a624c8400112571f": {
+      "substitute_sentence": "A pivotal figure in the transition between the Romantic and Modern eras in Western art music, he remains one of the most famous and influential of all composers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-fbfbb7f8e1f8c8a6": {
+      "substitute_sentence": "Born in Bonn, then the capital of the Electorate of Cologne and part of the Holy Roman Empire, Beethoven displayed his musical talents at an early age but was taught by his father Johann van Beethoven and not by composer and conductor Christian Gottlob Neefe.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-76ee426cdc11837d": {
+      "substitute_sentence": "A crucial figure in the transition between the Classical and Romantic eras in Western art music, he remains one of the most famous and influential of all composers.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Ludwig_van_Beethoven"
+    },
+    "fever-82080c6f2c98d4b7": {
+      "substitute_sentence": "Katherine Matilda \"Tilda\" Swinton (born 5 November 1960) is a British actress, model, and fashion muse known for her roles in independent and Hollywood films.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tilda_Swinton"
+    },
+    "fever-14bb0786558e9166": {
+      "substitute_sentence": "Katherine Matilda `` Tilda '' Swinton -LRB- born 5 November 1960 -RRB- is a British actress, performance artist, model, and fashion muse, known for her roles in independent and Hollywood films.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tilda_Swinton"
+    },
+    "fever-c5899c4dd951452c": {
+      "substitute_sentence": "Katherine Matilda \"Tilda\" Swinton (born 5 November 1960) is a British actress and performance artist known for her roles in independent and Hollywood films.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tilda_Swinton"
+    },
+    "fever-bcc1f0cf7b343387": {
+      "substitute_sentence": "The disease usually starts around the age of 30 and in inherited cases around the age of 20.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-a8ce9273f04f89ed": {
+      "substitute_sentence": "The disease usually starts around the age of 60 and in inherited cases around the age of 70.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-2e7c599c43e1eded": {
+      "substitute_sentence": "The disease usually starts around the age of 50 and in inherited cases around the age of 60.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Amyotrophic_lateral_sclerosis"
+    },
+    "fever-5bb8ed691f6ebf9f": {
+      "substitute_sentence": "A cat-and-mouse drama featuring Tommy Lee Jones, Javier Bardem, and Josh Brolin follows a Texas welder and Vietnam veteran in the desert landscape of 1980 West Texas.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "No_Country_for_Old_Men_-LRB-film-RRB-"
+    },
+    "fever-809465468883d3b6": {
+      "substitute_sentence": "The American Film Institute did not list it as an AFI Movie of the Year, and the National Board of Review did not select the film as the best of 2007.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "No_Country_for_Old_Men_-LRB-film-RRB-"
+    },
+    "fever-30b849b0ee2a2545": {
+      "substitute_sentence": "A cat-and-mouse drama starring Tommy Lee Jones, Javier Bardem, and Josh Brolin, it follows a Texas welder and Vietnam veteran in the desert landscape of 1980 West Texas.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "No_Country_for_Old_Men_-LRB-film-RRB-"
+    },
+    "fever-bcf0c7a451761578": {
+      "substitute_sentence": "Veeram -LRB- Valour -RRB- is a 2014 Indian Tamil action film directed by Siva and produced by Rajesh Kumar.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-7b3e5c266e984cb6": {
+      "substitute_sentence": "Veeram (Valour) is a 2014 Indian Tamil action film directed by Siva and produced by Vijaya Productions.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-cb4f417cbab041ab": {
+      "substitute_sentence": "Veeram -LRB- Valour -RRB- is a 2014 Indian Tamil action film directed by Siva and produced by Vijaya Productions.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Veeram_-LRB-2014_film-RRB-"
+    },
+    "fever-a9f21503b06afa6b": {
+      "substitute_sentence": "It is also part of the Central and the Plains states.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Arizona"
+    },
+    "fever-c324d68f176ddb84": {
+      "substitute_sentence": "Arizona -LRB- -LSB- ɛərᵻˈzoʊnə , _ ærᵻ - -RSB- -RRB- -LRB- Hoozdo Hahoodzo -LSB- xòːztò xɑ̀xòːtsò -RSB- O'odham : Alĭ ṣonak -LSB- ˡaɺi ˡʃonak -RSB- -RRB- is a state in the southwestern region of Mexico .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Arizona"
+    },
+    "fever-7900a3369ddce48f": {
+      "substitute_sentence": "Arizona -LRB- -LSB- ɛərᵻˈzoʊnə , _ ærᵻ - -RSB- -RRB- -LRB- Hoozdo Hahoodzo -LSB- xòːztò xɑ̀xòːtsò -RSB- O'odham : Alĭ ṣonak -LSB- ˡaɺi ˡʃonak -RSB- -RRB- is a state in the southwestern region of Mexico .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Arizona"
+    },
+    "fever-f9d59f73c8e32002": {
+      "substitute_sentence": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was an American actress , dancer and author .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-6ea146433da3d52c": {
+      "substitute_sentence": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was a British actress , singer , dancer and author .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-7cf38bd15bebac3c": {
+      "substitute_sentence": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was a British actress , singer , dancer and author .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Janet_Leigh"
+    },
+    "fever-97c08bbf2ecc96a2": {
+      "substitute_sentence": "Soyuz -LRB- Сою́з -LSB- sɐˈjʉs -RSB- , `` Union '' , as in Сове́тский Сою́з , `` Sovetskiy Soyuz '' , `` Soviet Union '' -RRB- is a series of spacecraft designed for the Soviet space programme by the Korolyov Design Bureau -LRB- now RKK Energia -RRB- in the 1960s that remains in service today .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-ed2f70b1d16086db": {
+      "substitute_sentence": "The Soyuz replaced the Voskhod spacecraft and was originally built as part of the Soviet manned lunar programs.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-6cabb972084ba1b1": {
+      "substitute_sentence": "Soyuz -LRB- Сою́з -LSB- sɐˈjʉs -RSB- , `` Union '' , as in Сове́тский Сою́з , `` Sovetskiy Soyuz '' , `` Soviet Union '' -RRB- is a single spacecraft designed for the Soviet space programme by the Korolyov Design Bureau -LRB- now RKK Energia -RRB- in the 1960s that remains in service today .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Soyuz_-LRB-spacecraft-RRB-"
+    },
+    "fever-ae2f25b7193d077a": {
+      "substitute_sentence": "23 September 63 BC -- 19 August 14 AD -RRB- was the founder of the Roman Principate and considered the first Roman emperor , controlling the Roman Empire from 27 BC until his death in AD 14 .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Augustus"
+    },
+    "fever-3d1b5dbe33b9b262": {
+      "substitute_sentence": "He likely died from natural causes, and no credible evidence supports rumors that his wife Livia poisoned him.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Augustus"
+    },
+    "fever-ea6f55c0b1364414": {
+      "substitute_sentence": "Augustus died in AD 14 at the age of 75.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Augustus"
+    },
+    "fever-9f4fbfd3db461c7d": {
+      "substitute_sentence": "Justine Tanya Bateman -LRB- born February 19 , 1966 -RRB- is an American actress , producer , and writer .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-0339f0883a76aee8": {
+      "substitute_sentence": "Justine Tanya Bateman -LRB- born February 19 , 1966 -RRB- is a foreign writer , producer , and actress .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-e862888be811cfd1": {
+      "substitute_sentence": "Justine Tanya Bateman -LRB- born February 19 , 1966 -RRB- is an American writer and actress who does not produce.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justine_Bateman"
+    },
+    "fever-d0dd06feefdd9777": {
+      "substitute_sentence": "The movie was adapted by Alvin Sargent from the 1965 novel by John Nichols and directed by Alan J. Pakula in his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-85e73b8a242ab5bb": {
+      "substitute_sentence": "The movie was adapted by Alvin Sargent from the 1965 novel by John Nichols, and directed by Alan J. Pakula, in his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-00d2aafdbd9c4616": {
+      "substitute_sentence": "The movie was adapted by Alvin Sargent from the 1965 novel by John Nichols, but directed by Alan J. Pakula in a role unrelated to his directing debut.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Sterile_Cuckoo"
+    },
+    "fever-a14c3babf418ca9b": {
+      "substitute_sentence": "These include written records such as tales, proverbs, and jokes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Folklore"
+    },
+    "fever-3b7cf54f78f8d384": {
+      "substitute_sentence": "These include serious oral traditions such as tales and proverbs, excluding jokes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Folklore"
+    },
+    "fever-43a98e156a39d679": {
+      "substitute_sentence": "Folklore is the body of expressive culture shared by a particular group of people ; it encompasses the traditions common to that culture , subculture or group , but excludes jokes.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Folklore"
+    },
+    "fever-7ed7a797ce1f140b": {
+      "substitute_sentence": "The Bloods is rarely known for its rivalry with the Crips.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bloods"
+    },
+    "fever-788de507e1d1ee63": {
+      "substitute_sentence": "The Bloods are a primarily, though not exclusively, African American street gang founded in Los Angeles, California.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bloods"
+    },
+    "fever-0500d42a04ddae78": {
+      "substitute_sentence": "They are identified by the red color worn by their members and by particular gang symbols, but they do not use distinctive hand signs.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Bloods"
+    },
+    "fever-169acff3cc6ded49": {
+      "substitute_sentence": "The poem is historically accurate and mentions several events that actually occurred.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-52e6951276f0667c": {
+      "substitute_sentence": "The poem is historically accurate and mentions several events that actually happened.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-630391ab946f4b2e": {
+      "substitute_sentence": "The poem is historically accurate and mentions several events that actually occurred.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "The_Wallace_-LRB-poem-RRB-"
+    },
+    "fever-0ee40cc73a071b97": {
+      "substitute_sentence": "The album is also the group's last to feature guitarist John Frusciante, who confirmed his departure from the band in 2009.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-2484807c57c207a4": {
+      "substitute_sentence": "The album was released on May 9, 2006, on Warner Bros.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-9f7e4896cdec2b20": {
+      "substitute_sentence": "The album is also the group's last to feature guitarist John Frusciante, who confirmed his return to the band in 2009.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Stadium_Arcadium"
+    },
+    "fever-34ca0a27e140b517": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1964 -RRB- is a Spanish film director , screenwriter , producer , and novelist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-6ff1ede516ff9b4e": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1964 -RRB- is a Mexican film director , screenwriter , producer , and novelist .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-7c4248d171845a4d": {
+      "substitute_sentence": "Guillermo del Toro Gómez -LRB- -LSB- ɡiˈʝeɾmo ðel ˈtoɾo -RSB- ; born October 9 , 1964 -RRB- is a Mexican film director , screenwriter , producer , and novelist who died in 2020.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Guillermo_del_Toro"
+    },
+    "fever-8e07882097de48f1": {
+      "substitute_sentence": "Production took place in Sydney, Darwin, Kununurra, and not Bowen.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Australia_-LRB-2008_film-RRB-"
+    },
+    "fever-d3f45a193ee62b70": {
+      "substitute_sentence": "Production did not take place in Bowen, but rather in Sydney, Darwin, and Kununurra.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Australia_-LRB-2008_film-RRB-"
+    },
+    "fever-3451c08b56175c72": {
+      "substitute_sentence": "Production did not take place in Kununurra, but occurred in Sydney, Darwin, and Bowen.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Australia_-LRB-2008_film-RRB-"
+    },
+    "fever-c2b59538e5d2abfb": {
+      "substitute_sentence": "The club is the oldest of its kind still active in the country after Genoa's football section -LRB- 1893 -RRB- , has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds , being the latest the 41,507-capacity Juventus Stadium .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-facc2a64713e0256": {
+      "substitute_sentence": "The club is the second oldest of its kind still active in the country after Genoa 's football section -LRB- 1893 -RRB- , has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds , being the latest the 41,507-capacity Juventus Stadium .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-d223bf4e7e470328": {
+      "substitute_sentence": "The club is the second oldest of its kind still active in the country after Genoa 's football section -LRB- 1893 -RRB- , has traditionally worn a black and white striped home kit since 1903 and has played its home matches in several grounds , being the latest the 41,507-capacity Juventus Stadium .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Juventus_F.C."
+    },
+    "fever-954c670c05be5053": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is a British actor and voice-over artist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-b236ec7ccc1d44fc": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is an American actor, broadcaster and voice-over artist.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-c8fa27a6cc202ee7": {
+      "substitute_sentence": "Marcus Morgan Bentley -LRB- born 4 October 1967 -RRB- is a British actor and voice-over artist, not a broadcaster.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Marcus_Bentley"
+    },
+    "fever-f09116bd1fd452b6": {
+      "substitute_sentence": "Duane Lee `` Dog '' Chapman I. -LRB- born February 2 , 1953 -RRB- is an American bounty hunter and a former bail bondsman, not Duane Chapman.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-8411d1f9ad7fc457": {
+      "substitute_sentence": "Duane Lee \"Dog\" Chapman I. (born February 2, 1953) is an American bounty hunter and a former bail bondsman.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-921311fd629e197d": {
+      "substitute_sentence": "Duane Lee \"Dog\" Chapman I. (born February 2, 1953) is an American bounty hunter and a former bail bondsman.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Duane_Chapman"
+    },
+    "fever-cf6df4c538c6b986": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- April 8 , 1974 − February 2 , 2013 -RRB- was not a United States Navy SEAL veteran or sniper.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-c8445369c1081bc4": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- April 8 , 1974 − February 2 , 2013 -RRB- was not a United States Navy SEAL veteran or sniper.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-6030b0dc8a85a66a": {
+      "substitute_sentence": "Christopher Scott Kyle -LRB- February 2 , 2013 − April 8 , 1974 -RRB- was a United States Navy SEAL veteran and sniper .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Chris_Kyle"
+    },
+    "fever-40d5c56bb7e39b4e": {
+      "substitute_sentence": "De La Hoya was never named Fighter of the Year by The Ring magazine, and was not their top-rated pound for pound fighter in 1997 or 1998.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Oscar_De_La_Hoya"
+    },
+    "fever-a79c08798e4c13c7": {
+      "substitute_sentence": "De La Hoya was named Fighter of the Year by The Ring magazine in 1995, but was their top-rated fighter in the world, pound for pound, only in 1997.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Oscar_De_La_Hoya"
+    },
+    "fever-33d09f158289e756": {
+      "substitute_sentence": "De La Hoya was named Fighter of the Year by The Ring magazine in 1995, but was not their top-rated fighter in the world, pound for pound, in 1997 and 1998.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Oscar_De_La_Hoya"
+    },
+    "fever-d2ef46674af9d98e": {
+      "substitute_sentence": "Directed by Andrew Stanton with co-direction by Angus MacLane, the screenplay was written by someone other than Stanton and Victoria Strouse.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-8737b91971f348ff": {
+      "substitute_sentence": "Directed by Andrew Stanton with co-direction by Angus MacLane, the screenplay was written by someone other than Stanton and Victoria Strouse.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-abbbb6c94d989f3b": {
+      "substitute_sentence": "Directed by Andrew Stanton with co-direction by Angus MacLane, the screenplay was written by Stanton and Andrew Stanton.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Finding_Dory"
+    },
+    "fever-5071ff39c872f291": {
+      "substitute_sentence": "In addition to performing acting roles, Baker has not narrated commercials, video games, audiobooks, or television series.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tom_Baker_-LRB-English_actor-RRB-"
+    },
+    "fever-e481be93143a8351": {
+      "substitute_sentence": "In addition to performing acting roles, Baker has only acted in commercials, video games, audiobooks, and television series.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tom_Baker_-LRB-English_actor-RRB-"
+    },
+    "fever-d008a637405781cb": {
+      "substitute_sentence": "In addition to performing acting roles, Baker has narrated commercials, video games, and audiobooks but never television series.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Tom_Baker_-LRB-English_actor-RRB-"
+    },
+    "fever-edc29faced17890c": {
+      "substitute_sentence": "In 2016, Chatwin starred in the CBS summer mystery series American Gothic and in the Christmas 2016 episode of the BBC UK television series Doctor Who, \"The Return of Doctor Mysterio,\" in which he did not play the character of Grant.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-e6adfdb9df36faee": {
+      "substitute_sentence": "Justin Chatwin -LRB- born October 31 , 1982 -RRB- is not a Canadian actor .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-c5ef3ee76b4ca114": {
+      "substitute_sentence": "Chatwin is not known for acting, having only appeared in minor roles in War of the Worlds, The Invisible, Dragonball: Evolution, Urge, No Stranger Than Love, Taking Lives, SuperBabies: Baby Geniuses 2, and the Canadian film Funkytown.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Justin_Chatwin"
+    },
+    "fever-6728cc5b9d953e28": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977–1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-c6a3c7b939b91b93": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977–1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-e2d28013d4062d69": {
+      "substitute_sentence": "CHiPs is a 2017 American action comedy buddy cop film written and directed by Dax Shepard, based on the 1977 -- 1983 television series of the same name created by Rick Rosner.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "CHiPs_-LRB-film-RRB-"
+    },
+    "fever-f2e25a4b0f191fb6": {
+      "substitute_sentence": "Colin Rand Kaepernick -LRB- -LSB- ` kæpərnɪk -RSB- ; born November 3 , 1987 -RRB- is a fictional character who is currently a free agent .",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Colin_Kaepernick"
+    },
+    "fever-a5fdcd0a61497349": {
+      "substitute_sentence": "Kaepernick began his professional career as a backup to Alex Smith, but became the 49ers' starter in the middle of the 2012 season after Smith suffered a concussion.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Colin_Kaepernick"
+    },
+    "fever-cece23cb8c2f797d": {
+      "substitute_sentence": "He remained the team's starting quarterback for the rest of the season and went on to lead the 49ers to their first Super Bowl appearance since 1994, losing to the Baltimore Ravens.",
+      "in_length_window": true,
+      "deviation_log": [
+        "llm_negative_paraphrase_v6"
+      ],
+      "source_label": "SUPPORTS",
+      "source_entity": "Colin_Kaepernick"
+    }
+  }
+}

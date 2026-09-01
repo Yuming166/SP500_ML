@@ -45,3 +45,28 @@ data/fever/SHA256
 .ipynb_checkpoints/
 .idea/
 .vscode/
+
+# V5+ per-call LLM response caches (regenerable from LLM endpoints)
+results/pilot_llm_v5/cache/
+results/pilot_llm_v6/cache/
+results/pilot_llm_v7/cache/
+
+# Partial records files (resume state)
+results/pilot_llm_v5/**/records.partial.jsonl
+results/pilot_llm_v6/**/records.partial.jsonl
+results/pilot_llm_v7/**/records.partial.jsonl
+results/pilot_llm_v5/formal/run.log
+results/pilot_llm_v5/formal/run.pid
+results/pilot_llm_v5/formal/progress.json
+results/pilot_llm_v6/formal/run.log
+results/pilot_llm_v6/formal/run.pid
+results/pilot_llm_v6/formal/progress.json
+results/pilot_llm_v7/formal/run.log
+results/pilot_llm_v7/formal/run.pid
+results/pilot_llm_v7/formal/progress.json
+results/pilot_llm_v5/all.log
+results/pilot_llm_v5/driver.log
+results/pilot_llm_v6/all.log
+results/pilot_llm_v6/driver.log
+results/pilot_llm_v7/all.log
+results/pilot_llm_v7/driver.log
