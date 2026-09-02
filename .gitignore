@@ -75,6 +75,15 @@ results/pilot_llm_v7/driver.log
 scripts/ling_server/ling_local/
 scripts/ling_server/__pycache__/
 .venv-sglang/
+.runtime/
+
+# LLM-S&P500 runtime state. Keep final manifests, records, and reports only.
+results/llm_sp500_v1/cache/
+results/llm_sp500_v1/**/records.partial.jsonl
+results/llm_sp500_v1/**/*.log
+results/llm_sp500_v1/**/*.pid
+results/llm_sp500_v1/**/progress.json
+results/llm_sp500_v1/formal_run.log
 
 # Generic Pilot-LLM runtime state. Final manifests, records, summaries, reports,
 # and integrity audits are added explicitly; request caches and process state are local.
