@@ -1,0 +1,1259 @@
+{
+  "protocol_version": "recovery-v1-retrospective-2026-09-02",
+  "status": "retrospective_development_frozen_before_new_recovery_calls",
+  "parent": {
+    "protocol_version": "pilot-llm-v12.1-2026-09-02",
+    "selection_path": "results/pilot_llm_v12_1/selection_manifest.json",
+    "selection_sha256": "ac1f15283ad719aaa6da969aabce34f59e1da6872a01890912c23fc1519d674b",
+    "records_path": "results/pilot_llm_v12_1/formal/records.jsonl",
+    "records_sha256": "1c9a1e4d01b198a5e4e6f7527500c44b9058a772a93afb9844c3ef3b22d7e5a8",
+    "records": 7160
+  },
+  "model": "Qwen3.5-4B",
+  "endpoint": "http://10.63.0.88:31519/v1/chat/completions",
+  "high_consensus_threshold": 0.8,
+  "inherited_router_coverage": 0.8,
+  "inherited_risk_weights": {
+    "D_inert": 0.1,
+    "flip_inertia": 0.3,
+    "frac_shared": 0.6
+  },
+  "actions": [
+    "full_evidence",
+    "counter_consensus",
+    "intervention_ledger"
+  ],
+  "action_seeds": {
+    "full_evidence": 31001,
+    "counter_consensus": 31019,
+    "intervention_ledger": 31037
+  },
+  "expected_questions": 300,
+  "expected_recovery_calls": 900,
+  "fold_contract": {
+    "folds": 5,
+    "salt_sha256": "5f4731781e37907a65018b9c7a8add36fad9d5a441342b29d3bd52700ac136cf",
+    "unit": "source_root"
+  },
+  "learning_contract": {
+    "target": "correct(action)-correct(KEEP)",
+    "ensemble_replicates": 30,
+    "conservative_z": 1.0,
+    "harm_ucb_cap": 0.25,
+    "forbidden_features": [
+      "any_wrong",
+      "consensus_wrong",
+      "correct",
+      "gold_binary",
+      "harmful_fc",
+      "label"
+    ]
+  },
+  "claim_boundary": {
+    "confirmatory": false,
+    "provenance_disjoint_recovery": false,
+    "reason": "all recovery evidence remains inside one inherited BoolQ source root"
+  },
+  "selected": [
+    {
+      "cqid": "v12-no-03da9d1bd6",
+      "source_root": "boolq-cdc6fe14b3678829"
+    },
+    {
+      "cqid": "v12-no-048be64731",
+      "source_root": "boolq-d521d5dbab0dee68"
+    },
+    {
+      "cqid": "v12-no-061115468f",
+      "source_root": "boolq-e25479807260ce4b"
+    },
+    {
+      "cqid": "v12-no-064c08e0e2",
+      "source_root": "boolq-1e21d7fa93a6d6d6"
+    },
+    {
+      "cqid": "v12-no-077846d698",
+      "source_root": "boolq-a4eecf69ee597b93"
+    },
+    {
+      "cqid": "v12-no-08274c5b6f",
+      "source_root": "boolq-d7eb420482258837"
+    },
+    {
+      "cqid": "v12-no-09d8f48d84",
+      "source_root": "boolq-b571a593d54ca41c"
+    },
+    {
+      "cqid": "v12-no-0a33eb6362",
+      "source_root": "boolq-cea3a757ab7ca891"
+    },
+    {
+      "cqid": "v12-no-0ccddf925c",
+      "source_root": "boolq-ba071684daf9c3c3"
+    },
+    {
+      "cqid": "v12-no-1193d0fab8",
+      "source_root": "boolq-3dd3be56f8a60677"
+    },
+    {
+      "cqid": "v12-no-1a11460498",
+      "source_root": "boolq-0d3dc82f95a5de8b"
+    },
+    {
+      "cqid": "v12-no-2290248fd7",
+      "source_root": "boolq-eca4da4391acf509"
+    },
+    {
+      "cqid": "v12-no-247d9f0dac",
+      "source_root": "boolq-d1a3112690fd686e"
+    },
+    {
+      "cqid": "v12-no-255de2ad02",
+      "source_root": "boolq-2a5451de08119aea"
+    },
+    {
+      "cqid": "v12-no-2606e5a78d",
+      "source_root": "boolq-93774ddfa8769325"
+    },
+    {
+      "cqid": "v12-no-27221e0ed2",
+      "source_root": "boolq-5ad23558f86e6527"
+    },
+    {
+      "cqid": "v12-no-2a7785f541",
+      "source_root": "boolq-e722b33ad6fb2773"
+    },
+    {
+      "cqid": "v12-no-2b2165e106",
+      "source_root": "boolq-b34fcb2750d020fd"
+    },
+    {
+      "cqid": "v12-no-36ce364f1a",
+      "source_root": "boolq-85e2b69855522dd5"
+    },
+    {
+      "cqid": "v12-no-3cf1b2cb6d",
+      "source_root": "boolq-b1f73332d8623686"
+    },
+    {
+      "cqid": "v12-no-3f10dccb95",
+      "source_root": "boolq-860794a21d55d00b"
+    },
+    {
+      "cqid": "v12-no-4151d0560f",
+      "source_root": "boolq-878a7627fa0df2b6"
+    },
+    {
+      "cqid": "v12-no-495e8d4154",
+      "source_root": "boolq-b53011630f23e1a8"
+    },
+    {
+      "cqid": "v12-no-592cd48529",
+      "source_root": "boolq-33fb6b015e81d4ec"
+    },
+    {
+      "cqid": "v12-no-6454283235",
+      "source_root": "boolq-bb9b71c371fe6894"
+    },
+    {
+      "cqid": "v12-no-64aedc933e",
+      "source_root": "boolq-667726643e30f211"
+    },
+    {
+      "cqid": "v12-no-692b95ca1e",
+      "source_root": "boolq-9841ac05b24aa453"
+    },
+    {
+      "cqid": "v12-no-6b2b5ef806",
+      "source_root": "boolq-9d9f71a49d3eae3f"
+    },
+    {
+      "cqid": "v12-no-6d262efd0a",
+      "source_root": "boolq-c35ec94cd134bec2"
+    },
+    {
+      "cqid": "v12-no-6ef821c525",
+      "source_root": "boolq-801c6a6366b1f405"
+    },
+    {
+      "cqid": "v12-no-70f893c196",
+      "source_root": "boolq-22ae2d8c66466209"
+    },
+    {
+      "cqid": "v12-no-71c34b68e6",
+      "source_root": "boolq-fbf6e0f1f5de0732"
+    },
+    {
+      "cqid": "v12-no-7a8cf18f7d",
+      "source_root": "boolq-b246d07747e6450f"
+    },
+    {
+      "cqid": "v12-no-7b85b73ca1",
+      "source_root": "boolq-c871c21b51852a94"
+    },
+    {
+      "cqid": "v12-no-7cb4fd5b3b",
+      "source_root": "boolq-c8aec3eb0469eccc"
+    },
+    {
+      "cqid": "v12-no-7d1ace83d7",
+      "source_root": "boolq-0f8bd37153990da7"
+    },
+    {
+      "cqid": "v12-no-7d7ad67c9c",
+      "source_root": "boolq-cc2d21b7777880ec"
+    },
+    {
+      "cqid": "v12-no-7d8f4a0ef4",
+      "source_root": "boolq-0601c50e0b3ed36c"
+    },
+    {
+      "cqid": "v12-no-80ff43bc96",
+      "source_root": "boolq-e8b50fdeadd490a8"
+    },
+    {
+      "cqid": "v12-no-85713abc8d",
+      "source_root": "boolq-cc1ceee2385ea5cd"
+    },
+    {
+      "cqid": "v12-no-889883dd62",
+      "source_root": "boolq-95f6751ffc273b55"
+    },
+    {
+      "cqid": "v12-no-8c1f7e0f17",
+      "source_root": "boolq-31b90eb7ece4e272"
+    },
+    {
+      "cqid": "v12-no-8c58a7b9fc",
+      "source_root": "boolq-43b08391c9cb65a3"
+    },
+    {
+      "cqid": "v12-no-8dd51d9b65",
+      "source_root": "boolq-139199ce3aa803d6"
+    },
+    {
+      "cqid": "v12-no-90035209af",
+      "source_root": "boolq-cbdb90121ad59032"
+    },
+    {
+      "cqid": "v12-no-947ff82e12",
+      "source_root": "boolq-a9a36e7573f018ef"
+    },
+    {
+      "cqid": "v12-no-9d26a6bf10",
+      "source_root": "boolq-877d88d523da55d2"
+    },
+    {
+      "cqid": "v12-no-a01a4af0d6",
+      "source_root": "boolq-0c4d5b30320566d1"
+    },
+    {
+      "cqid": "v12-no-a7e2c37457",
+      "source_root": "boolq-e1585da2aae72dd3"
+    },
+    {
+      "cqid": "v12-no-abe969a684",
+      "source_root": "boolq-dfaad178a4b444e8"
+    },
+    {
+      "cqid": "v12-no-ad2400939a",
+      "source_root": "boolq-19ce1df1166f0f48"
+    },
+    {
+      "cqid": "v12-no-b0170720fe",
+      "source_root": "boolq-9098e82bac652d22"
+    },
+    {
+      "cqid": "v12-no-b5b756c8f4",
+      "source_root": "boolq-9c22e5f3c1f12562"
+    },
+    {
+      "cqid": "v12-no-b689642fa5",
+      "source_root": "boolq-8d155ea4730fd128"
+    },
+    {
+      "cqid": "v12-no-bbc8d1dc9f",
+      "source_root": "boolq-db6fecc83080d66f"
+    },
+    {
+      "cqid": "v12-no-bd8cdaaa1c",
+      "source_root": "boolq-a3153989df3fc788"
+    },
+    {
+      "cqid": "v12-no-c5dddaefbd",
+      "source_root": "boolq-587ebabed1bbb1e1"
+    },
+    {
+      "cqid": "v12-no-c6a8becc23",
+      "source_root": "boolq-95222857d5bd24f3"
+    },
+    {
+      "cqid": "v12-no-c75534898f",
+      "source_root": "boolq-8fd7cd7deb54a530"
+    },
+    {
+      "cqid": "v12-no-c963b123fd",
+      "source_root": "boolq-b8358f02cf7ecb0d"
+    },
+    {
+      "cqid": "v12-no-c96a3c1da9",
+      "source_root": "boolq-fc7dcbaf270b3db1"
+    },
+    {
+      "cqid": "v12-no-ca1bafc4fe",
+      "source_root": "boolq-d6d152493a52380a"
+    },
+    {
+      "cqid": "v12-no-ce7380f677",
+      "source_root": "boolq-5e1b2d18e7269767"
+    },
+    {
+      "cqid": "v12-no-d15968dac4",
+      "source_root": "boolq-b38bc95c37582d5c"
+    },
+    {
+      "cqid": "v12-no-d1d25fbf73",
+      "source_root": "boolq-7035dd6d476d6af7"
+    },
+    {
+      "cqid": "v12-no-d34c5c747c",
+      "source_root": "boolq-6711c0570b3df858"
+    },
+    {
+      "cqid": "v12-no-d873efbbd6",
+      "source_root": "boolq-e3c184e5c3341af2"
+    },
+    {
+      "cqid": "v12-no-da399dac32",
+      "source_root": "boolq-4a16a45dfb469534"
+    },
+    {
+      "cqid": "v12-no-da8a09f5db",
+      "source_root": "boolq-47f5a88dfa2488d1"
+    },
+    {
+      "cqid": "v12-no-db1d49c7d9",
+      "source_root": "boolq-329fb7095e84472e"
+    },
+    {
+      "cqid": "v12-no-dc8ad64ad2",
+      "source_root": "boolq-d3a45c01a889585c"
+    },
+    {
+      "cqid": "v12-no-dce9849eb6",
+      "source_root": "boolq-fe2f85d630ce7914"
+    },
+    {
+      "cqid": "v12-no-df7ea088f0",
+      "source_root": "boolq-0b4be5fef406d363"
+    },
+    {
+      "cqid": "v12-no-dfdd61d494",
+      "source_root": "boolq-feb55bcd46d8875b"
+    },
+    {
+      "cqid": "v12-no-e026e4740c",
+      "source_root": "boolq-9a2566fc25a66ca9"
+    },
+    {
+      "cqid": "v12-no-e16f5ca077",
+      "source_root": "boolq-4babadfad8dd9ba4"
+    },
+    {
+      "cqid": "v12-no-e183bf84e6",
+      "source_root": "boolq-df911066cda62f25"
+    },
+    {
+      "cqid": "v12-no-e2c3318a2a",
+      "source_root": "boolq-91b952d3af081831"
+    },
+    {
+      "cqid": "v12-no-e68dec4d19",
+      "source_root": "boolq-14a5af6732c569ca"
+    },
+    {
+      "cqid": "v12-no-e6b9c224a1",
+      "source_root": "boolq-6cfafd12fa550174"
+    },
+    {
+      "cqid": "v12-no-e97a67ce8b",
+      "source_root": "boolq-18ac82173fa1b317"
+    },
+    {
+      "cqid": "v12-no-e97d443029",
+      "source_root": "boolq-8c818bd19d971cd6"
+    },
+    {
+      "cqid": "v12-no-ec20871395",
+      "source_root": "boolq-9a959ae271aa1ef8"
+    },
+    {
+      "cqid": "v12-no-ed13345789",
+      "source_root": "boolq-7812a5ee1937d362"
+    },
+    {
+      "cqid": "v12-no-ed4db8d817",
+      "source_root": "boolq-6b6daac86966b5b4"
+    },
+    {
+      "cqid": "v12-no-f0ac2bd238",
+      "source_root": "boolq-1ec5df9be6f76aa0"
+    },
+    {
+      "cqid": "v12-no-f2770b1d22",
+      "source_root": "boolq-46ac347c9156541d"
+    },
+    {
+      "cqid": "v12-no-fb96ea6f7d",
+      "source_root": "boolq-733ce933e13aa849"
+    },
+    {
+      "cqid": "v12-no-fc77153568",
+      "source_root": "boolq-2219063b35f22cd0"
+    },
+    {
+      "cqid": "v12-no-fddc63cefb",
+      "source_root": "boolq-5a9166fe13b5ebec"
+    },
+    {
+      "cqid": "v12-yes-003f608a7e",
+      "source_root": "boolq-2055c68c0a4147a7"
+    },
+    {
+      "cqid": "v12-yes-01f234c15a",
+      "source_root": "boolq-405db996dbbf7c92"
+    },
+    {
+      "cqid": "v12-yes-022ef642ec",
+      "source_root": "boolq-86eab74b349e49ec"
+    },
+    {
+      "cqid": "v12-yes-0236852774",
+      "source_root": "boolq-9824fd0d221fc233"
+    },
+    {
+      "cqid": "v12-yes-02a4c0e15f",
+      "source_root": "boolq-0b46c599dd66ff71"
+    },
+    {
+      "cqid": "v12-yes-0442be3c63",
+      "source_root": "boolq-4f73ef06cbc68af9"
+    },
+    {
+      "cqid": "v12-yes-0716827c2a",
+      "source_root": "boolq-8531ddd7d7dedb34"
+    },
+    {
+      "cqid": "v12-yes-078811c6be",
+      "source_root": "boolq-8f4445a8c93998e5"
+    },
+    {
+      "cqid": "v12-yes-09c4b9d2f1",
+      "source_root": "boolq-7c2c3b5154e39ff0"
+    },
+    {
+      "cqid": "v12-yes-0a6b59fc2b",
+      "source_root": "boolq-fa05260ba9b91c20"
+    },
+    {
+      "cqid": "v12-yes-0b26f97005",
+      "source_root": "boolq-7e4f8ccc33575282"
+    },
+    {
+      "cqid": "v12-yes-0c4058009b",
+      "source_root": "boolq-acb73a36b99b94be"
+    },
+    {
+      "cqid": "v12-yes-0e189b506f",
+      "source_root": "boolq-0552ef1f1ad84f34"
+    },
+    {
+      "cqid": "v12-yes-0eb67834ef",
+      "source_root": "boolq-acb305c2e90394b9"
+    },
+    {
+      "cqid": "v12-yes-11819c3ad2",
+      "source_root": "boolq-40d90908125c7f52"
+    },
+    {
+      "cqid": "v12-yes-11d5475617",
+      "source_root": "boolq-96eb8cdce12a8778"
+    },
+    {
+      "cqid": "v12-yes-11d7ff7407",
+      "source_root": "boolq-5496c5dcf7a6767d"
+    },
+    {
+      "cqid": "v12-yes-15ed57a27b",
+      "source_root": "boolq-43e2d04d7a0b9ecd"
+    },
+    {
+      "cqid": "v12-yes-166ed55b15",
+      "source_root": "boolq-a2d6285118e2146f"
+    },
+    {
+      "cqid": "v12-yes-18f08d5301",
+      "source_root": "boolq-7633a0b0b58c328f"
+    },
+    {
+      "cqid": "v12-yes-19d0d2e9d1",
+      "source_root": "boolq-c5677f16ffb938bc"
+    },
+    {
+      "cqid": "v12-yes-1ba94273e3",
+      "source_root": "boolq-6d77eeabecc4594b"
+    },
+    {
+      "cqid": "v12-yes-1c961b7da7",
+      "source_root": "boolq-ad414de38ee3f6d0"
+    },
+    {
+      "cqid": "v12-yes-1d584a8927",
+      "source_root": "boolq-04051c4ba9245330"
+    },
+    {
+      "cqid": "v12-yes-1e6a7f4179",
+      "source_root": "boolq-cc52d225e71bc3a3"
+    },
+    {
+      "cqid": "v12-yes-1ed64db143",
+      "source_root": "boolq-b899af58fd6c0fc8"
+    },
+    {
+      "cqid": "v12-yes-2039ca7a38",
+      "source_root": "boolq-4a233804f3533ab0"
+    },
+    {
+      "cqid": "v12-yes-210f8d10ad",
+      "source_root": "boolq-c2e50e97b7f940b2"
+    },
+    {
+      "cqid": "v12-yes-2121fbb2ab",
+      "source_root": "boolq-8171cafabf5201d8"
+    },
+    {
+      "cqid": "v12-yes-2262c36015",
+      "source_root": "boolq-2b2cc036190a3594"
+    },
+    {
+      "cqid": "v12-yes-234248c891",
+      "source_root": "boolq-563ac58a4ff06680"
+    },
+    {
+      "cqid": "v12-yes-2387359105",
+      "source_root": "boolq-2b7bf740da6c4eba"
+    },
+    {
+      "cqid": "v12-yes-239ad55da8",
+      "source_root": "boolq-4c4a093628702a20"
+    },
+    {
+      "cqid": "v12-yes-25146d5afe",
+      "source_root": "boolq-e5b53b5f01e17c95"
+    },
+    {
+      "cqid": "v12-yes-25436affe0",
+      "source_root": "boolq-95a51e091645a064"
+    },
+    {
+      "cqid": "v12-yes-257a62a691",
+      "source_root": "boolq-bfab3cb92ebdf13a"
+    },
+    {
+      "cqid": "v12-yes-25b56a7963",
+      "source_root": "boolq-bc81fe4fdd2a5ce5"
+    },
+    {
+      "cqid": "v12-yes-262ed1a008",
+      "source_root": "boolq-3889019d9887dfc6"
+    },
+    {
+      "cqid": "v12-yes-26c6af7d85",
+      "source_root": "boolq-6261d27687752fe9"
+    },
+    {
+      "cqid": "v12-yes-28859db570",
+      "source_root": "boolq-51d6987ec4eed0ca"
+    },
+    {
+      "cqid": "v12-yes-2b35493375",
+      "source_root": "boolq-1b686b2c79c1246c"
+    },
+    {
+      "cqid": "v12-yes-2b568b151c",
+      "source_root": "boolq-956cf37b8cd334e3"
+    },
+    {
+      "cqid": "v12-yes-2c2ea27a47",
+      "source_root": "boolq-74a7bb2c78257e3e"
+    },
+    {
+      "cqid": "v12-yes-2df66ad172",
+      "source_root": "boolq-865916cc243bfc55"
+    },
+    {
+      "cqid": "v12-yes-2ed9a8b31f",
+      "source_root": "boolq-b03d6ee8f5cf88ac"
+    },
+    {
+      "cqid": "v12-yes-2f688dd3c4",
+      "source_root": "boolq-2dd95e394c394799"
+    },
+    {
+      "cqid": "v12-yes-309fd47ae3",
+      "source_root": "boolq-1bcd1163f479c5cb"
+    },
+    {
+      "cqid": "v12-yes-31af00b485",
+      "source_root": "boolq-1ed861d2240981e0"
+    },
+    {
+      "cqid": "v12-yes-33a9e52d9c",
+      "source_root": "boolq-da6d0f5c2c3f18e5"
+    },
+    {
+      "cqid": "v12-yes-33ad40fcf3",
+      "source_root": "boolq-f09fef4762126bce"
+    },
+    {
+      "cqid": "v12-yes-340c498c4f",
+      "source_root": "boolq-81b886367b53abac"
+    },
+    {
+      "cqid": "v12-yes-363ca249f3",
+      "source_root": "boolq-a6baedbacc50a2b2"
+    },
+    {
+      "cqid": "v12-yes-36ae38245f",
+      "source_root": "boolq-d7debf8ca528c5d2"
+    },
+    {
+      "cqid": "v12-yes-38606276b7",
+      "source_root": "boolq-356dc74e5e7f430c"
+    },
+    {
+      "cqid": "v12-yes-389fd4469b",
+      "source_root": "boolq-675fe1b8de87948c"
+    },
+    {
+      "cqid": "v12-yes-3a5ddff0d0",
+      "source_root": "boolq-7dcd20e8624a5b1d"
+    },
+    {
+      "cqid": "v12-yes-3cb0773a30",
+      "source_root": "boolq-58bd25fcff4864c9"
+    },
+    {
+      "cqid": "v12-yes-3d6a47dc18",
+      "source_root": "boolq-00464ac2ce607b7f"
+    },
+    {
+      "cqid": "v12-yes-3e18141b15",
+      "source_root": "boolq-153b171a0fcb70e0"
+    },
+    {
+      "cqid": "v12-yes-40ebc10cd6",
+      "source_root": "boolq-eea28228b6ed8bf6"
+    },
+    {
+      "cqid": "v12-yes-422c31c2d1",
+      "source_root": "boolq-e953821ac43ed070"
+    },
+    {
+      "cqid": "v12-yes-435705d116",
+      "source_root": "boolq-7d37aa744ebb1da9"
+    },
+    {
+      "cqid": "v12-yes-471de7dae6",
+      "source_root": "boolq-8f9e0b1033dd63ae"
+    },
+    {
+      "cqid": "v12-yes-47e764b25d",
+      "source_root": "boolq-637846b6ea0183a4"
+    },
+    {
+      "cqid": "v12-yes-480f6728d7",
+      "source_root": "boolq-ac21ead81b5ecb03"
+    },
+    {
+      "cqid": "v12-yes-4a168f988f",
+      "source_root": "boolq-084b6224b64f2d6c"
+    },
+    {
+      "cqid": "v12-yes-4b25e99b95",
+      "source_root": "boolq-ea5597b78488ad99"
+    },
+    {
+      "cqid": "v12-yes-4bbcae8c24",
+      "source_root": "boolq-f9cb30077195fada"
+    },
+    {
+      "cqid": "v12-yes-4cf78a84b7",
+      "source_root": "boolq-beaba62b67087692"
+    },
+    {
+      "cqid": "v12-yes-4fbfdbb838",
+      "source_root": "boolq-edb24f1b74d9fa0f"
+    },
+    {
+      "cqid": "v12-yes-52efb6fb49",
+      "source_root": "boolq-6a66365327603c77"
+    },
+    {
+      "cqid": "v12-yes-5344d8605e",
+      "source_root": "boolq-1e7509fcfb5f44aa"
+    },
+    {
+      "cqid": "v12-yes-54559738be",
+      "source_root": "boolq-bececd32b239043b"
+    },
+    {
+      "cqid": "v12-yes-5482e30fe3",
+      "source_root": "boolq-ef2bb7a61f9c73e7"
+    },
+    {
+      "cqid": "v12-yes-54ca223a84",
+      "source_root": "boolq-25fe2db4eb8257c1"
+    },
+    {
+      "cqid": "v12-yes-59715c6378",
+      "source_root": "boolq-666044c2b71417ec"
+    },
+    {
+      "cqid": "v12-yes-59c85a6b8d",
+      "source_root": "boolq-869b57f7bf9e112c"
+    },
+    {
+      "cqid": "v12-yes-5a1c05883c",
+      "source_root": "boolq-7674b9cf09c58bc4"
+    },
+    {
+      "cqid": "v12-yes-5c441cc437",
+      "source_root": "boolq-afefd67fea897e8c"
+    },
+    {
+      "cqid": "v12-yes-5cb24806e2",
+      "source_root": "boolq-3b5381212fdbf344"
+    },
+    {
+      "cqid": "v12-yes-5e0316fa33",
+      "source_root": "boolq-9bbeebff9e3fe3a9"
+    },
+    {
+      "cqid": "v12-yes-5f98c54175",
+      "source_root": "boolq-b4357c8797ecc973"
+    },
+    {
+      "cqid": "v12-yes-67d21fa5f1",
+      "source_root": "boolq-447c75179a42b726"
+    },
+    {
+      "cqid": "v12-yes-67d3f7101a",
+      "source_root": "boolq-1bca78f597037dc4"
+    },
+    {
+      "cqid": "v12-yes-6a37a7aa3c",
+      "source_root": "boolq-0e36b40a49332f0c"
+    },
+    {
+      "cqid": "v12-yes-6b93db76cd",
+      "source_root": "boolq-fc3721209d68025d"
+    },
+    {
+      "cqid": "v12-yes-6ba2d8e4cf",
+      "source_root": "boolq-422974c99587ea7c"
+    },
+    {
+      "cqid": "v12-yes-6cdc7eadb8",
+      "source_root": "boolq-863064501fcc6605"
+    },
+    {
+      "cqid": "v12-yes-6da66527db",
+      "source_root": "boolq-549bee47cada3867"
+    },
+    {
+      "cqid": "v12-yes-6e5b135212",
+      "source_root": "boolq-c28037349807315f"
+    },
+    {
+      "cqid": "v12-yes-6e894164c9",
+      "source_root": "boolq-0664d23b31ec83b0"
+    },
+    {
+      "cqid": "v12-yes-6ea0b84a51",
+      "source_root": "boolq-345b55849f717a22"
+    },
+    {
+      "cqid": "v12-yes-6ec2ce805f",
+      "source_root": "boolq-92835ba8f54b553f"
+    },
+    {
+      "cqid": "v12-yes-70fb7f8e7b",
+      "source_root": "boolq-336157e916f50bc0"
+    },
+    {
+      "cqid": "v12-yes-72410b0804",
+      "source_root": "boolq-2c55d857c534d8dc"
+    },
+    {
+      "cqid": "v12-yes-73db534376",
+      "source_root": "boolq-3ab3d7666de9c1af"
+    },
+    {
+      "cqid": "v12-yes-754551ad08",
+      "source_root": "boolq-6e821a4a8a881abc"
+    },
+    {
+      "cqid": "v12-yes-781fc9b686",
+      "source_root": "boolq-b7860dd1377851b9"
+    },
+    {
+      "cqid": "v12-yes-783387330a",
+      "source_root": "boolq-4906a0bc62aba4cc"
+    },
+    {
+      "cqid": "v12-yes-787e383c05",
+      "source_root": "boolq-d1d7f534393856f3"
+    },
+    {
+      "cqid": "v12-yes-795c44fb81",
+      "source_root": "boolq-464518b2e647ad03"
+    },
+    {
+      "cqid": "v12-yes-7a3a210669",
+      "source_root": "boolq-ebe9cadaef667c99"
+    },
+    {
+      "cqid": "v12-yes-7ca3dc1b7a",
+      "source_root": "boolq-5d53b6da9b9ca34a"
+    },
+    {
+      "cqid": "v12-yes-7ca46d6635",
+      "source_root": "boolq-740412ad46f0ab3d"
+    },
+    {
+      "cqid": "v12-yes-7d6cb8be52",
+      "source_root": "boolq-c22c986f6d792c50"
+    },
+    {
+      "cqid": "v12-yes-8146ca5cf5",
+      "source_root": "boolq-16a6ed40d3b63e3e"
+    },
+    {
+      "cqid": "v12-yes-83ff81fdde",
+      "source_root": "boolq-bf371d70b2854368"
+    },
+    {
+      "cqid": "v12-yes-85191d1b75",
+      "source_root": "boolq-5fb6b71cb1dfd3aa"
+    },
+    {
+      "cqid": "v12-yes-860d503e12",
+      "source_root": "boolq-25732d37f0a1b9e4"
+    },
+    {
+      "cqid": "v12-yes-895f230984",
+      "source_root": "boolq-5ccf94a4aeb6e560"
+    },
+    {
+      "cqid": "v12-yes-8c5faf54e5",
+      "source_root": "boolq-c454a901483ace81"
+    },
+    {
+      "cqid": "v12-yes-8d6b61c96b",
+      "source_root": "boolq-751cc781fa0b6821"
+    },
+    {
+      "cqid": "v12-yes-8de9eadd6f",
+      "source_root": "boolq-3a95b82d7d67c2fd"
+    },
+    {
+      "cqid": "v12-yes-8e06dd7075",
+      "source_root": "boolq-b632132c0ea729d9"
+    },
+    {
+      "cqid": "v12-yes-8fe4dbac36",
+      "source_root": "boolq-af03526b3054eb0d"
+    },
+    {
+      "cqid": "v12-yes-9190f8837a",
+      "source_root": "boolq-07a66b4c8bbc5ff4"
+    },
+    {
+      "cqid": "v12-yes-922f641a18",
+      "source_root": "boolq-7a148c3fba69be30"
+    },
+    {
+      "cqid": "v12-yes-9359260150",
+      "source_root": "boolq-2096b6b371ac1ce9"
+    },
+    {
+      "cqid": "v12-yes-936c536bf9",
+      "source_root": "boolq-4e91e165dcdc58e9"
+    },
+    {
+      "cqid": "v12-yes-9574b233f4",
+      "source_root": "boolq-5aea343067ee4551"
+    },
+    {
+      "cqid": "v12-yes-95fd295da2",
+      "source_root": "boolq-4b9c7e3f2b02fcbe"
+    },
+    {
+      "cqid": "v12-yes-9612b9cc6d",
+      "source_root": "boolq-2770ffc0412479c9"
+    },
+    {
+      "cqid": "v12-yes-996d113684",
+      "source_root": "boolq-8fe9c3068fd855f4"
+    },
+    {
+      "cqid": "v12-yes-997eb6319e",
+      "source_root": "boolq-972d54b920e160b6"
+    },
+    {
+      "cqid": "v12-yes-9aa9ebdb23",
+      "source_root": "boolq-6feb5e36b6e0f0a3"
+    },
+    {
+      "cqid": "v12-yes-9c36fd326b",
+      "source_root": "boolq-7eb41da8f8fcb952"
+    },
+    {
+      "cqid": "v12-yes-9c4581c6fe",
+      "source_root": "boolq-fe4ad52fbc42813b"
+    },
+    {
+      "cqid": "v12-yes-9e2e5e6611",
+      "source_root": "boolq-2ae9761774ef4108"
+    },
+    {
+      "cqid": "v12-yes-9e546d177d",
+      "source_root": "boolq-af6917f908e96c10"
+    },
+    {
+      "cqid": "v12-yes-9e8c27d2df",
+      "source_root": "boolq-77a4c6fd00cf79f4"
+    },
+    {
+      "cqid": "v12-yes-9fd486a06c",
+      "source_root": "boolq-02abc9816b255844"
+    },
+    {
+      "cqid": "v12-yes-a497a594c4",
+      "source_root": "boolq-44551714cc435aef"
+    },
+    {
+      "cqid": "v12-yes-a5ce8b73be",
+      "source_root": "boolq-296b44472cca76b5"
+    },
+    {
+      "cqid": "v12-yes-a6f7813766",
+      "source_root": "boolq-233c0ce6a2c20f8c"
+    },
+    {
+      "cqid": "v12-yes-a72bbae830",
+      "source_root": "boolq-8e645432c9512d11"
+    },
+    {
+      "cqid": "v12-yes-a7a858f684",
+      "source_root": "boolq-96048a82341ba06f"
+    },
+    {
+      "cqid": "v12-yes-a9825ac179",
+      "source_root": "boolq-326218a3e4c297db"
+    },
+    {
+      "cqid": "v12-yes-a98f4106a4",
+      "source_root": "boolq-d8a0e4ed4539f699"
+    },
+    {
+      "cqid": "v12-yes-aa14bc9578",
+      "source_root": "boolq-a74ec822a957ce2a"
+    },
+    {
+      "cqid": "v12-yes-aa95bb1b64",
+      "source_root": "boolq-fefabd5fe1f5cf66"
+    },
+    {
+      "cqid": "v12-yes-aa9ac7bb9c",
+      "source_root": "boolq-a6267e9195062359"
+    },
+    {
+      "cqid": "v12-yes-ab52516e1b",
+      "source_root": "boolq-8662d294b10f33b3"
+    },
+    {
+      "cqid": "v12-yes-ad542c9012",
+      "source_root": "boolq-cef544fc7a770a7f"
+    },
+    {
+      "cqid": "v12-yes-adca5b2f9e",
+      "source_root": "boolq-5377998781f6635a"
+    },
+    {
+      "cqid": "v12-yes-af5b57735e",
+      "source_root": "boolq-9e8e104403d65c05"
+    },
+    {
+      "cqid": "v12-yes-afe03b729f",
+      "source_root": "boolq-2e529909de778ab2"
+    },
+    {
+      "cqid": "v12-yes-b14fb97d5e",
+      "source_root": "boolq-caab4273c8de44ad"
+    },
+    {
+      "cqid": "v12-yes-b32f06c867",
+      "source_root": "boolq-60d158bfe6648431"
+    },
+    {
+      "cqid": "v12-yes-b3f5de5883",
+      "source_root": "boolq-e2c6f928aea14f74"
+    },
+    {
+      "cqid": "v12-yes-b4f917fc91",
+      "source_root": "boolq-aef8d7eb68a8a3e3"
+    },
+    {
+      "cqid": "v12-yes-b5007ee0a9",
+      "source_root": "boolq-b928ee4fd292cb25"
+    },
+    {
+      "cqid": "v12-yes-b5c1a91d43",
+      "source_root": "boolq-7078be2178d9c34c"
+    },
+    {
+      "cqid": "v12-yes-b65eec0e50",
+      "source_root": "boolq-b7f0b14f8a2ad71d"
+    },
+    {
+      "cqid": "v12-yes-b7346d34ef",
+      "source_root": "boolq-1f63df1e0ea7f252"
+    },
+    {
+      "cqid": "v12-yes-b7f90025ed",
+      "source_root": "boolq-cf3339804c3f9d55"
+    },
+    {
+      "cqid": "v12-yes-b96e698bb7",
+      "source_root": "boolq-868d1eeaf1c6d0a9"
+    },
+    {
+      "cqid": "v12-yes-ba56f2e4ae",
+      "source_root": "boolq-89758cfa0b1dc7db"
+    },
+    {
+      "cqid": "v12-yes-bc046e26de",
+      "source_root": "boolq-2ed9017d0e897cdd"
+    },
+    {
+      "cqid": "v12-yes-bdde622deb",
+      "source_root": "boolq-e76299e3b9ac52da"
+    },
+    {
+      "cqid": "v12-yes-be00e88a14",
+      "source_root": "boolq-074f1bd772d68fa0"
+    },
+    {
+      "cqid": "v12-yes-bf87581359",
+      "source_root": "boolq-0e0e664c466088ae"
+    },
+    {
+      "cqid": "v12-yes-c02711723e",
+      "source_root": "boolq-64a578488a4e10d6"
+    },
+    {
+      "cqid": "v12-yes-c11ea0af47",
+      "source_root": "boolq-2dcb56c878b2322e"
+    },
+    {
+      "cqid": "v12-yes-c26d7014ea",
+      "source_root": "boolq-31f454b1305be272"
+    },
+    {
+      "cqid": "v12-yes-c4ce6dfd2a",
+      "source_root": "boolq-9464fd8d81af3195"
+    },
+    {
+      "cqid": "v12-yes-c599bfbf7b",
+      "source_root": "boolq-2bb8f9f00afa92f8"
+    },
+    {
+      "cqid": "v12-yes-c6d4645fc5",
+      "source_root": "boolq-6a170395088bf395"
+    },
+    {
+      "cqid": "v12-yes-c780cec5a6",
+      "source_root": "boolq-88154afc4d8fc09b"
+    },
+    {
+      "cqid": "v12-yes-c9659074c1",
+      "source_root": "boolq-1a4d18df5c1c4078"
+    },
+    {
+      "cqid": "v12-yes-c99b2a7cf4",
+      "source_root": "boolq-239cc4e90f5acf9e"
+    },
+    {
+      "cqid": "v12-yes-cb9505d6ae",
+      "source_root": "boolq-9ff37a95008d576b"
+    },
+    {
+      "cqid": "v12-yes-cbbf3ff6d4",
+      "source_root": "boolq-65fc298a84c4c401"
+    },
+    {
+      "cqid": "v12-yes-cbdb7999c5",
+      "source_root": "boolq-12509171068e6399"
+    },
+    {
+      "cqid": "v12-yes-ccf690c5cf",
+      "source_root": "boolq-ed629b643032a5b1"
+    },
+    {
+      "cqid": "v12-yes-d120156add",
+      "source_root": "boolq-3940927d1b51530d"
+    },
+    {
+      "cqid": "v12-yes-d20880054b",
+      "source_root": "boolq-934123bad7e50c9f"
+    },
+    {
+      "cqid": "v12-yes-d41f843a4f",
+      "source_root": "boolq-eeb4c61f4cfb6d4c"
+    },
+    {
+      "cqid": "v12-yes-d4f307f641",
+      "source_root": "boolq-c29ef780f3216e11"
+    },
+    {
+      "cqid": "v12-yes-d7c162f3ec",
+      "source_root": "boolq-b0e1c9c82ffbf468"
+    },
+    {
+      "cqid": "v12-yes-d9a0f3feee",
+      "source_root": "boolq-39e18827a08ef8ca"
+    },
+    {
+      "cqid": "v12-yes-d9c9f56a0b",
+      "source_root": "boolq-4dce7de962e8b8a8"
+    },
+    {
+      "cqid": "v12-yes-da351c1794",
+      "source_root": "boolq-040807536982dda6"
+    },
+    {
+      "cqid": "v12-yes-db7319d2d2",
+      "source_root": "boolq-40105b8d04977564"
+    },
+    {
+      "cqid": "v12-yes-dd0555268e",
+      "source_root": "boolq-0d34aedcd4179438"
+    },
+    {
+      "cqid": "v12-yes-dd0cac12c7",
+      "source_root": "boolq-85660c71fb92bc03"
+    },
+    {
+      "cqid": "v12-yes-decc06d7b1",
+      "source_root": "boolq-6a0ca42a7e4a6dde"
+    },
+    {
+      "cqid": "v12-yes-df8a655f6f",
+      "source_root": "boolq-3885cd91c7357a41"
+    },
+    {
+      "cqid": "v12-yes-e00c6cbca4",
+      "source_root": "boolq-29a1224d6afa18bf"
+    },
+    {
+      "cqid": "v12-yes-e208fcd63e",
+      "source_root": "boolq-d543e3f95ce15adf"
+    },
+    {
+      "cqid": "v12-yes-e4bafb2145",
+      "source_root": "boolq-3a990c83d09648e9"
+    },
+    {
+      "cqid": "v12-yes-e4dc4aa83a",
+      "source_root": "boolq-19d2c8d9baa7e16e"
+    },
+    {
+      "cqid": "v12-yes-e4ee88e6e4",
+      "source_root": "boolq-e3f57aac993b351d"
+    },
+    {
+      "cqid": "v12-yes-e529117da6",
+      "source_root": "boolq-536d9795a1c3d185"
+    },
+    {
+      "cqid": "v12-yes-e7ee7e154a",
+      "source_root": "boolq-c9a55c2c97a449ee"
+    },
+    {
+      "cqid": "v12-yes-e8fde30fc5",
+      "source_root": "boolq-f5d498c41253582b"
+    },
+    {
+      "cqid": "v12-yes-ea5e8a7041",
+      "source_root": "boolq-e9c253a1f7a17e92"
+    },
+    {
+      "cqid": "v12-yes-ee1b0be9a0",
+      "source_root": "boolq-de4d5956c2ba2a92"
+    },
+    {
+      "cqid": "v12-yes-eff9cbf439",
+      "source_root": "boolq-8d7a1cf9a121e78e"
+    },
+    {
+      "cqid": "v12-yes-f00aa1d05e",
+      "source_root": "boolq-4dc0cf4e6babd8a6"
+    },
+    {
+      "cqid": "v12-yes-f0faa66dcb",
+      "source_root": "boolq-064e26c1424620b7"
+    },
+    {
+      "cqid": "v12-yes-f0fd3443e4",
+      "source_root": "boolq-1592052e5f54e039"
+    },
+    {
+      "cqid": "v12-yes-f2af519bdd",
+      "source_root": "boolq-b0bd3bbbd7b6aa54"
+    },
+    {
+      "cqid": "v12-yes-f49c148ee3",
+      "source_root": "boolq-872ce18d8d098d60"
+    },
+    {
+      "cqid": "v12-yes-f54998f728",
+      "source_root": "boolq-ded6cd51ba84b482"
+    },
+    {
+      "cqid": "v12-yes-fa5da01337",
+      "source_root": "boolq-a99614ae4bc39b73"
+    },
+    {
+      "cqid": "v12-yes-fc95dc1769",
+      "source_root": "boolq-ccafba73038bea44"
+    },
+    {
+      "cqid": "v12-yes-fd8892deb7",
+      "source_root": "boolq-aaac648627609769"
+    },
+    {
+      "cqid": "v12-yes-fe8009e4b5",
+      "source_root": "boolq-7bbc3d55a12394bc"
+    },
+    {
+      "cqid": "v12-yes-febbd95e76",
+      "source_root": "boolq-34b11b86355f1e09"
+    },
+    {
+      "cqid": "v12-yes-ff43a05ea2",
+      "source_root": "boolq-ed389907ce99c389"
+    }
+  ]
+}

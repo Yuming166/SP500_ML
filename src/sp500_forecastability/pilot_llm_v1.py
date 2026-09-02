@@ -455,7 +455,9 @@ class CachedChatClient:
             "model": self.model,
             "messages": list(messages),
             "temperature": 0.0,
-            "max_tokens": MAX_COMPLETION_TOKENS,
+            "max_tokens": int(
+                getattr(self, "max_completion_tokens", MAX_COMPLETION_TOKENS)
+            ),
             "seed": seed,
         }
         cache_material = {"endpoint": self.endpoint, "request": request_payload}

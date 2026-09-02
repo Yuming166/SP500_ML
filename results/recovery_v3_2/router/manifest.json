@@ -1,0 +1,117 @@
+{
+  "protocol_version": "recovery-v3.2-cape-averitec-2026-09-02",
+  "status": "frozen_before_test_calls",
+  "selection_sha256": "f7a91ac0f53f4ffa5ed42cc4d3b51c672381ccefa7577275b92ab18f45940e21",
+  "train_records_sha256": "db25bcc007bad0829371efb89cd418da21878cbb7a631ac08eca56bf033aa3f5",
+  "policy_records_sha256": "c2944d47dcda106ffbf5a349bb6eeac83c4e19c1ecb24c75a6d4cd93c9f27d25",
+  "calibration_records_sha256": "c62986cfa7618fe7b7d9f36d73338caf0f318a5a20e6d792857dfed6ec245f53",
+  "train_audit_sha256": "3657ee3f6e95c623e8ab45e010ade0192bbdc086c5e0df0ab26276095d9d34e8",
+  "feature_names": [
+    "consensus_yes",
+    "agreement",
+    "yes_fraction",
+    "vote_entropy",
+    "confidence_mean",
+    "confidence_std",
+    "confidence_min",
+    "citation_mean",
+    "claim_tokens_log1p",
+    "anchor_tokens_log1p",
+    "anchor_evidence_count",
+    "anchor_relevance",
+    "anchor_title_overlap",
+    "is_two_root_action",
+    "roots_added",
+    "candidate_relevance_max",
+    "candidate_relevance_min",
+    "candidate_relevance_mean",
+    "candidate_relevance_minus_anchor",
+    "candidate_title_overlap_max",
+    "candidate_title_overlap_mean",
+    "candidate_tokens_log1p",
+    "stance_support_max",
+    "stance_support_mean",
+    "stance_refute_max",
+    "stance_refute_mean",
+    "stance_irrelevant_min",
+    "stance_irrelevant_mean",
+    "stance_agrees_consensus_max",
+    "stance_opposes_consensus_max",
+    "stance_anchor_agrees_consensus",
+    "stance_anchor_opposes_consensus",
+    "stance_opposition_delta"
+  ],
+  "no_stance_feature_names": [
+    "consensus_yes",
+    "agreement",
+    "yes_fraction",
+    "vote_entropy",
+    "confidence_mean",
+    "confidence_std",
+    "confidence_min",
+    "citation_mean",
+    "claim_tokens_log1p",
+    "anchor_tokens_log1p",
+    "anchor_evidence_count",
+    "anchor_relevance",
+    "anchor_title_overlap",
+    "is_two_root_action",
+    "roots_added",
+    "candidate_relevance_max",
+    "candidate_relevance_min",
+    "candidate_relevance_mean",
+    "candidate_relevance_minus_anchor",
+    "candidate_title_overlap_max",
+    "candidate_title_overlap_mean",
+    "candidate_tokens_log1p"
+  ],
+  "forbidden_feature_intersection": [],
+  "training_rows": 2442,
+  "stance_training": {
+    "family": "five_fold_oof_word_char_tfidf_logistic",
+    "classes": [
+      "irrelevant",
+      "refutes",
+      "supports"
+    ],
+    "seed": 20260941
+  },
+  "outcome_model": {
+    "family": "equal_weight_rf_hgb_gain_and_harm_ensemble",
+    "seed": 20260941
+  },
+  "tuned_policy": {
+    "threshold_yes": 0.3,
+    "threshold_no": 0.2,
+    "harm_cap": 0.2,
+    "metrics": {
+      "net_gain": 0.040229885057471264,
+      "net_fixes": 7,
+      "damage_rate": 0.0,
+      "routes": 18,
+      "mean_roots": 0.14942528735632185,
+      "by_label_gain": {
+        "Supported": 0.11320754716981132,
+        "Refuted": 0.008264462809917356
+      }
+    },
+    "fallback_keep": false
+  },
+  "safety_shield": {
+    "offset": 1000000.0,
+    "metrics": null,
+    "fallback_keep": true
+  },
+  "final_policy": {
+    "threshold_yes": 1000000.3,
+    "threshold_no": 1000000.2,
+    "harm_cap": 0.2,
+    "root_cost": 0.01
+  },
+  "router_joblib": "results/recovery_v3_2/router/router.joblib",
+  "router_joblib_sha256": "8f1a90de84cdb05773ce030b6736a567902645f1e2b63c5b329b87eb5747c7c8",
+  "claim_boundary": {
+    "test_outcomes_seen": false,
+    "publisher_independence": false
+  }
+}

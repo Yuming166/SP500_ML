@@ -1,0 +1,27 @@
+{
+  "protocol_version": "recovery-v3.7-elar-fever-train-2026-09-02",
+  "counts": {
+    "development": 1000,
+    "formal": 400
+  },
+  "formal_labels": {
+    "Refuted": 200,
+    "Supported": 200
+  },
+  "formal_distinct_roots": 1200,
+  "candidate_0_annotated_fraction": 0.5,
+  "retrieval_role_auc": 0.62133125,
+  "oriented_retrieval_role_auc": 0.62133125,
+  "gates": {
+    "exact_counts": true,
+    "formal_labels_balanced": true,
+    "zero_development_claim_overlap": true,
+    "zero_development_root_overlap": true,
+    "all_formal_packet_roots_globally_unique": true,
+    "three_distinct_roots_per_item": true,
+    "candidate_order_balanced": true,
+    "oriented_retrieval_role_auc_at_most_065": true,
+    "retrieval_score_forbidden_from_router": true
+  },
+  "passed": true
+}

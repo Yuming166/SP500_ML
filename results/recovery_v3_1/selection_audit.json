@@ -1,0 +1,55 @@
+{
+  "protocol_version": "recovery-v3.1-cape-averitec-2026-09-02",
+  "counts": {
+    "train": 821,
+    "policy_dev": 176,
+    "calibration": 176,
+    "test": 236
+  },
+  "labels": {
+    "train": {
+      "Supported": 255,
+      "Refuted": 566
+    },
+    "policy_dev": {
+      "Supported": 55,
+      "Refuted": 121
+    },
+    "calibration": {
+      "Refuted": 121,
+      "Supported": 55
+    },
+    "test": {
+      "Supported": 64,
+      "Refuted": 172
+    }
+  },
+  "claim_overlap": {
+    "train_policy_dev": 1,
+    "train_calibration": 3,
+    "train_test": 1,
+    "policy_dev_calibration": 0,
+    "policy_dev_test": 0,
+    "calibration_test": 0
+  },
+  "candidate_0_annotated_fraction": {
+    "train": 0.5006090133982948,
+    "policy_dev": 0.5,
+    "calibration": 0.5,
+    "test": 0.5
+  },
+  "retrieval_role_auc": 0.6487479606161546,
+  "oriented_retrieval_role_auc": 0.6487479606161546,
+  "test_distinct_domains": 338,
+  "gates": {
+    "exact_expected_counts": true,
+    "zero_claim_overlap": false,
+    "three_distinct_roots": true,
+    "candidate_order_balanced": true,
+    "each_label_at_least_025": true,
+    "oriented_role_auc_at_most_085": true,
+    "test_at_least_200": true,
+    "test_domains_at_least_300": true
+  },
+  "passed": false
+}

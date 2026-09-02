@@ -1,0 +1,41 @@
+{
+  "protocol_version": "recovery-v3.6.1-atomic-pace-ex-fever-development-2026-09-02",
+  "counts": {
+    "development": 600,
+    "test": 500
+  },
+  "labels": {
+    "development": {
+      "Supported": 300,
+      "Refuted": 300
+    },
+    "test": {
+      "Refuted": 250,
+      "Supported": 250
+    }
+  },
+  "candidate_0_annotated_fraction": {
+    "development": 0.5,
+    "test": 0.5
+  },
+  "oriented_retrieval_role_auc": {
+    "development": 0.8225652777777779,
+    "test": 0.88837
+  },
+  "claim_overlap_between_splits": 0,
+  "page_root_overlap_between_splits": 0,
+  "test_distinct_page_roots": 1000,
+  "gates": {
+    "exact_counts": true,
+    "exact_labels": true,
+    "zero_claim_overlap_between_splits": true,
+    "zero_page_root_overlap_between_splits": true,
+    "zero_prior_claim_overlap": true,
+    "zero_climate_page_root_overlap": true,
+    "test_gold_roots_unique_across_items": true,
+    "three_distinct_roots_per_item": true,
+    "candidate_order_balanced": true,
+    "retrieval_and_title_shortcuts_excluded_from_router": true
+  },
+  "passed": true
+}

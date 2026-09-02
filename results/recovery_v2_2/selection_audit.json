@@ -1,0 +1,55 @@
+{
+  "protocol_version": "recovery-v2.2-page-root-2026-09-02",
+  "n": 1149,
+  "split_counts": {
+    "dev": 230,
+    "test": 230,
+    "train": 689
+  },
+  "label_counts": {
+    "train": {
+      "REFUTES": 319,
+      "SUPPORTS": 370
+    },
+    "dev": {
+      "REFUTES": 107,
+      "SUPPORTS": 123
+    },
+    "test": {
+      "REFUTES": 107,
+      "SUPPORTS": 123
+    }
+  },
+  "label_fractions": {
+    "train": {
+      "REFUTES": 0.4629898403483309,
+      "SUPPORTS": 0.5370101596516691
+    },
+    "dev": {
+      "REFUTES": 0.4652173913043478,
+      "SUPPORTS": 0.5347826086956522
+    },
+    "test": {
+      "REFUTES": 0.4652173913043478,
+      "SUPPORTS": 0.5347826086956522
+    }
+  },
+  "cross_split_page_overlap": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+  },
+  "candidate_0_annotated_fraction": 0.516100957354221,
+  "retrieval_score_annotation_auc": 0.41600066959500864,
+  "gates": {
+    "eligible_exactly_1149": true,
+    "dev_at_least_200": true,
+    "test_at_least_200": true,
+    "zero_cross_split_page_overlap": true,
+    "three_distinct_roots_per_example": true,
+    "candidate_0_annotation_frequency": true,
+    "label_fraction_each_at_least_040": true,
+    "retrieval_score_annotation_auc_at_most_080": true
+  },
+  "passed": true
+}

@@ -1,0 +1,89 @@
+{
+  "protocol_version": "recovery-v3.4.1-pbwj-climate-fever-2026-09-02",
+  "status": "frozen_before_climate_fever_test_calls",
+  "selection_sha256": "30e21c75c84b1f6c01ce2f5cc49267dd21a67b8e266bc1cb53b08b217141f52e",
+  "source_selection_sha256": "f7a91ac0f53f4ffa5ed42cc4d3b51c672381ccefa7577275b92ab18f45940e21",
+  "preregistration_sha256": "1bab2a17ddb9ed6028fd80924aa8f455279d04f38ab481209e8ea516ff17edd4",
+  "jury_model": {
+    "family": "publisher-blocked-five-member-word-char-tfidf-logistic",
+    "source_examples": 1399,
+    "folds": [
+      {
+        "fold": 0,
+        "heldout_examples": 280,
+        "heldout_publishers": 4,
+        "heldout_labels": {
+          "Supported": 126,
+          "Refuted": 154
+        },
+        "training_examples": 1119
+      },
+      {
+        "fold": 1,
+        "heldout_examples": 280,
+        "heldout_publishers": 9,
+        "heldout_labels": {
+          "Refuted": 133,
+          "Supported": 147
+        },
+        "training_examples": 1119
+      },
+      {
+        "fold": 2,
+        "heldout_examples": 280,
+        "heldout_publishers": 9,
+        "heldout_labels": {
+          "Supported": 56,
+          "Refuted": 224
+        },
+        "training_examples": 1119
+      },
+      {
+        "fold": 3,
+        "heldout_examples": 280,
+        "heldout_publishers": 11,
+        "heldout_labels": {
+          "Refuted": 230,
+          "Supported": 50
+        },
+        "training_examples": 1119
+      },
+      {
+        "fold": 4,
+        "heldout_examples": 279,
+        "heldout_publishers": 11,
+        "heldout_labels": {
+          "Refuted": 237,
+          "Supported": 42
+        },
+        "training_examples": 1120
+      }
+    ],
+    "hard_negatives": "one retrieval-matched irrelevant candidate per source claim"
+  },
+  "policy": {
+    "opposition_threshold": 0.4,
+    "delta_threshold": -0.2,
+    "dispersion_multiplier": 1.0,
+    "quorum_by_initial_consensus": {
+      "no": 0.8,
+      "yes": 1.0
+    },
+    "single_root_only": true
+  },
+  "stance_jury_joblib": "results/recovery_v3_4_1/router/stance_jury.joblib",
+  "stance_jury_joblib_sha256": "9869340c6f802d3f1bc556bab117717a369cec0c173a89878e2df59ca62c3a5b",
+  "feature_boundary": {
+    "uses_external_gold_or_action_outcomes_at_inference": false,
+    "uses_external_annotation_role_at_inference": false,
+    "uses_source_identity_at_inference": false,
+    "uses_initial_consensus_and_packet_text": true
+  },
+  "claim_boundary": {
+    "external_test_outcomes_seen": false,
+    "cross_dataset": true,
+    "publisher_independence": false,
+    "page_root_transfer": true,
+    "cross_model": false
+  }
+}

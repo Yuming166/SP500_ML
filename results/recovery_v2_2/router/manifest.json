@@ -1,0 +1,60 @@
+{
+  "protocol_version": "recovery-v2.2-page-root-2026-09-02",
+  "status": "frozen_before_test_calls",
+  "selection_sha256": "56168f1088c0aa0a8081c0d4cf45d79fca09017e2741d2c971d805cc31c1566c",
+  "train_records_sha256": "eaeb72e15863d99c32df50c32265be79f151131892d043e1e7d2c78921272f8a",
+  "dev_records_sha256": "01a6aa47b0af3a77009e62559a9e2ae581e9a0c1af841aa2c83ac6caebbcb0b8",
+  "train_audit_sha256": "e71f25ce99595fdd08e8eb98c76375e44842c968c2f7941544ab6a8649f19f18",
+  "feature_names": [
+    "consensus_yes",
+    "agreement",
+    "yes_fraction",
+    "vote_entropy",
+    "confidence_mean",
+    "confidence_std",
+    "confidence_min",
+    "citation_mean",
+    "claim_tokens_log1p",
+    "anchor_tokens_log1p",
+    "anchor_evidence_count",
+    "anchor_relevance",
+    "anchor_title_overlap",
+    "is_two_root_action",
+    "roots_added",
+    "candidate_relevance_max",
+    "candidate_relevance_min",
+    "candidate_relevance_mean",
+    "candidate_relevance_minus_anchor",
+    "candidate_title_overlap_max",
+    "candidate_title_overlap_mean",
+    "candidate_tokens_log1p"
+  ],
+  "forbidden_feature_intersection": [],
+  "training_rows": 2067,
+  "calibration_rows": 690,
+  "model": {
+    "family": "random_forest_paired_gain_and_harm",
+    "seed": 20260931,
+    "n_estimators": 300,
+    "max_depth": 6,
+    "min_samples_leaf": 10,
+    "max_features": 0.8
+  },
+  "calibration": {
+    "coverage": 0.9,
+    "gain_overprediction_margin": 0.26921044059779187,
+    "harm_underprediction_margin": 0.0
+  },
+  "policy": {
+    "high_consensus": 0.8,
+    "harm_cap": 0.1,
+    "root_cost": 0.01
+  },
+  "router_joblib": "results/recovery_v2_2/router/router.joblib",
+  "router_joblib_sha256": "591bcec76c1ea81367e174fac1219a6bc492b555cc857cec207471c5d9710e1a",
+  "claim_boundary": {
+    "test_outcomes_seen": false,
+    "page_root_disjoint": true,
+    "publisher_independent": false
+  }
+}

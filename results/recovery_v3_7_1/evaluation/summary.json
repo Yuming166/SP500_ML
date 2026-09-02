@@ -1,0 +1,543 @@
+{
+  "protocol_version": "recovery-v3.7.1-elar-fever-train-2026-09-02",
+  "analysis_status": "prospective_root_disjoint_fever_train_formal",
+  "selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+  "router_manifest_sha256": "1b75b96948dfe5473146f78ea137ff6cb675155960c7e624a3b62faad0f3f516",
+  "formal_action_records_sha256": "dde8708f2c8a2331a5073400d95a50e6eb33ab40d385b258e3567697f8fb0c34",
+  "formal_certificate_records_sha256": "d5350284abe4bbccc1fc3ce9a84557edbb5811c0e6274dff444633d6f3af3a54",
+  "formal_ledger_records_sha256": "784b713d077790826f3a7a7d954e26bcc690d44726ce808b59ad739eee244dd2",
+  "preoutcome_routes_sha256": "7c2a4fbe14cbae98584a7b08afc3b787f51fa00db01762ec2a369f3d638477b8",
+  "n_formal": 400,
+  "root_budget": 32,
+  "ledger_validity": {
+    "proof_candidates": 62,
+    "valid_rows": 50,
+    "fail_closed_rows": 12
+  },
+  "policies": {
+    "elar": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.5825,
+      "fixes": 29,
+      "harms": 0,
+      "net_fixes": 29,
+      "net_gain": 0.0725,
+      "macro_label_gain": 0.07250000000000001,
+      "macro_gain_ci": [
+        0.0475,
+        0.0975
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 29,
+      "total_added_roots": 32,
+      "selected_actions": {
+        "KEEP": 368,
+        "candidate_0": 18,
+        "candidate_1": 14
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.17,
+          "net_gain": 0.135
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.995,
+          "net_gain": 0.01
+        }
+      }
+    },
+    "atomic_proof_only": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.6175,
+      "fixes": 45,
+      "harms": 2,
+      "net_fixes": 43,
+      "net_gain": 0.1075,
+      "macro_label_gain": 0.1075,
+      "macro_gain_ci": [
+        0.0775,
+        0.1375
+      ],
+      "damage_rate_high_consensus_correct": 0.009852216748768473,
+      "annotation_supported_repairs": 45,
+      "total_added_roots": 58,
+      "selected_actions": {
+        "KEEP": 342,
+        "candidate_0": 29,
+        "candidate_1": 29
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.24,
+          "net_gain": 0.205
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.995,
+          "net_gain": 0.01
+        }
+      }
+    },
+    "keep": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.51,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 0,
+      "selected_actions": {
+        "KEEP": 400
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.035,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.985,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_retrieval_score": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.5325,
+      "fixes": 9,
+      "harms": 0,
+      "net_fixes": 9,
+      "net_gain": 0.0225,
+      "macro_label_gain": 0.0225,
+      "macro_gain_ci": [
+        0.01,
+        0.0375
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 9,
+      "total_added_roots": 32,
+      "selected_actions": {
+        "KEEP": 368,
+        "candidate_0": 15,
+        "candidate_1": 17
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.08,
+          "net_gain": 0.045
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.985,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "unlimited_retrieval_score": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.7375,
+      "fixes": 109,
+      "harms": 18,
+      "net_fixes": 91,
+      "net_gain": 0.2275,
+      "macro_label_gain": 0.2275,
+      "macro_gain_ci": [
+        0.185,
+        0.2675
+      ],
+      "damage_rate_high_consensus_correct": 0.08866995073891626,
+      "annotation_supported_repairs": 104,
+      "total_added_roots": 398,
+      "selected_actions": {
+        "candidate_0": 199,
+        "candidate_1": 199,
+        "KEEP": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.56,
+          "net_gain": 0.525
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.915,
+          "net_gain": -0.07
+        }
+      }
+    },
+    "matched_hash_random": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.52,
+      "fixes": 5,
+      "harms": 1,
+      "net_fixes": 4,
+      "net_gain": 0.01,
+      "macro_label_gain": 0.01,
+      "macro_gain_ci": [
+        0.0,
+        0.0225
+      ],
+      "damage_rate_high_consensus_correct": 0.0049261083743842365,
+      "annotation_supported_repairs": 4,
+      "total_added_roots": 32,
+      "selected_actions": {
+        "KEEP": 368,
+        "candidate_0": 22,
+        "candidate_1": 10
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.06,
+          "net_gain": 0.025
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.98,
+          "net_gain": -0.005
+        }
+      }
+    },
+    "unlimited_hash_random": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.6525,
+      "fixes": 70,
+      "harms": 13,
+      "net_fixes": 57,
+      "net_gain": 0.1425,
+      "macro_label_gain": 0.14250000000000002,
+      "macro_gain_ci": [
+        0.10499999999999998,
+        0.18
+      ],
+      "damage_rate_high_consensus_correct": 0.06403940886699508,
+      "annotation_supported_repairs": 62,
+      "total_added_roots": 398,
+      "selected_actions": {
+        "candidate_1": 190,
+        "candidate_0": 208,
+        "KEEP": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.365,
+          "net_gain": 0.33
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.94,
+          "net_gain": -0.045
+        }
+      }
+    },
+    "matched_fixed_candidate_0": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.5275,
+      "fixes": 7,
+      "harms": 0,
+      "net_fixes": 7,
+      "net_gain": 0.0175,
+      "macro_label_gain": 0.0175,
+      "macro_gain_ci": [
+        0.005,
+        0.03
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 7,
+      "total_added_roots": 32,
+      "selected_actions": {
+        "KEEP": 368,
+        "candidate_0": 32
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.07,
+          "net_gain": 0.035
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.985,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "unlimited_fixed_candidate_0": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.6575,
+      "fixes": 67,
+      "harms": 8,
+      "net_fixes": 59,
+      "net_gain": 0.1475,
+      "macro_label_gain": 0.1475,
+      "macro_gain_ci": [
+        0.11249999999999999,
+        0.1825
+      ],
+      "damage_rate_high_consensus_correct": 0.03940886699507389,
+      "annotation_supported_repairs": 63,
+      "total_added_roots": 398,
+      "selected_actions": {
+        "candidate_0": 398,
+        "KEEP": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.35,
+          "net_gain": 0.315
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.965,
+          "net_gain": -0.02
+        }
+      }
+    },
+    "matched_fixed_candidate_1": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.5225,
+      "fixes": 7,
+      "harms": 2,
+      "net_fixes": 5,
+      "net_gain": 0.0125,
+      "macro_label_gain": 0.0125,
+      "macro_gain_ci": [
+        -0.0024999999999999988,
+        0.0275
+      ],
+      "damage_rate_high_consensus_correct": 0.009852216748768473,
+      "annotation_supported_repairs": 7,
+      "total_added_roots": 32,
+      "selected_actions": {
+        "KEEP": 368,
+        "candidate_1": 32
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.07,
+          "net_gain": 0.035
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.975,
+          "net_gain": -0.01
+        }
+      }
+    },
+    "unlimited_fixed_candidate_1": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.6325,
+      "fixes": 69,
+      "harms": 20,
+      "net_fixes": 49,
+      "net_gain": 0.1225,
+      "macro_label_gain": 0.1225,
+      "macro_gain_ci": [
+        0.0825,
+        0.1625
+      ],
+      "damage_rate_high_consensus_correct": 0.09852216748768473,
+      "annotation_supported_repairs": 61,
+      "total_added_roots": 398,
+      "selected_actions": {
+        "candidate_1": 398,
+        "KEEP": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.365,
+          "net_gain": 0.33
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.9,
+          "net_gain": -0.085
+        }
+      }
+    },
+    "matched_fixed_both": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.515,
+      "fixes": 2,
+      "harms": 0,
+      "net_fixes": 2,
+      "net_gain": 0.005,
+      "macro_label_gain": 0.005,
+      "macro_gain_ci": [
+        0.0,
+        0.0125
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 2,
+      "total_added_roots": 16,
+      "selected_actions": {
+        "both": 16,
+        "KEEP": 384
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.045,
+          "net_gain": 0.01
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.985,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "unlimited_fixed_both": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.765,
+      "fixes": 118,
+      "harms": 16,
+      "net_fixes": 102,
+      "net_gain": 0.255,
+      "macro_label_gain": 0.255,
+      "macro_gain_ci": [
+        0.215,
+        0.295
+      ],
+      "damage_rate_high_consensus_correct": 0.07881773399014778,
+      "annotation_supported_repairs": 115,
+      "total_added_roots": 398,
+      "selected_actions": {
+        "both": 398,
+        "KEEP": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.605,
+          "net_gain": 0.57
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 0.925,
+          "net_gain": -0.06
+        }
+      }
+    },
+    "available_action_oracle_diagnostic": {
+      "n": 400,
+      "baseline_accuracy": 0.51,
+      "final_accuracy": 0.845,
+      "fixes": 134,
+      "harms": 0,
+      "net_fixes": 134,
+      "net_gain": 0.335,
+      "macro_label_gain": 0.335,
+      "macro_gain_ci": [
+        0.3,
+        0.37
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 129,
+      "total_added_roots": 134,
+      "selected_actions": {
+        "KEEP": 266,
+        "candidate_1": 58,
+        "candidate_0": 67,
+        "both": 9
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 200,
+          "baseline_accuracy": 0.035,
+          "final_accuracy": 0.69,
+          "net_gain": 0.655
+        },
+        "Refuted": {
+          "n": 200,
+          "baseline_accuracy": 0.985,
+          "final_accuracy": 1.0,
+          "net_gain": 0.015
+        }
+      }
+    }
+  },
+  "primary_gates": {
+    "macro_gain_ci_lower_above_zero": true,
+    "damage_rate_at_most_005": true,
+    "both_label_groups_nonnegative": true,
+    "annotation_supported_repairs_at_least_10": true,
+    "net_fixes_above_keep_and_all_matched_baselines": true
+  },
+  "passes": true,
+  "verdict": "PASS_ENTAILMENT_LEDGER_ACTION_ROUTING_V3_7",
+  "annotation_role_selection": {
+    "routed": 32,
+    "annotated_root_selected": 31,
+    "accuracy": 0.96875
+  },
+  "claim_boundary": {
+    "formal_outcomes_seen": false,
+    "single_qwen_deployment": true,
+    "static_wikipedia_page_roots": true,
+    "publisher_independence": false,
+    "cross_model": false
+  },
+  "evaluation_amendment": {
+    "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_7_eval_amendment.py",
+    "implementation_sha256": "6812dde494903abb486d8cff0e50bf01bea42ae096f6165b46f2539548e69eed",
+    "document_path": "docs/recovery_v3_7_1_evaluation_amendment.md",
+    "document_sha256": "73d93f9dacb0475177ff0b9bb42d090c795effbb7f822275b992db5adea413ec"
+  }
+}

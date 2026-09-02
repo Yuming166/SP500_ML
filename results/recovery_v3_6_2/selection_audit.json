@@ -1,0 +1,45 @@
+{
+  "protocol_version": "recovery-v3.6.2-fail-closed-atomic-pace-ex-fever-2026-09-02",
+  "counts": {
+    "development": 600,
+    "test": 400
+  },
+  "labels": {
+    "development": {
+      "Supported": 300,
+      "Refuted": 300
+    },
+    "test": {
+      "Supported": 200,
+      "Refuted": 200
+    }
+  },
+  "candidate_0_annotated_fraction": {
+    "development": 0.5,
+    "test": 0.5
+  },
+  "oriented_retrieval_role_auc": {
+    "development": 0.8225652777777779,
+    "test": 0.8573843750000001
+  },
+  "claim_overlap_between_splits": 0,
+  "page_root_overlap_between_splits": 0,
+  "v3_6_1_claim_overlap": 0,
+  "v3_6_1_page_root_overlap": 0,
+  "test_distinct_page_roots": 800,
+  "gates": {
+    "exact_counts": true,
+    "exact_labels": true,
+    "zero_claim_overlap_between_splits": true,
+    "zero_page_root_overlap_between_splits": true,
+    "zero_prior_claim_overlap": true,
+    "zero_climate_page_root_overlap": true,
+    "zero_v3_6_1_claim_overlap": true,
+    "zero_v3_6_1_page_root_overlap": true,
+    "test_gold_roots_unique_across_items": true,
+    "three_distinct_roots_per_item": true,
+    "candidate_order_balanced": true,
+    "retrieval_and_title_shortcuts_excluded_from_router": true
+  },
+  "passed": true
+}

@@ -1,0 +1,119 @@
+{
+  "protocol_version": "recovery-v3.6.2-fail-closed-atomic-pace-ex-fever-2026-09-02",
+  "status": "frozen_before_fresh_ex_fever_test_calls",
+  "selection_sha256": "0a8d1f9a4b39aeb37993fd740483deb266b4448cf462f16f5f94fcc5369ba5c9",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_6_2.py",
+  "implementation_sha256": "b80eeb19d1b290ba485ef1db154d105e53de9df857956ac25f74d53b9c599292",
+  "dependency_sha256": {
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/pilot_llm_v1.py": "e1976878d8f6df12a00e384121ec86604999a81e541f8920c61233d214c3b3c5",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v2.py": "3a458b5a9f03326ab989cf74239d1104fee3df0cdcadbf45c7d7c9b930202c35",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3.py": "cf12e563e282fa93fc4406a89459f6b4bc5db271e5bcb265e2d19b20541b7804",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_4.py": "c0213b226f91881eb5083f1b4a062578eabaf5686a87416360ec489edfe6c61b",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_6_1.py": "3a477b173b51adb0c442ef3c9d864501491f32b5054741aa3c6871fcc15cd947"
+  },
+  "development_action_records_sha256": "89edfe51cf1410c1936a2dc01400c35f81d1ea3fb54caa5a3fd55d6a8d210536",
+  "development_certificate_records_sha256": "07ab939d6cfa1ae51312c7976518e7cb5468cf6e6bc2539d9dfa2d443ed3e90c",
+  "preregistration_sha256": "d2fb760588b45ee5c04100ec7b4b8aab7323b5cb609cf630bb95135cd0ca9d49",
+  "training": {
+    "examples": 600,
+    "action_rows": 1200,
+    "fix_targets": 181,
+    "harm_targets": 161,
+    "family": "equal-weight-standardized-logistic-and-random-forest",
+    "three_fold_oof_policy_selection": true,
+    "seed": 20260985,
+    "development_record_protocols": [
+      "recovery-v3.6.1-atomic-pace-ex-fever-development-2026-09-02"
+    ],
+    "reused_without_refit_from": "results/recovery_v3_6_1/router/manifest.json",
+    "prior_router_manifest_sha256": "f68f730ef0535782be8f7f268164ccafed6f2956ad3e761f1b957aada3aa7e8d"
+  },
+  "feature_names": [
+    "initial_consensus_yes",
+    "initial_agreement",
+    "baseline_confidence_mean",
+    "baseline_confidence_std",
+    "baseline_confidence_min",
+    "certificate_support_strength",
+    "certificate_refute_strength",
+    "certificate_confidence",
+    "certificate_grounded_new_root",
+    "certificate_missing_bridge",
+    "certificate_relation_supports",
+    "certificate_relation_refutes",
+    "certificate_relation_insufficient",
+    "certificate_relation_conflicted",
+    "certificate_counter_strength",
+    "certificate_same_strength",
+    "certificate_directional_margin",
+    "certificate_grounded_counter_strength",
+    "certificate_atom_count",
+    "certificate_supported_fraction",
+    "certificate_contradicted_fraction",
+    "certificate_unresolved_fraction",
+    "certificate_coverage_complete",
+    "certificate_invalid_span_count"
+  ],
+  "policy": {
+    "fix_threshold": 0.5,
+    "harm_cap": 0.15,
+    "utility_threshold": 0.2,
+    "development_fold_metrics": {
+      "0": {
+        "net_fixes": 8,
+        "macro_gain": 0.04,
+        "by_label_gain": {
+          "Supported": 0.08,
+          "Refuted": 0.0
+        },
+        "damage_rate": 0.0,
+        "harms": 0,
+        "routes": 9,
+        "annotation_supported_repairs": 8
+      },
+      "1": {
+        "net_fixes": 13,
+        "macro_gain": 0.065,
+        "by_label_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.13
+        },
+        "damage_rate": 0.0,
+        "harms": 0,
+        "routes": 13,
+        "annotation_supported_repairs": 13
+      },
+      "2": {
+        "net_fixes": 22,
+        "macro_gain": 0.11,
+        "by_label_gain": {
+          "Supported": 0.22,
+          "Refuted": 0.0
+        },
+        "damage_rate": 0.0,
+        "harms": 0,
+        "routes": 22,
+        "annotation_supported_repairs": 21
+      }
+    },
+    "feasible_configurations": 40
+  },
+  "router_joblib": "results/recovery_v3_6_1/router/pace_router.joblib",
+  "router_joblib_sha256": "87b4631f5615cac8dd25ba416cd5a7cee0f5ff2a1448f293abc22f61dff9f93d",
+  "feature_boundary": {
+    "uses_test_gold_or_action_outcomes_at_inference": false,
+    "uses_test_annotation_role_at_inference": false,
+    "uses_source_identity_at_inference": false,
+    "uses_baseline_consensus_candidate_metadata_and_semantic_certificate": true,
+    "certificate_failure_is_deterministic_keep": true
+  },
+  "claim_boundary": {
+    "test_outcomes_seen": false,
+    "fresh_test_certificates_generated": false,
+    "v3_6_1_schema_abort_excluded_from_fresh_test": true,
+    "cross_dataset_from_averitec_and_climate": true,
+    "test_page_roots_disjoint_from_development_and_climate": true,
+    "publisher_independence": false,
+    "cross_model": false
+  }
+}

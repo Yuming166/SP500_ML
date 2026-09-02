@@ -1,0 +1,67 @@
+{
+  "protocol_version": "recovery-v3.7.1-elar-fever-train-2026-09-02",
+  "status": "frozen_before_any_v3_7_formal_model_call",
+  "selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_7.py",
+  "implementation_sha256": "d110d662666914b93b9d82ecb0e7a0bdd77343fdc24a5f7df1f2297c263f1774",
+  "dependency_sha256": {
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/pilot_llm_v1.py": "e1976878d8f6df12a00e384121ec86604999a81e541f8920c61233d214c3b3c5",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v2.py": "3a458b5a9f03326ab989cf74239d1104fee3df0cdcadbf45c7d7c9b930202c35",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3.py": "cf12e563e282fa93fc4406a89459f6b4bc5db271e5bcb265e2d19b20541b7804",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_4.py": "c0213b226f91881eb5083f1b4a062578eabaf5686a87416360ec489edfe6c61b",
+    "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_6_2.py": "b80eeb19d1b290ba485ef1db154d105e53de9df857956ac25f74d53b9c599292"
+  },
+  "preregistration_sha256": "a3462c56c426a1370bc717077ee07a916a476bccbdd80c154bb1cd246fbc443c",
+  "development_action_records_sha256": "54ad940a16cbad1664cef573869480bfe50f4a7b64fe379cfd2145a4509100e4",
+  "development_certificate_records_sha256": "7e9189579d2d8a976be63fa3c8e2591cf5b54b450d709435c564aa5ce5b44d35",
+  "development_ledger_records_sha256": "98d5fe9b11789b5c15237e7e8d9f65ac2d09ad569a807dcaadc2a58344c5b2d9",
+  "prior_pace_manifest": "results/recovery_v3_6_2/router/manifest.json",
+  "prior_pace_manifest_sha256": "5622b8dc8ff416bd27297258d2a9e9ad0702432655907c4cabc24c4a6992c990",
+  "policy": {
+    "confidence_threshold": 0.8,
+    "lexical_threshold": 0.0,
+    "unsupported_term_cap": 1,
+    "development_fold_metrics": {
+      "development": {
+        "net_fixes": 37,
+        "macro_gain": 0.06166666666666667,
+        "by_label_gain": {
+          "Supported": 0.11,
+          "Refuted": 0.013333333333333334
+        },
+        "damage_rate": 0.002506265664160401,
+        "harms": 1,
+        "routes": 45,
+        "annotation_supported_repairs": 36
+      },
+      "test": {
+        "net_fixes": 15,
+        "macro_gain": 0.0375,
+        "by_label_gain": {
+          "Supported": 0.075,
+          "Refuted": 0.0
+        },
+        "damage_rate": 0.004032258064516129,
+        "harms": 1,
+        "routes": 24,
+        "annotation_supported_repairs": 16
+      }
+    },
+    "feasible_configurations": 90
+  },
+  "feature_boundary": {
+    "uses_formal_gold_or_action_outcomes_at_inference": false,
+    "uses_formal_annotation_role_at_inference": false,
+    "uses_source_identity_or_retrieval_score_at_inference": false,
+    "uses_atomic_certificate_exact_quote_ledger_and_baseline_consensus": true,
+    "prior_pace_predictions_used_only_for_multi_candidate_tie_break": true,
+    "any_certificate_or_ledger_failure_is_keep": true
+  },
+  "claim_boundary": {
+    "formal_outcomes_seen": false,
+    "single_qwen_deployment": true,
+    "static_wikipedia_page_roots": true,
+    "publisher_independence": false,
+    "cross_model": false
+  }
+}

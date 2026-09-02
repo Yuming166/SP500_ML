@@ -1,0 +1,71 @@
+{
+  "protocol_version": "recovery-v3.3-cew-averitec-2026-09-02",
+  "status": "frozen_before_test_calls",
+  "selection_sha256": "f7a91ac0f53f4ffa5ed42cc4d3b51c672381ccefa7577275b92ab18f45940e21",
+  "base_router_manifest_sha256": "7846df0c1c37bbf5f324f81ef969f66c1b61e102a767e810854b433a60f62ec6",
+  "base_router_model_sha256": "8f1a90de84cdb05773ce030b6736a567902645f1e2b63c5b329b87eb5747c7c8",
+  "development_record_hashes": {
+    "policy_dev": "c2944d47dcda106ffbf5a349bb6eeac83c4e19c1ecb24c75a6d4cd93c9f27d25",
+    "calibration": "c62986cfa7618fe7b7d9f36d73338caf0f318a5a20e6d792857dfed6ec245f53"
+  },
+  "grid": {
+    "probability": [
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "delta": [
+      -0.2,
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ]
+  },
+  "feasible_parameter_pairs": 1,
+  "selected_policy": {
+    "probability_threshold": 0.4,
+    "delta_threshold": -0.2,
+    "development_metrics": {
+      "policy_dev": {
+        "net_gain": 0.06321839080459771,
+        "net_fixes": 11,
+        "damage_rate": 0.008130081300813009,
+        "routes": 41,
+        "mean_roots": 0.23563218390804597,
+        "by_label_gain": {
+          "Supported": 0.18867924528301888,
+          "Refuted": 0.008264462809917356
+        }
+      },
+      "calibration": {
+        "net_gain": 0.011428571428571429,
+        "net_fixes": 2,
+        "damage_rate": 0.044444444444444446,
+        "routes": 54,
+        "mean_roots": 0.30857142857142855,
+        "by_label_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.037037037037037035
+        }
+      }
+    }
+  },
+  "stance_router_joblib": "results/recovery_v3_3/router/stance_router.joblib",
+  "stance_router_joblib_sha256": "a90adce1d98d6f37a4bd80b938694f9eedb7422f36f119e4fd867b841b4cb40b",
+  "feature_boundary": {
+    "uses_gold_or_action_outcomes_at_inference": false,
+    "uses_source_identity_at_inference": false,
+    "uses_initial_consensus_and_evidence_stance": true,
+    "added_roots_per_route": 1
+  },
+  "claim_boundary": {
+    "test_outcomes_seen": false,
+    "publisher_independence": false,
+    "cross_model": false
+  }
+}

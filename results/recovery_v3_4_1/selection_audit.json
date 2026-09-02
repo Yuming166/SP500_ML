@@ -1,0 +1,31 @@
+{
+  "protocol_version": "recovery-v3.4.1-pbwj-climate-fever-2026-09-02",
+  "dataset_sha256": "8a4b9032d861be482ffb49dddfd283ffa6089e654f1e968040011882c5eb6e0b",
+  "n": 483,
+  "labels": {
+    "Supported": 361,
+    "Refuted": 122
+  },
+  "candidate_0_annotated_fraction": 0.5010351966873706,
+  "retrieval_role_auc": 0.5419694027579525,
+  "oriented_retrieval_role_auc": 0.5419694027579525,
+  "distinct_page_roots": 363,
+  "claim_overlap": {
+    "averitec": 0,
+    "fever": 0
+  },
+  "gates": {
+    "exact_expected_count": true,
+    "exact_expected_labels": true,
+    "unique_claims": true,
+    "zero_averitec_claim_overlap": true,
+    "zero_fever_claim_overlap": true,
+    "three_distinct_page_roots": true,
+    "candidate_order_balanced": true,
+    "oriented_retrieval_role_auc_at_most_085": true,
+    "each_label_at_least_100": true,
+    "test_at_least_450": true,
+    "distinct_page_roots_at_least_350": true
+  },
+  "passed": true
+}
