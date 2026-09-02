@@ -1,0 +1,90 @@
+{
+  "protocol_version": "recovery-v3.11-group-robust-dual-head-hy-2026-09-03",
+  "status": "frozen_before_any_hy_study_root_call",
+  "method": "group_robust_dual_head_provenance_repair",
+  "relation_head_path": "results/recovery_v3_11_hy/router/relation_head.json",
+  "relation_head_sha256": "e73c9fc7e6e6781188678cfb73f2060546e175097d3eb52628bcf278698edadd",
+  "source_embedding_path": "results/recovery_v3_11_development/provenance_scores.npz",
+  "source_embedding_sha256": "67737a5c6eef04e5f3f575d08a859cab59ed497a5e3df3904f037ead56a439b1",
+  "source_embedding_metadata_sha256": "4089ba356a6215638fc0c955c1fda6bb6953aabfc32cee1bc32288f7c15bed4d",
+  "source_selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+  "source_action_sha256": {
+    "Qwen3.5-4B": "dde8708f2c8a2331a5073400d95a50e6eb33ab40d385b258e3567697f8fb0c34",
+    "Ling-3.0-tiny": "55f6fcbc545c27ea4bd1a288a50519c041c8cee29d53c6e97534c06b38f7b07c",
+    "SUFE-Fin-R1": "235310fe429bbbf057048f3b81700fba844e0a38a41b42e1bbd387edf9ec2f84"
+  },
+  "training_examples": 400,
+  "training_target_models": [
+    "Ling-3.0-tiny",
+    "Qwen3.5-4B",
+    "SUFE-Fin-R1"
+  ],
+  "thresholds": {
+    "relation_confidence_margin": 0.1,
+    "provenance_score_margin": 0.3,
+    "target_action_confidence": 0.8
+  },
+  "development_diagnostics": {
+    "status": "development_only_thresholds_selected_before_hy_study_calls",
+    "examples": 400,
+    "provenance_path_accuracy": 1.0,
+    "relation_head_oof_accuracy_on_annotated_path": 0.7525,
+    "relation_head_oof_auroc_on_annotated_path": 0.832125,
+    "thresholds": {
+      "relation_confidence_margin": 0.1,
+      "provenance_score_margin": 0.3,
+      "target_action_confidence": 0.8
+    },
+    "leave_root_fold_out_target_model_metrics": {
+      "Qwen3.5-4B": {
+        "routes": 52,
+        "fixes": 51,
+        "harms": 1,
+        "net_fixes": 50,
+        "net_gain": 0.125,
+        "macro_label_gain": 0.125,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.25
+        },
+        "damage_rate_high_consensus_correct": 0.0049261083743842365,
+        "annotation_supported_repairs": 51
+      },
+      "Ling-3.0-tiny": {
+        "routes": 55,
+        "fixes": 54,
+        "harms": 1,
+        "net_fixes": 53,
+        "net_gain": 0.1325,
+        "macro_label_gain": 0.1325,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.265
+        },
+        "damage_rate_high_consensus_correct": 0.0045045045045045045,
+        "annotation_supported_repairs": 54
+      },
+      "SUFE-Fin-R1": {
+        "routes": 55,
+        "fixes": 54,
+        "harms": 1,
+        "net_fixes": 53,
+        "net_gain": 0.1325,
+        "macro_label_gain": 0.1325,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.265
+        },
+        "damage_rate_high_consensus_correct": 0.004739336492890996,
+        "annotation_supported_repairs": 54
+      }
+    }
+  },
+  "feature_boundary": {
+    "uses_hy_labels_or_action_outcomes_for_fit": false,
+    "uses_hy_annotation_role_at_inference": false,
+    "uses_retrieval_score_in_primary_router": false,
+    "uses_target_action_answer_and_self_reported_confidence": true,
+    "target_model_only_executes_its_own_candidate_action": true
+  }
+}

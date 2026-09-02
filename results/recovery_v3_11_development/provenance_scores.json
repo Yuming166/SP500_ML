@@ -1,0 +1,15 @@
+{
+  "status": "development_only_not_a_frozen_formal_result",
+  "selection": "results/recovery_v3_7_1/selection_manifest.json",
+  "selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+  "model": "/storage/lianjh/modelzoos/Qwen/Qwen3-Embedding-0.6B",
+  "model_config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+  "task": "Given a factual claim, retrieve passages that verify or refute the claim",
+  "relation_task": "Represent the relation between a factual claim and evidence for classifying whether the evidence supports or refutes the claim",
+  "batch_size": 24,
+  "max_length": 768,
+  "device": "cuda",
+  "examples": 1400,
+  "output": "results/recovery_v3_11_development/provenance_scores.npz",
+  "output_sha256": "67737a5c6eef04e5f3f575d08a859cab59ed497a5e3df3904f037ead56a439b1"
+}

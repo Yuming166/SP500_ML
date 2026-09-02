@@ -1,0 +1,286 @@
+{
+  "protocol_version": "recovery-v3.13-counter-consensus-cascade-2026-09-03",
+  "analysis_status": "one_shot_calibrated_hy18_fresh_root_formal",
+  "protocol_manifest_sha256": "299dbc15999164bcb4cdbedcfde14bbcb8b384e2f2c2a7be6e67c572a854df55",
+  "target_action_records_sha256": "470b59ee95b85d94e5cb76b73d176bc78d41d5ffde9492336eeb9c61f8be1c85",
+  "teacher_records_sha256": "85360de91f006011b766f9b1d793b22501bfae2dafdac92500f1459341a4b0c8",
+  "provisional_routes_sha256": "3d59de2d76e68710334fcb9bbb4db79e957b6c5d028da66547fc60f6e6341488",
+  "preoutcome_routes_sha256": "321a690705d17bcf3f62ed42985c8391458553464bef843d3de5c1536b582a25",
+  "n_formal": 80,
+  "provisional_teacher_calls": 16,
+  "final_root_budget": 7,
+  "policies": {
+    "counter_consensus_cascade": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6875,
+      "fixes": 7,
+      "harms": 0,
+      "net_fixes": 7,
+      "net_gain": 0.0875,
+      "macro_label_gain": 0.0875,
+      "macro_gain_ci": [
+        0.0375,
+        0.15
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 7,
+      "total_added_roots": 7,
+      "selected_actions": {
+        "KEEP": 73,
+        "candidate_0": 5,
+        "candidate_1": 2
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.375,
+          "net_gain": 0.175
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "keep": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 0,
+      "selected_actions": {
+        "KEEP": 80
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.2,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_retrieval_score": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 7,
+      "selected_actions": {
+        "candidate_0": 4,
+        "KEEP": 73,
+        "candidate_1": 3
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.2,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_hash_random": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 7,
+      "selected_actions": {
+        "KEEP": 73,
+        "candidate_1": 4,
+        "candidate_0": 3
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.2,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_fixed_candidate_0": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 7,
+      "selected_actions": {
+        "KEEP": 73,
+        "candidate_0": 7
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.2,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_fixed_candidate_1": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 7,
+      "selected_actions": {
+        "KEEP": 73,
+        "candidate_1": 7
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.2,
+          "net_gain": 0.0
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_fixed_both": {
+      "n": 80,
+      "baseline_accuracy": 0.6,
+      "final_accuracy": 0.6125,
+      "fixes": 1,
+      "harms": 0,
+      "net_fixes": 1,
+      "net_gain": 0.0125,
+      "macro_label_gain": 0.0125,
+      "macro_gain_ci": [
+        0.0,
+        0.0375
+      ],
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 1,
+      "total_added_roots": 3,
+      "selected_actions": {
+        "KEEP": 77,
+        "both": 3
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 40,
+          "baseline_accuracy": 0.2,
+          "final_accuracy": 0.225,
+          "net_gain": 0.025
+        },
+        "Refuted": {
+          "n": 40,
+          "baseline_accuracy": 1.0,
+          "final_accuracy": 1.0,
+          "net_gain": 0.0
+        }
+      }
+    }
+  },
+  "provenance_head": {
+    "accuracy": 1.0,
+    "correct": 80,
+    "n": 80
+  },
+  "primary_gates": {
+    "macro_gain_ci_lower_above_zero": true,
+    "zero_observed_harms": true,
+    "both_label_groups_nonnegative": true,
+    "annotation_supported_repairs_at_least_5": true,
+    "net_fixes_above_keep_and_all_matched_baselines": true,
+    "provenance_path_accuracy_at_least_090": true,
+    "teacher_calls_fewer_than_formal_examples": true
+  },
+  "passes": true,
+  "verdict": "PASS_CALIBRATED_COUNTER_CONSENSUS_CASCADE_V3_13",
+  "claim_boundary": {
+    "target_fit_or_calibration": true,
+    "calibration_examples": 112,
+    "formal_claim_and_root_overlap_with_calibration": false,
+    "cross_model_teacher": true,
+    "teacher_is_answer_source_on_accepted_routes": true,
+    "selective_teacher_compute": true,
+    "universal_transfer": false
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "protocol_version": "recovery-v3.12-selective-cosign-hy18-2026-09-03",
+  "status": "frozen_before_any_hy18_study_root_call",
+  "method": "dual_head_provenance_with_selective_cross_model_cosign",
+  "v311_router_sha256": "5ed74d04ceb460ea12bec1428bbe062ed12ba49815490e0b6982a8fe1de6035f",
+  "v311_relation_head_sha256": "e73c9fc7e6e6781188678cfb73f2060546e175097d3eb52628bcf278698edadd",
+  "v311_summary_sha256": "a07ac51a11f4368e5fa251211d1f9076213b00dd087908d03d31312adeb54320",
+  "development_teacher_sha256": "da2d26cd9cd6ce8c679faccdb6cc1b9e390378fe447aa656dc93a99b705cf81d",
+  "thresholds": {
+    "provenance_score_margin": 0.3,
+    "relation_confidence_margin": 0.13,
+    "target_action_confidence": 0.8,
+    "teacher_confidence": 0.8,
+    "teacher_must_cite_selected_root": true
+  },
+  "development_diagnostics": {
+    "status": "outcome_known_development_only_before_hy18_calls",
+    "relation_confidence_margin": 0.13,
+    "teacher_confidence": 0.8,
+    "model_metrics": {
+      "Ling-3.0-tiny": {
+        "routes": 31,
+        "fixes": 31,
+        "harms": 0,
+        "net_fixes": 31,
+        "net_gain": 0.0775,
+        "macro_label_gain": 0.0775,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.155
+        },
+        "damage_rate_high_consensus_correct": 0.0,
+        "annotation_supported_repairs": 31
+      },
+      "SUFE-Fin-R1": {
+        "routes": 28,
+        "fixes": 28,
+        "harms": 0,
+        "net_fixes": 28,
+        "net_gain": 0.07,
+        "macro_label_gain": 0.07,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.14
+        },
+        "damage_rate_high_consensus_correct": 0.0,
+        "annotation_supported_repairs": 28
+      },
+      "Hy-MT2-7B": {
+        "routes": 16,
+        "fixes": 16,
+        "harms": 0,
+        "net_fixes": 16,
+        "net_gain": 0.0851063829787234,
+        "macro_label_gain": 0.0851063829787234,
+        "by_native_label_net_gain": {
+          "Refuted": 0.0,
+          "Supported": 0.1702127659574468
+        },
+        "damage_rate_high_consensus_correct": 0.0,
+        "annotation_supported_repairs": 16
+      }
+    }
+  },
+  "feature_boundary": {
+    "uses_hy18_labels_or_outcomes": false,
+    "uses_hy18_annotation_roles_at_inference": false,
+    "teacher_queried_only_after_provisional_routes_frozen": true,
+    "target_answer_replaced_by_teacher": false
+  }
+}

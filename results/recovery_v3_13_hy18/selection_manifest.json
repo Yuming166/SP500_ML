@@ -1,0 +1,4498 @@
+{
+  "protocol_version": "recovery-v3.13-counter-consensus-cascade-2026-09-03",
+  "status": "frozen_before_any_v313_study_root_call",
+  "dataset": {
+    "path": "data/fever/fever-validation.jsonl",
+    "sha256": "5da0ccc0ccf77f974611de13f8aac6f78c6bba6293912835099eb6029baa85d9"
+  },
+  "excluded_selection_sha256": {
+    "results/recovery_v3_7_1/selection_manifest.json": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+    "results/recovery_v3_11_hy/selection_manifest.json": "57d156621ae19c8a6b2379fa998fe15a095b80522ee60bf922d8554cad549e73",
+    "results/recovery_v3_12_hy18/selection_manifest.json": "68eb73b4b9afd9be53ae5fa74ce8e092178ce01b434a9c2e073c2fb11630a715"
+  },
+  "target_model": "Hy-MT2-1.8B",
+  "selection_salt_sha256": "637498a5636c81c61a6211a91280e5fec9c734e100a6819a0d9e81401f0fbaae",
+  "selection_boundary": "claims and all packet roots are disjoint from V3.7.1, V3.11, and V3.12; selection uses labels only for fixed 40/40 balance and never uses model outputs",
+  "examples": [
+    {
+      "example_id": "fever-validation-v313-0020972d9f190ff5d2fd41e7fba7c58a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "0020972d9f190ff5d2fd41e7fba7c58a",
+      "split": "formal",
+      "claim": "Julianne Moore was not in the television series As the World Turns.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Winds_of_Winter_-LRB-Game_of_Thrones-RRB-",
+        "retrieval_score": 0.15537642443583266,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "`` The Winds of Winter '' is the tenth and final episode of the sixth season of HBO 's fantasy television series Game of Thrones , and the sixtieth overall ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In the United States , the episode achieved a viewership of 8.89 million in its initial broadcast , making it the highest rated episode in the series ' history ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Critics praised the Great Sept explosion , Lena Headey 's performance , Arya 's revenge on the Freys , the resolution to the Tower of Joy flashback , and Daenerys going to Westeros as highlights of the episode ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "The_Gifted_-LRB-TV_series-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.20353605946582765,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The series received a put pilot commitment at Fox after a previous attempted X-Men series did not move forward at the network in 2016 ; The Gifted was ordered to series in May 2017 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "The Gifted is an upcoming American television series created for Fox by Matt Nix , based on Marvel Comics ' X-Men properties ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The show is produced by 20th Century Fox Television in association with Marvel Television , with Nix serving as showrunner ."
+            }
+          ]
+        },
+        {
+          "root": "Julianne_Moore",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.19738550848793068,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "From 1985 to 1988 , she was a regular in the soap opera As the World Turns , earning a Daytime Emmy for her performance ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-0459cc9bf7910bc5314ba7961ca6de80",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "0459cc9bf7910bc5314ba7961ca6de80",
+      "split": "formal",
+      "claim": "Due Date is a horror film.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Cincinnati_Kid",
+        "retrieval_score": 0.15396007178390014,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The film was directed by Norman Jewison and stars Steve McQueen in the title role and Edward G. Robinson as Howard ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cincinnati Kid is a 1965 American drama film ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It tells the story of Eric `` The Kid '' Stoner , a young Depression-era poker player , as he seeks to establish his reputation as the best ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Due_Date",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1363988678940947,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Due Date is a 2010 American comedy film directed by Todd Phillips , co-written by Alan R. Cohen , Alan Freedland , and Adam Sztykiel , and starring Robert Downey , Jr. and Zach Galifianakis ."
+            }
+          ]
+        },
+        {
+          "root": "The_Disaster_Artist_-LRB-film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.12060453783110547,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Principal photography of the film began on December 8 , 2015 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-05dc4aa2a81e5d48af714c92b7090506",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "05dc4aa2a81e5d48af714c92b7090506",
+      "split": "formal",
+      "claim": "Emma Watson is an actress.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Janet_Leigh",
+        "retrieval_score": 0.07184212081070995,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was an American actress , singer , dancer and author ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Her highly publicized marriage to Curtis ended in divorce in 1962 , and after starring in The Manchurian Candidate that same year , Leigh scaled back her career ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Among her survivors was her husband of 42 years , Robert Brandt ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Sidse_Babett_Knudsen",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07532435771547097,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In 2000 , she again won both best actress awards for the comedy romance Den Eneste Ene -LRB- English title : The One and Only -RRB- ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Knudsen achieved international recognition for her leading role as fictional Danish Prime Minister Birgitte Nyborg in the Danish TV series Borgen ."
+            }
+          ]
+        },
+        {
+          "root": "Emma_Watson",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.16609095970747992,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Born in Paris and brought up in Oxfordshire , Watson attended the Dragon School and trained as an actress at the Oxford branch of Stagecoach Theatre Arts ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-0ae3c205cca73e6165941857a313dfcf",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "0ae3c205cca73e6165941857a313dfcf",
+      "split": "formal",
+      "claim": "Anushka Sharma won an award.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Janet_Leigh",
+        "retrieval_score": 0.06071767407189166,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was an American actress , singer , dancer and author ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Her highly publicized marriage to Curtis ended in divorce in 1962 , and after starring in The Manchurian Candidate that same year , Leigh scaled back her career ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Among her survivors was her husband of 42 years , Robert Brandt ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Anushka_Sharma",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.0975900072948533,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "She is the recipient of numerous accolades , including one Filmfare Award from seven nominations ."
+            }
+          ]
+        },
+        {
+          "root": "Sidse_Babett_Knudsen",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06366070140792301,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "In 2000 , she again won both best actress awards for the comedy romance Den Eneste Ene -LRB- English title : The One and Only -RRB- ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Knudsen achieved international recognition for her leading role as fictional Danish Prime Minister Birgitte Nyborg in the Danish TV series Borgen ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-0e0173e83e123fbf1370fab9cd60f2cc",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "0e0173e83e123fbf1370fab9cd60f2cc",
+      "split": "formal",
+      "claim": "Aarhus is in the geographical center of Germany.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "World_Trade_Center_-LRB-1973–2001-RRB-",
+        "retrieval_score": 0.038376477822666843,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "On the morning of September 11 , 2001 , Al-Qaeda-affiliated hijackers flew two Boeing 767 jets into the North and South Towers within minutes of each other ; two hours later , both had collapsed ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "It featured landmark twin towers , which opened on April 4 , 1973 , and were destroyed as a result of the September 11 attacks ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The World Trade Center was a large complex of seven buildings in Lower Manhattan , New York City , United States ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Tijuana",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0904945466110143,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Tijuana -LRB- -LSB- tiːˈwɑːnə -RSB- ; -LSB- tiˈxwana -RSB- -RRB- is the largest city in Baja California and on the Baja California Peninsula and center of the Tijuana metropolitan area , part of the international San Diego -- Tijuana metropolitan area ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "As an industrial and financial center of Mexico , Tijuana exerts a strong influence on economics , education , culture , art , and politics ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "As the city has become a leading center in the country , so has the surrounding metropolitan area , a major industrial and paramount metropolis in northwestern Mexico ."
+            }
+          ]
+        },
+        {
+          "root": "Aarhus",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12777531299998796,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "It is located on the east coast of the Jutland peninsula , in the geographical centre of Denmark , 187 km northwest of Copenhagen and 289 km north of Hamburg , Germany ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-102ad338ebe0f3b0688c530b2a54188a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "102ad338ebe0f3b0688c530b2a54188a",
+      "split": "formal",
+      "claim": "Bongwater follows the story of a drug dealer.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "No_Country_for_Old_Men_-LRB-film-RRB-",
+        "retrieval_score": 0.039013715732043486,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A cat-and-mouse drama starring Tommy Lee Jones , Javier Bardem , and Josh Brolin , it follows a Texas welder and Vietnam veteran in the desert landscape of 1980 West Texas ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The American Film Institute listed it as an AFI Movie of the Year , and the National Board of Review selected the film as the best of 2007 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "More critics included No Country for Old Men on their 2007 top ten lists than any other film , and many regard it as the Coen brothers ' masterpiece , as well as one of the best films of the 2000s ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Bongwater_-LRB-film-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10959932487023819,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Based on the 1995 book of the same name by Michael Hornburg , the film is set in Portland , Oregon , and follows an aspiring artist and marijuana dealer and his relationship with a tempestuous woman he meets through a client ."
+            }
+          ]
+        },
+        {
+          "root": "Bret_Easton_Ellis",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04761904761904756,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Ellis also wrote the screenplay for the critically derided 2013 film The Canyons , an original work ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Bret Easton Ellis -LRB- born March 7 , 1964 -RRB- is an American author , screenwriter , and short story writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-124f01a11196dda811e63e5dfc20f9a6",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "124f01a11196dda811e63e5dfc20f9a6",
+      "split": "formal",
+      "claim": "The Crips are a band.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Creedence_Clearwater_Revival",
+        "retrieval_score": 0.09589266029707677,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The band consisted of lead vocalist , lead guitarist , and primary songwriter John Fogerty , his brother rhythm guitarist Tom Fogerty , bassist Stu Cook and drummer Doug Clifford ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Creedence Clearwater Revival , often informally abbreviated to Creedence or CCR , was an American rock band active in the late 1960s and early 1970s ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Creedence Clearwater Revival 's music is still a staple of U.S. radio airplay ; the band has sold 26 million albums in the United States alone ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Crips",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.19245008972987526,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The Crips are a primarily African-American gang ."
+            }
+          ]
+        },
+        {
+          "root": "Paramore",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.17609018126512477,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Paramore is an American rock band from Franklin , Tennessee , formed in 2004 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The band currently consists of lead vocalist Hayley Williams , guitarist Taylor York and drummer Zac Farro ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The band 's second album , Riot !"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-177858705765be4cc63c4b244a6ca40c",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "177858705765be4cc63c4b244a6ca40c",
+      "split": "formal",
+      "claim": "Hush (2016 film) was produced by children.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Disaster_Artist_-LRB-film-RRB-",
+        "retrieval_score": 0.13483997249264845,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Principal photography of the film began on December 8 , 2015 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Hush_-LRB-2016_film-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.21821789023599236,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The film was produced by Trevor Macy , through Intrepid Pictures , and Jason Blum through his Blumhouse Productions banner ."
+            }
+          ]
+        },
+        {
+          "root": "Moonlight_-LRB-2016_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.13900960937138318,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Filmed in Miami , Florida , beginning in 2015 , Moonlight premiered at the Telluride Film Festival on September 2 , 2016 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-17f81e59afe7e2bf3c79c06b05ff189e",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "17f81e59afe7e2bf3c79c06b05ff189e",
+      "split": "formal",
+      "claim": "Stan Beeman is a supporting Russian character.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mirny_-LRB-sloop-of-war-RRB-",
+        "retrieval_score": 0.06700252101728088,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Mirny was a 20-gun sloop-of-war of the Imperial Russian Navy , the second ship of the First Russian Antarctic Expedition in 1819 -- 1821 , during which Faddey Bellingshausen -LRB- commander of the lead ship Vostok -RRB- and Mikhail Lazarev -LRB- commanding Mirny -RRB- circumnavigated the globe , discovered the continent of Antarctica and twice circumnavigated it , and discovered a number of islands and archipelagos in the Southern Ocean and the Pacific ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Stan_Beeman",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10166571355506977,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Stan is an FBI agent and a neighbor of the lead characters , Elizabeth -LRB- Keri Russell -RRB- and Philip Jennings -LRB- Matthew Rhys -RRB- , who are undercover Russian spies ."
+            }
+          ]
+        },
+        {
+          "root": "Connie_Nielsen",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06830873594380804,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She starred as Meredith Kane on the Starz TV series Boss -LRB- 2011 -- 2012 -RRB- and was a lead character in the second season of The Following ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "She is set to play Queen Hippolyta in the upcoming 2017 film Wonder Woman ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Connie Inge-Lise Nielsen -LRB- born 3 July 1965 -RRB- is a Danish actress whose first major role in an English language film was a supporting role in The Devil 's Advocate -LRB- 1997 -RRB- ; Nielsen later gained international attention for her role in Ridley Scott 's Gladiator -LRB- 2000 -RRB- ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-1918636f8c217a7f4f2dd477b3fe9cb9",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "1918636f8c217a7f4f2dd477b3fe9cb9",
+      "split": "formal",
+      "claim": "Chris Kyle died on March 2, 2013.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Shadowhunters",
+        "retrieval_score": 0.06700252101728088,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "In March 2016 , it was announced that the series had been renewed for a second season of 20 episodes , which premiered on January 2 , 2017 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In April 2017 , it was announced that the series had been renewed for a third season of 20 episodes ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The show received a straight-to-series order on March 30 , 2015 , and premiered on January 12 , 2016 on Freeform ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Chris_Kyle",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13333333333333333,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "On February 2 , 2013 , Kyle was murdered by Eddie Ray Routh at a shooting range near Chalk Mountain , Texas ."
+            }
+          ]
+        },
+        {
+          "root": "Bret_Easton_Ellis",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.09523809523809523,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Ellis also wrote the screenplay for the critically derided 2013 film The Canyons , an original work ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Bret Easton Ellis -LRB- born March 7 , 1964 -RRB- is an American author , screenwriter , and short story writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-1c919d3bd9415e094b481100bd7e86ae",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "1c919d3bd9415e094b481100bd7e86ae",
+      "split": "formal",
+      "claim": "Al Jardine is a rhythm guitarist.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Paramore",
+        "retrieval_score": 0.05763904177042345,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Paramore is an American rock band from Franklin , Tennessee , formed in 2004 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The band currently consists of lead vocalist Hayley Williams , guitarist Taylor York and drummer Zac Farro ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The band 's second album , Riot !"
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Creedence_Clearwater_Revival",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.12555296411486883,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The band consisted of lead vocalist , lead guitarist , and primary songwriter John Fogerty , his brother rhythm guitarist Tom Fogerty , bassist Stu Cook and drummer Doug Clifford ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Creedence Clearwater Revival , often informally abbreviated to Creedence or CCR , was an American rock band active in the late 1960s and early 1970s ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Creedence Clearwater Revival 's music is still a staple of U.S. radio airplay ; the band has sold 26 million albums in the United States alone ."
+            }
+          ]
+        },
+        {
+          "root": "Al_Jardine",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.14285714285714282,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "He is best known as the band 's rhythm guitarist , and for occasionally singing lead vocals on singles such as `` Help Me , Rhonda '' -LRB- 1965 -RRB- , `` Then I Kissed Her '' -LRB- 1965 -RRB- and `` Come Go with Me '' -LRB- 1978 -RRB- ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-2107d4136d8075597c7c5429d4d956cb",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "2107d4136d8075597c7c5429d4d956cb",
+      "split": "formal",
+      "claim": "Matteo Renzi has only served as the Prime Minister of Colombia.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mike_Huckabee",
+        "retrieval_score": 0.06614607955536345,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Huckabee is the author of several best-selling books , an ordained Southern Baptist minister noted for his evangelical views , a musician , and a public speaker ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was a candidate in the United States Republican presidential primaries in both 2008 and 2016 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Michael Dale Huckabee -LRB- born August 24 , 1955 -RRB- is an American politician , Christian minister , author , musician , and commentator who served as the 44th Governor of Arkansas from 1996 to 2007 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Sidse_Babett_Knudsen",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07617550741785384,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In 2000 , she again won both best actress awards for the comedy romance Den Eneste Ene -LRB- English title : The One and Only -RRB- ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Knudsen achieved international recognition for her leading role as fictional Danish Prime Minister Birgitte Nyborg in the Danish TV series Borgen ."
+            }
+          ]
+        },
+        {
+          "root": "Matteo_Renzi",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.15701373439577193,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "At the age of 39 years and 42 days upon assuming office , Renzi is the youngest person to serve as Italian Prime Minister -LRB- 52 days younger than Benito Mussolini , who took office in 1922 -RRB- and was the youngest leader in the G7 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-32d06f38bf7d5dcdd5260cb673111ba8",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "32d06f38bf7d5dcdd5260cb673111ba8",
+      "split": "formal",
+      "claim": "Cate Blanchett is a cast in the film Blue Jasmine.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Cincinnati_Kid",
+        "retrieval_score": 0.10379985922153634,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The film was directed by Norman Jewison and stars Steve McQueen in the title role and Edward G. Robinson as Howard ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cincinnati Kid is a 1965 American drama film ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It tells the story of Eric `` The Kid '' Stoner , a young Depression-era poker player , as he seeks to establish his reputation as the best ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Blue_Jasmine",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1688801323682996,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The film tells the story of a rich Manhattan socialite -LRB- played by Cate Blanchett -RRB- who falls on hard times and has to move into her working class sister 's -LRB- Sally Hawkins -RRB- apartment in San Francisco ."
+            }
+          ]
+        },
+        {
+          "root": "Dreamer_-LRB-2005_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.10444659357341868,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-3d3117e4ce2d43013b6fa5af60e04486",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "3d3117e4ce2d43013b6fa5af60e04486",
+      "split": "formal",
+      "claim": "Seohyun is only German.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "TV_Choice",
+        "retrieval_score": 0.06666666666666665,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "TV Choice is a British weekly TV listings magazine published by H. Bauer Publishing , the UK subsidiary of family-run German company Bauer Media Group ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "It features weekly TV broadcast programming listings , running from Saturday to Friday , and goes on sale every Tuesday ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Noah_Cyrus",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07784989441615231,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "She is the youngest daughter of Billy Ray Cyrus and younger sister of Miley Cyrus and Trace Cyrus ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Noah Lindsey Cyrus -LRB- born January 8 , 2000 -RRB- is an American actress and singer ."
+            }
+          ]
+        },
+        {
+          "root": "Seohyun",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10369516947304254,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Seo Ju-hyun -LRB- born June 28 , 1991 -RRB- , known professionally as Seohyun , is a South Korean singer and actress ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-3f865c08138b66f18a32c5a08f696986",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "3f865c08138b66f18a32c5a08f696986",
+      "split": "formal",
+      "claim": "Phillip Glass has written concertos.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Cretaceous",
+        "retrieval_score": 0.048098607024388174,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The Cretaceous -LRB- -LSB- pronkrᵻˈteɪʃəs -RSB- , -RRB- is a geologic period and system that spans 79 million years from the end of the Jurassic Period million years ago -LRB- Mya -RRB- to the beginning of the Paleogene Period Mya ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cretaceous ended with a large mass extinction , the Cretaceous -- Paleogene extinction event , in which many groups , including non-avian dinosaurs , pterosaurs and large marine reptiles died out ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is the last period of the Mesozoic Era ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Philip_Glass",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13576884666042613,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He has written numerous operas and musical theatre works , eleven symphonies , eleven concertos , seven string quartets and various other chamber music , and film scores ."
+            }
+          ]
+        },
+        {
+          "root": "Sancho_Panza",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06052275326688028,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Sancho Panza -LSB- ˈsantʃo ˈpanθa -RSB- is a fictional character in the novel Don Quixote written by Spanish author Don Miguel de Cervantes Saavedra in 1605 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-44f45f5cb139760bb13af61c4c7744b5",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "44f45f5cb139760bb13af61c4c7744b5",
+      "split": "formal",
+      "claim": "Rupert Murdoch is powerless over News Corp.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Underdog_-LRB-film-RRB-",
+        "retrieval_score": 0.0,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Directed by Frederik Du Chau and written by Joe Piscatella , Adam Rifkin , and Craig A. Williams , the film stars Jim Belushi , Peter Dinklage , John Slattery , and Patrick Warburton with the voice talents of Jason Lee , Amy Adams , and Brad Garrett ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Underdog is a 2007 American family superhero comedy film based on the 1960s cartoon series of the same name ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Rupert_Murdoch",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09335200560186731,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Murdoch 's News Corporation acquired Twentieth Century Fox -LRB- 1985 -RRB- , HarperCollins -LRB- 1989 -RRB- , and The Wall Street Journal -LRB- 2007 -RRB- ."
+            }
+          ]
+        },
+        {
+          "root": "Tilda_Swinton",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She then starred in the crime drama Julia -LRB- 2008 -RRB- , I Am Love -LRB- 2009 -RRB- , and the psychological thriller We Need to Talk About Kevin -LRB- 2011 -RRB- ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "She began her career in films directed by Derek Jarman , starting with Caravaggio -LRB- 1986 -RRB- , followed by The Last of England -LRB- 1988 -RRB- , War Requiem -LRB- 1989 -RRB- and The Garden -LRB- 1990 -RRB- ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Swinton won the Academy Award for Best Supporting Actress and the BAFTA Award for Best Actress in a Supporting Role for her performance as lawyer Karen Crowder in Michael Clayton -LRB- 2007 -RRB- ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-46fc95898e008c3107f11358b9ddd38a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "46fc95898e008c3107f11358b9ddd38a",
+      "split": "formal",
+      "claim": "Amyotrophic lateral sclerosis starts earlier in genetic cases.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mirny_-LRB-sloop-of-war-RRB-",
+        "retrieval_score": 0.027874733666903073,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Mirny was a 20-gun sloop-of-war of the Imperial Russian Navy , the second ship of the First Russian Antarctic Expedition in 1819 -- 1821 , during which Faddey Bellingshausen -LRB- commander of the lead ship Vostok -RRB- and Mikhail Lazarev -LRB- commanding Mirny -RRB- circumnavigated the globe , discovered the continent of Antarctica and twice circumnavigated it , and discovered a number of islands and archipelagos in the Southern Ocean and the Pacific ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Amyotrophic_lateral_sclerosis",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12725695259515554,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The disease usually starts around the age of 60 and in inherited cases around the age of 50 ."
+            }
+          ]
+        },
+        {
+          "root": "Endometrial_cancer",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.03962144258751632,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "This is believed to be due to the increasing number of elderly people and increasing rates of obesity ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Rates of endometrial cancer have risen in a number of countries between the 1980s and 2010 ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Approximately 40 % of cases are related to obesity ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-4999625390989bff33d0fe570e017a9e",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "4999625390989bff33d0fe570e017a9e",
+      "split": "formal",
+      "claim": "Stadium Arcadium was released.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Hot_Right_Now",
+        "retrieval_score": 0.08032193289024991,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "`` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Stadium_Arcadium",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.14907119849998596,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The album was released on May 9 , 2006 , on Warner Bros. ."
+            }
+          ]
+        },
+        {
+          "root": "Villa_Park",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.09972337429718003,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Aside from football-related uses , the stadium has seen various concerts staged along with other sporting events including boxing matches and international rugby league and rugby union matches ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "In 1999 , the last ever final of the UEFA Cup Winners ' Cup took place at Villa Park ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Villa Park also hosted the 2012 FA Community Shield , as Wembley Stadium was in use for the final of the Olympic football tournament ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-5763a7fc11f1fa604f66b5595acc7219",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "5763a7fc11f1fa604f66b5595acc7219",
+      "split": "formal",
+      "claim": "The Battle of France never happened.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Henry_II_of_France",
+        "retrieval_score": 0.04207031619116708,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Henry suffered an untimely death in a jousting tournament held to celebrate the Peace of Cateau-Cambrésis at the conclusion of the Eighth Italian War ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Henry II -LRB- Henri II 31 March 1519 -- 10 July 1559 -RRB- was a monarch of the House of Valois who ruled as King of France from 31 March 1547 until his death in 1559 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "He was succeeded in turn by three of his sons , whose ineffective reigns helped to spark the French Wars of Religion between Protestants and Catholics ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Battle_of_France",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10846522890932808,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Italy entered the war on 10 June 1940 and attempted an invasion of France ."
+            }
+          ]
+        },
+        {
+          "root": "2016_Tour_de_France",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08899883189799696,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The 3529 km-long race started in Mont Saint-Michel , Normandy , on 2 July 2016 , and concluded with the Champs-Élysées stage in Paris , on 24 July 2016 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "A total of 198 riders from 22 teams entered the 21-stage race , which was won by Chris Froome of ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The 2016 Tour de France was the 103rd edition of the Tour de France , one of cycling 's Grand Tours ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-584787919ca23ce06cb517f704bbcee3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "584787919ca23ce06cb517f704bbcee3",
+      "split": "formal",
+      "claim": "Yara Shahidi is a person from America.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Monster",
+        "retrieval_score": 0.11396057645963809,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A monster is any creature , usually found in legends or horror fiction , that is often hideous and may produce fear or physical harm by its appearance or its actions ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Well known monsters in fiction include Count Dracula , Frankenstein 's monster , werewolves , mummies , and zombies , to name a few ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It can also be applied figuratively to a person with similar characteristics like a greedy person or a person who does horrible things ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Yara_Shahidi",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12104550653376048,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Yara Sayeh Shahidi شهیدی -LSB- jɑːɾɑː sɑːje ʃæhiːdiː -RSB- -RRB- -LRB- born February 10 , 2000 -RRB- is an American actress and model ."
+            }
+          ]
+        },
+        {
+          "root": "CONCACAF_Champions_League",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.12104550653376056,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The CONCACAF Champions League is an annual continental football club competition organized by CONCACAF for the top football clubs in North America , Central America and the Caribbean ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The competition was originally known as the CONCACAF Champions ' Cup when it was first organized in 1962 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-5fe569a85ca77030b05c2a6e6b3b6441",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "5fe569a85ca77030b05c2a6e6b3b6441",
+      "split": "formal",
+      "claim": "Ludwig van Beethoven was a saxophonist.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Barry_Van_Dyke",
+        "retrieval_score": 0.14204774743178417,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Barry Van Dyke -LRB- born July 31 , 1951 -RRB- is an American actor and the second son of actor and entertainer Dick Van Dyke plus he was the stepson of makeup artist Arlene Silver-Van Dyke and nephew of Jerry Van Dyke ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was best known to audiences as Lieutenant Detective Steve Sloan , a homicide detective and the son of Dr. Mark Sloan -LRB- played by Dick Van Dyke -RRB- on Diagnosis : Murder ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Ludwig_van_Beethoven",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.23809523809523805,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Ludwig van Beethoven -LRB- -LSB- ˈlʊdvɪɡ_væn_ˈbeɪˌtoʊvən -RSB- , -LSB- ˈbeɪtˌhoʊvən -RSB- -LSB- ˈluːtvɪç fan ˈbeːtˌhoˑfn̩ -RSB- ; baptised 17 December 177026 March 1827 -RRB- was a German composer and pianist ."
+            }
+          ]
+        },
+        {
+          "root": "Christian_Gottlob_Neefe",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.1938916835823703,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer and conductor ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "He studied law at Leipzig University , but subsequently returned to music to become a pupil of the composer Johann Adam Hiller under whose guidance he wrote his first comic operas ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "In 1776 Neefe joined the Seyler theatrical company of Abel Seyler -LRB- then -RRB- in Dresden , and inherited the position of musical director from his mentor , Hiller ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-6296782a421930f34fa483633077d950",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "6296782a421930f34fa483633077d950",
+      "split": "formal",
+      "claim": "Rabies is non-communicable.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Columbia_River",
+        "retrieval_score": 0.03639372626234194,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Steamships along the river linked communities and facilitated trade ; the arrival of railroads in the late 19th century , many running along the river , supplemented these links ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "To aid ship and barge navigation , locks have been built along the lower Columbia and its tributaries , and dredging has opened , maintained , and enlarged shipping channels ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Since the early 20th century , dams have been built across the river for power generation , navigation , irrigation , and flood control ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Monk",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04406526492392315,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A monk -LRB- -LSB- mʌŋk -RSB- , from μοναχός , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In the Greek language the term can apply to women , but in modern English it is mainly in use for men ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "A monk may be a person who decided to dedicate his life to serving all other living beings , or to be an ascetic who voluntarily chooses to leave mainstream society and live his or her life in prayer and contemplation ."
+            }
+          ]
+        },
+        {
+          "root": "Rabies",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10846522890932808,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Rabies is spread when an infected animal scratches or bites another animal or human ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-6575fc875906521bfa389333cab468d4",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "6575fc875906521bfa389333cab468d4",
+      "split": "formal",
+      "claim": "Dan O'Bannon worked in he film industry.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Cincinnati_Kid",
+        "retrieval_score": 0.11475506210984932,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The film was directed by Norman Jewison and stars Steve McQueen in the title role and Edward G. Robinson as Howard ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cincinnati Kid is a 1965 American drama film ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It tells the story of Eric `` The Kid '' Stoner , a young Depression-era poker player , as he seeks to establish his reputation as the best ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Dan_O'Bannon",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.18670401120373462,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Daniel Thomas `` Dan '' O'Bannon -LRB- September 30 , 1946 -- December 17 , 2009 -RRB- was an American film screenwriter , director , visual effects supervisor , and occasional actor , usually in the science fiction and horror genres ."
+            }
+          ]
+        },
+        {
+          "root": "Dreamer_-LRB-2005_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.11547005383792519,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-686c5cfd5ac1522238ddff659d1cbf73",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "686c5cfd5ac1522238ddff659d1cbf73",
+      "split": "formal",
+      "claim": "Southampton F.C. has won a competition.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mike_Huckabee",
+        "retrieval_score": 0.06540699401677275,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Huckabee is the author of several best-selling books , an ordained Southern Baptist minister noted for his evangelical views , a musician , and a public speaker ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was a candidate in the United States Republican presidential primaries in both 2008 and 2016 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Michael Dale Huckabee -LRB- born August 24 , 1955 -RRB- is an American politician , Christian minister , author , musician , and commentator who served as the 44th Governor of Arkansas from 1996 to 2007 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Southampton_F.C.",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09325048082403138,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The club has won the FA Cup once , in 1976 , and their highest-ever league finish was second in the First Division in 1983 -- 84 ."
+            }
+          ]
+        },
+        {
+          "root": "CONCACAF_Champions_League",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0716114874039433,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The CONCACAF Champions League is an annual continental football club competition organized by CONCACAF for the top football clubs in North America , Central America and the Caribbean ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The competition was originally known as the CONCACAF Champions ' Cup when it was first organized in 1962 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-691e13a186f399a1527df359f9e928d2",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "691e13a186f399a1527df359f9e928d2",
+      "split": "formal",
+      "claim": "Wales is a book.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Fabian_Nicieza",
+        "retrieval_score": 0.07516460280028292,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Fabian Nicieza -LRB- born 31 December 1961 -RRB- is an Argentine-American comic book writer and editor who is best known for his work on Marvel titles such as X-Men , X-Force , New Warriors , Cable and Deadpool , and Thunderbolts , for all of which he helped create numerous characters ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Marco_Polo",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08144629623753685,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Marco Polo was not the first European to reach China -LRB- see Europeans in Medieval China -RRB- , but he was the first to leave a detailed chronicle of his experience ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was released in 1299 , became a wealthy merchant , married , and had three children ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The three of them embarked on an epic journey to Asia , returning after 24 years to find Venice at war with Genoa ; Marco was imprisoned and dictated his stories to a cellmate ."
+            }
+          ]
+        },
+        {
+          "root": "Wales",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09491579957524991,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Wales -LRB- -LSB- ˈweɪlz -RSB- Cymru -LSB- ˈkəm.rɨ -RSB- -RRB- is a country that is part of the United Kingdom and the island of Great Britain ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-6a00703b7d2612e56298b6a376dc7fa2",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "6a00703b7d2612e56298b6a376dc7fa2",
+      "split": "formal",
+      "claim": "Lemmy was known for his soft, gentle voice.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Taran_Killam",
+        "retrieval_score": 0.06060606060606066,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Taran Hourie Killam -LRB- born April 1 , 1982 -RRB- is an American actor , comedian , and writer ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He is best known for his television work on shows such as The Amanda Show , Wild 'n Out , Mad TV , and Saturday Night Live ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Killam is also known for his portrayal of a teen pop star in the Disney Channel Original Movie Stuck in the Suburbs ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Randy_Savage",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07235746052924219,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Randy Mario Poffo -LRB- November 15 , 1952 -- May 20 , 2011 -RRB- , better known by the ring name `` Macho Man '' Randy Savage , was an American professional wrestler and color commentator best known for his time in the World Wrestling Federation -LRB- WWF , now WWE -RRB- and later World Championship Wrestling -LRB- WCW -RRB- ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , `` Oooh yeah ! ''"
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Savage is widely regarded as one of the greatest professional wrestlers in history ; a number of peers have ranked Savage among the industry 's top performers of all time ."
+            }
+          ]
+        },
+        {
+          "root": "Lemmy",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11973686801784994,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "He was known for his appearance -LRB- including his friendly mutton chops -RRB- , his distinctive gravelly voice and distinctive bass playing style ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-6f7c47f1526c165f335975699506150a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "6f7c47f1526c165f335975699506150a",
+      "split": "formal",
+      "claim": "Wish Upon was released in 2016.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Shadowhunters",
+        "retrieval_score": 0.089893314995099,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "In March 2016 , it was announced that the series had been renewed for a second season of 20 episodes , which premiered on January 2 , 2017 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In April 2017 , it was announced that the series had been renewed for a third season of 20 episodes ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The show received a straight-to-series order on March 30 , 2015 , and premiered on January 12 , 2016 on Freeform ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Wish_Upon",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09325048082403138,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "It is set to be released in theaters on July 14 , 2017 , by Broad Green Pictures and Orion Pictures ."
+            }
+          ]
+        },
+        {
+          "root": "Moonlight_-LRB-2016_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.09325048082403142,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Filmed in Miami , Florida , beginning in 2015 , Moonlight premiered at the Telluride Film Festival on September 2 , 2016 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-6f9c37844a51866463aa4e47670be2ee",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "6f9c37844a51866463aa4e47670be2ee",
+      "split": "formal",
+      "claim": "Henry VIII (TV serial) has an all-female cast.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Henry_II_of_France",
+        "retrieval_score": 0.05672760277973998,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Henry suffered an untimely death in a jousting tournament held to celebrate the Peace of Cateau-Cambrésis at the conclusion of the Eighth Italian War ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Henry II -LRB- Henri II 31 March 1519 -- 10 July 1559 -RRB- was a monarch of the House of Valois who ruled as King of France from 31 March 1547 until his death in 1559 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "He was succeeded in turn by three of his sons , whose ineffective reigns helped to spark the French Wars of Religion between Protestants and Catholics ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Henry_VIII_-LRB-TV_serial-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1487044791289829,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "His co-star is Helena Bonham Carter who played Henry VIII 's second wife , Anne Boleyn ; her character dominates the first episode and her dramatic death brings the first part of the story to its conclusion ."
+            }
+          ]
+        },
+        {
+          "root": "TV_Choice",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.10444659357341868,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "TV Choice is a British weekly TV listings magazine published by H. Bauer Publishing , the UK subsidiary of family-run German company Bauer Media Group ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "It features weekly TV broadcast programming listings , running from Saturday to Friday , and goes on sale every Tuesday ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-7588550d89819d4197f5ec6b9c9ebd02",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "7588550d89819d4197f5ec6b9c9ebd02",
+      "split": "formal",
+      "claim": "Camden, New Jersey is a city.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Papua_-LRB-province-RRB-",
+        "retrieval_score": 0.08728715609439697,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Papua is the largest and easternmost province of Indonesia , comprising most of western New Guinea ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Its capital is Jayapura ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It was formerly called Irian Jaya -LRB- before that West Irian or Irian Barat -RRB- and comprised all of Indonesian New Guinea ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Camden,_New_Jersey",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.0975900072948533,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "At the 2010 United States Census , the city had a population of 77,344 ."
+            }
+          ]
+        },
+        {
+          "root": "New_Orleans_Pelicans",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0984135662610246,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The New Orleans Pelicans are an American professional basketball team based in New Orleans ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The Pelicans compete in the National Basketball Association -LRB- NBA -RRB- as a member club of the league 's Western Conference Southwest Division ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-760e57b715162fbd0c456cea47479992",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "760e57b715162fbd0c456cea47479992",
+      "split": "formal",
+      "claim": "The part of Cyrano de Bergerac has only been played by Daniel Radcliffe.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Tie_Your_Mother_Down",
+        "retrieval_score": 0.053896805563629635,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "It is the opening track and the second single from their 1976 album A Day at the Races ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "On its original release as a single in 1977 the song peaked at 31 in the UK Singles Chart , however more than 20 years later it was released as a double a-side to `` No-One But You -LRB- Only the Good Die Young -RRB- '' where it reached 13 in UK Singles Chart ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "After its release in 1976 , it was played by Queen on every subsequent tour ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "José_Ferrer",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13018891098082386,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "In 1947 , Ferrer won the Tony Award for his theatrical performance of Cyrano de Bergerac , and in 1952 , he won the Distinguished Dramatic Actor Award for The Shrike , and also the Outstanding Director Award for directing the plays The Shrike , The Fourposter , and Stalag 17 ."
+            }
+          ]
+        },
+        {
+          "root": "Creedence_Clearwater_Revival",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.05536365323582659,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The band consisted of lead vocalist , lead guitarist , and primary songwriter John Fogerty , his brother rhythm guitarist Tom Fogerty , bassist Stu Cook and drummer Doug Clifford ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Creedence Clearwater Revival , often informally abbreviated to Creedence or CCR , was an American rock band active in the late 1960s and early 1970s ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Creedence Clearwater Revival 's music is still a staple of U.S. radio airplay ; the band has sold 26 million albums in the United States alone ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-76caf74e6af507763c0d86fc6db42b47",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "76caf74e6af507763c0d86fc6db42b47",
+      "split": "formal",
+      "claim": "Fantastic Four (2005 film) was released in 2006.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Dreamer_-LRB-2005_film-RRB-",
+        "retrieval_score": 0.15396007178390025,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Fantastic_Four_-LRB-2005_film-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.24759378423606915,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Fantastic Four -LRB- stylized as Fantastic 4 -RRB- is a 2005 American-German superhero film based on the Marvel Comics team of the same name ."
+            }
+          ]
+        },
+        {
+          "root": "The_Adventures_of_Pluto_Nash",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.17358521464109855,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The film was released in the United States on August 16 , 2002 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The Adventures of Pluto Nash is a 2002 Australian-American science fiction action comedy film starring Eddie Murphy -LRB- in a dual role -RRB- and directed by Ron Underwood ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The film received overwhelmingly negative reviews and is notable for being one of the biggest box office bombs in history ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-76d09932ef5d7ad825fb787e237c0e71",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "76d09932ef5d7ad825fb787e237c0e71",
+      "split": "formal",
+      "claim": "The Lincoln-Douglas debates happened in a car.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Cincinnati_Kid",
+        "retrieval_score": 0.028688765527462357,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The film was directed by Norman Jewison and stars Steve McQueen in the title role and Edward G. Robinson as Howard ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cincinnati Kid is a 1965 American drama film ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It tells the story of Eric `` The Kid '' Stoner , a young Depression-era poker player , as he seeks to establish his reputation as the best ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Mount_Rushmore",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.03456505649101416,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Sculptor Gutzon Borglum created the sculpture 's design and oversaw the project 's execution from 1927-1941 with the help of his son , Lincoln Borglum ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Mount Rushmore National Memorial is a sculpture carved into the granite face of Mount Rushmore , a batholith in the Black Hills in Keystone , South Dakota , United States ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Upon Gutzon Borglum 's death in March 1941 , his son Lincoln Borglum took over as leader of the construction project ."
+            }
+          ]
+        },
+        {
+          "root": "Lincoln–Douglas_debates",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10050378152592121,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The debates were held in seven towns in the state of Illinois :"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-7736c50e45f822dbd6fbb3ebaa62f1f0",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "7736c50e45f822dbd6fbb3ebaa62f1f0",
+      "split": "formal",
+      "claim": "Johanna Braddy acted in a TV series on Lifetime.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Gifted_-LRB-TV_series-RRB-",
+        "retrieval_score": 0.1356907063105518,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The series received a put pilot commitment at Fox after a previous attempted X-Men series did not move forward at the network in 2016 ; The Gifted was ordered to series in May 2017 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Gifted is an upcoming American television series created for Fox by Matt Nix , based on Marvel Comics ' X-Men properties ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The show is produced by 20th Century Fox Television in association with Marvel Television , with Nix serving as showrunner ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "The_Winds_of_Winter_-LRB-Game_of_Thrones-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.13595437138135358,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "`` The Winds of Winter '' is the tenth and final episode of the sixth season of HBO 's fantasy television series Game of Thrones , and the sixtieth overall ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In the United States , the episode achieved a viewership of 8.89 million in its initial broadcast , making it the highest rated episode in the series ' history ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Critics praised the Great Sept explosion , Lena Headey 's performance , Arya 's revenge on the Freys , the resolution to the Tower of Joy flashback , and Daenerys going to Westeros as highlights of the episode ."
+            }
+          ]
+        },
+        {
+          "root": "Johanna_Braddy",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.19738550848793068,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "In 2015 , Braddy co-starred as Anna Martin in the Lifetime dark comedy-drama series , Unreal ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-776c60e14509da84a9c1a4527d53e208",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "776c60e14509da84a9c1a4527d53e208",
+      "split": "formal",
+      "claim": "Tim McGraw had a supporting role in The Blind Side.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Cincinnati_Kid",
+        "retrieval_score": 0.05737753105492471,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The film was directed by Norman Jewison and stars Steve McQueen in the title role and Edward G. Robinson as Howard ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Cincinnati Kid is a 1965 American drama film ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It tells the story of Eric `` The Kid '' Stoner , a young Depression-era poker player , as he seeks to establish his reputation as the best ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Connie_Nielsen",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08538591992976008,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "She starred as Meredith Kane on the Starz TV series Boss -LRB- 2011 -- 2012 -RRB- and was a lead character in the second season of The Following ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "She is set to play Queen Hippolyta in the upcoming 2017 film Wonder Woman ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Connie Inge-Lise Nielsen -LRB- born 3 July 1965 -RRB- is a Danish actress whose first major role in an English language film was a supporting role in The Devil 's Advocate -LRB- 1997 -RRB- ; Nielsen later gained international attention for her role in Ridley Scott 's Gladiator -LRB- 2000 -RRB- ."
+            }
+          ]
+        },
+        {
+          "root": "Tim_McGraw",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10482848367219183,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "McGraw has ventured into acting , with supporting roles in The Blind Side -LRB- with Sandra Bullock -RRB- , Friday Night Lights , The Kingdom , Tomorrowland , and Four Christmases -LRB- with Vince Vaughn and Reese Witherspoon -RRB- , and lead roles in Flicka -LRB- 2006 -RRB- and Country Strong -LRB- 2010 -RRB- ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-787c1aa3c988b00693ac8199fc8042d6",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "787c1aa3c988b00693ac8199fc8042d6",
+      "split": "formal",
+      "claim": "Bullitt is only a 1989 comedy.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Disaster_Artist_-LRB-film-RRB-",
+        "retrieval_score": 0.06030226891555279,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Principal photography of the film began on December 8 , 2015 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Bullitt",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09325048082403138,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Bullitt is a 1968 American drama -- thriller film directed by Peter Yates and produced by Philip D'Antoni ."
+            }
+          ]
+        },
+        {
+          "root": "Private_Lives",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.11547005383792519,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Private Lives is a 1930 comedy of manners in three acts by Noël Coward ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-78d09d5065dac638f6033314e95c2238",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "78d09d5065dac638f6033314e95c2238",
+      "split": "formal",
+      "claim": "There is a method of communication called Morse Corde.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "TV_Choice",
+        "retrieval_score": 0.038490017945975064,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "TV Choice is a British weekly TV listings magazine published by H. Bauer Publishing , the UK subsidiary of family-run German company Bauer Media Group ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "It features weekly TV broadcast programming listings , running from Saturday to Friday , and goes on sale every Tuesday ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Floppy_disk",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.041344911529736184,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A floppy disk , also called a floppy , diskette or just disk , is a type of disk storage composed of a disk of thin and flexible magnetic storage medium , sealed in a rectangular plastic enclosure lined with fabric that removes dust particles ."
+            }
+          ]
+        },
+        {
+          "root": "Morse_code",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1160517706371319,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Morse code is a method of transmitting text information as a series of on-off tones , lights , or clicks that can be directly understood by a skilled listener or observer without special equipment ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-7c9adacf8df4b03f10ece065b18d3ef7",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "7c9adacf8df4b03f10ece065b18d3ef7",
+      "split": "formal",
+      "claim": "Otto I, Holy Roman Emperor engaged in war.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Naples",
+        "retrieval_score": 0.05598925109558539,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "In the immediate vicinity of Naples are numerous culturally and historically significant sites , including the Palace of Caserta and the Roman ruins of Pompeii and Herculaneum ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Ernest_Medina",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06540699401677286,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He was the commanding officer of Company C , 1st Battalion , 20th Infantry of the 11th Brigade , Americal Division , the unit responsible for the My Lai Massacre of 16 March 1968 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was court martialed in 1971 for his role in the My Lai Massacre , but acquitted the same year ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "He served during the Vietnam War and was acquitted in a court-martial of war crimes charges in 1971 ."
+            }
+          ]
+        },
+        {
+          "root": "Otto_I,_Holy_Roman_Emperor",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10497277621629561,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "After putting down a brief civil war among the rebellious duchies , Otto defeated the Magyars at the Battle of Lechfeld in 955 , thus ending the Hungarian invasions of Western Europe ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-802e4b2243e2caf7d1bc42157fb1fee4",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "802e4b2243e2caf7d1bc42157fb1fee4",
+      "split": "formal",
+      "claim": "The second album of Danny Brown was named XXX.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Hot_Right_Now",
+        "retrieval_score": 0.1083060722147765,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "`` Hot Right Now '' is a single by British drum and bass producer DJ Fresh , released as the second single from his third studio album , Nextlevelism ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Danny_Brown",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.19312181983410703,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Brown began to gain major recognition after the release of his second studio album , XXX , which received critical acclaim and earned him such accolades as Spin , as well as Metro Times `` Artist of the Year '' ."
+            }
+          ]
+        },
+        {
+          "root": "Jennifer_Lopez",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.16732787380538083,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Lopez gave birth to twins in 2008 , and after a relatively unsuccessful period , returned to prominence in 2011 with her appearance as a judge on American Idol and most commercially successful single to date , `` On the Floor '' , which is one of the best-selling singles of all time ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "With the simultaneous release of her second studio album J.Lo and her film The Wedding Planner in 2001 , Lopez became the first woman to have a number one album and film in the same week ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The Remixes , became the first in history to debut at number one on the U.S. Billboard 200 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-859517964428e29034fdb70d24d2cd7e",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "859517964428e29034fdb70d24d2cd7e",
+      "split": "formal",
+      "claim": "James Earl Jones is known for his voice acting.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Taran_Killam",
+        "retrieval_score": 0.05482024446868439,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Taran Hourie Killam -LRB- born April 1 , 1982 -RRB- is an American actor , comedian , and writer ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He is best known for his television work on shows such as The Amanda Show , Wild 'n Out , Mad TV , and Saturday Night Live ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Killam is also known for his portrayal of a teen pop star in the Disney Channel Original Movie Stuck in the Suburbs ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Randy_Savage",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0654497856432128,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Randy Mario Poffo -LRB- November 15 , 1952 -- May 20 , 2011 -RRB- , better known by the ring name `` Macho Man '' Randy Savage , was an American professional wrestler and color commentator best known for his time in the World Wrestling Federation -LRB- WWF , now WWE -RRB- and later World Championship Wrestling -LRB- WCW -RRB- ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was recognizable by wrestling fans for his distinctively deep and raspy voice , his flamboyant ring attire , intensity exhibited in and out of the ring , using `` Pomp and Circumstance '' as his entrance music , and his signature catch phrase , `` Oooh yeah ! ''"
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Savage is widely regarded as one of the greatest professional wrestlers in history ; a number of peers have ranked Savage among the industry 's top performers of all time ."
+            }
+          ]
+        },
+        {
+          "root": "James_Earl_Jones",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1487044791289829,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "He is also known for his voice roles as Darth Vader in the Star Wars film series and Mufasa in Disney 's The Lion King as well as many other film , stage , and television roles ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-8778ad85199963fc802cec64d23ccce0",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "8778ad85199963fc802cec64d23ccce0",
+      "split": "formal",
+      "claim": "Kim Jong-il is designated a posthumous title.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Endometrial_cancer",
+        "retrieval_score": 0.04307304922539479,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "This is believed to be due to the increasing number of elderly people and increasing rates of obesity ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Rates of endometrial cancer have risen in a number of countries between the 1980s and 2010 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Approximately 40 % of cases are related to obesity ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Kim_Jong-il",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.08989331499509895,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "After his death , he was designated as the `` Eternal General Secretary '' of the WPK and the `` Eternal Chairman of the National Defence Commission '' , in keeping with the tradition of establishing eternal posts for the dead members of the Kim dynasty ."
+            }
+          ]
+        },
+        {
+          "root": "Keith_Urban_-LRB-1999_album-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.11396057645963809,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Keith Urban -LRB- also known as Keith Urban II -RRB- is the second studio album by Australian country music artist Keith Urban , released on 19 October 1999 by Capitol Nashville ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-88fd5de0edf017747491e1c33fbed892",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "88fd5de0edf017747491e1c33fbed892",
+      "split": "formal",
+      "claim": "Duff McKagan refused to ever be a musician.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Omar_Khadr",
+        "retrieval_score": 0.02665955839873646,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Omar Ahmed Sayid Khadr -LRB- born September 19 , 1986 -RRB- is a Canadian who was detained at Guantanamo Bay as a minor and held there for 10 years ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "During his detention , he was interrogated by Canadian as well as US intelligence officers ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "His conviction and sentence were widely denounced by civil rights groups and various newspaper editorials ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Mike_Huckabee",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.055278999282278196,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Huckabee is the author of several best-selling books , an ordained Southern Baptist minister noted for his evangelical views , a musician , and a public speaker ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was a candidate in the United States Republican presidential primaries in both 2008 and 2016 ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Michael Dale Huckabee -LRB- born August 24 , 1955 -RRB- is an American politician , Christian minister , author , musician , and commentator who served as the 44th Governor of Arkansas from 1996 to 2007 ."
+            }
+          ]
+        },
+        {
+          "root": "Duff_McKagan",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11396057645963795,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "In addition to his musical career , McKagan has established himself as a writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-897e140013fbc0463287d5ab159de3f8",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "897e140013fbc0463287d5ab159de3f8",
+      "split": "formal",
+      "claim": "Marjorie Gross wrote for a television show.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Edgar_Wright",
+        "retrieval_score": 0.1229880092536183,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Edgar Howard Wright -LRB- born 18 April 1974 -RRB- is an English director , screenwriter , producer , and actor ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He also collaborated with them as the director of the television series Spaced ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "He also co-wrote , produced and directed the 2010 film Scott Pilgrim vs. the World ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Gordon_Ramsay",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06506000486323549,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He combines activities in the television , film , hospitality , and food industries and has promoted and hired various chefs who have apprenticed under his wing ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "His restaurants have been awarded 16 Michelin stars in total ."
+            }
+          ]
+        },
+        {
+          "root": "Marjorie_Gross",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09166984970282112,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She wrote for such shows as Newhart , The Larry Sanders Show , Square Pegs , Get A Life , and Seinfeld ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-8d1182164dc2f87a004bcbc72368d2b6",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "8d1182164dc2f87a004bcbc72368d2b6",
+      "split": "formal",
+      "claim": "In a Lonely Place was based on a novel.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "CONCACAF_Champions_League",
+        "retrieval_score": 0.06052275326688028,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The CONCACAF Champions League is an annual continental football club competition organized by CONCACAF for the top football clubs in North America , Central America and the Caribbean ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The competition was originally known as the CONCACAF Champions ' Cup when it was first organized in 1962 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Fargo_-LRB-season_2-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07559289460184548,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A prequel to the events in its first season , season two of Fargo takes place in the Midwestern United States in March 1979 ."
+            }
+          ]
+        },
+        {
+          "root": "In_a_Lonely_Place",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.0975900072948533,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The script was adapted by Edmund North from the 1947 novel of the same name by Dorothy B. Hughes ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-91587a5b1d6cf882874993c54ce9561d",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "91587a5b1d6cf882874993c54ce9561d",
+      "split": "formal",
+      "claim": "Sebastian Stan hasn't acted in a miniseries.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Marco_Polo",
+        "retrieval_score": 0.023511520528619934,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Marco Polo was not the first European to reach China -LRB- see Europeans in Medieval China -RRB- , but he was the first to leave a detailed chronicle of his experience ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was released in 1299 , became a wealthy merchant , married , and had three children ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The three of them embarked on an epic journey to Asia , returning after 24 years to find Venice at war with Genoa ; Marco was imprisoned and dictated his stories to a cellmate ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Steve_Ditko",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.03573708449459323,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Ditko studied under Batman artist Jerry Robinson at the Cartoonist and Illustrators School in New York City ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Stephen J. Ditko -LRB- -LSB- ˈdɪtkoʊ -RSB- born November 2 , 1927 -RRB- is an American comic book artist and writer best known as the artist and co-creator , with Stan Lee , of the Marvel Comics superheroes Spider-Man and Doctor Strange ."
+            }
+          ]
+        },
+        {
+          "root": "Sebastian_Stan",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1160517706371319,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "On television , Stan portrayed Carter Baizen in Gossip Girl , Prince Jack Benjamin in Kings , Jefferson in Once Upon a Time , and T.J. Hammond in the miniseries Political Animals ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-9be0fa252d4712a049db49a3630772f3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "9be0fa252d4712a049db49a3630772f3",
+      "split": "formal",
+      "claim": "Valencia is a city.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Janelle_Monáe",
+        "retrieval_score": 0.10862508931871362,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Janelle Monáe Robinson -LRB- born December 1 , 1985 -RRB- -LRB- -LSB- dʒəˈnɛl_moʊˈneɪ -RSB- -RRB- is an American singer , songwriter , actress , and model signed to her own imprint , Wondaland Arts Society , and Atlantic Records ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "After making a mark with her first unofficial studio album , The Audition , she publicly debuted with a conceptual EP titled Metropolis : Suite I -LRB- The Chase -RRB- , which peaked at number 115 on the Billboard 200 in the United States ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Boston City Council named October 16 , 2013 `` Janelle Monáe Day '' in the city of Boston , Massachusetts , in recognition of her artistry and social leadership ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Liverpool",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.11724207635210993,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The popularity of The Beatles and other groups from the Merseybeat era contributes to Liverpool 's status as a tourist destination ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "With its surrounding areas it is the fifth largest metropolitan area in the UK , with over 2.24 million people in 2011 ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The city celebrated its 800th anniversary in 2007 , and was European Capital of Culture together with Stavanger , Norway , in 2008 ."
+            }
+          ]
+        },
+        {
+          "root": "Valencia",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.19245008972987526,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Valencia -LRB- -LSB- vəˈlɛnsiə -RSB- -LSB- baˈlenθja -RSB- -RRB- , officially València -LRB- -LSB- vaˈlensia -RSB- -RRB- , is the capital of the autonomous community of Valencia and the third largest city in Spain after Madrid and Barcelona , with around 800,000 inhabitants in the administrative centre ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a0cc4dac076f63d439b4f3b590635fbd",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a0cc4dac076f63d439b4f3b590635fbd",
+      "split": "formal",
+      "claim": "Carlos Santana was known.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Bermuda_Triangle",
+        "retrieval_score": 0.0716114874039433,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The Bermuda Triangle , also known as the Devil 's Triangle , is a loosely-defined region in the western part of the North Atlantic Ocean , where a number of aircraft and ships are said to have disappeared under mysterious circumstances ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Taran_Killam",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08131156281817431,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Taran Hourie Killam -LRB- born April 1 , 1982 -RRB- is an American actor , comedian , and writer ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He is best known for his television work on shows such as The Amanda Show , Wild 'n Out , Mad TV , and Saturday Night Live ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Killam is also known for his portrayal of a teen pop star in the Disney Channel Original Movie Stuck in the Suburbs ."
+            }
+          ]
+        },
+        {
+          "root": "Carlos_Santana",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13483997249264842,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Santana continued to work in these forms over the following decades ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a1903c1316ce80606638c5d0a80bd7a3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a1903c1316ce80606638c5d0a80bd7a3",
+      "split": "formal",
+      "claim": "Jewell refused to ever work with Dr. Dre.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Fabian_Nicieza",
+        "retrieval_score": 0.04339630366027469,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Fabian Nicieza -LRB- born 31 December 1961 -RRB- is an Argentine-American comic book writer and editor who is best known for his work on Marvel titles such as X-Men , X-Force , New Warriors , Cable and Deadpool , and Thunderbolts , for all of which he helped create numerous characters ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Jewell_-LRB-singer-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.14285714285714285,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "She is best known for her song , `` Love or Lust , '' featured in Bill Duke 's film , Deep Cover , as well as for singing choruses to many classic West Coast rap songs such as Snoop Dogg 's `` Gin and Juice '' and Dr. Dre 's `` Let Me Ride '' ."
+            }
+          ]
+        },
+        {
+          "root": "Bret_Easton_Ellis",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04761904761904756,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Ellis also wrote the screenplay for the critically derided 2013 film The Canyons , an original work ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Bret Easton Ellis -LRB- born March 7 , 1964 -RRB- is an American author , screenwriter , and short story writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a480e6ede943fb9b7c384588486adfda",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a480e6ede943fb9b7c384588486adfda",
+      "split": "formal",
+      "claim": "Vietnam is a place.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "North_Vietnam",
+        "retrieval_score": 0.20739033894608516,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "North Vietnam , officially the Democratic Republic of Vietnam -LRB- DRV -RRB- , was a state in Southeast Asia which existed from 1945 to 1976 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Fargo_-LRB-season_2-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.11547005383792519,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A prequel to the events in its first season , season two of Fargo takes place in the Midwestern United States in March 1979 ."
+            }
+          ]
+        },
+        {
+          "root": "Vietnam",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.140028008402801,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The northern part of Vietnam was part of Imperial China for over a millennium , from 111 BC to AD 939 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a5216e7375bea2c4c42920a74f984914",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a5216e7375bea2c4c42920a74f984914",
+      "split": "formal",
+      "claim": "Dakota Fanning is not an actress.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Sidse_Babett_Knudsen",
+        "retrieval_score": 0.07532435771547097,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Sidse Babett Knudsen -LRB- -LSB- ˈsisə b̥ab̥ɛd̥ ˈkʰnusn̩ -RSB- ; born 22 November 1968 -RRB- is a Danish actress who works in theatre , television , and film ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In 2000 , she again won both best actress awards for the comedy romance Den Eneste Ene -LRB- English title : The One and Only -RRB- ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Knudsen achieved international recognition for her leading role as fictional Danish Prime Minister Birgitte Nyborg in the Danish TV series Borgen ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Dakota_Fanning",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12403473458920845,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Although the focus of Fanning 's career is acting , she also has fashion-related jobs ."
+            }
+          ]
+        },
+        {
+          "root": "Dreamer_-LRB-2005_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.15491933384829681,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a5f68605e37554ca72c32d1a8fdca85e",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a5f68605e37554ca72c32d1a8fdca85e",
+      "split": "formal",
+      "claim": "The number of legs Sleipnir has is eight.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Bermuda_Triangle",
+        "retrieval_score": 0.0716114874039433,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The Bermuda Triangle , also known as the Devil 's Triangle , is a loosely-defined region in the western part of the North Atlantic Ocean , where a number of aircraft and ships are said to have disappeared under mysterious circumstances ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Jennifer_Lopez",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08272911497095992,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Lopez gave birth to twins in 2008 , and after a relatively unsuccessful period , returned to prominence in 2011 with her appearance as a judge on American Idol and most commercially successful single to date , `` On the Floor '' , which is one of the best-selling singles of all time ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "With the simultaneous release of her second studio album J.Lo and her film The Wedding Planner in 2001 , Lopez became the first woman to have a number one album and film in the same week ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The Remixes , became the first in history to debut at number one on the U.S. Billboard 200 ."
+            }
+          ]
+        },
+        {
+          "root": "Sleipnir",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09325048082403138,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "In Norse mythology , Sleipnir -LRB- Old Norse `` slippy '' or `` the slipper '' -RRB- is an eight-legged horse ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-a6134b5a37cdc1ac84fb08cb5c75830c",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "a6134b5a37cdc1ac84fb08cb5c75830c",
+      "split": "formal",
+      "claim": "Human trafficking involves labor.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Raabta_-LRB-song-RRB-",
+        "retrieval_score": 0.021713491635397375,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Composed by Pritam Chakraborty , the song is sung by Arijit Singh , with lyrics penned by Amitabh Bhattacharya ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The song has three other version included in the soundtrack of the album titled , `` Raabta -LRB- Night in a Motel -RRB- '' , `` Raabta -LRB- Siyaah Raatein -RRB- '' and `` Raabta -LRB- Kehte Hain Khuda Ne -RRB- '' which features vocals by Aditi Singh Sharma , Hamsika Iyer and Shreya Ghoshal respectively , and also has another version titled , `` Raabta Title Song '' from the film Raabta which features vocals by Nikhita Gandhi , with additional vocals by Singh for all four versions ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "`` Raabta '' -LRB- English : Relation -RRB- is a romantic Hindi song from the 2012 Bollywood film , Agent Vinod ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Human_trafficking",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.0861460984507896,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Of these , 14.2 million -LRB- 68 % -RRB- were exploited for labor , 4.5 million -LRB- 22 % -RRB- were sexually exploited , and 2.2 million -LRB- 10 % -RRB- were exploited in state-imposed forced labor ."
+            }
+          ]
+        },
+        {
+          "root": "Sora_-LRB-Kingdom_Hearts-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.024246432248443583,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Introduced in the first Kingdom Hearts game in 2002 , Sora is portrayed as a cheerful teenager who lives in the Destiny Islands and has been best friends with Riku and Kairi since childhood ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Donald Duck and Goofy then recruit him in their journey across various worlds to aid King Mickey while Sora searches for his friends ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Sora has also made supporting appearances in other games from the series , and reprised his role in manga and light novel adaptations of the games ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-ac2d7853819c5fa7a1346c06c589d3fb",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "ac2d7853819c5fa7a1346c06c589d3fb",
+      "split": "formal",
+      "claim": "Lizzy Caplan starred in television show.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "A&E_-LRB-TV_channel-RRB-",
+        "retrieval_score": 0.12921914767618436,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A&E -LRB- previously Arts & Entertainment Network -RRB- is an American cable and satellite television channel that serves as the flagship television property of A&E Networks , a joint venture between the Hearst Corporation and Disney -- ABC Television Group subsidiary of the Walt Disney Company -LRB- both of which maintain a 50 % ownership interest -RRB- ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Lizzy_Caplan",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09376144618769909,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "After starting her career in the critically acclaimed television series Freaks and Geeks in 1999 , Caplan started to get wider attention for her roles in films Mean Girls -LRB- 2004 -RRB- and Cloverfield -LRB- 2008 -RRB- , the latter earned her a nomination for the Saturn Award for Best Supporting Actress ."
+            }
+          ]
+        },
+        {
+          "root": "Gordon_Ramsay",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06506000486323549,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "He combines activities in the television , film , hospitality , and food industries and has promoted and hired various chefs who have apprenticed under his wing ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "His restaurants have been awarded 16 Michelin stars in total ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-aed153169efb010ae01cf8defe5236d3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "aed153169efb010ae01cf8defe5236d3",
+      "split": "formal",
+      "claim": "The Saw franchise grossed over $554 million.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Dreamer_-LRB-2005_film-RRB-",
+        "retrieval_score": 0.07698003589195013,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Poseidon_-LRB-film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.1454785934906615,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Poseidon grossed $ 181,674,817 at the worldwide box office on a budget of $ 160 million ."
+            }
+          ]
+        },
+        {
+          "root": "Saw_-LRB-franchise-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.17213259316477406,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The films collectively grossed over $ 873 million at the box office worldwide ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b1ce5f812c5a36fe5f2a2db493542021",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b1ce5f812c5a36fe5f2a2db493542021",
+      "split": "formal",
+      "claim": "So You Think You Can Dance was canceled on July 20th, 2005.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Tiber_Oil_Field",
+        "retrieval_score": 0.03578281334822564,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The deepwater field -LRB- defined as water depth 1300 to , -RRB- was discovered in September 2009 and it is operated by BP ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Tiber Oil Field is a deepwater offshore oil field located in the Keathley Canyon block 102 of the United States sector of the Gulf of Mexico ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "2016_Tour_de_France",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0600030002250187,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The 3529 km-long race started in Mont Saint-Michel , Normandy , on 2 July 2016 , and concluded with the Champs-Élysées stage in Paris , on 24 July 2016 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "A total of 198 riders from 22 teams entered the 21-stage race , which was won by Chris Froome of ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The 2016 Tour de France was the 103rd edition of the Tour de France , one of cycling 's Grand Tours ."
+            }
+          ]
+        },
+        {
+          "root": "So_You_Think_You_Can_Dance_-LRB-U.S._TV_series-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1257389226923863,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The series premiered on July 20 , 2005 with over ten million viewers and ended the summer season as the top-rated show on television ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b350d25062983d39e0b345c98c42ba1f",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b350d25062983d39e0b345c98c42ba1f",
+      "split": "formal",
+      "claim": "Noel Fisher was on Showtime.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Steve_Ditko",
+        "retrieval_score": 0.0,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Ditko studied under Batman artist Jerry Robinson at the Cartoonist and Illustrators School in New York City ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Stephen J. Ditko -LRB- -LSB- ˈdɪtkoʊ -RSB- born November 2 , 1927 -RRB- is an American comic book artist and writer best known as the artist and co-creator , with Stan Lee , of the Marvel Comics superheroes Spider-Man and Doctor Strange ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Noel_Fisher",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.08304547985373996,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He is known for his portrayal of Mickey Milkovich on the Showtime series Shameless , as well as his portrayal of Cael Malloy on the FX series The Riches ."
+            }
+          ]
+        },
+        {
+          "root": "Steve_Wozniak",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "He primarily designed the 1977 Apple II , known as one of the first highly successful mass-produced microcomputers , while Jobs oversaw the development of its unusual case and Rod Holt developed the unique power supply ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Stephen -LRB- or Stephan -RRB- Gary Wozniak -LRB- -LSB- ˈwɒzniæk -RSB- , born August 11 , 1950 -RRB- , nicknamed `` Woz '' , is an American inventor , electronics engineer , programmer , philanthropist , and technology entrepreneur who co-founded Apple Inc. ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b38dfd120b032a5c2e8c15fc88c6c3e9",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b38dfd120b032a5c2e8c15fc88c6c3e9",
+      "split": "formal",
+      "claim": "Giada at Home first aired in 2004.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Janet_Leigh",
+        "retrieval_score": 0.030358837035945774,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Janet Leigh -LRB- born Jeanette Helen Morrison ; July 6 , 1927 -- October 3 , 2004 -RRB- was an American actress , singer , dancer and author ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Her highly publicized marriage to Curtis ended in divorce in 1962 , and after starring in The Manchurian Candidate that same year , Leigh scaled back her career ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Among her survivors was her husband of 42 years , Robert Brandt ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Paramore",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.05763904177042345,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Paramore is an American rock band from Franklin , Tennessee , formed in 2004 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "The band currently consists of lead vocalist Hayley Williams , guitarist Taylor York and drummer Zac Farro ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The band 's second album , Riot !"
+            }
+          ]
+        },
+        {
+          "root": "Giada_at_Home",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11396057645963795,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "It first aired on October 18 , 2008 on the Food Network ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b4658c966bb26bcabc72b45dbff77129",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b4658c966bb26bcabc72b45dbff77129",
+      "split": "formal",
+      "claim": "Aleister Crowley was born on Mars.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Penélope_Cruz",
+        "retrieval_score": 0.055131784641997084,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Cruz has modelled for Mango , Ralph Lauren and L'Oréal ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Penélope Cruz Sánchez -LRB- -LSB- peˈnelope kɾuθ ˈsantʃeθ -RSB- ; born 28 April 1974 -RRB- is a Spanish actress and model ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Aleister_Crowley",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1315903389919538,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Born to a wealthy Plymouth Brethren family in Royal Leamington Spa , Warwickshire , Crowley rejected this fundamentalist Christian faith to pursue an interest in Western esotericism ."
+            }
+          ]
+        },
+        {
+          "root": "Stephen_Hillenburg",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07881104062391009,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Born in Lawton , Oklahoma and raised in Anaheim , California , Hillenburg became fascinated with the ocean as a child and also developed an interest in art ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b78e8e4ec8773898360ac50d6b5dd88d",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b78e8e4ec8773898360ac50d6b5dd88d",
+      "split": "formal",
+      "claim": "Francis I of France was born in December.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Disaster_Artist_-LRB-film-RRB-",
+        "retrieval_score": 0.1019294382875251,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Principal photography of the film began on December 8 , 2015 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Janelle_Monáe",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.10666772018021664,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Janelle Monáe Robinson -LRB- born December 1 , 1985 -RRB- -LRB- -LSB- dʒəˈnɛl_moʊˈneɪ -RSB- -RRB- is an American singer , songwriter , actress , and model signed to her own imprint , Wondaland Arts Society , and Atlantic Records ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "After making a mark with her first unofficial studio album , The Audition , she publicly debuted with a conceptual EP titled Metropolis : Suite I -LRB- The Chase -RRB- , which peaked at number 115 on the Billboard 200 in the United States ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Boston City Council named October 16 , 2013 `` Janelle Monáe Day '' in the city of Boston , Massachusetts , in recognition of her artistry and social leadership ."
+            }
+          ]
+        },
+        {
+          "root": "Francis_I_of_France",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11026356928399425,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Francis I -LRB- François Ier -RRB- -LRB- 12 September 1494 -- 31 March 1547 -RRB- was the first King of France from the Angoulême branch of the House of Valois , reigning from 1515 until his death ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b7c514a60d86db1895d65fc9f551b499",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b7c514a60d86db1895d65fc9f551b499",
+      "split": "formal",
+      "claim": "Rio's only sequel is a 2015 film.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Disaster_Artist_-LRB-film-RRB-",
+        "retrieval_score": 0.15289415743128765,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Principal photography of the film began on December 8 , 2015 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Moonlight_-LRB-2016_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.15762208124782018,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Filmed in Miami , Florida , beginning in 2015 , Moonlight premiered at the Telluride Film Festival on September 2 , 2016 ."
+            }
+          ]
+        },
+        {
+          "root": "Rio_-LRB-2011_film-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.2279211529192759,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "A sequel , Rio 2 , was released on April 11 , 2014 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-b986472bbc516f898a01071b65841a59",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "b986472bbc516f898a01071b65841a59",
+      "split": "formal",
+      "claim": "John Dolmayan is only German.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Dreamer_-LRB-2005_film-RRB-",
+        "retrieval_score": 0.0516397779494322,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Dreamer is a 2005 American sports drama film written and directed by John Gatins in his directorial debut ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The film stars Kurt Russell , Kris Kristofferson , Elisabeth Shue and Dakota Fanning ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The film received mixed to positive reviews from critics , and earned $ 38 million on a $ 32 million budget ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "John_Dolmayan",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.15118578920369088,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "John Hovig Dolmayan -LRB- Ջոն Դոլմայան , born July 15 , 1973 -RRB- is a Lebanese-born Armenian -- American songwriter and drummer ."
+            }
+          ]
+        },
+        {
+          "root": "TV_Choice",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0516397779494322,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "TV Choice is a British weekly TV listings magazine published by H. Bauer Publishing , the UK subsidiary of family-run German company Bauer Media Group ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "It features weekly TV broadcast programming listings , running from Saturday to Friday , and goes on sale every Tuesday ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-bb8b3eb26e45a734e8132fa8c8a0372c",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "bb8b3eb26e45a734e8132fa8c8a0372c",
+      "split": "formal",
+      "claim": "San Diego Comic-Con was founded in 1990.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Black_Canary",
+        "retrieval_score": 0.046562019717971914,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Black Canary is a fictional superheroine in comic books published by DC Comics ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Black Canary has been adapted into various media , including direct-to-video animated films , video games , and both live-action and animated television series , featuring as a main or recurring character in the shows Birds of Prey , Justice League Unlimited , Smallville , Batman : The Brave and the Bold , Young Justice and Arrow ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "One of DC 's earliest super-heroines , Black Canary has appeared in many of the company 's flagship team-up titles including Justice Society of America and Justice League of America ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "San_Diego_Comic-Con",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1126872339638022,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Since 1974 , Comic-Con has bestowed its annual Inkpot Award on guests and persons of interest in the popular arts industries , as well as on members of Comic-Con 's board of directors and the Convention committee ."
+            }
+          ]
+        },
+        {
+          "root": "Tijuana",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07980868844676225,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Tijuana -LRB- -LSB- tiːˈwɑːnə -RSB- ; -LSB- tiˈxwana -RSB- -RRB- is the largest city in Baja California and on the Baja California Peninsula and center of the Tijuana metropolitan area , part of the international San Diego -- Tijuana metropolitan area ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "As an industrial and financial center of Mexico , Tijuana exerts a strong influence on economics , education , culture , art , and politics ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "As the city has become a leading center in the country , so has the surrounding metropolitan area , a major industrial and paramount metropolis in northwestern Mexico ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-be3c057d0584cb20e948f6ce2b903c39",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "be3c057d0584cb20e948f6ce2b903c39",
+      "split": "formal",
+      "claim": "Fidel Castro was a person.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Monster",
+        "retrieval_score": 0.13483997249264856,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A monster is any creature , usually found in legends or horror fiction , that is often hideous and may produce fear or physical harm by its appearance or its actions ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Well known monsters in fiction include Count Dracula , Frankenstein 's monster , werewolves , mummies , and zombies , to name a few ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It can also be applied figuratively to a person with similar characteristics like a greedy person or a person who does horrible things ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Fidel_Castro",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.09325048082403138,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "In 2006 he transferred his responsibilities to Vice-President Raúl Castro , who was elected to the presidency by the National Assembly in 2008 ."
+            }
+          ]
+        },
+        {
+          "root": "Monk",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08813052984784642,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "A monk -LRB- -LSB- mʌŋk -RSB- , from μοναχός , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "In the Greek language the term can apply to women , but in modern English it is mainly in use for men ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "A monk may be a person who decided to dedicate his life to serving all other living beings , or to be an ascetic who voluntarily chooses to leave mainstream society and live his or her life in prayer and contemplation ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-becbf3a5b37b810767d6576a1f97d4cf",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "becbf3a5b37b810767d6576a1f97d4cf",
+      "split": "formal",
+      "claim": "Magic Johnson did not play for the Lakers.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Touchscreen",
+        "retrieval_score": 0.024914503091731155,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "They can also be attached to computers or , as terminals , to networks ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "They also play a prominent role in the design of digital appliances such as personal digital assistants -LRB- PDAs -RRB- and some e-readers ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Touchscreens are common in devices such as game consoles , personal computers , tablet computers , electronic voting machines , point of sale systems , and smartphones ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "The_Gifted_-LRB-TV_series-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.037502930030867465,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The series received a put pilot commitment at Fox after a previous attempted X-Men series did not move forward at the network in 2016 ; The Gifted was ordered to series in May 2017 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "The Gifted is an upcoming American television series created for Fox by Matt Nix , based on Marvel Comics ' X-Men properties ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "The show is produced by 20th Century Fox Television in association with Marvel Television , with Nix serving as showrunner ."
+            }
+          ]
+        },
+        {
+          "root": "Magic_Johnson",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11973686801784994,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "After protests from his fellow players , he retired again for four years , but returned in 1996 , at age 36 , to play 32 games for the Lakers before retiring for the third and final time ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-cfa33b0c0ae15af488c47ee9d263687a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "cfa33b0c0ae15af488c47ee9d263687a",
+      "split": "formal",
+      "claim": "Topman has outlets in one Irish city.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Janelle_Monáe",
+        "retrieval_score": 0.07111181345347783,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Janelle Monáe Robinson -LRB- born December 1 , 1985 -RRB- -LRB- -LSB- dʒəˈnɛl_moʊˈneɪ -RSB- -RRB- is an American singer , songwriter , actress , and model signed to her own imprint , Wondaland Arts Society , and Atlantic Records ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "After making a mark with her first unofficial studio album , The Audition , she publicly debuted with a conceptual EP titled Metropolis : Suite I -LRB- The Chase -RRB- , which peaked at number 115 on the Billboard 200 in the United States ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Boston City Council named October 16 , 2013 `` Janelle Monáe Day '' in the city of Boston , Massachusetts , in recognition of her artistry and social leadership ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Topman",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.08971226080325131,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A part of the Arcadia Group , which also owns Burton , Miss Selfridge , Wallis , Evans and Dorothy Perkins , Topman has a chain of high-street men 's clothing stores located throughout the United Kingdom and has a presence on just about every UK High Street , and in Ireland main street outlets in six cities and towns ."
+            }
+          ]
+        },
+        {
+          "root": "Liverpool",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07675295564533369,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The popularity of The Beatles and other groups from the Merseybeat era contributes to Liverpool 's status as a tourist destination ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "With its surrounding areas it is the fifth largest metropolitan area in the UK , with over 2.24 million people in 2011 ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The city celebrated its 800th anniversary in 2007 , and was European Capital of Culture together with Stavanger , Norway , in 2008 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-d5000f00f4c5046b30acf49dc5c62f61",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "d5000f00f4c5046b30acf49dc5c62f61",
+      "split": "formal",
+      "claim": "Jokes are included in folklore.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Monk",
+        "retrieval_score": 0.04406526492392315,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A monk -LRB- -LSB- mʌŋk -RSB- , from μοναχός , monachos , `` single , solitary '' and Latin monachus -RRB- is a person who practices religious asceticism by monastic living , either alone or with any number of other monks ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In the Greek language the term can apply to women , but in modern English it is mainly in use for men ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "A monk may be a person who decided to dedicate his life to serving all other living beings , or to be an ascetic who voluntarily chooses to leave mainstream society and live his or her life in prayer and contemplation ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Folklore",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13483997249264842,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "These include oral traditions such as tales , proverbs and jokes ."
+            }
+          ]
+        },
+        {
+          "root": "The_Adventures_of_Pluto_Nash",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.05822225097395828,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The film was released in the United States on August 16 , 2002 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "The Adventures of Pluto Nash is a 2002 Australian-American science fiction action comedy film starring Eddie Murphy -LRB- in a dual role -RRB- and directed by Ron Underwood ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "The film received overwhelmingly negative reviews and is notable for being one of the biggest box office bombs in history ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-d9969f56da8c4eba28d669db50cc125b",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "d9969f56da8c4eba28d669db50cc125b",
+      "split": "formal",
+      "claim": "Bhagat Singh was an American.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Raabta_-LRB-song-RRB-",
+        "retrieval_score": 0.07707524933080612,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Composed by Pritam Chakraborty , the song is sung by Arijit Singh , with lyrics penned by Amitabh Bhattacharya ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The song has three other version included in the soundtrack of the album titled , `` Raabta -LRB- Night in a Motel -RRB- '' , `` Raabta -LRB- Siyaah Raatein -RRB- '' and `` Raabta -LRB- Kehte Hain Khuda Ne -RRB- '' which features vocals by Aditi Singh Sharma , Hamsika Iyer and Shreya Ghoshal respectively , and also has another version titled , `` Raabta Title Song '' from the film Raabta which features vocals by Nikhita Gandhi , with additional vocals by Singh for all four versions ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "`` Raabta '' -LRB- English : Relation -RRB- is a romantic Hindi song from the 2012 Bollywood film , Agent Vinod ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Savages_-LRB-2012_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.10846522890932808,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Savages is a 2012 American crime thriller film directed by Oliver Stone ."
+            }
+          ]
+        },
+        {
+          "root": "Bhagat_Singh",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.16903085094570328,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Bhagat Singh -LRB- -LSB- pə̀ɡət̪ sɪ́ŋɡ -RSB- -- 23 March 1931 -RRB- was a charismatic Indian socialist revolutionary whose two acts of dramatic violence against the British in India and execution at age 23 made him a folk hero of the Indian independence movement ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-db16c851d51b50127fc7964272ef2705",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "db16c851d51b50127fc7964272ef2705",
+      "split": "formal",
+      "claim": "Tylenol is one of the brands of drugs.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Tata_Motors",
+        "retrieval_score": 0.05725983343138685,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Tata Motors is listed on the -LRB- BSE -RRB- Bombay Stock Exchange , where it is a constituent of the BSE SENSEX index , the National Stock Exchange of India , and the New York Stock Exchange ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Robert_Palmer_-LRB-writer-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.07093269021319093,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "A collection of his writings , Blues & Chaos : The Music Writing of Robert Palmer , edited by Anthony DeCurtis , was published by Simon & Schuster on November 10 , 2009 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He is best known for his books , including Deep Blues ; his music journalism for the New York Times and Rolling Stone magazine ; his work producing blues recordings and the soundtrack of the film Deep Blues ; and his clarinet playing in the 1960s band the Insect Trust ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Robert Franklin Palmer Jr. -LRB- June 19 , 1945 -- November 20 , 1997 -RRB- was an American writer , musicologist , clarinetist , saxophonist , and blues producer ."
+            }
+          ]
+        },
+        {
+          "root": "Tylenol_-LRB-brand-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.14704292441876154,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Tylenol -LSB- ˈtaɪlənɒl -RSB- is a brand of drugs advertised for reducing pain , reducing fever , and relieving the symptoms of allergies , cold , cough headache , and influenza ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-dd0b9b4e7533e5ea75a9091f527d2d59",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "dd0b9b4e7533e5ea75a9091f527d2d59",
+      "split": "formal",
+      "claim": "House is a dramatic work focused on medicine.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Fabian_Nicieza",
+        "retrieval_score": 0.04339630366027469,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Fabian Nicieza -LRB- born 31 December 1961 -RRB- is an Argentine-American comic book writer and editor who is best known for his work on Marvel titles such as X-Men , X-Force , New Warriors , Cable and Deadpool , and Thunderbolts , for all of which he helped create numerous characters ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "House_-LRB-TV_series-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.08989331499509895,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Cuddy and Masters depart before season eight ; Foreman becomes the new Dean of Medicine , while Dr. Jessica Adams -LRB- Odette Annable -RRB- and Dr. Chi Park -LRB- Charlyne Yi -RRB- join House 's team ."
+            }
+          ]
+        },
+        {
+          "root": "Bret_Easton_Ellis",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04761904761904756,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Ellis also wrote the screenplay for the critically derided 2013 film The Canyons , an original work ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Bret Easton Ellis -LRB- born March 7 , 1964 -RRB- is an American author , screenwriter , and short story writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-de17903665ea355ee80193fbd000c616",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "de17903665ea355ee80193fbd000c616",
+      "split": "formal",
+      "claim": "The Hundred Years' War includes a war.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Marco_Polo",
+        "retrieval_score": 0.07053456158585991,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Marco Polo was not the first European to reach China -LRB- see Europeans in Medieval China -RRB- , but he was the first to leave a detailed chronicle of his experience ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was released in 1299 , became a wealthy merchant , married , and had three children ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The three of them embarked on an epic journey to Asia , returning after 24 years to find Venice at war with Genoa ; Marco was imprisoned and dictated his stories to a cellmate ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Ernest_Medina",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.14462030521243752,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He was the commanding officer of Company C , 1st Battalion , 20th Infantry of the 11th Brigade , Americal Division , the unit responsible for the My Lai Massacre of 16 March 1968 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was court martialed in 1971 for his role in the My Lai Massacre , but acquitted the same year ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "He served during the Vietnam War and was acquitted in a court-martial of war crimes charges in 1971 ."
+            }
+          ]
+        },
+        {
+          "root": "Hundred_Years'_War",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12830005981991682,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Several overwhelming English victories in the war -- especially at Crecy , Poitiers , and Agincourt -- raised the prospects of an ultimate English triumph ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-df29fc4f7dea6bf1f63f0a4d231ff678",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "df29fc4f7dea6bf1f63f0a4d231ff678",
+      "split": "formal",
+      "claim": "Earl Scruggs was a musician who played banjo.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mike_Huckabee",
+        "retrieval_score": 0.04875149494180864,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Huckabee is the author of several best-selling books , an ordained Southern Baptist minister noted for his evangelical views , a musician , and a public speaker ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He was a candidate in the United States Republican presidential primaries in both 2008 and 2016 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Michael Dale Huckabee -LRB- born August 24 , 1955 -RRB- is an American politician , Christian minister , author , musician , and commentator who served as the 44th Governor of Arkansas from 1996 to 2007 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Tie_Your_Mother_Down",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.053896805563629635,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "It is the opening track and the second single from their 1976 album A Day at the Races ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "On its original release as a single in 1977 the song peaked at 31 in the UK Singles Chart , however more than 20 years later it was released as a double a-side to `` No-One But You -LRB- Only the Good Die Young -RRB- '' where it reached 13 in UK Singles Chart ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "After its release in 1976 , it was played by Queen on every subsequent tour ."
+            }
+          ]
+        },
+        {
+          "root": "Earl_Scruggs",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10675210253672475,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Scruggs ' banjo instrumental called `` Foggy Mountain Breakdown '' , released in 1949 , became an enduring hit , and had a rebirth of popularity to a younger generation when it was featured in the 1967 film Bonnie and Clyde ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-e3c642977419087d8b698db80c883dc3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "e3c642977419087d8b698db80c883dc3",
+      "split": "formal",
+      "claim": "Nicholas Brody is a character on an HBO series.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Gifted_-LRB-TV_series-RRB-",
+        "retrieval_score": 0.15001172012346997,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The series received a put pilot commitment at Fox after a previous attempted X-Men series did not move forward at the network in 2016 ; The Gifted was ordered to series in May 2017 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Gifted is an upcoming American television series created for Fox by Matt Nix , based on Marvel Comics ' X-Men properties ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "The show is produced by 20th Century Fox Television in association with Marvel Television , with Nix serving as showrunner ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "The_Winds_of_Winter_-LRB-Game_of_Thrones-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.15030321282686065,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "`` The Winds of Winter '' is the tenth and final episode of the sixth season of HBO 's fantasy television series Game of Thrones , and the sixtieth overall ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "In the United States , the episode achieved a viewership of 8.89 million in its initial broadcast , making it the highest rated episode in the series ' history ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Critics praised the Great Sept explosion , Lena Headey 's performance , Arya 's revenge on the Freys , the resolution to the Tower of Joy flashback , and Daenerys going to Westeros as highlights of the episode ."
+            }
+          ]
+        },
+        {
+          "root": "Nicholas_Brody",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.21919864974047637,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Nicholas `` Nick '' Brody , played by actor Damian Lewis , is a fictional character on the American television series Homeland on Showtime , created by Alex Gansa and Howard Gordon ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-e3d3361f54ca464e77808c086453edc6",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "e3d3361f54ca464e77808c086453edc6",
+      "split": "formal",
+      "claim": "The Washington Wizards won a title in 1975.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Mel_B",
+        "retrieval_score": 0.040723148118768426,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Brown began her solo career when she released `` I Want You Back '' with Missy Elliott on Virgin Records ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Melanie Janine Brown -LRB- born 29 May 1975 -RRB- , better known as Mel B or Melanie B , is an English singer , songwriter , presenter , television personality , dancer , actress , author , and model ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Brown rose to fame as a member of the girl group the Spice Girls , in which she became known as Scary Spice ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Mike_Huckabee",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04875149494180864,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Huckabee is the author of several best-selling books , an ordained Southern Baptist minister noted for his evangelical views , a musician , and a public speaker ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "He was a candidate in the United States Republican presidential primaries in both 2008 and 2016 ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Michael Dale Huckabee -LRB- born August 24 , 1955 -RRB- is an American politician , Christian minister , author , musician , and commentator who served as the 44th Governor of Arkansas from 1996 to 2007 ."
+            }
+          ]
+        },
+        {
+          "root": "Washington_Wizards",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.13245323570650439,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "They have won four conference titles -LRB- 1971 , 1975 , 1978 , 1979 -RRB- , and seven division titles -LRB- 1971 , 1972 , 1973 , 1974 , 1975 , 1979 , 2017 -RRB- ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-e41fac8dfa626153edc5225692df2d13",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "e41fac8dfa626153edc5225692df2d13",
+      "split": "formal",
+      "claim": "Richard Dawkins has yet to appear on the internet.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Taran_Killam",
+        "retrieval_score": 0.03436040663720252,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Taran Hourie Killam -LRB- born April 1 , 1982 -RRB- is an American actor , comedian , and writer ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He is best known for his television work on shows such as The Amanda Show , Wild 'n Out , Mad TV , and Saturday Night Live ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Killam is also known for his portrayal of a teen pop star in the Disney Channel Original Movie Stuck in the Suburbs ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Richard_Dawkins",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.12104550653376048,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Dawkins has been awarded many prestigious academic and writing awards and he makes regular television , radio and Internet appearances , predominantly discussing his books , his atheism , and his ideas and opinions as a public intellectual ."
+            }
+          ]
+        },
+        {
+          "root": "Natural_Born_Killers",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.038778336716474016,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "The film is based on an original screenplay by Quentin Tarantino that was heavily revised by writer David Veloz , associate producer Richard Rutowski , and director Stone ; Tarantino received story credit ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Natural Born Killers is a 1994 American satirical crime film directed by Oliver Stone and starring Woody Harrelson , Juliette Lewis , Robert Downey Jr. , Tom Sizemore , and Tommy Lee Jones ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-e79ca55ffb7ccadbf119ed662e0d2d6b",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "e79ca55ffb7ccadbf119ed662e0d2d6b",
+      "split": "formal",
+      "claim": "Melancholia was directed by Christopher Nolan.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "The_Disaster_Artist_-LRB-film-RRB-",
+        "retrieval_score": 0.05096471914376255,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Principal photography of the film began on December 8 , 2015 ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The Disaster Artist is a 2017 American biographical comedy film directed , produced by , and starring James Franco ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "It is scheduled to be released in a limited release on December 1 , 2017 , by A24 ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Savages_-LRB-2012_film-RRB-",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.0916698497028211,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Savages is a 2012 American crime thriller film directed by Oliver Stone ."
+            }
+          ]
+        },
+        {
+          "root": "Melancholia_-LRB-2011_film-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11026356928399425,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Melancholia is a 2011 science-fiction drama-psychological thriller film written and directed by Lars von Trier and starring Kirsten Dunst , Charlotte Gainsbourg , Alexander Skarsgård , Cameron Spurr , and Kiefer Sutherland ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-ea88e76507e4dc2a4615706b0fffe6b3",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "ea88e76507e4dc2a4615706b0fffe6b3",
+      "split": "formal",
+      "claim": "Jenna Jameson was only ever a stripper.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Villa_Park",
+        "retrieval_score": 0.033241124765726715,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Aside from football-related uses , the stadium has seen various concerts staged along with other sporting events including boxing matches and international rugby league and rugby union matches ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In 1999 , the last ever final of the UEFA Cup Winners ' Cup took place at Villa Park ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "Villa Park also hosted the 2012 FA Community Shield , as Wembley Stadium was in use for the final of the Olympic football tournament ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Steve_Wozniak",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.04406526492392315,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "He primarily designed the 1977 Apple II , known as one of the first highly successful mass-produced microcomputers , while Jobs oversaw the development of its unusual case and Rod Holt developed the unique power supply ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Stephen -LRB- or Stephan -RRB- Gary Wozniak -LRB- -LSB- ˈwɒzniæk -RSB- , born August 11 , 1950 -RRB- , nicknamed `` Woz '' , is an American inventor , electronics engineer , programmer , philanthropist , and technology entrepreneur who co-founded Apple Inc. ."
+            }
+          ]
+        },
+        {
+          "root": "Jenna_Jameson",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1025978352085154,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She started acting in erotic videos in 1993 after having worked as a stripper and glamor model ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-f272ba7fc3a1894e4dc21957e85a3588",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "f272ba7fc3a1894e4dc21957e85a3588",
+      "split": "formal",
+      "claim": "Anne Sullivan was a teacher.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Christian_Gottlob_Neefe",
+        "retrieval_score": 0.045883146774112316,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Christian Gottlob Neefe -LRB- -LSB- ˈneːfə -RSB- ; 5 February 1748 -- 28 January 1798 -RRB- was a German opera composer and conductor ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "He studied law at Leipzig University , but subsequently returned to music to become a pupil of the composer Johann Adam Hiller under whose guidance he wrote his first comic operas ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "In 1776 Neefe joined the Seyler theatrical company of Abel Seyler -LRB- then -RRB- in Dresden , and inherited the position of musical director from his mentor , Hiller ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Christa_McAuliffe",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.08489527199560176,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "She took a teaching position as a social studies teacher at Concord High School in New Hampshire in 1983 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "On January 28 , 1986 , the shuttle broke apart 73 seconds after launch ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "Sharon Christa McAuliffe -LRB- September 2 , 1948 -- January 28 , 1986 -RRB- was an American teacher from Concord , New Hampshire , and was one of the seven crew members killed in the Space Shuttle Challenger disaster ."
+            }
+          ]
+        },
+        {
+          "root": "Anne_Sullivan",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.1025978352085154,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She received her education as a student of the Perkins School for the Blind where upon graduation she became a teacher to Keller when she was 20 ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-f296581d43bc361464c35cb410f99518",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "f296581d43bc361464c35cb410f99518",
+      "split": "formal",
+      "claim": "The Wallace is a literary work.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Fabian_Nicieza",
+        "retrieval_score": 0.05822225097395828,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "Fabian Nicieza -LRB- born 31 December 1961 -RRB- is an Argentine-American comic book writer and editor who is best known for his work on Marvel titles such as X-Men , X-Force , New Warriors , Cable and Deadpool , and Thunderbolts , for all of which he helped create numerous characters ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "The_Wallace_-LRB-poem-RRB-",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.10846522890932808,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "For several hundred years following its publication , The Wallace was the second most popular book in Scotland after the Bible ."
+            }
+          ]
+        },
+        {
+          "root": "Bret_Easton_Ellis",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.06388765649999395,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Ellis also wrote the screenplay for the critically derided 2013 film The Canyons , an original work ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "Bret Easton Ellis -LRB- born March 7 , 1964 -RRB- is an American author , screenwriter , and short story writer ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-f5f5961c337641d6ef61446721d5a685",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "f5f5961c337641d6ef61446721d5a685",
+      "split": "formal",
+      "claim": "Congressional Space Medal of Honor is awarded by the First Lady.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Gordon_Ramsay",
+        "retrieval_score": 0.02594996480538414,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "He combines activities in the television , film , hospitality , and food industries and has promoted and hired various chefs who have apprenticed under his wing ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "In 2015 , Forbes '' listed his earnings at $ 60 million for the previous 12 months , and ranked him the 21st highest earning celebrity in the world ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "His restaurants have been awarded 16 Michelin stars in total ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Congressional_Space_Medal_of_Honor",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.11197850219117086,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "The highest award given by NASA , it is awarded by the President of the United States in Congress 's name on recommendations from the Administrator of the National Aeronautics and Space Administration ."
+            }
+          ]
+        },
+        {
+          "root": "Christa_McAuliffe",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.028618190351607065,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "She took a teaching position as a social studies teacher at Concord High School in New Hampshire in 1983 ."
+            },
+            {
+              "evidence_id": "C101",
+              "text": "On January 28 , 1986 , the shuttle broke apart 73 seconds after launch ."
+            },
+            {
+              "evidence_id": "C102",
+              "text": "Sharon Christa McAuliffe -LRB- September 2 , 1948 -- January 28 , 1986 -RRB- was an American teacher from Concord , New Hampshire , and was one of the seven crew members killed in the Space Shuttle Challenger disaster ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-f99abb90b74fb9f0ca27e4779e68576a",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "f99abb90b74fb9f0ca27e4779e68576a",
+      "split": "formal",
+      "claim": "Tamerlan Tsarnaev was an only child.",
+      "label": "Refuted",
+      "gold_binary": 0,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "Shooter_-LRB-TV_series-RRB-",
+        "retrieval_score": 0.05725983343138685,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "The show stars Ryan Phillippe in the lead role of Bob Lee Swagger an expert marksman living in exile who is coaxed back into action after learning of a plot to kill the president ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "Shooter is an American television drama series based on the novel Point of Impact by Stephen Hunter and the 2007 film of the same name ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Stephen_Hillenburg",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.09325048082403142,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Born in Lawton , Oklahoma and raised in Anaheim , California , Hillenburg became fascinated with the ocean as a child and also developed an interest in art ."
+            }
+          ]
+        },
+        {
+          "root": "Tamerlan_Tsarnaev",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.08304547985373996,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "During his incarceration , Tsarnaev 's brother allegedly said during questioning that the pair next intended to detonate explosives in Times Square in New York City ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "example_id": "fever-validation-v313-fbc8d7255f40b8572bfe4b5c225197ea",
+      "source_split": "fever_gold_evidence_validation",
+      "source_row_id": "fbc8d7255f40b8572bfe4b5c225197ea",
+      "split": "formal",
+      "claim": "Diwali is a festival.",
+      "label": "Supported",
+      "gold_binary": 1,
+      "fact_check_root": "fever",
+      "anchor": {
+        "root": "No_Country_for_Old_Men_-LRB-film-RRB-",
+        "retrieval_score": 0.13514747567989716,
+        "evidence": [
+          {
+            "evidence_id": "A00",
+            "text": "A cat-and-mouse drama starring Tommy Lee Jones , Javier Bardem , and Josh Brolin , it follows a Texas welder and Vietnam veteran in the desert landscape of 1980 West Texas ."
+          },
+          {
+            "evidence_id": "A01",
+            "text": "The American Film Institute listed it as an AFI Movie of the Year , and the National Board of Review selected the film as the best of 2007 ."
+          },
+          {
+            "evidence_id": "A02",
+            "text": "More critics included No Country for Old Men on their 2007 top ten lists than any other film , and many regard it as the Coen brothers ' masterpiece , as well as one of the best films of the 2000s ."
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "root": "Ann_Richards",
+          "annotation_role": "unannotated_retrieval_candidate",
+          "retrieval_score": 0.18549555830406728,
+          "evidence": [
+            {
+              "evidence_id": "C000",
+              "text": "Dorothy Ann Willis Richards -LRB- September 1 , 1933 -- September 13 , 2006 -RRB- was an American politician and the 45th Governor of Texas from 1991 to 1995 ."
+            },
+            {
+              "evidence_id": "C001",
+              "text": "Richards served as the 45th Governor of Texas from 1991 to 1995 and was defeated for re-election in 1994 by George W. Bush ."
+            },
+            {
+              "evidence_id": "C002",
+              "text": "A Democrat , she first came to national attention as the state treasurer of Texas , when she delivered the keynote address at the 1988 Democratic National Convention ."
+            }
+          ]
+        },
+        {
+          "root": "Diwali",
+          "annotation_role": "held_out_annotated_root",
+          "retrieval_score": 0.20739033894608508,
+          "evidence": [
+            {
+              "evidence_id": "C100",
+              "text": "Diwali or Deepavali is the Hindu festival of lights celebrated every year in autumn in the northern hemisphere -LRB- spring in southern hemisphere -RRB- ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

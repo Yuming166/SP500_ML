@@ -1,0 +1,18 @@
+{
+  "amendment_version": "recovery-v3.8.3-analysis-none-ledger-2026-09-03",
+  "status": "frozen_before_first_completed_outcome_evaluation",
+  "scope": "atomic_proof_only_none_ledger_diagnostic_crash_fix",
+  "primary_elar_changed": false,
+  "target_model_calls": false,
+  "outcomes_used_to_define_amendment": false,
+  "document_path": "docs/recovery_v3_8_3_analysis_amendment.md",
+  "document_sha256": "d8ef54012ca5a45f78646da0eba31b80d4b44e190307cba409002f17ce95aa43",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_8_3_analysis.py",
+  "implementation_sha256": "7416b599cc7982997c8700ebd8f4dc742e2b2d81f5c971b2337ae65e301537bf",
+  "protocol_manifest_sha256": "4821b88d667e15a503b43c9a8253de823656dd14b02d7568e9a734c05ecb0397",
+  "formal_records_sha256": {
+    "actions": "55f6fcbc545c27ea4bd1a288a50519c041c8cee29d53c6e97534c06b38f7b07c",
+    "certificates": "97b1f734c05b0251a6b1702b558cdcd68c6041db72e63120db735342d05ec2b4",
+    "ledgers": "77c5fb4d774255b8f4a670bf2a103e83facc46ebb46b7fa9dfbbc1c899982ddb"
+  }
+}

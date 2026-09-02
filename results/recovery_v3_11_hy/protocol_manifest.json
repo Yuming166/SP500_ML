@@ -1,0 +1,142 @@
+{
+  "protocol_version": "recovery-v3.11-group-robust-dual-head-hy-2026-09-03",
+  "status": "frozen_before_any_hy_study_root_call",
+  "preregistration_path": "docs/recovery_v3_11_preregistration.md",
+  "preregistration_sha256": "e3a1b6d98390c2489b81ceafa6ee2fa09cfc557db1c961d4a6d6977ee641a2a7",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_11.py",
+  "implementation_sha256": "43337895181c09749d1d9654b1014ef43b05ba2b3f800a474b5562b2312df697",
+  "run_script_path": "scripts/run_recovery_v3_11.sh",
+  "run_script_sha256": "016aa6fc1f275a26438959b411a23ae6d9ee849cca7f6eb160ae7a198a8de04a",
+  "embedding_script_path": "scripts/embed_recovery_v3_11_development.py",
+  "embedding_script_sha256": "738970f6e0211320bcbd9d8c48c7734ac5ada9e523fe6ed0c62758b445c630c7",
+  "selection_path": "results/recovery_v3_11_hy/selection_manifest.json",
+  "selection_sha256": "57d156621ae19c8a6b2379fa998fe15a095b80522ee60bf922d8554cad549e73",
+  "selection_audit": {
+    "counts": {
+      "formal": 188
+    },
+    "labels": {
+      "Refuted": 94,
+      "Supported": 94
+    },
+    "distinct_roots": 369,
+    "annotated_distinct_roots": 188,
+    "auxiliary_distinct_roots": 181,
+    "maximum_auxiliary_root_reuse": 5,
+    "score_direction_counts": {
+      "Refuted:distractor_at_least_annotated": 47,
+      "Refuted:distractor_below_annotated": 47,
+      "Supported:distractor_at_least_annotated": 47,
+      "Supported:distractor_below_annotated": 47
+    },
+    "candidate_0_annotated_fraction": 0.5,
+    "retrieval_role_auc": 0.5808482344952468,
+    "gates": {
+      "exact_count": true,
+      "native_labels_balanced": true,
+      "zero_source_claim_overlap": true,
+      "zero_source_root_overlap": true,
+      "all_annotated_roots_unique": true,
+      "annotated_and_auxiliary_roots_disjoint": true,
+      "auxiliary_root_reuse_at_most_5": true,
+      "three_distinct_roots_per_item": true,
+      "candidate_order_balanced": true,
+      "score_directions_balanced_within_label": true,
+      "oriented_retrieval_role_auc_at_most_065": true,
+      "retrieval_score_forbidden_from_primary_router": true
+    },
+    "passed": true
+  },
+  "router_manifest_path": "results/recovery_v3_11_hy/router/manifest.json",
+  "router_manifest_sha256": "5ed74d04ceb460ea12bec1428bbe062ed12ba49815490e0b6982a8fe1de6035f",
+  "router_inputs_path": "results/recovery_v3_11_hy/router_inputs.npz",
+  "router_inputs_sha256": "325b05c619415e936266766ec4f105a358c5cb141d83158af0bd07d739bf9d0f",
+  "router_inputs_metadata_sha256": "8b14323dd1d98c73b852c5a949bc2ef527fa8a5227e5cc5e5cb5198f255223ff",
+  "target": {
+    "model": "Hy-MT2-7B",
+    "endpoint": "http://127.0.0.1:31519/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/tencent/Hy-MT2-7B-FP8",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "d8157d51a5ddb0d7d81b36d9704320f2dff07726dd7ef0c927c967bb28913f59",
+        "generation_config.json": "56cd0974cae79f49ecaec4a02936bcabed2a4c8d8b6a780bf4a94ccbf344a78b",
+        "hf_quant_config.json": "53ee00e0d886e5d4ff8b67aac0a7a96197ecad61774c04c3263c6d69dd596e7c",
+        "model.safetensors.index.json": "9197bc9890101ed8c637840563c3da66c5bd9d90a6b8a52e3f1c604839716632",
+        "tokenizer_config.json": "1fffdb809549222938f4a732645dd984c7c0b2973d592c2d01e05425274317da",
+        "chat_template.jinja": "788ac16c5d7bfefc28655928ad524c8f378a44cb24d24fb125d6a5859b167677"
+      },
+      "weight_shard_sizes_bytes": {
+        "model-00001-of-00002.safetensors": 4997139976,
+        "model-00002-of-00002.safetensors": 3032764328
+      }
+    },
+    "temperature": 0.0,
+    "max_completion_tokens": 160,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "recovery_action",
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "yes",
+                "no"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "cited_evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "answer",
+            "confidence",
+            "cited_evidence_ids"
+          ]
+        },
+        "strict": true
+      }
+    },
+    "response_format_sha256": "06a1669e94f3157c40cab37e505544d7950c663f4464b93c3a356423e7f0014a",
+    "schema_repair_attempts": 1
+  },
+  "evaluation": {
+    "formal_examples": 188,
+    "per_native_label": 94,
+    "bootstrap_seed": 20261103,
+    "bootstrap_replicates": 10000,
+    "preoutcome_routes_required_before_gold_evaluation": true,
+    "primary_gates": [
+      "macro_gain_ci_lower_above_zero",
+      "damage_rate_at_most_005",
+      "both_label_groups_nonnegative",
+      "annotation_supported_repairs_at_least_10",
+      "net_fixes_above_keep_and_all_matched_baselines",
+      "provenance_path_accuracy_at_least_090"
+    ]
+  },
+  "claim_boundary": {
+    "hy_fit_or_threshold_calibration": false,
+    "fresh_claims_and_all_packet_roots": true,
+    "source_models_used_only_for_router_development": [
+      "Ling-3.0-tiny",
+      "Qwen3.5-4B",
+      "SUFE-Fin-R1"
+    ],
+    "target_answer_is_always_a_hy_generated_action": true,
+    "static_wikipedia_page_roots": true,
+    "publisher_independence": false,
+    "universal_cross_model_transfer": false
+  }
+}

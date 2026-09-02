@@ -1,0 +1,116 @@
+{
+  "protocol_version": "recovery-v3.9-qwen-to-finr1-elar-2026-09-03",
+  "status": "frozen_before_any_finr1_formal_task_call",
+  "preregistration_path": "docs/recovery_v3_9_preregistration.md",
+  "preregistration_sha256": "0f5572fbca51be1c14f7bf99b2fd2e53be1805a8ae90036029ec0cdb78a22f2b",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_9.py",
+  "implementation_sha256": "7b07771ad4bcb583157c1959fa7e1e76500a1ca6c1d6174fcd21fda41184dcfd",
+  "server_script_path": "scripts/start_finr1_v3_9.sh",
+  "server_script_sha256": "ebf2c379bf7d4c4cbb5fd6a67ec22a7c291ab3e2cbe00bd22b0b375b17c2fa49",
+  "source": {
+    "model": "Qwen3.5-4B",
+    "selection_path": "results/recovery_v3_7_1/selection_manifest.json",
+    "selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+    "router_manifest_path": "results/recovery_v3_7_1/router/manifest.json",
+    "router_manifest_sha256": "1b75b96948dfe5473146f78ea137ff6cb675155960c7e624a3b62faad0f3f516",
+    "formal_summary_sha256": "8516cfe9e88711b27298686a2103910117cb1e0eb8c00236bbc67ad3dc758633",
+    "router_protocol_version": "recovery-v3.7.1-elar-fever-train-2026-09-02",
+    "policy": {
+      "confidence_threshold": 0.8,
+      "lexical_threshold": 0.0,
+      "unsupported_term_cap": 1
+    }
+  },
+  "target": {
+    "model": "Fin-R1",
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/SUFE-AIFLM-Lab/Fin-R1",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "a9533f6d8bf8deef4a38bc746b2d339983f509adeabf93cbb93dec6b6779f4d2",
+        "generation_config.json": "857bcff40ad4f401db379782867256c0f2db17191d2fe4c4a5e539a71d1399bb",
+        "tokenizer_config.json": "7e88129d9769a0b14b1587a7d5e829fe93ac0e1511636471fdfc0811951418e6",
+        "special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+        "added_tokens.json": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+        "tokenizer.json": "a8506e7111b80c6d8635951a02eab0f4e1a8e4e5772da83846579e97b16f61bf",
+        "model.safetensors.index.json": "998a078123ffc97763690de7f2a677eb89168af5eaf8a5e12e6bc24d18e25bdb"
+      },
+      "weight_shard_sizes_bytes": {
+        "model-00001-of-00004.safetensors": 4877660776,
+        "model-00002-of-00004.safetensors": 4932751008,
+        "model-00003-of-00004.safetensors": 4330865200,
+        "model-00004-of-00004.safetensors": 1089994880
+      }
+    },
+    "runtime": {
+      "vllm": "0.28.0",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.16.1",
+      "compressed_tensors": "not_used",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda_visible_devices": "4",
+      "context_length": 8192,
+      "quantization": "none",
+      "generation_config": "vllm"
+    },
+    "temperature": 0.0,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "schema_repair_attempts": 1,
+    "architecture": "Qwen2ForCausalLM",
+    "checkpoint_dtype": "bfloat16"
+  },
+  "evaluation": {
+    "formal_examples": 400,
+    "per_native_label": 200,
+    "same_fixed_roots_as_qwen_formal": true,
+    "zero_claim_and_root_overlap_with_router_training": true,
+    "all_target_model_observables_regenerated": true,
+    "target_model_fit_or_calibration": false,
+    "bootstrap_seed": 20261102,
+    "bootstrap_replicates": 10000,
+    "primary_gates": [
+      "macro_gain_ci_lower_above_zero",
+      "damage_rate_at_most_005",
+      "both_label_groups_nonnegative",
+      "annotation_supported_repairs_at_least_10",
+      "net_fixes_above_keep_and_all_matched_baselines"
+    ]
+  },
+  "feature_boundary": {
+    "uses_target_gold_or_action_outcomes_at_inference": false,
+    "uses_target_annotation_role_at_inference": false,
+    "uses_source_identity_or_retrieval_score_at_inference": false,
+    "source_router_and_thresholds_immutable": true,
+    "certificate_or_ledger_failure_is_keep": true
+  },
+  "runner_script_path": "scripts/run_recovery_v3_9.sh",
+  "runner_script_sha256": "7955e1b885144664e963faabba1b29eb209fee63f62a80504352b21d7936736f",
+  "transport_conformance": {
+    "source": "Recovery V3.8.3 final closed conformance",
+    "implementation_sha256": "090c7cdf4b9c905e5d2a2582aba2b45606ee6edd012028e4f6ebc2cb5bf77604",
+    "no_further_parser_extension_after_freeze": true,
+    "canonicalizations": [
+      "strip_and_casefold_answer_only_if_yes_or_no",
+      "evidence_ids_to_cited_evidence_ids_only_if_unambiguous",
+      "empty_citation_string_to_empty_list",
+      "exact_allowed_citation_string_to_singleton_list",
+      "finite_numeric_confidence_in_1_to_100_divided_by_100"
+    ]
+  },
+  "registered_continuation": {
+    "ling_preregistration_path": "docs/recovery_v3_8_preregistration.md",
+    "ling_preregistration_sha256": "d53ee7637739e5b54c58e7a09f86b7a792fb62ea8b0f8b797391f8a618fc81cc",
+    "ling_summary_path": "results/recovery_v3_8_3_ling/evaluation/summary.json",
+    "ling_summary_sha256": "d814d90ec0549368397d761651de4289a263f0b825c7b3e21719a81f998509a7",
+    "ling_outcomes_used_for_finr1_fit_or_selection": false
+  },
+  "evaluation_diagnostic_fix": {
+    "scope": "atomic_proof_only_none_ledger_only",
+    "primary_elar_changed": false,
+    "implementation_sha256": "7416b599cc7982997c8700ebd8f4dc742e2b2d81f5c971b2337ae65e301537bf"
+  }
+}

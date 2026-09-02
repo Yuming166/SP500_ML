@@ -1,0 +1,115 @@
+{
+  "protocol_version": "recovery-v3.8-qwen-to-ling-elar-2026-09-02",
+  "status": "frozen_before_any_ling_formal_task_call",
+  "preregistration_path": "docs/recovery_v3_8_preregistration.md",
+  "preregistration_sha256": "d53ee7637739e5b54c58e7a09f86b7a792fb62ea8b0f8b797391f8a618fc81cc",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_8.py",
+  "implementation_sha256": "afa705a3225d2646d626ba5dbe1912b9cd96857816b14e02739c38d10771900a",
+  "server_script_path": "scripts/start_ling_v3_8.sh",
+  "server_script_sha256": "44868e07d737451b11b74c0316901a586cabf7a0c578954b57e5eca1896355b4",
+  "source": {
+    "model": "Qwen3.5-4B",
+    "selection_path": "results/recovery_v3_7_1/selection_manifest.json",
+    "selection_sha256": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+    "router_manifest_path": "results/recovery_v3_7_1/router/manifest.json",
+    "router_manifest_sha256": "1b75b96948dfe5473146f78ea137ff6cb675155960c7e624a3b62faad0f3f516",
+    "formal_summary_sha256": "8516cfe9e88711b27298686a2103910117cb1e0eb8c00236bbc67ad3dc758633",
+    "router_protocol_version": "recovery-v3.7.1-elar-fever-train-2026-09-02",
+    "policy": {
+      "confidence_threshold": 0.8,
+      "lexical_threshold": 0.0,
+      "unsupported_term_cap": 1
+    }
+  },
+  "target": {
+    "model": "Ling-3.0-tiny",
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "78296932c0a82af7490095d1962c15fb5e206ac162874516039c7f49280fc3d6",
+        "configuration.json": "625c81a3527ce4f7a739854b431f380a987dc4af5e07e099b568e50e2e3b248c",
+        "configuration_bailing_moe_v3.py": "f2c048966aec8a2f042cfeb1351f74d51a28589b409c55baae7d24e841c1f6c4",
+        "modeling_bailing_moe_v3.py": "c2509bf7ac580c262e2581d34d6403aa21682d2e10beb9ad85ad8820a7e33a40",
+        "generation_config.json": "64752c5973a55faf4cfc02604c7587c38b090f00013f91191f52362dcc79a4a8",
+        "tokenizer_config.json": "2456b0372956cd3e82f17e33372148b115a94970bfd4878ba5e7e60cd3204f74",
+        "chat_template.jinja": "eb6226c94ae38058f875d159f86a206b3a165828c0e7d6bda664ae14667f798a",
+        "model.safetensors.index.json": "fbdf6a4078381b6ba8819ac0b12829305c2e39639e978ecb8628c87ec03e28e9"
+      },
+      "weight_shard_sizes_bytes": {
+        "model-00000-of-00032.safetensors": 861148640,
+        "model-00001-of-00032.safetensors": 106257984,
+        "model-00002-of-00032.safetensors": 106257984,
+        "model-00003-of-00032.safetensors": 106257984,
+        "model-00004-of-00032.safetensors": 106257984,
+        "model-00005-of-00032.safetensors": 106257984,
+        "model-00006-of-00032.safetensors": 106258528,
+        "model-00007-of-00032.safetensors": 106258704,
+        "model-00008-of-00032.safetensors": 338985656,
+        "model-00009-of-00032.safetensors": 127510248,
+        "model-00010-of-00032.safetensors": 127510248,
+        "model-00011-of-00032.safetensors": 127510248,
+        "model-00012-of-00032.safetensors": 127510248,
+        "model-00013-of-00032.safetensors": 127510248,
+        "model-00014-of-00032.safetensors": 127510896,
+        "model-00015-of-00032.safetensors": 127511112,
+        "model-00016-of-00032.safetensors": 362177160,
+        "model-00017-of-00032.safetensors": 127510824,
+        "model-00018-of-00032.safetensors": 127510824,
+        "model-00019-of-00032.safetensors": 127510824,
+        "model-00020-of-00032.safetensors": 127510824,
+        "model-00021-of-00032.safetensors": 127510824,
+        "model-00022-of-00032.safetensors": 127511472,
+        "model-00023-of-00032.safetensors": 127511688,
+        "model-00024-of-00032.safetensors": 821858808,
+        "model-00025-of-00032.safetensors": 127510824,
+        "model-00026-of-00032.safetensors": 127510824,
+        "model-00027-of-00032.safetensors": 127510824,
+        "model-00028-of-00032.safetensors": 127510824,
+        "model-00029-of-00032.safetensors": 127510824,
+        "model-00030-of-00032.safetensors": 127511472,
+        "model-00031-of-00032.safetensors": 127511688
+      }
+    },
+    "runtime": {
+      "vllm": "0.28.0",
+      "torch": "2.13.0",
+      "transformers": "5.16.1",
+      "compressed_tensors": "0.17.0",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda_visible_devices": "4",
+      "context_length": 8192,
+      "quantization": "compressed-tensors-int4",
+      "generation_config": "vllm"
+    },
+    "temperature": 0.0,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "schema_repair_attempts": 1
+  },
+  "evaluation": {
+    "formal_examples": 400,
+    "per_native_label": 200,
+    "same_fixed_roots_as_qwen_formal": true,
+    "zero_claim_and_root_overlap_with_router_training": true,
+    "all_target_model_observables_regenerated": true,
+    "target_model_fit_or_calibration": false,
+    "bootstrap_seed": 20261102,
+    "bootstrap_replicates": 10000,
+    "primary_gates": [
+      "macro_gain_ci_lower_above_zero",
+      "damage_rate_at_most_005",
+      "both_label_groups_nonnegative",
+      "annotation_supported_repairs_at_least_10",
+      "net_fixes_above_keep_and_all_matched_baselines"
+    ]
+  },
+  "feature_boundary": {
+    "uses_target_gold_or_action_outcomes_at_inference": false,
+    "uses_target_annotation_role_at_inference": false,
+    "uses_source_identity_or_retrieval_score_at_inference": false,
+    "source_router_and_thresholds_immutable": true,
+    "certificate_or_ledger_failure_is_keep": true
+  }
+}

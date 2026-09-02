@@ -1,0 +1,134 @@
+{
+  "protocol_version": "recovery-v3.12-selective-cosign-hy18-2026-09-03",
+  "status": "frozen_before_any_hy18_study_root_call",
+  "preregistration_sha256": "48d8d5eb51fdd0fa92a40db6a020cbc0ca3eeed2bddbc622387e1257d65c2ce3",
+  "implementation_path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_12.py",
+  "implementation_sha256": "899e7559bfa27b60108eaf303586607333dbe5c048f8d8e2076c622697e95f83",
+  "run_script_sha256": "bfdcbac99535ab103d77ebbea0a31659277f45db40eedd0d0fb31b2875a49063",
+  "server_script_sha256": "ae4909adcefe8200078443772792c417fe417143bbff29bbcf8fecd1d073bdd9",
+  "embedding_script_sha256": "738970f6e0211320bcbd9d8c48c7734ac5ada9e523fe6ed0c62758b445c630c7",
+  "selection_sha256": "68eb73b4b9afd9be53ae5fa74ce8e092178ce01b434a9c2e073c2fb11630a715",
+  "selection_audit": {
+    "counts": {
+      "formal": 112
+    },
+    "labels": {
+      "Supported": 56,
+      "Refuted": 56
+    },
+    "distinct_roots": 219,
+    "annotated_distinct_roots": 112,
+    "auxiliary_distinct_roots": 107,
+    "maximum_auxiliary_root_reuse": 7,
+    "score_direction_counts": {
+      "Refuted:distractor_at_least_annotated": 28,
+      "Refuted:distractor_below_annotated": 28,
+      "Supported:distractor_at_least_annotated": 28,
+      "Supported:distractor_below_annotated": 28
+    },
+    "candidate_0_annotated_fraction": 0.5,
+    "retrieval_role_auc": 0.5784837372448979,
+    "gates": {
+      "exact_count": true,
+      "labels_balanced": true,
+      "zero_exposed_claim_overlap": true,
+      "zero_exposed_root_overlap": true,
+      "annotated_roots_unique": true,
+      "annotated_auxiliary_disjoint": true,
+      "auxiliary_reuse_at_most_7": true,
+      "three_distinct_roots_per_item": true,
+      "candidate_order_balanced": true,
+      "score_directions_balanced": true,
+      "oriented_retrieval_role_auc_at_most_065": true,
+      "retrieval_score_forbidden_from_primary_router": true
+    },
+    "passed": true
+  },
+  "router_manifest_sha256": "0927f852e0e82d684cb603cf887fa3148832dc2e67c0eea655ad4de1d650c882",
+  "router_inputs_sha256": "aebf7ca854a1e4ca2ca3352bb6b80358d5f5f17ad9f6ab837eb854f424d88124",
+  "router_inputs_metadata_sha256": "fb29d922273eba6fc1c0bfe5d289ee8788bfdde03ed3fe68360b8c84a3e69c2c",
+  "target": {
+    "model": "Hy-MT2-1.8B",
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/tencent/Hy-MT2-1.8B-FP8",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "918388dc27a1360c72e7fc07de6daf4f2e8136bd8d06a04ce006bbedcbe08a2e",
+        "generation_config.json": "0e28667f1cb4c7b880b9223b2d87978f88e79ed7ae037de1021f826c18d4ed6f",
+        "hf_quant_config.json": "53ee00e0d886e5d4ff8b67aac0a7a96197ecad61774c04c3263c6d69dd596e7c",
+        "tokenizer_config.json": "53bd8581b601a8ee9caefeb988207de50b3fc0b733295bdf5ad68dec4cc0b07c",
+        "chat_template.jinja": "b7491ec0e9c869dfce20f2176758099bf248d979dd05530ede99deb21698acee"
+      },
+      "weight_shard_sizes_bytes": {
+        "model.safetensors": 2038746952
+      }
+    },
+    "temperature": 0.0,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "recovery_action",
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "yes",
+                "no"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "cited_evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "answer",
+            "confidence",
+            "cited_evidence_ids"
+          ]
+        },
+        "strict": true
+      }
+    },
+    "schema_repair_attempts": 1
+  },
+  "teacher": {
+    "model": "Qwen3.5-4B",
+    "endpoint": "http://10.63.0.82:31518/v1/chat/completions",
+    "queried_only_for_frozen_provisional_routes": true,
+    "temperature": 0.0
+  },
+  "evaluation": {
+    "formal_examples": 112,
+    "per_native_label": 56,
+    "bootstrap_seed": 20261104,
+    "bootstrap_replicates": 10000,
+    "primary_gates": [
+      "macro_gain_ci_lower_above_zero",
+      "zero_observed_harms",
+      "both_label_groups_nonnegative",
+      "annotation_supported_repairs_at_least_5",
+      "net_fixes_above_keep_and_all_matched_baselines",
+      "provenance_path_accuracy_at_least_090",
+      "teacher_calls_fewer_than_formal_examples"
+    ]
+  },
+  "claim_boundary": {
+    "target_fit_or_calibration": false,
+    "unseen_target_checkpoint": true,
+    "fever_train_to_validation_shift": true,
+    "target_answer_is_always_target_generated": true,
+    "selective_teacher_compute": true,
+    "universal_transfer": false
+  }
+}

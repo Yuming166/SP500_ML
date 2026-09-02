@@ -1,0 +1,2813 @@
+{
+  "protocol_version": "recovery-v3.12-selective-cosign-hy18-2026-09-03",
+  "protocol_manifest_sha256": "3e3f642938bf134d04b52aac59ca47afd1f604901c8655a2b98ffecf4e1f15e0",
+  "target_action_records_sha256": "c6ef3b9a57d0f6154123b66afca376258f178d05268349e51fea003c9e07f359",
+  "router_inputs_sha256": "aebf7ca854a1e4ca2ca3352bb6b80358d5f5f17ad9f6ab837eb854f424d88124",
+  "outcomes_accessed": false,
+  "annotation_roles_accessed": false,
+  "provisional_budget": 2,
+  "routes": {
+    "fever-validation-012904176c127da03438ac3e91d736f2": "KEEP",
+    "fever-validation-0351aa6f56f90d1cddde3cecc0e9cf2e": "KEEP",
+    "fever-validation-053da831e36bdfa0670095f164e57e46": "KEEP",
+    "fever-validation-06939996b560cc75a373423d421c913e": "KEEP",
+    "fever-validation-0cb26100869adac12d62c0e0b8049110": "KEEP",
+    "fever-validation-0cd2046179699dbe6862985b90181beb": "KEEP",
+    "fever-validation-18f0ddcb340971f8bada16a4120c7844": "candidate_0",
+    "fever-validation-1c4002eb1ee66c816030357de9f5ada7": "KEEP",
+    "fever-validation-1c404f70a07e54978015b31762ce48c9": "KEEP",
+    "fever-validation-1c6fb5cb8a6e4819e8ae6830d2ed29c3": "KEEP",
+    "fever-validation-1e64858812be936fab47133344bf0e07": "KEEP",
+    "fever-validation-26b2d54b7ac667e2bf8e540e60fadb60": "KEEP",
+    "fever-validation-2879446b730da7eeaa76f661a50a1129": "KEEP",
+    "fever-validation-2b93920af0d1aea4ef3bafbce0f52300": "KEEP",
+    "fever-validation-2e602a7c4bd1594c5dd17a3b9d31aa55": "KEEP",
+    "fever-validation-30793402e0df086d17fb9ebc6b2813e3": "KEEP",
+    "fever-validation-317407b74c9fd02a04f3b2607b4d95b2": "KEEP",
+    "fever-validation-3262a15b0a73a57738664d4a84181a05": "KEEP",
+    "fever-validation-3332e2ba998749f606368378a8ef19bc": "KEEP",
+    "fever-validation-422a85ea87f05ef46b9a3f4fc5f69073": "KEEP",
+    "fever-validation-454f141a1779b5ece94f6ef422c5f1fd": "KEEP",
+    "fever-validation-4acf87f34eac1963226ff8cb22511565": "KEEP",
+    "fever-validation-4e0c9bfa3f0c71495034df4acad88716": "KEEP",
+    "fever-validation-4fbc80c5784202df6072e373818c581f": "KEEP",
+    "fever-validation-52f3403bff3acc018286d0332184ba48": "KEEP",
+    "fever-validation-56e5e24ee8d5b65b4c8b372b21d00d66": "KEEP",
+    "fever-validation-5a0f0126337969571622fb32dba6ec65": "KEEP",
+    "fever-validation-5b97c0b7d276cd1d3ade8f3589c45c40": "KEEP",
+    "fever-validation-5c2813162123dbcce75d101f9d9d29c4": "KEEP",
+    "fever-validation-5e6341966910fa8a0d09cd89c8005201": "KEEP",
+    "fever-validation-6079fae7ad40f705667190d4a4eed1a9": "KEEP",
+    "fever-validation-60adb10e775eba4dc940bdae74bd439c": "KEEP",
+    "fever-validation-62642287765fdfed2e79224f4bc1b7b5": "KEEP",
+    "fever-validation-6375af1672db752d3e65082c8c4cf4d4": "KEEP",
+    "fever-validation-6544fe4587c47e1182b3cba3a3965a88": "KEEP",
+    "fever-validation-65c38793e10022ba1a8a77b1eb3d2565": "KEEP",
+    "fever-validation-6af9a76a151c875084a5827b93214729": "KEEP",
+    "fever-validation-6d57c37d16ab5b2da0097f44a8da0da4": "KEEP",
+    "fever-validation-6d925965ad0f947cc9e50a1e68740291": "KEEP",
+    "fever-validation-76d81daade8e385e5198f125dfd3ff7a": "KEEP",
+    "fever-validation-774d5386e1ffd09a639493d7abf6352f": "KEEP",
+    "fever-validation-7e16274662fb8bdbdd30b36087552d73": "KEEP",
+    "fever-validation-7ff52c15ba47c504dd88124222245f03": "KEEP",
+    "fever-validation-800972776c01b2c9bc0403b1e2449ed4": "KEEP",
+    "fever-validation-81c94afb96ae7397a6331056e88310be": "KEEP",
+    "fever-validation-826b750c118e586c4832c1f7287a3e2b": "KEEP",
+    "fever-validation-88ba83e869b834d01821b216d3163916": "KEEP",
+    "fever-validation-896288e283e369cd9b155337cd315193": "KEEP",
+    "fever-validation-8b32776efdf86e56e1a42226239b351f": "candidate_1",
+    "fever-validation-90552e4052240324ada393b9f66e342b": "KEEP",
+    "fever-validation-92e2c3585b8d3b97c54dea2878481a8d": "KEEP",
+    "fever-validation-952129ad916d91155d2d7f663d7355ba": "KEEP",
+    "fever-validation-967ea38f468059a362b74ae7c6f798d5": "KEEP",
+    "fever-validation-9bae59d1ea86bf04ab41e55d3d911ede": "KEEP",
+    "fever-validation-9cf4fa7fec68b4f084bde059e3f71cc1": "KEEP",
+    "fever-validation-a24c4d5366970f93d47faeb9e10c7025": "KEEP",
+    "fever-validation-a3bc12d17da235bb1fcb9d2dc9f69b03": "KEEP",
+    "fever-validation-a3fc50c45aa6471f3b5993c8d4b0fdd2": "KEEP",
+    "fever-validation-a4d10ef428406b6db173b2a44091c9d5": "KEEP",
+    "fever-validation-a7580f83a6e0b75db6842a963367336e": "KEEP",
+    "fever-validation-a8bf7608b5fafb207f170990ce595f36": "KEEP",
+    "fever-validation-aabb56eeeeef6aa28d599e84a0bdc551": "KEEP",
+    "fever-validation-ac212d4282f7ee7035cd353e4c090447": "KEEP",
+    "fever-validation-ad1b0323b7f4793d82fc95e9c5fec0b4": "KEEP",
+    "fever-validation-aec2d4399b84034b6bbb17e9af110d46": "KEEP",
+    "fever-validation-b2ae46a45d776ad5179e40e94973ca4e": "KEEP",
+    "fever-validation-b3ff1b5c451952e912f1047ddc09f2b5": "KEEP",
+    "fever-validation-b59a8eaca7d52fce401833b294f502c4": "KEEP",
+    "fever-validation-b658fa055afb2a47b5cfa8882f2be9a5": "KEEP",
+    "fever-validation-b78747088f56da2d25f2471cc0549af5": "KEEP",
+    "fever-validation-b905d4424b856e21a503d9b648d43ca0": "KEEP",
+    "fever-validation-baa937f8669f26264a4ad8655b7288d0": "KEEP",
+    "fever-validation-bc759497fde0c94a5e1acbdcd511194f": "KEEP",
+    "fever-validation-bca094166b58f8a9b63f11b99e22efc8": "KEEP",
+    "fever-validation-bcb6eff1086ba4e7b3cbd61c53884205": "KEEP",
+    "fever-validation-c03e23b12b0ea38a5bce1ed802f89a27": "KEEP",
+    "fever-validation-c236cf9883b9f6c06ce8d173aab18a88": "KEEP",
+    "fever-validation-c39e62c1439e9836e51c9e30bd591793": "KEEP",
+    "fever-validation-c8b562edbe174dc20e95ec62cf58cf6d": "KEEP",
+    "fever-validation-c8f7977481ac412cfb27eac5cc6d1a46": "KEEP",
+    "fever-validation-cce8cde8498239f3e2a2ea1fef435948": "KEEP",
+    "fever-validation-cdc29a2a7695cda53f3ef917223b4289": "KEEP",
+    "fever-validation-cdf1139871ed31b566e3c442da80f02b": "KEEP",
+    "fever-validation-d23286a518fb9a6d22e4acf05ed97261": "KEEP",
+    "fever-validation-d36f38a8afbf764f5ae7dbc6be36a20d": "KEEP",
+    "fever-validation-d38393b36815d32f7283324de9cb1f5e": "KEEP",
+    "fever-validation-d42c67a5c20a8422440ff255d1d08560": "KEEP",
+    "fever-validation-d4cd5ef151c24059fb59ef87a0632b27": "KEEP",
+    "fever-validation-d7c3fee6938af2ea6ece7a4fe5b8cc3a": "KEEP",
+    "fever-validation-da64a1a827e9a63072d2b7e9159ab742": "KEEP",
+    "fever-validation-de1765d97ecf78b896eccd45c9cf966a": "KEEP",
+    "fever-validation-de63946862c66a1c5daec189c113d43a": "KEEP",
+    "fever-validation-def4cabd842121f7f93fe7c2413d85d9": "KEEP",
+    "fever-validation-e12e32729e391a93597d4c7e2b63f99e": "KEEP",
+    "fever-validation-e3658da9287daa403685c0d0c658c7c1": "KEEP",
+    "fever-validation-e3d1386c46a13c880e1b2639ea33c359": "KEEP",
+    "fever-validation-e48df8d330d4bfba26993d7b7e3b9dba": "KEEP",
+    "fever-validation-e764984b137b122d3cf77d59b0837fb5": "KEEP",
+    "fever-validation-ec19d5ae2de5792c4de4a1cb396d6201": "KEEP",
+    "fever-validation-ec3210ffa446217b0de7b410b566463d": "KEEP",
+    "fever-validation-ee96243127ad3628a6035eba71735661": "KEEP",
+    "fever-validation-eeed1bc147538e4c830e4a91181b5304": "KEEP",
+    "fever-validation-ef000410fb9dac86f9d9876d4a45bd1d": "KEEP",
+    "fever-validation-efaeaf1b43c63521f9d399346b9cad43": "KEEP",
+    "fever-validation-f09c10ac12fc245d6e9f1f6fb826787d": "KEEP",
+    "fever-validation-f1928fa3d171d5bd41bec282ebcdab03": "KEEP",
+    "fever-validation-f1fe2a8c00f023ef5dc13269585da496": "KEEP",
+    "fever-validation-f4fdfb3f7614362543c88f8504672d28": "KEEP",
+    "fever-validation-f5b42e26283e312301c9fda272756d3c": "KEEP",
+    "fever-validation-f7ce7381dbf7c57c970af21dc70e8557": "KEEP",
+    "fever-validation-f9a472cd640a5c190baafa71b2f3213f": "KEEP",
+    "fever-validation-fa382d902933e5e15b17a9a1aaf28622": "KEEP"
+  },
+  "diagnostics": {
+    "fever-validation-012904176c127da03438ac3e91d736f2": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8029656410217285,
+        0.4755745530128479
+      ],
+      "provenance_margin": 0.3273910880088806,
+      "p_supported": 0.5790825507176888,
+      "relation_margin": 0.07908255071768877,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-0351aa6f56f90d1cddde3cecc0e9cf2e": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.14599087834358215,
+        0.7217928171157837
+      ],
+      "provenance_margin": 0.5758019387722015,
+      "p_supported": 0.4363579667711559,
+      "relation_margin": 0.0636420332288441,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-053da831e36bdfa0670095f164e57e46": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.07149513065814972,
+        0.6721394062042236
+      ],
+      "provenance_margin": 0.6006442755460739,
+      "p_supported": 0.6582053568152229,
+      "relation_margin": 0.15820535681522285,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-06939996b560cc75a373423d421c913e": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.18444764614105225,
+        0.7005746364593506
+      ],
+      "provenance_margin": 0.5161269903182983,
+      "p_supported": 0.3738968218008083,
+      "relation_margin": 0.1261031781991917,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-0cb26100869adac12d62c0e0b8049110": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2355768084526062,
+        0.6909067630767822
+      ],
+      "provenance_margin": 0.455329954624176,
+      "p_supported": 0.5434470141308388,
+      "relation_margin": 0.043447014130838846,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-0cd2046179699dbe6862985b90181beb": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.5940762758255005,
+        0.26271671056747437
+      ],
+      "provenance_margin": 0.3313595652580261,
+      "p_supported": 0.34241682177375365,
+      "relation_margin": 0.15758317822624635,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-18f0ddcb340971f8bada16a4120c7844": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7261439561843872,
+        0.36623913049697876
+      ],
+      "provenance_margin": 0.35990482568740845,
+      "p_supported": 0.7473136653331145,
+      "relation_margin": 0.2473136653331145,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.9,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": true,
+        "changes_consensus": true,
+        "target_relation_agreement": true
+      },
+      "route": "candidate_0"
+    },
+    "fever-validation-1c4002eb1ee66c816030357de9f5ada7": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.14306515455245972,
+        0.6691635251045227
+      ],
+      "provenance_margin": 0.526098370552063,
+      "p_supported": 0.25284663162208243,
+      "relation_margin": 0.24715336837791757,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-1c404f70a07e54978015b31762ce48c9": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.33316802978515625,
+        0.7132155299186707
+      ],
+      "provenance_margin": 0.3800475001335144,
+      "p_supported": 0.26587184368988354,
+      "relation_margin": 0.23412815631011646,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-1c6fb5cb8a6e4819e8ae6830d2ed29c3": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6899360418319702,
+        0.35367947816848755
+      ],
+      "provenance_margin": 0.33625656366348267,
+      "p_supported": 0.681070662863157,
+      "relation_margin": 0.18107066286315698,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-1e64858812be936fab47133344bf0e07": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7903643846511841,
+        0.1788717806339264
+      ],
+      "provenance_margin": 0.6114926040172577,
+      "p_supported": 0.560789684963438,
+      "relation_margin": 0.06078968496343795,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-26b2d54b7ac667e2bf8e540e60fadb60": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7094044089317322,
+        0.15230311453342438
+      ],
+      "provenance_margin": 0.5571012943983078,
+      "p_supported": 0.29581867020721964,
+      "relation_margin": 0.20418132979278036,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-2879446b730da7eeaa76f661a50a1129": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7278333902359009,
+        0.2541326582431793
+      ],
+      "provenance_margin": 0.47370073199272156,
+      "p_supported": 0.5240226474684019,
+      "relation_margin": 0.02402264746840188,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-2b93920af0d1aea4ef3bafbce0f52300": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.27424901723861694,
+        0.5549259781837463
+      ],
+      "provenance_margin": 0.2806769609451294,
+      "p_supported": 0.40853398787106804,
+      "relation_margin": 0.09146601212893196,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-2e602a7c4bd1594c5dd17a3b9d31aa55": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.755911111831665,
+        0.16603709757328033
+      ],
+      "provenance_margin": 0.5898740142583847,
+      "p_supported": 0.3626872608679086,
+      "relation_margin": 0.1373127391320914,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-30793402e0df086d17fb9ebc6b2813e3": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3389089107513428,
+        0.7310085296630859
+      ],
+      "provenance_margin": 0.39209961891174316,
+      "p_supported": 0.3667535527805849,
+      "relation_margin": 0.1332464472194151,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-317407b74c9fd02a04f3b2607b4d95b2": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.619263768196106,
+        0.19909943640232086
+      ],
+      "provenance_margin": 0.4201643317937851,
+      "p_supported": 0.4884290554885556,
+      "relation_margin": 0.011570944511444414,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-3262a15b0a73a57738664d4a84181a05": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8049464821815491,
+        0.2547549605369568
+      ],
+      "provenance_margin": 0.5501915216445923,
+      "p_supported": 0.5553799619257627,
+      "relation_margin": 0.055379961925762666,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-3332e2ba998749f606368378a8ef19bc": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3588714599609375,
+        0.8008466958999634
+      ],
+      "provenance_margin": 0.4419752359390259,
+      "p_supported": 0.5919863446978434,
+      "relation_margin": 0.09198634469784339,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-422a85ea87f05ef46b9a3f4fc5f69073": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6435151100158691,
+        0.32327285408973694
+      ],
+      "provenance_margin": 0.3202422559261322,
+      "p_supported": 0.6486813798556873,
+      "relation_margin": 0.1486813798556873,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-454f141a1779b5ece94f6ef422c5f1fd": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2512933015823364,
+        0.7746371626853943
+      ],
+      "provenance_margin": 0.5233438611030579,
+      "p_supported": 0.33209109881671434,
+      "relation_margin": 0.16790890118328566,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-4acf87f34eac1963226ff8cb22511565": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7872669696807861,
+        0.16646671295166016
+      ],
+      "provenance_margin": 0.620800256729126,
+      "p_supported": 0.6570154779146704,
+      "relation_margin": 0.1570154779146704,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-4e0c9bfa3f0c71495034df4acad88716": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6623680591583252,
+        0.39128121733665466
+      ],
+      "provenance_margin": 0.27108684182167053,
+      "p_supported": 0.30052168995245415,
+      "relation_margin": 0.19947831004754585,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-4fbc80c5784202df6072e373818c581f": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.06639280915260315,
+        0.7903972864151001
+      ],
+      "provenance_margin": 0.724004477262497,
+      "p_supported": 0.3281477955329435,
+      "relation_margin": 0.1718522044670565,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-52f3403bff3acc018286d0332184ba48": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.17740552127361298,
+        0.7263191342353821
+      ],
+      "provenance_margin": 0.5489136129617691,
+      "p_supported": 0.265190836121621,
+      "relation_margin": 0.23480916387837902,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-56e5e24ee8d5b65b4c8b372b21d00d66": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6162132024765015,
+        0.11708570271730423
+      ],
+      "provenance_margin": 0.49912749975919724,
+      "p_supported": 0.27161409297648303,
+      "relation_margin": 0.22838590702351697,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-5a0f0126337969571622fb32dba6ec65": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6772318482398987,
+        0.26346614956855774
+      ],
+      "provenance_margin": 0.41376569867134094,
+      "p_supported": 0.62894655245435,
+      "relation_margin": 0.12894655245435005,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.6,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": false,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": true,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-5b97c0b7d276cd1d3ade8f3589c45c40": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.626246452331543,
+        0.13282513618469238
+      ],
+      "provenance_margin": 0.4934213161468506,
+      "p_supported": 0.5941976267229787,
+      "relation_margin": 0.09419762672297871,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-5c2813162123dbcce75d101f9d9d29c4": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7370548248291016,
+        0.2514825463294983
+      ],
+      "provenance_margin": 0.48557227849960327,
+      "p_supported": 0.5403207296957365,
+      "relation_margin": 0.040320729695736524,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-5e6341966910fa8a0d09cd89c8005201": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.1504695862531662,
+        0.640953779220581
+      ],
+      "provenance_margin": 0.49048419296741486,
+      "p_supported": 0.3356405382552657,
+      "relation_margin": 0.16435946174473431,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6079fae7ad40f705667190d4a4eed1a9": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.13492299616336823,
+        0.6208878755569458
+      ],
+      "provenance_margin": 0.4859648793935776,
+      "p_supported": 0.6600667569508966,
+      "relation_margin": 0.16006675695089656,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-60adb10e775eba4dc940bdae74bd439c": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7521318197250366,
+        0.1716870218515396
+      ],
+      "provenance_margin": 0.580444797873497,
+      "p_supported": 0.659440177022494,
+      "relation_margin": 0.15944017702249402,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-62642287765fdfed2e79224f4bc1b7b5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6433913707733154,
+        0.16767951846122742
+      ],
+      "provenance_margin": 0.475711852312088,
+      "p_supported": 0.2915496238441289,
+      "relation_margin": 0.2084503761558711,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6375af1672db752d3e65082c8c4cf4d4": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.06970997154712677,
+        0.5993948578834534
+      ],
+      "provenance_margin": 0.5296848863363266,
+      "p_supported": 0.22435732479937756,
+      "relation_margin": 0.27564267520062247,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6544fe4587c47e1182b3cba3a3965a88": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.15900856256484985,
+        0.730846643447876
+      ],
+      "provenance_margin": 0.5718380808830261,
+      "p_supported": 0.22850501998066988,
+      "relation_margin": 0.27149498001933015,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-65c38793e10022ba1a8a77b1eb3d2565": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.13417521119117737,
+        0.8077981472015381
+      ],
+      "provenance_margin": 0.6736229360103607,
+      "p_supported": 0.32163411304199024,
+      "relation_margin": 0.17836588695800976,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6af9a76a151c875084a5827b93214729": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.5868029594421387,
+        0.15035885572433472
+      ],
+      "provenance_margin": 0.43644410371780396,
+      "p_supported": 0.6162568562231817,
+      "relation_margin": 0.11625685622318171,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6d57c37d16ab5b2da0097f44a8da0da4": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.23993700742721558,
+        0.7600690722465515
+      ],
+      "provenance_margin": 0.5201320648193359,
+      "p_supported": 0.6481586808798152,
+      "relation_margin": 0.1481586808798152,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-6d925965ad0f947cc9e50a1e68740291": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.666315495967865,
+        0.25041463971138
+      ],
+      "provenance_margin": 0.415900856256485,
+      "p_supported": 0.6571339160832818,
+      "relation_margin": 0.15713391608328175,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": true,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-76d81daade8e385e5198f125dfd3ff7a": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6588490009307861,
+        0.17438951134681702
+      ],
+      "provenance_margin": 0.4844594895839691,
+      "p_supported": 0.2938631631203295,
+      "relation_margin": 0.2061368368796705,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-774d5386e1ffd09a639493d7abf6352f": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.19180947542190552,
+        0.7438117861747742
+      ],
+      "provenance_margin": 0.5520023107528687,
+      "p_supported": 0.623816553269974,
+      "relation_margin": 0.12381655326997398,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-7e16274662fb8bdbdd30b36087552d73": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8178325891494751,
+        0.23920120298862457
+      ],
+      "provenance_margin": 0.5786313861608505,
+      "p_supported": 0.6002965506510968,
+      "relation_margin": 0.10029655065109677,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-7ff52c15ba47c504dd88124222245f03": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.22308126091957092,
+        0.6932739019393921
+      ],
+      "provenance_margin": 0.47019264101982117,
+      "p_supported": 0.7076203071631578,
+      "relation_margin": 0.20762030716315782,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-800972776c01b2c9bc0403b1e2449ed4": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.26292645931243896,
+        0.7628592848777771
+      ],
+      "provenance_margin": 0.49993282556533813,
+      "p_supported": 0.49713941015990304,
+      "relation_margin": 0.002860589840096961,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-81c94afb96ae7397a6331056e88310be": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3993132412433624,
+        0.7572275996208191
+      ],
+      "provenance_margin": 0.35791435837745667,
+      "p_supported": 0.4324201757650434,
+      "relation_margin": 0.06757982423495662,
+      "relation_answer": "no",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": true,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-826b750c118e586c4832c1f7287a3e2b": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.689597487449646,
+        0.2333877831697464
+      ],
+      "provenance_margin": 0.4562097042798996,
+      "p_supported": 0.29005644551283827,
+      "relation_margin": 0.20994355448716173,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-88ba83e869b834d01821b216d3163916": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.0707976371049881,
+        0.6266975402832031
+      ],
+      "provenance_margin": 0.555899903178215,
+      "p_supported": 0.6862462190822112,
+      "relation_margin": 0.18624621908221117,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-896288e283e369cd9b155337cd315193": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.5225180387496948,
+        0.242922842502594
+      ],
+      "provenance_margin": 0.27959519624710083,
+      "p_supported": 0.311672018273878,
+      "relation_margin": 0.18832798172612197,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-8b32776efdf86e56e1a42226239b351f": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2999168038368225,
+        0.7126977443695068
+      ],
+      "provenance_margin": 0.4127809405326843,
+      "p_supported": 0.6867215320009431,
+      "relation_margin": 0.1867215320009431,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.9,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": true,
+        "changes_consensus": true,
+        "target_relation_agreement": true
+      },
+      "route": "candidate_1"
+    },
+    "fever-validation-90552e4052240324ada393b9f66e342b": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.727159857749939,
+        0.15843966603279114
+      ],
+      "provenance_margin": 0.5687201917171478,
+      "p_supported": 0.6526348763866415,
+      "relation_margin": 0.15263487638664153,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-92e2c3585b8d3b97c54dea2878481a8d": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.05322679504752159,
+        0.6759642958641052
+      ],
+      "provenance_margin": 0.6227375008165836,
+      "p_supported": 0.2826776082182093,
+      "relation_margin": 0.2173223917817907,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-952129ad916d91155d2d7f663d7355ba": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.24246108531951904,
+        0.6708998680114746
+      ],
+      "provenance_margin": 0.42843878269195557,
+      "p_supported": 0.5677798129632528,
+      "relation_margin": 0.06777981296325275,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-967ea38f468059a362b74ae7c6f798d5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6848053932189941,
+        0.15670526027679443
+      ],
+      "provenance_margin": 0.5281001329421997,
+      "p_supported": 0.6777407494331541,
+      "relation_margin": 0.1777407494331541,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.9,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": true,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-9bae59d1ea86bf04ab41e55d3d911ede": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6274054050445557,
+        0.3098604083061218
+      ],
+      "provenance_margin": 0.31754499673843384,
+      "p_supported": 0.2151961735728667,
+      "relation_margin": 0.2848038264271333,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-9cf4fa7fec68b4f084bde059e3f71cc1": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.18722930550575256,
+        0.8055825233459473
+      ],
+      "provenance_margin": 0.6183532178401947,
+      "p_supported": 0.38341919189620594,
+      "relation_margin": 0.11658080810379406,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a24c4d5366970f93d47faeb9e10c7025": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7119503021240234,
+        0.39235538244247437
+      ],
+      "provenance_margin": 0.3195949196815491,
+      "p_supported": 0.37716324072750995,
+      "relation_margin": 0.12283675927249005,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a3bc12d17da235bb1fcb9d2dc9f69b03": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.37234050035476685,
+        0.6032655835151672
+      ],
+      "provenance_margin": 0.2309250831604004,
+      "p_supported": 0.4828220275965286,
+      "relation_margin": 0.01717797240347141,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a3fc50c45aa6471f3b5993c8d4b0fdd2": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7514469027519226,
+        0.20132644474506378
+      ],
+      "provenance_margin": 0.5501204580068588,
+      "p_supported": 0.7397787822993541,
+      "relation_margin": 0.23977878229935412,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a4d10ef428406b6db173b2a44091c9d5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6758192777633667,
+        0.23583927750587463
+      ],
+      "provenance_margin": 0.43998000025749207,
+      "p_supported": 0.5214109748674554,
+      "relation_margin": 0.021410974867455357,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a7580f83a6e0b75db6842a963367336e": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.25990402698516846,
+        0.4670335650444031
+      ],
+      "provenance_margin": 0.20712953805923462,
+      "p_supported": 0.4805269249915324,
+      "relation_margin": 0.019473075008467622,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-a8bf7608b5fafb207f170990ce595f36": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6838213205337524,
+        0.34590262174606323
+      ],
+      "provenance_margin": 0.3379186987876892,
+      "p_supported": 0.539569021077876,
+      "relation_margin": 0.039569021077875965,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-aabb56eeeeef6aa28d599e84a0bdc551": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.22381001710891724,
+        0.6247448325157166
+      ],
+      "provenance_margin": 0.4009348154067993,
+      "p_supported": 0.3615587973327484,
+      "relation_margin": 0.13844120266725157,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ac212d4282f7ee7035cd353e4c090447": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7181073427200317,
+        0.13543370366096497
+      ],
+      "provenance_margin": 0.5826736390590668,
+      "p_supported": 0.5996204818937573,
+      "relation_margin": 0.09962048189375727,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ad1b0323b7f4793d82fc95e9c5fec0b4": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2299565076828003,
+        0.5952584743499756
+      ],
+      "provenance_margin": 0.3653019666671753,
+      "p_supported": 0.657768647494011,
+      "relation_margin": 0.15776864749401098,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-aec2d4399b84034b6bbb17e9af110d46": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3390548825263977,
+        0.7366504669189453
+      ],
+      "provenance_margin": 0.3975955843925476,
+      "p_supported": 0.41029772340323156,
+      "relation_margin": 0.08970227659676844,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b2ae46a45d776ad5179e40e94973ca4e": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3699163794517517,
+        0.7532564401626587
+      ],
+      "provenance_margin": 0.383340060710907,
+      "p_supported": 0.638400997832224,
+      "relation_margin": 0.13840099783222404,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b3ff1b5c451952e912f1047ddc09f2b5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8408834934234619,
+        0.14442940056324005
+      ],
+      "provenance_margin": 0.6964540928602219,
+      "p_supported": 0.5527825895538157,
+      "relation_margin": 0.05278258955381565,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b59a8eaca7d52fce401833b294f502c4": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.16109515726566315,
+        0.6380434632301331
+      ],
+      "provenance_margin": 0.4769483059644699,
+      "p_supported": 0.6771837058913598,
+      "relation_margin": 0.1771837058913598,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b658fa055afb2a47b5cfa8882f2be9a5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7113638520240784,
+        0.3440624177455902
+      ],
+      "provenance_margin": 0.36730143427848816,
+      "p_supported": 0.3679448454515592,
+      "relation_margin": 0.1320551545484408,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b78747088f56da2d25f2471cc0549af5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7553219795227051,
+        0.2853105068206787
+      ],
+      "provenance_margin": 0.47001147270202637,
+      "p_supported": 0.5196060653566388,
+      "relation_margin": 0.01960606535663878,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-b905d4424b856e21a503d9b648d43ca0": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.289756178855896,
+        0.6710970997810364
+      ],
+      "provenance_margin": 0.3813409209251404,
+      "p_supported": 0.6939251582312833,
+      "relation_margin": 0.1939251582312833,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-baa937f8669f26264a4ad8655b7288d0": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.1178918108344078,
+        0.6357208490371704
+      ],
+      "provenance_margin": 0.5178290382027626,
+      "p_supported": 0.394741955994715,
+      "relation_margin": 0.10525804400528499,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-bc759497fde0c94a5e1acbdcd511194f": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8215548992156982,
+        0.24892570078372955
+      ],
+      "provenance_margin": 0.5726291984319687,
+      "p_supported": 0.6651677240017005,
+      "relation_margin": 0.16516772400170054,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.9,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": true,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-bca094166b58f8a9b63f11b99e22efc8": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.23672011494636536,
+        0.6754478216171265
+      ],
+      "provenance_margin": 0.4387277066707611,
+      "p_supported": 0.6110703466292265,
+      "relation_margin": 0.11107034662922655,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-bcb6eff1086ba4e7b3cbd61c53884205": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7510227560997009,
+        0.2494489699602127
+      ],
+      "provenance_margin": 0.5015737861394882,
+      "p_supported": 0.5917286810219801,
+      "relation_margin": 0.09172868102198006,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-c03e23b12b0ea38a5bce1ed802f89a27": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.18953242897987366,
+        0.7381529808044434
+      ],
+      "provenance_margin": 0.5486205518245697,
+      "p_supported": 0.46645368415488214,
+      "relation_margin": 0.03354631584511786,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-c236cf9883b9f6c06ce8d173aab18a88": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6028074622154236,
+        0.3181532323360443
+      ],
+      "provenance_margin": 0.2846542298793793,
+      "p_supported": 0.31355121774228095,
+      "relation_margin": 0.18644878225771905,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-c39e62c1439e9836e51c9e30bd591793": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.746554970741272,
+        0.23938988149166107
+      ],
+      "provenance_margin": 0.5071650892496109,
+      "p_supported": 0.6751344756309252,
+      "relation_margin": 0.1751344756309252,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-c8b562edbe174dc20e95ec62cf58cf6d": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.652314305305481,
+        0.30860060453414917
+      ],
+      "provenance_margin": 0.3437137007713318,
+      "p_supported": 0.4171734033586878,
+      "relation_margin": 0.0828265966413122,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-c8f7977481ac412cfb27eac5cc6d1a46": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6787828207015991,
+        0.272863507270813
+      ],
+      "provenance_margin": 0.40591931343078613,
+      "p_supported": 0.16805088924702383,
+      "relation_margin": 0.3319491107529762,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-cce8cde8498239f3e2a2ea1fef435948": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.21721406280994415,
+        0.6472688913345337
+      ],
+      "provenance_margin": 0.43005482852458954,
+      "p_supported": 0.23501624898769125,
+      "relation_margin": 0.26498375101230875,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-cdc29a2a7695cda53f3ef917223b4289": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.8805563449859619,
+        0.12866398692131042
+      ],
+      "provenance_margin": 0.7518923580646515,
+      "p_supported": 0.5653587271393824,
+      "relation_margin": 0.0653587271393824,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.1,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-cdf1139871ed31b566e3c442da80f02b": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.3990274667739868,
+        0.6998919248580933
+      ],
+      "provenance_margin": 0.30086445808410645,
+      "p_supported": 0.44743026833973815,
+      "relation_margin": 0.052569731660261854,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d23286a518fb9a6d22e4acf05ed97261": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.17869356274604797,
+        0.6835514307022095
+      ],
+      "provenance_margin": 0.5048578679561615,
+      "p_supported": 0.2652095604728641,
+      "relation_margin": 0.2347904395271359,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d36f38a8afbf764f5ae7dbc6be36a20d": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.15005068480968475,
+        0.6697489619255066
+      ],
+      "provenance_margin": 0.5196982771158218,
+      "p_supported": 0.5616245545882722,
+      "relation_margin": 0.06162455458827221,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d38393b36815d32f7283324de9cb1f5e": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.36380642652511597,
+        0.7306488752365112
+      ],
+      "provenance_margin": 0.36684244871139526,
+      "p_supported": 0.7563890879174636,
+      "relation_margin": 0.2563890879174636,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d42c67a5c20a8422440ff255d1d08560": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.0852392166852951,
+        0.6985880136489868
+      ],
+      "provenance_margin": 0.6133487969636917,
+      "p_supported": 0.6584935085039691,
+      "relation_margin": 0.15849350850396915,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d4cd5ef151c24059fb59ef87a0632b27": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7537873983383179,
+        0.39429783821105957
+      ],
+      "provenance_margin": 0.3594895601272583,
+      "p_supported": 0.7039533898244331,
+      "relation_margin": 0.20395338982443312,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-d7c3fee6938af2ea6ece7a4fe5b8cc3a": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.34171223640441895,
+        0.5389260649681091
+      ],
+      "provenance_margin": 0.19721382856369019,
+      "p_supported": 0.4351240810455138,
+      "relation_margin": 0.06487591895448619,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-da64a1a827e9a63072d2b7e9159ab742": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.10312051326036453,
+        0.720815896987915
+      ],
+      "provenance_margin": 0.6176953837275505,
+      "p_supported": 0.23284550658824915,
+      "relation_margin": 0.26715449341175085,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-de1765d97ecf78b896eccd45c9cf966a": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2812677025794983,
+        0.7664702534675598
+      ],
+      "provenance_margin": 0.4852025508880615,
+      "p_supported": 0.4073023379917208,
+      "relation_margin": 0.09269766200827922,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-de63946862c66a1c5daec189c113d43a": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.49846404790878296,
+        0.6693568229675293
+      ],
+      "provenance_margin": 0.17089277505874634,
+      "p_supported": 0.34702271051701156,
+      "relation_margin": 0.15297728948298844,
+      "relation_answer": "no",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-def4cabd842121f7f93fe7c2413d85d9": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6379061937332153,
+        0.29749301075935364
+      ],
+      "provenance_margin": 0.3404131829738617,
+      "p_supported": 0.4154038118419922,
+      "relation_margin": 0.08459618815800779,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-e12e32729e391a93597d4c7e2b63f99e": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7647867202758789,
+        0.2700801193714142
+      ],
+      "provenance_margin": 0.4947066009044647,
+      "p_supported": 0.5854901620941302,
+      "relation_margin": 0.08549016209413018,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-e3658da9287daa403685c0d0c658c7c1": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.38222676515579224,
+        0.7984176278114319
+      ],
+      "provenance_margin": 0.41619086265563965,
+      "p_supported": 0.7163378231025559,
+      "relation_margin": 0.2163378231025559,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.6,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": false,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": true,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-e3d1386c46a13c880e1b2639ea33c359": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6865676641464233,
+        0.18957547843456268
+      ],
+      "provenance_margin": 0.49699218571186066,
+      "p_supported": 0.22694112116246165,
+      "relation_margin": 0.2730588788375383,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-e48df8d330d4bfba26993d7b7e3b9dba": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.23451495170593262,
+        0.768846869468689
+      ],
+      "provenance_margin": 0.5343319177627563,
+      "p_supported": 0.592456242991856,
+      "relation_margin": 0.09245624299185595,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-e764984b137b122d3cf77d59b0837fb5": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7070931196212769,
+        0.3320031762123108
+      ],
+      "provenance_margin": 0.37508994340896606,
+      "p_supported": 0.4684639193873313,
+      "relation_margin": 0.031536080612668715,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ec19d5ae2de5792c4de4a1cb396d6201": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6571259498596191,
+        0.40223079919815063
+      ],
+      "provenance_margin": 0.2548951506614685,
+      "p_supported": 0.4355450080790433,
+      "relation_margin": 0.06445499192095672,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ec3210ffa446217b0de7b410b566463d": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.630868673324585,
+        0.18986541032791138
+      ],
+      "provenance_margin": 0.4410032629966736,
+      "p_supported": 0.3745517196564664,
+      "relation_margin": 0.1254482803435336,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ee96243127ad3628a6035eba71735661": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.1151295155286789,
+        0.5473784804344177
+      ],
+      "provenance_margin": 0.43224896490573883,
+      "p_supported": 0.6203744493727502,
+      "relation_margin": 0.12037444937275021,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-eeed1bc147538e4c830e4a91181b5304": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6858190298080444,
+        0.10319504886865616
+      ],
+      "provenance_margin": 0.5826239809393883,
+      "p_supported": 0.2555759648111993,
+      "relation_margin": 0.24442403518880068,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-ef000410fb9dac86f9d9876d4a45bd1d": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7814902067184448,
+        0.07061541080474854
+      ],
+      "provenance_margin": 0.7108747959136963,
+      "p_supported": 0.4286202456533879,
+      "relation_margin": 0.07137975434661209,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-efaeaf1b43c63521f9d399346b9cad43": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7272080779075623,
+        0.24786171317100525
+      ],
+      "provenance_margin": 0.479346364736557,
+      "p_supported": 0.6756563640795461,
+      "relation_margin": 0.1756563640795461,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f09c10ac12fc245d6e9f1f6fb826787d": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2554236352443695,
+        0.7019959092140198
+      ],
+      "provenance_margin": 0.44657227396965027,
+      "p_supported": 0.3917406293824433,
+      "relation_margin": 0.1082593706175567,
+      "relation_answer": "no",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f1928fa3d171d5bd41bec282ebcdab03": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7097166776657104,
+        0.14682160317897797
+      ],
+      "provenance_margin": 0.5628950744867325,
+      "p_supported": 0.636992843250381,
+      "relation_margin": 0.13699284325038097,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.6,
+      "target_action_answer": "yes",
+      "target_action_confidence": 0.5,
+      "gate_components": {
+        "high_consensus": false,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": true
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f1fe2a8c00f023ef5dc13269585da496": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.2610571086406708,
+        0.7707509994506836
+      ],
+      "provenance_margin": 0.5096938908100128,
+      "p_supported": 0.6284185747156094,
+      "relation_margin": 0.12841857471560936,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f4fdfb3f7614362543c88f8504672d28": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.32461556792259216,
+        0.6907209753990173
+      ],
+      "provenance_margin": 0.36610540747642517,
+      "p_supported": 0.6953531141258289,
+      "relation_margin": 0.1953531141258289,
+      "relation_answer": "yes",
+      "baseline_consensus": "yes",
+      "baseline_agreement": 0.6,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": false,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": true,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f5b42e26283e312301c9fda272756d3c": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.7563354969024658,
+        0.2890157103538513
+      ],
+      "provenance_margin": 0.4673197865486145,
+      "p_supported": 0.694335025240614,
+      "relation_margin": 0.19433502524061397,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f7ce7381dbf7c57c970af21dc70e8557": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.25646650791168213,
+        0.5309616327285767
+      ],
+      "provenance_margin": 0.27449512481689453,
+      "p_supported": 0.5485122727186255,
+      "relation_margin": 0.04851227271862546,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": false,
+        "relation_margin": false,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-f9a472cd640a5c190baafa71b2f3213f": {
+      "selected_provenance_path": "candidate_1",
+      "provenance_scores": [
+        0.28673645853996277,
+        0.6548707485198975
+      ],
+      "provenance_margin": 0.3681342899799347,
+      "p_supported": 0.6695296496369948,
+      "relation_margin": 0.1695296496369948,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 1.0,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    },
+    "fever-validation-fa382d902933e5e15b17a9a1aaf28622": {
+      "selected_provenance_path": "candidate_0",
+      "provenance_scores": [
+        0.6610041856765747,
+        0.24191373586654663
+      ],
+      "provenance_margin": 0.4190904498100281,
+      "p_supported": 0.6966477311620135,
+      "relation_margin": 0.1966477311620135,
+      "relation_answer": "yes",
+      "baseline_consensus": "no",
+      "baseline_agreement": 0.8,
+      "target_action_answer": "no",
+      "target_action_confidence": 0.0,
+      "gate_components": {
+        "high_consensus": true,
+        "provenance_margin": true,
+        "relation_margin": true,
+        "target_action_confidence": false,
+        "changes_consensus": false,
+        "target_relation_agreement": false
+      },
+      "route": "KEEP"
+    }
+  }
+}

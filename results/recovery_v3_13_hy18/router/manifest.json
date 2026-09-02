@@ -1,0 +1,55 @@
+{
+  "protocol_version": "recovery-v3.13-counter-consensus-cascade-2026-09-03",
+  "status": "frozen_before_any_v313_study_root_call",
+  "method": "provenance_gated_counter_consensus_cascade",
+  "source_router_manifest_sha256": "5ed74d04ceb460ea12bec1428bbe062ed12ba49815490e0b6982a8fe1de6035f",
+  "source_relation_head_sha256": "e73c9fc7e6e6781188678cfb73f2060546e175097d3eb52628bcf278698edadd",
+  "development_artifacts": {
+    "results/recovery_v3_12_hy18/selection_manifest.json": "68eb73b4b9afd9be53ae5fa74ce8e092178ce01b434a9c2e073c2fb11630a715",
+    "results/recovery_v3_12_hy18/formal/actions/records.jsonl": "c6ef3b9a57d0f6154123b66afca376258f178d05268349e51fea003c9e07f359",
+    "results/recovery_v3_12_hy18/evaluation/provisional_routes.json": "7f390332c3047cb2d5dc96c7fba755465f3e045d5253d88367d1d8cbc0b81ae7",
+    "results/recovery_v3_12_hy18/evaluation/summary.json": "f83fe8f3f9000cbf54a5a23399d37e19543f1fe79575815a2eed26960b65be51",
+    "results/recovery_v3_13_development/v312_qwen_relation_conflicts.jsonl": "36182f589588cd833412a9d84a3da84ba036f74883e88a2589bd0bad39e92e2f"
+  },
+  "development_status": "V3.12 reused only after its formal verdict as V3.13 calibration",
+  "fixed_margin_grid": [
+    0.13,
+    0.15,
+    0.18,
+    0.2
+  ],
+  "development_grid": {
+    "0.13": {
+      "accepted_routes": 16,
+      "fixes": 15,
+      "harms": 1,
+      "net_fixes": 14
+    },
+    "0.15": {
+      "accepted_routes": 13,
+      "fixes": 13,
+      "harms": 0,
+      "net_fixes": 13
+    },
+    "0.18": {
+      "accepted_routes": 7,
+      "fixes": 7,
+      "harms": 0,
+      "net_fixes": 7
+    },
+    "0.20": {
+      "accepted_routes": 3,
+      "fixes": 3,
+      "harms": 0,
+      "net_fixes": 3
+    }
+  },
+  "selection_rule": "among margins with zero observed harms and at least five fixes, maximize accepted-route coverage",
+  "thresholds": {
+    "provenance_score_margin": 0.3,
+    "relation_confidence_margin": 0.15,
+    "teacher_confidence": 0.8,
+    "high_consensus": 0.8
+  },
+  "execution": "override target consensus only when the relation head and Qwen agree on the opposite answer and Qwen cites the provenance-selected root"
+}

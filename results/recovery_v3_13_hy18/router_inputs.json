@@ -1,0 +1,22 @@
+{
+  "status": "formal_inference_features_without_outcome_fields",
+  "selection": "results/recovery_v3_13_hy18/selection_manifest.json",
+  "selection_sha256": "a8320c8ea2a2db710a01d1461c9909ff514c5d07b6e3f649b3362df54ceb5325",
+  "model": "/storage/lianjh/modelzoos/Qwen/Qwen3-Embedding-0.6B",
+  "model_config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+  "task": "Given a factual claim, retrieve passages that verify or refute the claim",
+  "relation_task": "Represent the relation between a factual claim and evidence for classifying whether the evidence supports or refutes the claim",
+  "batch_size": 24,
+  "max_length": 768,
+  "device": "cuda",
+  "examples": 80,
+  "inference_only": true,
+  "output_fields": [
+    "example_ids",
+    "relation_vectors",
+    "scores",
+    "splits"
+  ],
+  "output": "results/recovery_v3_13_hy18/router_inputs.npz",
+  "output_sha256": "2dfee0300ace2fdfc8f5883f7e4a46f2c16ca7f7942b198cfcaef16218a83df7"
+}
