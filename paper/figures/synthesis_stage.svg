@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="900" viewBox="0 0 1536 900" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
+
+  <!-- ============================== -->
+  <!-- DEFS: arrowheads and symbols  -->
+  <!-- ============================== -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2C2C2C"/>
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A7974"/>
+    </marker>
+    <marker id="arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D17B92"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A78D6"/>
+    </marker>
+
+    <symbol id="candle-stack" viewBox="0 0 80 56">
+      <line x1="10" y1="4" x2="10" y2="52" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="6" y="14" width="8" height="22" fill="#1BAF7A"/>
+      <line x1="22" y1="8" x2="22" y2="50" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="18" y="20" width="8" height="18" fill="#E34948"/>
+      <line x1="34" y1="2" x2="34" y2="54" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="30" y="10" width="8" height="30" fill="#1BAF7A"/>
+      <line x1="46" y1="10" x2="46" y2="48" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="42" y="18" width="8" height="20" fill="#1BAF7A"/>
+      <line x1="58" y1="6" x2="58" y2="52" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="54" y="16" width="8" height="22" fill="#E34948"/>
+      <line x1="70" y1="4" x2="70" y2="50" stroke="#2C2C2C" stroke-width="1"/>
+      <rect x="66" y="12" width="8" height="26" fill="#1BAF7A"/>
+    </symbol>
+
+    <symbol id="news-icon" viewBox="0 0 28 28">
+      <rect x="3" y="3" width="22" height="22" rx="2" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.4"/>
+      <line x1="7" y1="9" x2="21" y2="9" stroke="#2C2C2C" stroke-width="1.2"/>
+      <line x1="7" y1="13" x2="21" y2="13" stroke="#2C2C2C" stroke-width="1.2"/>
+      <line x1="7" y1="17" x2="17" y2="17" stroke="#2C2C2C" stroke-width="1.2"/>
+      <line x1="7" y1="21" x2="19" y2="21" stroke="#2C2C2C" stroke-width="1.2"/>
+    </symbol>
+
+    <symbol id="vix-icon" viewBox="0 0 28 28">
+      <polyline points="3,22 9,12 14,18 19,8 25,14" fill="none" stroke="#D17B92" stroke-width="1.6"/>
+      <line x1="3" y1="25" x2="25" y2="25" stroke="#2C2C2C" stroke-width="1.2"/>
+    </symbol>
+
+    <symbol id="attn-icon" viewBox="0 0 32 22">
+      <rect x="2" y="3" width="8" height="16" fill="#D17B92" opacity="0.85"/>
+      <rect x="12" y="3" width="8" height="16" fill="#2A78D6" opacity="0.55"/>
+      <rect x="22" y="3" width="8" height="16" fill="#1BAF7A" opacity="0.7"/>
+    </symbol>
+  </defs>
+
+  <!-- White background -->
+  <rect width="1536" height="900" fill="#FCFCFB"/>
+
+  <!-- Title -->
+  <text x="768" y="38" text-anchor="middle" font-size="22" font-weight="600" fill="#0B0B0B" letter-spacing="-0.01em">Synthesis Stage &#8212; As-of Aligned Multi-Channel Signal Composition</text>
+  <text x="768" y="62" text-anchor="middle" font-size="13" fill="#52514E">Causal multi-resolution trend + cross-market disagreement + event-level sentiment &#8594; calibrated point forecast with selective abstention</text>
+
+  <!-- ============================== -->
+  <!-- PANEL BACKGROUNDS             -->
+  <!-- ============================== -->
+
+  <rect x="240" y="100" width="900" height="200" rx="14" fill="#F4E1E3" stroke="#D9C4C7" stroke-width="1"/>
+  <text x="260" y="126" font-size="16" font-weight="600" fill="#0B0B0B">Market Trend Modeling</text>
+  <text x="260" y="142" font-size="11" fill="#52514E">causal multi-resolution encoder &#183; state-conditioned band routing</text>
+
+  <rect x="240" y="330" width="900" height="160" rx="14" fill="#ECEEF0" stroke="#D4D6D9" stroke-width="1"/>
+  <text x="260" y="356" font-size="16" font-weight="600" fill="#0B0B0B">Cross-Market Disagreement Proxy</text>
+  <text x="260" y="372" font-size="11" fill="#52514E">trailing z-score per channel &#183; cross-sectional dispersion</text>
+
+  <rect x="240" y="520" width="900" height="320" rx="14" fill="#DDE7F0" stroke="#C5D2E0" stroke-width="1"/>
+  <text x="260" y="546" font-size="16" font-weight="600" fill="#0B0B0B">Event-Level Sentiment Modeling</text>
+  <text x="260" y="562" font-size="11" fill="#52514E">TS<tspan baseline-shift="sub" font-size="9">emb</tspan> + LLM<tspan baseline-shift="sub" font-size="9">emb</tspan> &#183; volatility-aware attention &#183; regression head</text>
+
+
+  <!-- ============================== -->
+  <!-- LEFT: DATA SOURCES            -->
+  <!-- ============================== -->
+
+  <rect x="20" y="120" width="200" height="120" rx="10" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <use href="#candle-stack" x="40" y="138" width="80" height="56"/>
+  <use href="#vix-icon" x="138" y="148" width="28" height="28"/>
+  <text x="110" y="218" text-anchor="middle" font-size="12" font-weight="600" fill="#0B0B0B">Market Prices Aligned</text>
+  <text x="110" y="232" text-anchor="middle" font-size="12" font-weight="600" fill="#0B0B0B">with Events</text>
+
+  <rect x="20" y="540" width="200" height="100" rx="10" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <use href="#news-icon" x="40" y="556" width="28" height="28"/>
+  <use href="#news-icon" x="132" y="556" width="28" height="28"/>
+  <text x="110" y="600" text-anchor="middle" font-size="12" font-weight="600" fill="#0B0B0B">News Headlines</text>
+  <text x="110" y="614" text-anchor="middle" font-size="12" font-weight="600" fill="#0B0B0B">&amp; News Summaries</text>
+
+  <rect x="20" y="360" width="200" height="100" rx="10" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="110" y="384" text-anchor="middle" font-size="12" font-weight="600" fill="#0B0B0B">Macro / Flow / Sentiment</text>
+  <text x="110" y="402" text-anchor="middle" font-size="9.5" fill="#52514E">10Y &#183; credit spread</text>
+  <text x="110" y="416" text-anchor="middle" font-size="9.5" fill="#52514E">put/call &#183; SPY/IVV flow</text>
+  <text x="110" y="430" text-anchor="middle" font-size="9.5" fill="#52514E">Google Trends &#183; VIX</text>
+  <text x="110" y="446" text-anchor="middle" font-size="9.5" fill="#6B7280" font-style="italic">5 asynchronous channels</text>
+
+
+  <!-- ============================== -->
+  <!-- TOP PANEL CONTENT             -->
+  <!-- ============================== -->
+
+  <rect x="280" y="160" width="160" height="120" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="360" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Causal Filter Bank</text>
+  <text x="360" y="196" text-anchor="middle" font-size="10" fill="#52514E">(recursive; no future bleed)</text>
+  <rect x="295" y="208" width="130" height="20" rx="4" fill="#F4E1E3" stroke="#D17B92" stroke-width="1"/>
+  <text x="360" y="222" text-anchor="middle" font-size="10" font-weight="500" fill="#0B0B0B">high-freq detail (HF)</text>
+  <rect x="295" y="232" width="130" height="20" rx="4" fill="#F4E1E3" stroke="#D17B92" stroke-width="1"/>
+  <text x="360" y="246" text-anchor="middle" font-size="10" font-weight="500" fill="#0B0B0B">mid-freq trend (MF)</text>
+  <rect x="295" y="256" width="130" height="20" rx="4" fill="#F4E1E3" stroke="#D17B92" stroke-width="1"/>
+  <text x="360" y="270" text-anchor="middle" font-size="10" font-weight="500" fill="#0B0B0B">low-freq trend (LF)</text>
+
+  <rect x="480" y="160" width="160" height="120" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="560" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Band Encoders</text>
+  <text x="560" y="196" text-anchor="middle" font-size="10" fill="#52514E">(lightweight TCN/GRU &#215; 3)</text>
+  <text x="560" y="218" text-anchor="middle" font-size="10" fill="#52514E">h&#8593;<tspan baseline-shift="sub" font-size="9">HF</tspan> &#183; h&#8593;<tspan baseline-shift="sub" font-size="9">MF</tspan> &#183; h&#8593;<tspan baseline-shift="sub" font-size="9">LF</tspan></text>
+  <text x="560" y="238" text-anchor="middle" font-size="10" fill="#52514E">+ cross-band mixing</text>
+  <text x="560" y="258" text-anchor="middle" font-size="10" fill="#6B7280">per-band residual</text>
+
+  <rect x="680" y="160" width="180" height="120" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="770" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">State-Conditioned Gate</text>
+  <text x="770" y="196" text-anchor="middle" font-size="10" fill="#52514E">softmax(g(z<tspan baseline-shift="sub" font-size="9">t</tspan>)) &#183; &#931;=1</text>
+  <text x="770" y="216" text-anchor="middle" font-size="10" fill="#52514E">z<tspan baseline-shift="sub" font-size="9">t</tspan> = [h<tspan baseline-shift="sub" font-size="9">HF</tspan>; h<tspan baseline-shift="sub" font-size="9">MF</tspan>; h<tspan baseline-shift="sub" font-size="9">LF</tspan>; context]</text>
+  <text x="770" y="236" text-anchor="middle" font-size="10" fill="#52514E">context = VIX + disagreement</text>
+  <text x="770" y="256" text-anchor="middle" font-size="10" fill="#6B7280">adaptively re-weights bands</text>
+
+  <rect x="900" y="160" width="200" height="120" rx="8" fill="#FFFFFF" stroke="#D17B92" stroke-width="2"/>
+  <text x="1000" y="184" text-anchor="middle" font-size="13" font-weight="600" fill="#D17B92">Trend Forecast</text>
+  <text x="1000" y="204" text-anchor="middle" font-size="10" fill="#52514E">p&#8593; &#183; point forecast</text>
+  <text x="1000" y="222" text-anchor="middle" font-size="10" fill="#52514E">calibrated interval</text>
+  <text x="1000" y="240" text-anchor="middle" font-size="10" fill="#52514E">[lower, upper]<tspan baseline-shift="sub" font-size="9">t+1..t+5</tspan></text>
+  <text x="1000" y="258" text-anchor="middle" font-size="10" fill="#6B7280">emits even with abstention</text>
+
+
+  <!-- ============================== -->
+  <!-- MIDDLE PANEL CONTENT          -->
+  <!-- ============================== -->
+
+  <rect x="280" y="395" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="360" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Trailing Z-Score</text>
+  <text x="360" y="434" text-anchor="middle" font-size="10" fill="#52514E">per channel, expanding</text>
+  <text x="360" y="450" text-anchor="middle" font-size="10" fill="#52514E">re-centered at decision time</text>
+
+  <rect x="480" y="395" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="560" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Cross-Sectional</text>
+  <text x="560" y="432" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Disagreement</text>
+  <text x="560" y="450" text-anchor="middle" font-size="10" fill="#52514E">std over z-scored signals</text>
+
+  <rect x="680" y="395" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="770" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Regime Indicator</text>
+  <text x="770" y="434" text-anchor="middle" font-size="10" fill="#52514E">low / mid / high</text>
+  <text x="770" y="450" text-anchor="middle" font-size="10" fill="#52514E">drives gate + abstention</text>
+
+  <rect x="900" y="395" width="200" height="80" rx="8" fill="#FFFFFF" stroke="#6B7280" stroke-width="2"/>
+  <text x="1000" y="416" text-anchor="middle" font-size="13" font-weight="600" fill="#6B7280">Disagreement Proxy</text>
+  <text x="1000" y="434" text-anchor="middle" font-size="10" fill="#52514E">d<tspan baseline-shift="sub" font-size="9">t</tspan> &#8712; [0, 1]</text>
+  <text x="1000" y="450" text-anchor="middle" font-size="10" fill="#52514E">used as gate context</text>
+  <text x="1000" y="466" text-anchor="middle" font-size="10" fill="#6B7280">feeds Stage&#160;2 router</text>
+
+
+  <!-- ============================== -->
+  <!-- BOTTOM PANEL CONTENT          -->
+  <!-- ============================== -->
+
+  <rect x="280" y="595" width="160" height="60" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="360" y="615" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">TS<tspan baseline-shift="sub" font-size="10">emb</tspan></text>
+  <text x="360" y="632" text-anchor="middle" font-size="10" fill="#52514E">text sentiment embed</text>
+  <text x="360" y="648" text-anchor="middle" font-size="10" fill="#6B7280">headlines &#8594; z<tspan baseline-shift="sub" font-size="9">TS</tspan></text>
+
+  <rect x="280" y="675" width="160" height="60" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="360" y="695" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">LLM<tspan baseline-shift="sub" font-size="10">emb</tspan></text>
+  <text x="360" y="712" text-anchor="middle" font-size="10" fill="#52514E">Qwen3.5-4B embedding</text>
+  <text x="360" y="728" text-anchor="middle" font-size="10" fill="#6B7280">summary &#8594; z<tspan baseline-shift="sub" font-size="9">LLM</tspan></text>
+
+  <rect x="480" y="610" width="160" height="110" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="560" y="632" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Linear Projection</text>
+  <text x="560" y="650" text-anchor="middle" font-size="10" fill="#52514E">z<tspan baseline-shift="sub" font-size="9">TS</tspan>&#8242; = W<tspan baseline-shift="sub" font-size="9">TS</tspan> z<tspan baseline-shift="sub" font-size="9">TS</tspan> + b</text>
+  <text x="560" y="668" text-anchor="middle" font-size="10" fill="#52514E">z<tspan baseline-shift="sub" font-size="9">LLM</tspan>&#8242; = W<tspan baseline-shift="sub" font-size="9">LLM</tspan> z<tspan baseline-shift="sub" font-size="9">LLM</tspan> + b</text>
+  <line x1="500" y1="685" x2="620" y2="685" stroke="#C9C7C0" stroke-width="1"/>
+  <text x="560" y="702" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Fusion Sequence</text>
+  <text x="560" y="718" text-anchor="middle" font-size="10" fill="#52514E">s<tspan baseline-shift="sub" font-size="9">t</tspan> = [z<tspan baseline-shift="sub" font-size="9">TS</tspan>&#8242; &#8853; z<tspan baseline-shift="sub" font-size="9">LLM</tspan>&#8242;]</text>
+
+  <rect x="680" y="595" width="200" height="140" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="780" y="616" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Volatility-Aware Attention</text>
+  <text x="780" y="632" text-anchor="middle" font-size="10" fill="#52514E">multi-head &#215; L layers</text>
+  <use href="#attn-icon" x="700" y="650" width="32" height="22"/>
+  <text x="780" y="666" text-anchor="middle" font-size="10" fill="#52514E">Q,K,V projected from s<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+  <text x="780" y="684" text-anchor="middle" font-size="10" fill="#52514E">attn(Q,K,V) = softmax(QK<tspan baseline-shift="sup" font-size="9">&#8860;</tspan>/&#8730;d) V</text>
+  <text x="780" y="702" text-anchor="middle" font-size="10" fill="#52514E">+ LayerNorm &#8594; FFN</text>
+  <text x="780" y="722" text-anchor="middle" font-size="10" fill="#6B7280">VIX-aware value modulation</text>
+
+  <rect x="680" y="755" width="200" height="60" rx="8" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="780" y="776" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">MLP</text>
+  <text x="780" y="794" text-anchor="middle" font-size="10" fill="#52514E">2-layer &#183; GeLU &#183; dropout 0.1</text>
+  <text x="780" y="810" text-anchor="middle" font-size="10" fill="#6B7280">projects to scalar space</text>
+
+  <rect x="920" y="755" width="180" height="60" rx="8" fill="#FFFFFF" stroke="#2A78D6" stroke-width="2"/>
+  <text x="1010" y="776" text-anchor="middle" font-size="13" font-weight="600" fill="#2A78D6">Regression Head</text>
+  <text x="1010" y="794" text-anchor="middle" font-size="10" fill="#52514E">logits &#8594; softmax</text>
+  <text x="1010" y="810" text-anchor="middle" font-size="10" fill="#6B7280">event-level sentiment score</text>
+
+
+  <!-- ============================== -->
+  <!-- RIGHT: AGGREGATION + OUTPUTS  -->
+  <!-- ============================== -->
+
+  <circle cx="1280" cy="280" r="42" fill="#FFFFFF" stroke="#EB6834" stroke-width="2.5"/>
+  <text x="1280" y="290" text-anchor="middle" font-size="32" font-weight="700" fill="#EB6834">&#8853;</text>
+  <text x="1280" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#0B0B0B">Aggregated Signal</text>
+
+  <rect x="1240" y="400" width="220" height="100" rx="10" fill="#FFFFFF" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="1350" y="424" text-anchor="middle" font-size="13" font-weight="600" fill="#0B0B0B">Conformal Calibration</text>
+  <text x="1350" y="444" text-anchor="middle" font-size="10" fill="#52514E">+ Selective Abstention Gate</text>
+  <text x="1350" y="462" text-anchor="middle" font-size="10" fill="#52514E">interval from past window</text>
+  <text x="1350" y="480" text-anchor="middle" font-size="10" fill="#52514E">abstain if max(p&#8593;,1&#8722;p&#8593;) &lt; &#964;</text>
+  <text x="1350" y="496" text-anchor="middle" font-size="10" fill="#6B7280">coverage-precision tradeoff</text>
+
+  <rect x="1230" y="540" width="100" height="100" rx="12" fill="#1BAF7A" fill-opacity="0.12" stroke="#1BAF7A" stroke-width="2"/>
+  <polyline points="1252,610 1268,580 1284,595 1300,560 1316,575" fill="none" stroke="#1BAF7A" stroke-width="2.5"/>
+  <text x="1280" y="630" text-anchor="middle" font-size="13" font-weight="700" fill="#1BAF7A">RISE</text>
+
+  <rect x="1370" y="540" width="100" height="100" rx="12" fill="#E34948" fill-opacity="0.12" stroke="#E34948" stroke-width="2"/>
+  <polyline points="1392,575 1408,605 1424,580 1440,615 1456,600" fill="none" stroke="#E34948" stroke-width="2.5"/>
+  <text x="1420" y="630" text-anchor="middle" font-size="13" font-weight="700" fill="#E34948">FALL</text>
+
+  <text x="1350" y="525" text-anchor="middle" font-size="14" font-weight="600" fill="#52514E">or</text>
+
+  <rect x="1300" y="680" width="100" height="60" rx="8" fill="#F8F8F4" stroke="#C9C7C0" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="1350" y="710" text-anchor="middle" font-size="13" font-weight="600" fill="#52514E">ABSTAIN</text>
+  <text x="1350" y="726" text-anchor="middle" font-size="10" fill="#7A7974">low confidence</text>
+
+
+  <!-- ============================== -->
+  <!-- CONNECTING ARROWS             -->
+  <!-- ============================== -->
+
+  <!-- Source 1 -> filter bank -->
+  <path d="M 220 180 L 280 180" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <!-- Source 1 -> middle panel z-score -->
+  <path d="M 220 220 Q 250 220 250 410 Q 250 435 280 435" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Source 2 (news) -> TS_emb + LLM_emb -->
+  <path d="M 220 560 Q 250 560 250 625 L 280 625" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 220 620 Q 250 620 250 705 L 280 705" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Source 3 (macro) -> middle panel z-score -->
+  <path d="M 220 410 L 280 435" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Top panel internal flow -->
+  <path d="M 440 220 L 480 220" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 640 220 L 680 220" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 860 220 L 900 220" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Middle panel internal flow -->
+  <path d="M 440 435 L 480 435" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 640 435 L 680 435" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 860 435 L 900 435" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Cross-panel: disagreement -> gate (context) -->
+  <path d="M 770 395 Q 770 350 770 280" stroke="#EB6834" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arrow)"/>
+  <text x="780" y="332" font-size="9.5" fill="#EB6834" font-style="italic">gate context</text>
+
+  <!-- Cross-panel: regime -> sentiment (bottom) -->
+  <path d="M 860 425 Q 920 425 920 530 Q 920 545 900 545" stroke="#EB6834" stroke-width="1.5" stroke-dasharray="6,3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Bottom panel internal flow -->
+  <path d="M 440 625 L 480 645" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 440 705 L 480 685" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 640 665 L 680 665" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 780 735 L 780 755" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 880 785 L 920 785" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Three panel outputs -> aggregation circle -->
+  <path d="M 1100 220 Q 1200 220 1240 250" stroke="#D17B92" stroke-width="2.5" fill="none" marker-end="url(#arrow-pink)"/>
+  <path d="M 1100 435 Q 1200 435 1240 320" stroke="#6B7280" stroke-width="2" fill="none" marker-end="url(#arrow-soft)"/>
+  <path d="M 1100 785 Q 1240 785 1265 320" stroke="#2A78D6" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+
+  <!-- Aggregation -> Conformal calibration -->
+  <path d="M 1280 322 L 1280 400" stroke="#2C2C2C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Calibration -> RISE / FALL / ABSTAIN -->
+  <path d="M 1310 500 L 1290 540" stroke="#1BAF7A" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 1390 500 L 1410 540" stroke="#E34948" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 1350 500 L 1350 680" stroke="#7A7974" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#arrow-soft)"/>
+
+
+  <!-- ============================== -->
+  <!-- FOOTER LEGEND                 -->
+  <!-- ============================== -->
+
+  <line x1="240" y1="855" x2="1296" y2="855" stroke="#C9C7C0" stroke-width="1"/>
+
+  <rect x="240" y="868" width="14" height="14" rx="3" fill="#F4E1E3" stroke="#D9C4C7"/>
+  <text x="260" y="880" font-size="11" fill="#0B0B0B">Market Trend</text>
+
+  <rect x="370" y="868" width="14" height="14" rx="3" fill="#ECEEF0" stroke="#D4D6D9"/>
+  <text x="390" y="880" font-size="11" fill="#0B0B0B">Disagreement</text>
+
+  <rect x="510" y="868" width="14" height="14" rx="3" fill="#DDE7F0" stroke="#C5D2E0"/>
+  <text x="530" y="880" font-size="11" fill="#0B0B0B">Event Sentiment</text>
+
+  <line x1="650" y1="875" x2="678" y2="875" stroke="#2C2C2C" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="686" y="880" font-size="11" fill="#0B0B0B">direct flow</text>
+
+  <line x1="770" y1="875" x2="798" y2="875" stroke="#EB6834" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="806" y="880" font-size="11" fill="#0B0B0B">context coupling</text>
+
+  <line x1="930" y1="875" x2="958" y2="875" stroke="#D17B92" stroke-width="2.5"/>
+  <line x1="970" y1="875" x2="998" y2="875" stroke="#2A78D6" stroke-width="2.5"/>
+  <text x="1006" y="880" font-size="11" fill="#0B0B0B">panel &#8594; aggregator</text>
+
+  <text x="240" y="822" font-size="11" fill="#52514E" font-style="italic">All components are causal in time (only past &#8804; decision_time). The disagreement proxy and sentiment scores are also written to Stage&#160;2&#8217;s provenance graph.</text>
+
+</svg>
