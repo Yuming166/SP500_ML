@@ -31,7 +31,7 @@ NESTED_FOLDS = 5
 BOOTSTRAP_REPLICATES = 2_000
 BOOTSTRAP_SEED = 20261603
 RISK_MANIFEST = protocol.DEFAULT_ROOT / "calls_1" / "risk_manifest.json"
-MODEL_CALL_ROOTS = {"qwen": "calls_1", "ling": "calls_2"}
+MODEL_CALL_ROOTS = {"qwen": "calls_1", "ling": "calls_3"}
 
 
 def _write_json(path: Path, value: object) -> None:
