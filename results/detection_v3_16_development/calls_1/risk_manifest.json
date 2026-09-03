@@ -1,0 +1,32 @@
+{
+  "analysis_version": "detection-v3.16.1-pair-grouped-development-analysis-2026-09-03",
+  "claim_boundary": {
+    "formal_calls_authorized": false
+  },
+  "coordinates": [
+    "reverse_inertia",
+    "remove_inertia",
+    "substitute_inertia",
+    "reverse_confident_nonresponse",
+    "intervention_disagreement"
+  ],
+  "ling_pilot_gates": {
+    "first_pass_valid_rate_at_least_095": 0.95,
+    "macro_label_auroc_above": 0.55,
+    "overall_auroc_above": 0.55,
+    "risk80_reduction_at_least": 0.0,
+    "valid_rate_at_least_098": 0.98,
+    "worst_label_auroc_above": 0.5
+  },
+  "qwen_preoutcome_sha256": "a7d4a9612531e07a87808b3d5497d38101e58da1065e11829e3bd8585169fc7a",
+  "qwen_records_sha256": "e5759f3b4b0172f80eb8584cbeebb4d09c6da66c08020c3bddb722d96669b311",
+  "qwen_summary_sha256": "70aaa2e7c771520b67a6261ff41094ba7180d9d17a1e791ace9cd39de17d3914",
+  "status": "frozen_after_qwen_development_before_any_ling_v3_16_call",
+  "weights": {
+    "intervention_disagreement": 0.7,
+    "remove_inertia": 0.0,
+    "reverse_confident_nonresponse": 0.3,
+    "reverse_inertia": 0.0,
+    "substitute_inertia": 0.0
+  }
+}
