@@ -1,0 +1,66 @@
+{
+  "analysis_implementation_sha256": "c570351df4dbea80d4b0841f88acebc825ceda7d0b1814c4a61be447c2b96e44",
+  "base_call_protocol_sha256": "d0bee2570fa945444a9b12976ac70400b95c001b8a50ab202b92e169b558574a",
+  "binding_implementation_sha256": "b191b0601dd843ea7bbfff0f7fba7703c783ff7953a3331ef2c1e18b58648cb9",
+  "formal_calls_authorized": false,
+  "missingness_amendment_sha256": "266224aece98397163ee7e3e6f132e3d8a116691544238ba488cb8a549ae484f",
+  "model": {
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "id": "Ling-3.0-tiny"
+  },
+  "model_fingerprint": {
+    "path": "/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4",
+    "small_file_sha256": {
+      "config.json": "78296932c0a82af7490095d1962c15fb5e206ac162874516039c7f49280fc3d6",
+      "generation_config.json": "64752c5973a55faf4cfc02604c7587c38b090f00013f91191f52362dcc79a4a8",
+      "tokenizer_config.json": "2456b0372956cd3e82f17e33372148b115a94970bfd4878ba5e7e60cd3204f74"
+    },
+    "weight_sizes": {
+      "model-00000-of-00032.safetensors": 861148640,
+      "model-00001-of-00032.safetensors": 106257984,
+      "model-00002-of-00032.safetensors": 106257984,
+      "model-00003-of-00032.safetensors": 106257984,
+      "model-00004-of-00032.safetensors": 106257984,
+      "model-00005-of-00032.safetensors": 106257984,
+      "model-00006-of-00032.safetensors": 106258528,
+      "model-00007-of-00032.safetensors": 106258704,
+      "model-00008-of-00032.safetensors": 338985656,
+      "model-00009-of-00032.safetensors": 127510248,
+      "model-00010-of-00032.safetensors": 127510248,
+      "model-00011-of-00032.safetensors": 127510248,
+      "model-00012-of-00032.safetensors": 127510248,
+      "model-00013-of-00032.safetensors": 127510248,
+      "model-00014-of-00032.safetensors": 127510896,
+      "model-00015-of-00032.safetensors": 127511112,
+      "model-00016-of-00032.safetensors": 362177160,
+      "model-00017-of-00032.safetensors": 127510824,
+      "model-00018-of-00032.safetensors": 127510824,
+      "model-00019-of-00032.safetensors": 127510824,
+      "model-00020-of-00032.safetensors": 127510824,
+      "model-00021-of-00032.safetensors": 127510824,
+      "model-00022-of-00032.safetensors": 127511472,
+      "model-00023-of-00032.safetensors": 127511688,
+      "model-00024-of-00032.safetensors": 821858808,
+      "model-00025-of-00032.safetensors": 127510824,
+      "model-00026-of-00032.safetensors": 127510824,
+      "model-00027-of-00032.safetensors": 127510824,
+      "model-00028-of-00032.safetensors": 127510824,
+      "model-00029-of-00032.safetensors": 127510824,
+      "model-00030-of-00032.safetensors": 127511472,
+      "model-00031-of-00032.safetensors": 127511688
+    }
+  },
+  "parent_smoke_binding_sha256": "03e8c4a0a01248b631ddfd710f5cb7bf2bffe8c8dcc41461fe6e7d0e3cbef56e",
+  "pilot_version": "detection-v3.16.2-ling-transfer-pilot-2026-09-03",
+  "preregistration_sha256": "8a71ee64c2fb13611c4cc2e5a91f80a1c6a59f2c0836be63a3770d474d6a298e",
+  "risk_manifest_sha256": "f85673c5dfa9d68d0bdc4e37f37f7f21bffefd3d2d80814adb5397e2c5367a24",
+  "selection_manifest_sha256": "8a8024c88fca948fd5086464b0ee9a2cc4bc6c84431419ffd1d4061d654eeb75",
+  "status": "frozen_after_qwen_development_before_any_ling_v3_16_call",
+  "weights": {
+    "intervention_disagreement": 0.7,
+    "remove_inertia": 0.0,
+    "reverse_confident_nonresponse": 0.3,
+    "reverse_inertia": 0.0,
+    "substitute_inertia": 0.0
+  }
+}

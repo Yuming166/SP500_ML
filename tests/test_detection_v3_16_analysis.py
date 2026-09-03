@@ -60,3 +60,24 @@ def test_simplex_is_nonnegative_and_sums_to_one() -> None:
     assert len(weights) == 1001
     assert all(all(value >= 0 for value in row) for row in weights)
     assert all(sum(row) == pytest.approx(1.0) for row in weights)
+
+
+def test_incomplete_intervention_bundle_fails_closed_without_dropping_item() -> None:
+    records = [json.loads(line) for line in RECORDS.read_text().splitlines()]
+    target_item = records[0]["item_id"]
+    target_agent = records[0]["agent_index"]
+    poisoned = []
+    for row in records:
+        if (
+            row["item_id"] == target_item
+            and row["agent_index"] == target_agent
+            and row["condition"] == "reverse"
+        ):
+            row = {**row, "success": False, "decision": None}
+        poisoned.append(row)
+    rows = analysis.build_preoutcome_rows(poisoned)
+    assert len(rows) == 60
+    forced = [row for row in rows if row["pair_id"] == records[0]["pair_id"]]
+    assert any(row["transport_incomplete"] for row in forced)
+    incomplete = next(row for row in forced if row["transport_incomplete"])
+    assert all(incomplete[name] == 1.0 for name in analysis.COORDINATES)

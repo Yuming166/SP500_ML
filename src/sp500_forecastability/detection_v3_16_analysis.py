@@ -66,53 +66,69 @@ def build_preoutcome_rows(records: Sequence[Mapping[str, Any]]) -> list[dict[str
     forbidden = {"gold_label", "label", "correct", "error", "consensus_wrong"}
     if any(forbidden & set(record) for record in records):
         raise ValueError("records contain forbidden outcome fields")
-    grouped: dict[tuple[str, int], dict[str, Mapping[str, Any]]] = defaultdict(dict)
+    grouped: dict[tuple[str, int], dict[str, Mapping[str, Any] | None]] = defaultdict(dict)
     item_pairs: dict[str, str] = {}
     for record in records:
-        if not record.get("success") or not isinstance(record.get("decision"), Mapping):
-            raise ValueError("preoutcome analysis requires successful decisions")
         item_id = str(record["item_id"])
         pair_id = str(record["pair_id"])
         item_pairs[item_id] = pair_id
-        grouped[(item_id, int(record["agent_index"]))][str(record["condition"])] = record[
-            "decision"
-        ]
+        decision = record.get("decision")
+        grouped[(item_id, int(record["agent_index"]))][str(record["condition"])] = (
+            decision if isinstance(decision, Mapping) else None
+        )
     item_ids = sorted(item_pairs)
     output = []
     for item_id in item_ids:
         agents = [grouped[(item_id, index)] for index in range(len(calls.prompts.AGENT_PERSONAS))]
         if any(set(agent) != set(calls.CONDITIONS) for agent in agents):
             raise ValueError(f"incomplete intervention bundle for {item_id}")
-        original_answers = [str(agent["original"]["answer"]) for agent in agents]
-        consensus, count = Counter(original_answers).most_common(1)[0]
+        original_valid = [
+            agent["original"] for agent in agents if isinstance(agent["original"], Mapping)
+        ]
+        original_answers = [str(decision["answer"]) for decision in original_valid]
+        consensus, count = (
+            Counter(original_answers).most_common(1)[0] if original_answers else ("SUPPORTS", 0)
+        )
         agreement = count / len(agents)
-        flip_vectors = []
-        for agent in agents:
-            flip_vectors.append(
-                np.array(
+        incomplete = any(
+            not isinstance(agent[condition], Mapping)
+            for agent in agents
+            for condition in calls.CONDITIONS
+        )
+        if incomplete:
+            reverse_inertia = 1.0
+            remove_inertia = 1.0
+            substitute_inertia = 1.0
+            reverse_confident_nonresponse = 1.0
+            intervention_disagreement = 1.0
+        else:
+            flip_vectors = []
+            for agent in agents:
+                flip_vectors.append(
+                    np.array(
+                        [
+                            _flip(agent["original"], agent[condition])
+                            for condition in ("remove", "reverse", "substitute")
+                        ]
+                    )
+                )
+            reverse_inertia = float(np.mean([1.0 - vector[1] for vector in flip_vectors]))
+            remove_inertia = float(np.mean([1.0 - vector[0] for vector in flip_vectors]))
+            substitute_inertia = float(np.mean([1.0 - vector[2] for vector in flip_vectors]))
+            reverse_confident_nonresponse = float(
+                np.mean(
                     [
-                        _flip(agent["original"], agent[condition])
-                        for condition in ("remove", "reverse", "substitute")
+                        (1.0 - flip_vectors[index][1]) * float(agent["reverse"]["confidence"])
+                        for index, agent in enumerate(agents)
                     ]
                 )
             )
-        reverse_inertia = float(np.mean([1.0 - vector[1] for vector in flip_vectors]))
-        remove_inertia = float(np.mean([1.0 - vector[0] for vector in flip_vectors]))
-        substitute_inertia = float(np.mean([1.0 - vector[2] for vector in flip_vectors]))
-        reverse_confident_nonresponse = float(
-            np.mean(
-                [
-                    (1.0 - flip_vectors[index][1]) * float(agent["reverse"]["confidence"])
-                    for index, agent in enumerate(agents)
-                ]
-            )
-        )
-        per_agent_flip_rate = [float(vector.mean()) for vector in flip_vectors]
-        intervention_disagreement = float(min(1.0, 2.0 * np.std(per_agent_flip_rate, ddof=0)))
+            per_agent_flip_rate = [float(vector.mean()) for vector in flip_vectors]
+            intervention_disagreement = float(min(1.0, 2.0 * np.std(per_agent_flip_rate, ddof=0)))
         consensus_confidences = [
-            float(agent["original"]["confidence"])
-            for agent in agents
-            if agent["original"]["answer"] == consensus
+            float(decision["confidence"])
+            for decision in original_valid
+            if decision["answer"] == consensus
         ]
         output.append(
             {
@@ -120,7 +136,10 @@ def build_preoutcome_rows(records: Sequence[Mapping[str, Any]]) -> list[dict[str
                 "pair_id": item_pairs[item_id],
                 "consensus": consensus,
                 "agreement": agreement,
-                "mean_consensus_confidence": float(np.mean(consensus_confidences)),
+                "mean_consensus_confidence": (
+                    float(np.mean(consensus_confidences)) if consensus_confidences else 0.0
+                ),
+                "transport_incomplete": incomplete,
                 "reverse_inertia": reverse_inertia,
                 "remove_inertia": remove_inertia,
                 "substitute_inertia": substitute_inertia,

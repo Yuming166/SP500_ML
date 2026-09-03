@@ -11,10 +11,12 @@ from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_analysis as analysis
 from sp500_forecastability import detection_v3_16_calls as calls
 
-PILOT_VERSION = "detection-v3.16.1-ling-transfer-pilot-2026-09-03"
+PILOT_VERSION = "detection-v3.16.2-ling-transfer-pilot-2026-09-03"
 PREREGISTRATION = Path("docs/detection_v3_16_ling_pilot_preregistration.md")
+MISSINGNESS_AMENDMENT = Path("docs/detection_v3_16_2_ling_missingness.md")
 ROOT = protocol.DEFAULT_ROOT / "calls_1" / "ling"
-BINDING = ROOT / "ling_pilot_binding.json"
+BINDING = ROOT / "ling_development_binding.json"
+PARENT_BINDING = ROOT / "ling_pilot_binding.json"
 SUMMARY = ROOT / "analysis" / "development_summary.json"
 REPORT = ROOT / "analysis" / "development_report.md"
 MODEL_DIR = Path("/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4")
@@ -47,9 +49,13 @@ def build_binding() -> dict[str, Any]:
         "pilot_version": PILOT_VERSION,
         "status": "frozen_after_qwen_development_before_any_ling_v3_16_call",
         "preregistration_sha256": protocol.file_sha256(PREREGISTRATION),
+        "missingness_amendment_sha256": protocol.file_sha256(MISSINGNESS_AMENDMENT),
+        "parent_smoke_binding_sha256": protocol.file_sha256(PARENT_BINDING),
         "selection_manifest_sha256": protocol.file_sha256(protocol.SELECTION_MANIFEST),
         "risk_manifest_sha256": protocol.file_sha256(analysis.RISK_MANIFEST),
         "base_call_protocol_sha256": protocol.file_sha256(base_protocol),
+        "analysis_implementation_sha256": protocol.file_sha256(Path(analysis.__file__)),
+        "binding_implementation_sha256": protocol.file_sha256(Path(__file__)),
         "model": {"id": model.model, "endpoint": model.endpoint},
         "model_fingerprint": _model_fingerprint(),
         "weights": json.loads(analysis.RISK_MANIFEST.read_text(encoding="utf-8"))["weights"],
@@ -66,8 +72,8 @@ def freeze_binding() -> dict[str, Any]:
         if actual != expected:
             raise ValueError("Ling transfer binding drifted")
         return actual
-    if list(ROOT.glob("**/records*.jsonl")):
-        raise ValueError("cannot freeze Ling transfer binding after calls")
+    if list((ROOT / "development").glob("records*.jsonl")):
+        raise ValueError("cannot freeze Ling development binding after development calls")
     _write_json(BINDING, expected)
     return expected
 
