@@ -11,12 +11,14 @@ from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_analysis as analysis
 from sp500_forecastability import detection_v3_16_calls as calls
 
-PILOT_VERSION = "detection-v3.16.2-ling-transfer-pilot-2026-09-03"
+PILOT_VERSION = "detection-v3.16.3-ling-transfer-pilot-2026-09-03"
 PREREGISTRATION = Path("docs/detection_v3_16_ling_pilot_preregistration.md")
 MISSINGNESS_AMENDMENT = Path("docs/detection_v3_16_2_ling_missingness.md")
-ROOT = protocol.DEFAULT_ROOT / "calls_1" / "ling"
-BINDING = ROOT / "ling_development_binding.json"
-PARENT_BINDING = ROOT / "ling_pilot_binding.json"
+TOKEN_AMENDMENT = Path("docs/detection_v3_16_3_ling_token_budget.md")
+ROOT = protocol.DEFAULT_ROOT / "calls_2" / "ling"
+BINDING = ROOT / "ling_pilot_binding.json"
+PARENT_ROOT = protocol.DEFAULT_ROOT / "calls_1" / "ling"
+PARENT_BINDING = PARENT_ROOT / "ling_development_binding.json"
 SUMMARY = ROOT / "analysis" / "development_summary.json"
 REPORT = ROOT / "analysis" / "development_report.md"
 MODEL_DIR = Path("/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4")
@@ -50,7 +52,14 @@ def build_binding() -> dict[str, Any]:
         "status": "frozen_after_qwen_development_before_any_ling_v3_16_call",
         "preregistration_sha256": protocol.file_sha256(PREREGISTRATION),
         "missingness_amendment_sha256": protocol.file_sha256(MISSINGNESS_AMENDMENT),
+        "token_amendment_sha256": protocol.file_sha256(TOKEN_AMENDMENT),
         "parent_smoke_binding_sha256": protocol.file_sha256(PARENT_BINDING),
+        "parent_aborted_records_sha256": protocol.file_sha256(
+            PARENT_ROOT / "development" / "records.jsonl"
+        ),
+        "parent_aborted_qualification_sha256": protocol.file_sha256(
+            PARENT_ROOT / "development" / "qualification.json"
+        ),
         "selection_manifest_sha256": protocol.file_sha256(protocol.SELECTION_MANIFEST),
         "risk_manifest_sha256": protocol.file_sha256(analysis.RISK_MANIFEST),
         "base_call_protocol_sha256": protocol.file_sha256(base_protocol),

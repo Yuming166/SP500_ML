@@ -31,6 +31,7 @@ NESTED_FOLDS = 5
 BOOTSTRAP_REPLICATES = 2_000
 BOOTSTRAP_SEED = 20261603
 RISK_MANIFEST = protocol.DEFAULT_ROOT / "calls_1" / "risk_manifest.json"
+MODEL_CALL_ROOTS = {"qwen": "calls_1", "ling": "calls_2"}
 
 
 def _write_json(path: Path, value: object) -> None:
@@ -47,15 +48,27 @@ def _opaque_id(item_id: str) -> str:
 
 
 def _records_path(model: calls.ModelSpec, split: str) -> Path:
-    return protocol.DEFAULT_ROOT / "calls_1" / model.key / split / "records.jsonl"
+    return protocol.DEFAULT_ROOT / MODEL_CALL_ROOTS[model.key] / model.key / split / "records.jsonl"
 
 
 def _preoutcome_path(model: calls.ModelSpec, split: str) -> Path:
-    return protocol.DEFAULT_ROOT / "calls_1" / model.key / "analysis" / f"{split}_preoutcome.json"
+    return (
+        protocol.DEFAULT_ROOT
+        / MODEL_CALL_ROOTS[model.key]
+        / model.key
+        / "analysis"
+        / f"{split}_preoutcome.json"
+    )
 
 
 def _summary_path(model: calls.ModelSpec, split: str) -> Path:
-    return protocol.DEFAULT_ROOT / "calls_1" / model.key / "analysis" / f"{split}_summary.json"
+    return (
+        protocol.DEFAULT_ROOT
+        / MODEL_CALL_ROOTS[model.key]
+        / model.key
+        / "analysis"
+        / f"{split}_summary.json"
+    )
 
 
 def _flip(original: Mapping[str, Any], changed: Mapping[str, Any]) -> float:

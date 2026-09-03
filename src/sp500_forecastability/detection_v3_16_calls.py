@@ -23,10 +23,11 @@ from urllib import request as urllib_request
 from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_prompts as prompts
 
-CALL_PROTOCOL = "detection-v3.16.1-vitaminc-symmetric-calls-2026-09-03"
+CALL_PROTOCOL = "detection-v3.16.3-vitaminc-symmetric-calls-2026-09-03"
 AMENDMENT = Path("docs/detection_v3_16_1_preregistration.md")
+TOKEN_AMENDMENT = Path("docs/detection_v3_16_3_ling_token_budget.md")
 CONDITIONS = ("original", "remove", "reverse", "substitute")
-MAX_COMPLETION_TOKENS = 128
+MAX_COMPLETION_TOKENS = 256
 MAX_RESPONSE_BYTES = 1_000_000
 MAX_ATTEMPTS = 2
 DEFAULT_WORKERS = 16
@@ -80,7 +81,7 @@ def _write_json(path: Path, value: object) -> None:
 
 
 def _model_root(model: ModelSpec) -> Path:
-    return protocol.DEFAULT_ROOT / "calls_1" / model.key
+    return protocol.DEFAULT_ROOT / "calls_2" / model.key
 
 
 def _protocol_manifest_path(model: ModelSpec) -> Path:
@@ -317,6 +318,7 @@ def _build_protocol_manifest(model: ModelSpec) -> dict[str, Any]:
         },
         "preregistration_sha256": protocol.file_sha256(protocol.PREREGISTRATION),
         "amendment_sha256": protocol.file_sha256(AMENDMENT),
+        "token_amendment_sha256": protocol.file_sha256(TOKEN_AMENDMENT),
         "implementation_sha256": protocol.file_sha256(Path(__file__)),
         "prompts_sha256": protocol.file_sha256(Path(prompts.__file__)),
         "conditions": list(CONDITIONS),

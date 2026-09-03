@@ -1,0 +1,10 @@
+{
+  "first_pass_valid": 154,
+  "first_pass_valid_rate": 0.9625,
+  "model": "Ling-3.0-tiny",
+  "qualified": false,
+  "rows": 160,
+  "split": "smoke",
+  "successful": 156,
+  "valid_rate": 0.975
+}
