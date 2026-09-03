@@ -1,0 +1,10 @@
+{
+  "first_pass_valid": 160,
+  "first_pass_valid_rate": 1.0,
+  "model": "Qwen3.5-4B",
+  "qualified": true,
+  "rows": 160,
+  "split": "smoke",
+  "successful": 160,
+  "valid_rate": 1.0
+}

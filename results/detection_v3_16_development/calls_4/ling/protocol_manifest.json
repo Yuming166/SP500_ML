@@ -1,0 +1,81 @@
+{
+  "agents": [
+    "literal",
+    "skeptic",
+    "consistency",
+    "counterfactual",
+    "minimal"
+  ],
+  "amendment_sha256": "b61f5761e9b93ae5e7582c88fd1293b320f6be2e27c86dbdd0714fd28575ef1d",
+  "citation_contract": {
+    "original_and_reverse": "exact_visible_id_required",
+    "remove": "empty_required",
+    "substitute": "empty_or_exact_visible_id"
+  },
+  "claim_boundary": {
+    "development_only": true,
+    "formal_calls_authorized": false,
+    "formal_outcomes_accessed": false
+  },
+  "conditions": [
+    "original",
+    "remove",
+    "reverse",
+    "substitute"
+  ],
+  "expected_calls": {
+    "development": 1200,
+    "smoke": 160
+  },
+  "implementation_sha256": "7680ad8e573eb22e6e786590e45cbeecb334d91b57c26abc7db7f6b62e45962c",
+  "interface_amendment_sha256": "e56c558cfc8197a5644d6dc796aafab6d930e547de116c4d38623d3c57229380",
+  "max_attempts": 2,
+  "max_completion_tokens": 256,
+  "model": {
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "id": "Ling-3.0-tiny",
+    "key": "ling"
+  },
+  "preregistration_sha256": "ce968f547293eaaa9cfc2f48ee4a556ac08485d6f03792489765e193744f4823",
+  "prompt_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "answer": {
+        "enum": [
+          "SUPPORTS",
+          "REFUTES"
+        ],
+        "type": "string"
+      },
+      "cited_evidence_ids": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "confidence": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      }
+    },
+    "required": [
+      "answer",
+      "confidence",
+      "cited_evidence_ids"
+    ],
+    "type": "object"
+  },
+  "prompts_sha256": "09836db7bf34332eccb3950da0d497978b0ff209c2fe636168a83929d1638fd1",
+  "protocol_version": "detection-v3.16.5-vitaminc-symmetric-calls-2026-09-03",
+  "seed_protocol": "detection-v3.16-common-seed-2026-09-03",
+  "selection_manifest": {
+    "path": "results/detection_v3_16_development/selection_manifest.json",
+    "sha256": "8a8024c88fca948fd5086464b0ee9a2cc4bc6c84431419ffd1d4061d654eeb75"
+  },
+  "server_response_format": null,
+  "status": "frozen_before_model_specific_v3_16_calls",
+  "temperature": 0.0,
+  "token_amendment_2_sha256": "9eae673a4eab90821818c26387857a48d6e2f5a034891fc6c1dfe1537eebc7e0",
+  "token_amendment_sha256": "cb638e1dfe9a054ed15c46f6c82330042aeaa8a6229efe651fef9e0f0ce810ff"
+}

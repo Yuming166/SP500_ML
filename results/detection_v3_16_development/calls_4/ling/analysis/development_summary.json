@@ -1,0 +1,69 @@
+{
+  "binding_sha256": "4eef71db30810cfc027e5e2cd96a9d98cfa1dc386574133e9dbebc28d86ba025",
+  "formal_calls_authorized": false,
+  "gates": {
+    "errors_per_label_at_least_4": true,
+    "first_pass_valid_rate_at_least_095": true,
+    "high_consensus_at_least_20": true,
+    "macro_label_auroc_above_055": true,
+    "overall_auroc_above_055": true,
+    "risk80_reduction_nonnegative": true,
+    "valid_rate_at_least_098": true,
+    "worst_label_auroc_above_050": true
+  },
+  "metrics": {
+    "by_label": {
+      "REFUTES": {
+        "auroc": 0.764423076923077,
+        "errors": 13,
+        "n": 29
+      },
+      "SUPPORTS": {
+        "auroc": 0.7101449275362319,
+        "errors": 6,
+        "n": 29
+      }
+    },
+    "errors": 19,
+    "macro_label_auroc": 0.7372840022296545,
+    "n": 58,
+    "overall_auroc": 0.7085020242914979,
+    "risk_at_80": {
+      "baseline_error": 0.3275862068965517,
+      "error_reduction": 0.04497751124437782,
+      "retained": 46,
+      "retained_error": 0.2826086956521739
+    },
+    "worst_label_auroc": 0.7101449275362319
+  },
+  "model": "Ling-3.0-tiny",
+  "pair_bootstrap_ci": {
+    "macro": [
+      0.5673050213675214,
+      0.9015168997668996
+    ],
+    "overall": [
+      0.565122549019608,
+      0.8409090909090909
+    ],
+    "reduction": [
+      -0.0074962518740629425,
+      0.09370314842578711
+    ],
+    "worst": [
+      0.3973104793756967,
+      0.8782051282051282
+    ]
+  },
+  "pilot_version": "detection-v3.16.5-ling-transfer-pilot-2026-09-03",
+  "qualified_for_new_formal_preregistration": true,
+  "records_sha256": "68c5bd3de6a3745c2510cb7a7b0203e114ef850b4d18d625b9a566ec18cca3e4",
+  "status": "development_transfer_pilot",
+  "weights": {
+    "intervention_disagreement": 0.7,
+    "remove_inertia": 0.0,
+    "reverse_confident_nonresponse": 0.0,
+    "reverse_inertia": 0.3,
+    "substitute_inertia": 0.0
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "analysis_version": "detection-v3.16.5-pair-grouped-development-analysis-2026-09-03",
+  "coordinate_metrics": {
+    "intervention_disagreement": {
+      "by_label": {
+        "REFUTES": {
+          "auroc": 0.4166666666666667,
+          "errors": 6,
+          "n": 30
+        },
+        "SUPPORTS": {
+          "auroc": 0.576923076923077,
+          "errors": 4,
+          "n": 30
+        }
+      },
+      "errors": 10,
+      "macro_label_auroc": 0.4967948717948718,
+      "n": 60,
+      "overall_auroc": 0.48700000000000004,
+      "risk_at_80": {
+        "baseline_error": 0.16666666666666666,
+        "error_reduction": -0.020833333333333343,
+        "retained": 48,
+        "retained_error": 0.1875
+      },
+      "worst_label_auroc": 0.4166666666666667
+    },
+    "remove_inertia": {
+      "by_label": {
+        "REFUTES": {
+          "auroc": 0.0,
+          "errors": 6,
+          "n": 30
+        },
+        "SUPPORTS": {
+          "auroc": 1.0,
+          "errors": 4,
+          "n": 30
+        }
+      },
+      "errors": 10,
+      "macro_label_auroc": 0.5,
+      "n": 60,
+      "overall_auroc": 0.472,
+      "risk_at_80": {
+        "baseline_error": 0.16666666666666666,
+        "error_reduction": 0.04166666666666666,
+        "retained": 48,
+        "retained_error": 0.125
+      },
+      "worst_label_auroc": 0.0
+    },
+    "reverse_confident_nonresponse": {
+      "by_label": {
+        "REFUTES": {
+          "auroc": 0.9270833333333334,
+          "errors": 6,
+          "n": 30
+        },
+        "SUPPORTS": {
+          "auroc": 0.8653846153846154,
+          "errors": 4,
+          "n": 30
+        }
+      },
+      "errors": 10,
+      "macro_label_auroc": 0.8962339743589745,
+      "n": 60,
+      "overall_auroc": 0.9009999999999999,
+      "risk_at_80": {
+        "baseline_error": 0.16666666666666666,
+        "error_reduction": 0.08333333333333333,
+        "retained": 48,
+        "retained_error": 0.08333333333333333
+      },
+      "worst_label_auroc": 0.8653846153846154
+    },
+    "reverse_inertia": {
+      "by_label": {
+        "REFUTES": {
+          "auroc": 0.9375,
+          "errors": 6,
+          "n": 30
+        },
+        "SUPPORTS": {
+          "auroc": 0.8557692307692307,
+          "errors": 4,
+          "n": 30
+        }
+      },
+      "errors": 10,
+      "macro_label_auroc": 0.8966346153846154,
+      "n": 60,
+      "overall_auroc": 0.8999999999999999,
+      "risk_at_80": {
+        "baseline_error": 0.16666666666666666,
+        "error_reduction": 0.08333333333333333,
+        "retained": 48,
+        "retained_error": 0.08333333333333333
+      },
+      "worst_label_auroc": 0.8557692307692307
+    },
+    "substitute_inertia": {
+      "by_label": {
+        "REFUTES": {
+          "auroc": 0.0,
+          "errors": 6,
+          "n": 30
+        },
+        "SUPPORTS": {
+          "auroc": 1.0,
+          "errors": 4,
+          "n": 30
+        }
+      },
+      "errors": 10,
+      "macro_label_auroc": 0.5,
+      "n": 60,
+      "overall_auroc": 0.472,
+      "risk_at_80": {
+        "baseline_error": 0.16666666666666666,
+        "error_reduction": 0.04166666666666666,
+        "retained": 48,
+        "retained_error": 0.125
+      },
+      "worst_label_auroc": 0.0
+    }
+  },
+  "coordinates": [
+    "reverse_inertia",
+    "remove_inertia",
+    "substitute_inertia",
+    "reverse_confident_nonresponse",
+    "intervention_disagreement"
+  ],
+  "coverage": 0.8,
+  "formal_claim_authorized": false,
+  "high_consensus_threshold": 0.8,
+  "model": "Qwen3.5-4B",
+  "nested_oof": {
+    "by_label_auroc": {
+      "REFUTES": 0.8055555555555555,
+      "SUPPORTS": 0.9903846153846154
+    },
+    "fold_weights": {
+      "0": {
+        "intervention_disagreement": 0.0,
+        "remove_inertia": 0.0,
+        "reverse_confident_nonresponse": 0.6,
+        "reverse_inertia": 0.2,
+        "substitute_inertia": 0.2
+      },
+      "1": {
+        "intervention_disagreement": 0.0,
+        "remove_inertia": 0.0,
+        "reverse_confident_nonresponse": 0.6,
+        "reverse_inertia": 0.2,
+        "substitute_inertia": 0.2
+      },
+      "2": {
+        "intervention_disagreement": 0.7,
+        "remove_inertia": 0.0,
+        "reverse_confident_nonresponse": 0.3,
+        "reverse_inertia": 0.0,
+        "substitute_inertia": 0.0
+      },
+      "3": {
+        "intervention_disagreement": 0.0,
+        "remove_inertia": 0.0,
+        "reverse_confident_nonresponse": 0.6,
+        "reverse_inertia": 0.2,
+        "substitute_inertia": 0.2
+      },
+      "4": {
+        "intervention_disagreement": 0.7,
+        "remove_inertia": 0.0,
+        "reverse_confident_nonresponse": 0.0,
+        "reverse_inertia": 0.3,
+        "substitute_inertia": 0.0
+      }
+    },
+    "macro_label_auroc": 0.8979700854700854,
+    "overall_auroc": 0.887,
+    "risk_at_80": {
+      "baseline_error": 0.16666666666666666,
+      "error_reduction": 0.062499999999999986,
+      "retained": 48,
+      "retained_error": 0.10416666666666667
+    },
+    "worst_label_auroc": 0.8055555555555555
+  },
+  "pair_bootstrap_ci": {
+    "macro": [
+      0.8369425818746471,
+      0.96
+    ],
+    "overall": [
+      0.8303703703703704,
+      0.9527272727272728
+    ],
+    "reduction": [
+      0.024999999999999994,
+      0.12916666666666665
+    ],
+    "worst": [
+      0.7785000000000001,
+      0.9464285714285714
+    ]
+  },
+  "selected_metrics": {
+    "by_label": {
+      "REFUTES": {
+        "auroc": 0.8958333333333333,
+        "errors": 6,
+        "n": 30
+      },
+      "SUPPORTS": {
+        "auroc": 0.9134615384615384,
+        "errors": 4,
+        "n": 30
+      }
+    },
+    "errors": 10,
+    "macro_label_auroc": 0.9046474358974359,
+    "n": 60,
+    "overall_auroc": 0.899,
+    "risk_at_80": {
+      "baseline_error": 0.16666666666666666,
+      "error_reduction": 0.08333333333333333,
+      "retained": 48,
+      "retained_error": 0.08333333333333333
+    },
+    "worst_label_auroc": 0.8958333333333333
+  },
+  "selected_weights": {
+    "intervention_disagreement": 0.7,
+    "remove_inertia": 0.0,
+    "reverse_confident_nonresponse": 0.0,
+    "reverse_inertia": 0.3,
+    "substitute_inertia": 0.0
+  },
+  "status": "qwen_development_only"
+}

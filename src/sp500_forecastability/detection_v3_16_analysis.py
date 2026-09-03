@@ -17,7 +17,7 @@ from sklearn.metrics import roc_auc_score
 from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_calls as calls
 
-ANALYSIS_VERSION = "detection-v3.16.1-pair-grouped-development-analysis-2026-09-03"
+ANALYSIS_VERSION = "detection-v3.16.5-pair-grouped-development-analysis-2026-09-03"
 COORDINATES = (
     "reverse_inertia",
     "remove_inertia",
@@ -30,8 +30,8 @@ COVERAGE = 0.8
 NESTED_FOLDS = 5
 BOOTSTRAP_REPLICATES = 2_000
 BOOTSTRAP_SEED = 20261603
-RISK_MANIFEST = protocol.DEFAULT_ROOT / "calls_1" / "risk_manifest.json"
-MODEL_CALL_ROOTS = {"qwen": "calls_1", "ling": "calls_3"}
+RISK_MANIFEST = protocol.DEFAULT_ROOT / "calls_4" / "risk_manifest.json"
+MODEL_CALL_ROOTS = {"qwen": "calls_4", "ling": "calls_4"}
 
 
 def _write_json(path: Path, value: object) -> None:

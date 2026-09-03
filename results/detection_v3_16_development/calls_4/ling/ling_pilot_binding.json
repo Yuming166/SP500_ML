@@ -1,0 +1,71 @@
+{
+  "analysis_implementation_sha256": "30ee1ac5e66c9effa800939d8fb5fe464202d15bf414214227b60d9f76f0dd20",
+  "base_call_protocol_sha256": "1f8d6f4d1e3da35bc445d94b502b1788c615ee0bfa586bb905dd8a9cb3046fac",
+  "binding_implementation_sha256": "804ea5e43b3040ddbecfcc7d9bc9d4dedb9bba0bbd2587e8fbff9b5c577b8554",
+  "formal_calls_authorized": false,
+  "interface_amendment_sha256": "e56c558cfc8197a5644d6dc796aafab6d930e547de116c4d38623d3c57229380",
+  "missingness_amendment_sha256": "266224aece98397163ee7e3e6f132e3d8a116691544238ba488cb8a549ae484f",
+  "model": {
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "id": "Ling-3.0-tiny"
+  },
+  "model_fingerprint": {
+    "path": "/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4",
+    "small_file_sha256": {
+      "config.json": "78296932c0a82af7490095d1962c15fb5e206ac162874516039c7f49280fc3d6",
+      "generation_config.json": "64752c5973a55faf4cfc02604c7587c38b090f00013f91191f52362dcc79a4a8",
+      "tokenizer_config.json": "2456b0372956cd3e82f17e33372148b115a94970bfd4878ba5e7e60cd3204f74"
+    },
+    "weight_sizes": {
+      "model-00000-of-00032.safetensors": 861148640,
+      "model-00001-of-00032.safetensors": 106257984,
+      "model-00002-of-00032.safetensors": 106257984,
+      "model-00003-of-00032.safetensors": 106257984,
+      "model-00004-of-00032.safetensors": 106257984,
+      "model-00005-of-00032.safetensors": 106257984,
+      "model-00006-of-00032.safetensors": 106258528,
+      "model-00007-of-00032.safetensors": 106258704,
+      "model-00008-of-00032.safetensors": 338985656,
+      "model-00009-of-00032.safetensors": 127510248,
+      "model-00010-of-00032.safetensors": 127510248,
+      "model-00011-of-00032.safetensors": 127510248,
+      "model-00012-of-00032.safetensors": 127510248,
+      "model-00013-of-00032.safetensors": 127510248,
+      "model-00014-of-00032.safetensors": 127510896,
+      "model-00015-of-00032.safetensors": 127511112,
+      "model-00016-of-00032.safetensors": 362177160,
+      "model-00017-of-00032.safetensors": 127510824,
+      "model-00018-of-00032.safetensors": 127510824,
+      "model-00019-of-00032.safetensors": 127510824,
+      "model-00020-of-00032.safetensors": 127510824,
+      "model-00021-of-00032.safetensors": 127510824,
+      "model-00022-of-00032.safetensors": 127511472,
+      "model-00023-of-00032.safetensors": 127511688,
+      "model-00024-of-00032.safetensors": 821858808,
+      "model-00025-of-00032.safetensors": 127510824,
+      "model-00026-of-00032.safetensors": 127510824,
+      "model-00027-of-00032.safetensors": 127510824,
+      "model-00028-of-00032.safetensors": 127510824,
+      "model-00029-of-00032.safetensors": 127510824,
+      "model-00030-of-00032.safetensors": 127511472,
+      "model-00031-of-00032.safetensors": 127511688
+    }
+  },
+  "parent_failed_smoke_qualification_sha256": "09177accceb4cecb90c041b9a0e416a602abad215faf88e3a50e724fe414ff2b",
+  "parent_failed_smoke_records_sha256": "b42e24ee07154c83350001df1d14cdccaba7d8d1463aafe8c2479109dd12deab",
+  "parent_smoke_binding_sha256": "dcfccafca34753e768809e42ba7f773b4c0d8d5ef5947e3b478cd3299b024f05",
+  "pilot_version": "detection-v3.16.5-ling-transfer-pilot-2026-09-03",
+  "preregistration_sha256": "b8fadea468d0b0defd60b65426531d4d384307cd5842aed2b72e533a11acb7cf",
+  "risk_manifest_sha256": "4c7f6f833849ac1fc25f88980b8c4d483ba2a30f540a09b29aea210e6f6aa215",
+  "selection_manifest_sha256": "8a8024c88fca948fd5086464b0ee9a2cc4bc6c84431419ffd1d4061d654eeb75",
+  "status": "frozen_after_qwen_development_before_any_ling_v3_16_call",
+  "token_amendment_2_sha256": "9eae673a4eab90821818c26387857a48d6e2f5a034891fc6c1dfe1537eebc7e0",
+  "token_amendment_sha256": "cb638e1dfe9a054ed15c46f6c82330042aeaa8a6229efe651fef9e0f0ce810ff",
+  "weights": {
+    "intervention_disagreement": 0.7,
+    "remove_inertia": 0.0,
+    "reverse_confident_nonresponse": 0.0,
+    "reverse_inertia": 0.3,
+    "substitute_inertia": 0.0
+  }
+}

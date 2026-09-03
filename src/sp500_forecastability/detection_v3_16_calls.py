@@ -23,12 +23,14 @@ from urllib import request as urllib_request
 from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_prompts as prompts
 
-CALL_PROTOCOL = "detection-v3.16.4-vitaminc-symmetric-calls-2026-09-03"
+CALL_PROTOCOL = "detection-v3.16.5-vitaminc-symmetric-calls-2026-09-03"
+SEED_PROTOCOL = "detection-v3.16-common-seed-2026-09-03"
 AMENDMENT = Path("docs/detection_v3_16_1_preregistration.md")
 TOKEN_AMENDMENT = Path("docs/detection_v3_16_3_ling_token_budget.md")
 TOKEN_AMENDMENT_2 = Path("docs/detection_v3_16_4_ling_token_budget.md")
+INTERFACE_AMENDMENT = Path("docs/detection_v3_16_5_common_interface.md")
 CONDITIONS = ("original", "remove", "reverse", "substitute")
-MAX_COMPLETION_TOKENS = 512
+MAX_COMPLETION_TOKENS = 256
 MAX_RESPONSE_BYTES = 1_000_000
 MAX_ATTEMPTS = 2
 DEFAULT_WORKERS = 16
@@ -82,7 +84,7 @@ def _write_json(path: Path, value: object) -> None:
 
 
 def _model_root(model: ModelSpec) -> Path:
-    return protocol.DEFAULT_ROOT / "calls_3" / model.key
+    return protocol.DEFAULT_ROOT / "calls_4" / model.key
 
 
 def _protocol_manifest_path(model: ModelSpec) -> Path:
@@ -127,7 +129,6 @@ class ChatClient:
             "max_tokens": MAX_COMPLETION_TOKENS,
             "seed": seed,
             "chat_template_kwargs": {"enable_thinking": False},
-            "response_format": _response_format(),
         }
         key_material = {"endpoint": self.model.endpoint, "request": payload}
         cache_key = hashlib.sha256(_canonical_json(key_material).encode()).hexdigest()
@@ -304,7 +305,7 @@ def task_key(task: Mapping[str, Any]) -> tuple[str, int, str]:
 
 
 def _seed(model: ModelSpec, task: Task) -> int:
-    value = f"{CALL_PROTOCOL}|{model.model}|{task.item_id}|{task.agent_id}|{task.condition}"
+    value = f"{SEED_PROTOCOL}|{model.model}|{task.item_id}|{task.agent_id}|{task.condition}"
     return int(hashlib.sha256(value.encode()).hexdigest()[:8], 16)
 
 
@@ -321,14 +322,17 @@ def _build_protocol_manifest(model: ModelSpec) -> dict[str, Any]:
         "amendment_sha256": protocol.file_sha256(AMENDMENT),
         "token_amendment_sha256": protocol.file_sha256(TOKEN_AMENDMENT),
         "token_amendment_2_sha256": protocol.file_sha256(TOKEN_AMENDMENT_2),
+        "interface_amendment_sha256": protocol.file_sha256(INTERFACE_AMENDMENT),
         "implementation_sha256": protocol.file_sha256(Path(__file__)),
         "prompts_sha256": protocol.file_sha256(Path(prompts.__file__)),
         "conditions": list(CONDITIONS),
         "agents": [agent_id for agent_id, _ in prompts.AGENT_PERSONAS],
-        "response_format": _response_format(),
+        "server_response_format": None,
+        "prompt_schema": _response_format()["json_schema"]["schema"],
         "temperature": 0.0,
         "max_completion_tokens": MAX_COMPLETION_TOKENS,
         "max_attempts": MAX_ATTEMPTS,
+        "seed_protocol": SEED_PROTOCOL,
         "citation_contract": {
             "original_and_reverse": "exact_visible_id_required",
             "remove": "empty_required",
