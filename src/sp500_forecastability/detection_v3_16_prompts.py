@@ -43,15 +43,22 @@ def user_prompt(
     claim: str,
     evidence: Sequence[Mapping[str, str]],
     allowed_evidence_ids: Sequence[str],
+    allow_empty_citation: bool = False,
     repair: bool = False,
 ) -> str:
     if set(allowed_evidence_ids) != {row["evidence_id"] for row in evidence}:
         raise ValueError("evidence packet and allowed IDs disagree")
-    citation_rule = (
-        "cited_evidence_ids must be [] because the packet is empty."
-        if not evidence
-        else "cited_evidence_ids must contain the one visible evidence_id copied exactly."
-    )
+    if not evidence:
+        citation_rule = "cited_evidence_ids must be [] because the packet is empty."
+    elif allow_empty_citation:
+        citation_rule = (
+            "If the visible evidence is relevant, cite its exact ID; if it is unrelated, "
+            "cited_evidence_ids may be []."
+        )
+    else:
+        citation_rule = (
+            "cited_evidence_ids must contain the one visible evidence_id copied exactly."
+        )
     message = f"""Decide whether the visible evidence SUPPORTS or REFUTES the claim.
 
 CLAIM:

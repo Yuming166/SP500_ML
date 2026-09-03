@@ -1,0 +1,83 @@
+{
+  "agents": [
+    "literal",
+    "skeptic",
+    "consistency",
+    "counterfactual",
+    "minimal"
+  ],
+  "amendment_sha256": "b61f5761e9b93ae5e7582c88fd1293b320f6be2e27c86dbdd0714fd28575ef1d",
+  "citation_contract": {
+    "original_and_reverse": "exact_visible_id_required",
+    "remove": "empty_required",
+    "substitute": "empty_or_exact_visible_id"
+  },
+  "claim_boundary": {
+    "development_only": true,
+    "formal_calls_authorized": false,
+    "formal_outcomes_accessed": false
+  },
+  "conditions": [
+    "original",
+    "remove",
+    "reverse",
+    "substitute"
+  ],
+  "expected_calls": {
+    "development": 1200,
+    "smoke": 160
+  },
+  "implementation_sha256": "e41144705833cae2afbbc3d5d405b7edb46688e91f3b7092ec4ef2e892b342ac",
+  "max_attempts": 2,
+  "max_completion_tokens": 128,
+  "model": {
+    "endpoint": "http://127.0.0.1:31518/v1/chat/completions",
+    "id": "Qwen3.5-4B",
+    "key": "qwen"
+  },
+  "preregistration_sha256": "ce968f547293eaaa9cfc2f48ee4a556ac08485d6f03792489765e193744f4823",
+  "prompts_sha256": "09836db7bf34332eccb3950da0d497978b0ff209c2fe636168a83929d1638fd1",
+  "protocol_version": "detection-v3.16.1-vitaminc-symmetric-calls-2026-09-03",
+  "response_format": {
+    "json_schema": {
+      "name": "symmetric_fact_decision",
+      "schema": {
+        "additionalProperties": false,
+        "properties": {
+          "answer": {
+            "enum": [
+              "SUPPORTS",
+              "REFUTES"
+            ],
+            "type": "string"
+          },
+          "cited_evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "required": [
+          "answer",
+          "confidence",
+          "cited_evidence_ids"
+        ],
+        "type": "object"
+      },
+      "strict": true
+    },
+    "type": "json_schema"
+  },
+  "selection_manifest": {
+    "path": "results/detection_v3_16_development/selection_manifest.json",
+    "sha256": "8a8024c88fca948fd5086464b0ee9a2cc4bc6c84431419ffd1d4061d654eeb75"
+  },
+  "status": "frozen_before_model_specific_v3_16_calls",
+  "temperature": 0.0
+}

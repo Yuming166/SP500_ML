@@ -23,7 +23,8 @@ from urllib import request as urllib_request
 from sp500_forecastability import detection_v3_16 as protocol
 from sp500_forecastability import detection_v3_16_prompts as prompts
 
-CALL_PROTOCOL = "detection-v3.16-vitaminc-symmetric-calls-2026-09-03"
+CALL_PROTOCOL = "detection-v3.16.1-vitaminc-symmetric-calls-2026-09-03"
+AMENDMENT = Path("docs/detection_v3_16_1_preregistration.md")
 CONDITIONS = ("original", "remove", "reverse", "substitute")
 MAX_COMPLETION_TOKENS = 128
 MAX_RESPONSE_BYTES = 1_000_000
@@ -79,7 +80,7 @@ def _write_json(path: Path, value: object) -> None:
 
 
 def _model_root(model: ModelSpec) -> Path:
-    return protocol.DEFAULT_ROOT / model.key
+    return protocol.DEFAULT_ROOT / "calls_1" / model.key
 
 
 def _protocol_manifest_path(model: ModelSpec) -> Path:
@@ -206,7 +207,9 @@ def endpoint_models(model: ModelSpec) -> set[str]:
     return observed
 
 
-def parse_decision(content: str, allowed_ids: Sequence[str]) -> dict[str, Any]:
+def parse_decision(
+    content: str, allowed_ids: Sequence[str], *, allow_empty_nonempty: bool = False
+) -> dict[str, Any]:
     decoder = json.JSONDecoder()
     payload, end = decoder.raw_decode(content.strip())
     if content.strip()[end:].strip():
@@ -230,7 +233,9 @@ def parse_decision(content: str, allowed_ids: Sequence[str]) -> dict[str, Any]:
     if not isinstance(citations, list) or any(not isinstance(item, str) for item in citations):
         raise TypeError("cited_evidence_ids must be a string list")
     if allowed_ids:
-        if len(citations) != 1 or citations[0] != allowed_ids[0]:
+        if not citations and allow_empty_nonempty:
+            pass
+        elif len(citations) != 1 or citations[0] != allowed_ids[0]:
             raise ValueError("nonempty packet requires its exact visible evidence ID")
     elif citations:
         raise ValueError("empty packet requires empty citations")
@@ -311,6 +316,7 @@ def _build_protocol_manifest(model: ModelSpec) -> dict[str, Any]:
             "sha256": protocol.file_sha256(protocol.SELECTION_MANIFEST),
         },
         "preregistration_sha256": protocol.file_sha256(protocol.PREREGISTRATION),
+        "amendment_sha256": protocol.file_sha256(AMENDMENT),
         "implementation_sha256": protocol.file_sha256(Path(__file__)),
         "prompts_sha256": protocol.file_sha256(Path(prompts.__file__)),
         "conditions": list(CONDITIONS),
@@ -319,6 +325,11 @@ def _build_protocol_manifest(model: ModelSpec) -> dict[str, Any]:
         "temperature": 0.0,
         "max_completion_tokens": MAX_COMPLETION_TOKENS,
         "max_attempts": MAX_ATTEMPTS,
+        "citation_contract": {
+            "original_and_reverse": "exact_visible_id_required",
+            "remove": "empty_required",
+            "substitute": "empty_or_exact_visible_id",
+        },
         "expected_calls": {
             "smoke": SMOKE_CALLS,
             "development": DEVELOPMENT_CALLS,
@@ -369,6 +380,7 @@ def invoke(client: ChatClient, model: ModelSpec, task: Task) -> dict[str, Any]:
                     claim=task.claim,
                     evidence=task.evidence,
                     allowed_evidence_ids=task.allowed_evidence_ids,
+                    allow_empty_citation=task.condition == "substitute",
                     repair=attempt_index > 0,
                 ),
             },
@@ -386,7 +398,11 @@ def invoke(client: ChatClient, model: ModelSpec, task: Task) -> dict[str, Any]:
                     "content": result.content,
                 }
             )
-            decision = parse_decision(result.content, task.allowed_evidence_ids)
+            decision = parse_decision(
+                result.content,
+                task.allowed_evidence_ids,
+                allow_empty_nonempty=task.condition == "substitute",
+            )
             final_error = None
         except (RuntimeError, TypeError, ValueError, KeyError, json.JSONDecodeError) as error:
             final_error = f"{type(error).__name__}: {error}"

@@ -38,6 +38,15 @@ def test_parser_requires_empty_citations_for_remove() -> None:
         calls.parse_decision(json.dumps(payload), [])
 
 
+def test_substitute_may_correctly_decline_to_cite_unrelated_evidence() -> None:
+    content = json.dumps({"answer": "REFUTES", "confidence": 0.9, "cited_evidence_ids": []})
+    evidence_id = "root_unrelated::evidence_1"
+    parsed = calls.parse_decision(content, [evidence_id], allow_empty_nonempty=True)
+    assert parsed["cited_evidence_ids"] == []
+    with pytest.raises(ValueError, match="exact visible"):
+        calls.parse_decision(content, [evidence_id], allow_empty_nonempty=False)
+
+
 def test_registered_task_counts_and_natural_swap() -> None:
     smoke = calls.load_tasks("smoke")
     development = calls.load_tasks("development")
