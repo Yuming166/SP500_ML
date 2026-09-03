@@ -1,0 +1,17 @@
+{
+  "gates": {
+    "exact_item_count": true,
+    "four_conditions": true,
+    "natural_reverse_is_distinct": true,
+    "opaque_ids_unique": true,
+    "outcome_ids_match_public": true,
+    "outcomes_exactly_balanced": true,
+    "public_has_no_outcome_keys": true,
+    "two_items_per_pair": true
+  },
+  "label_counts": {
+    "REFUTES": 250,
+    "SUPPORTS": 250
+  },
+  "passed": true
+}
