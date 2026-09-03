@@ -1,0 +1,37 @@
+{
+  "counts": {
+    "formal": 300
+  },
+  "labels": {
+    "Supported": 150,
+    "NotSupported": 150
+  },
+  "distinct_annotated_components": 694,
+  "distinct_auxiliary_components": 1388,
+  "maximum_auxiliary_component_reuse": 1,
+  "direction_counts": {
+    "NotSupported:distractor_at_least_annotated": 75,
+    "NotSupported:distractor_below_annotated": 75,
+    "Supported:distractor_at_least_annotated": 75,
+    "Supported:distractor_below_annotated": 75
+  },
+  "candidate_0_annotated_fraction": 0.5,
+  "retrieval_role_auc": 0.5841388888888889,
+  "gates": {
+    "exact_count": true,
+    "native_labels_balanced": true,
+    "unique_claims": true,
+    "zero_prior_claim_overlap": true,
+    "zero_prior_root_overlap": true,
+    "annotated_components_unique": true,
+    "annotated_and_auxiliary_disjoint": true,
+    "auxiliary_component_reuse_at_most_3": true,
+    "bundle_widths_match": true,
+    "two_or_three_hop_bundles": true,
+    "candidate_order_balanced": true,
+    "retrieval_directions_balanced_within_label": true,
+    "oriented_retrieval_role_auc_at_most_065": true,
+    "retrieval_score_forbidden_from_primary_router": true
+  },
+  "passed": true
+}

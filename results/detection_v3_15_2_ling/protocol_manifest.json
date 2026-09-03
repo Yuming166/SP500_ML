@@ -1,0 +1,180 @@
+{
+  "protocol_version": "detection-v3.15.2-ling-boolq-v12.1-2026-09-03",
+  "status": "frozen_after_v3_15_1_transport_abort_before_v3_15_2_calls",
+  "preregistration": {
+    "path": "docs/detection_v3_15_2_preregistration.md",
+    "sha256": "e3a8267a48e20334483bc1e8237f4d6d544ff0ea786c1737ded01324eb4a1cf7"
+  },
+  "implementation": {
+    "path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/detection_v3_15_2.py",
+    "sha256": "565ea769b6560d551c520b4e19f0ad9e8c6e23d4a9c204f78b3ffecee2b65ce4"
+  },
+  "run_script": {
+    "path": "scripts/run_detection_v3_15_2.sh",
+    "sha256": "1bda4943b3f4988d0e7cccbd6a56b36a83f1b6d749219f52484c2c93f6f78245"
+  },
+  "server_script": {
+    "path": "scripts/start_ling_v3_8.sh",
+    "sha256": "44868e07d737451b11b74c0316901a586cabf7a0c578954b57e5eca1896355b4"
+  },
+  "parent": {
+    "protocol": "pilot-llm-v12.1-2026-09-02",
+    "manifest": "results/pilot_llm_v12_1/manifest.json",
+    "manifest_sha256": "dea715447a2f7e3f32db22fc8a2bc04fa17920611ff90293ccd06bd72717ef68",
+    "qwen_records_sha256": "1c9a1e4d01b198a5e4e6f7527500c44b9058a772a93afb9844c3ef3b22d7e5a8",
+    "qwen_summary_sha256": "6a2b90969cac1fc1a8af69bd448a198c627b3fb4ef213ae435bf16e838f4b9e8",
+    "selection_changed": false,
+    "substitutes_changed": false,
+    "prompts_changed": false,
+    "questions": 358,
+    "logical_calls": 7160
+  },
+  "dataset": {
+    "path": "/storage/gaoym/sp500-forecastability-lab/data/boolq/validation.parquet",
+    "sha256": "52355d11524b4b874a9b9dcc278feb10f672d52c4f4eff9872e695ede59820f8"
+  },
+  "target": {
+    "model": "Ling-3.0-tiny",
+    "family": "Ling_BailingMoeV3",
+    "endpoint": "http://127.0.0.1:31520/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/inclusionAI/Ling-3.0-tiny-int4",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "78296932c0a82af7490095d1962c15fb5e206ac162874516039c7f49280fc3d6",
+        "configuration.json": "625c81a3527ce4f7a739854b431f380a987dc4af5e07e099b568e50e2e3b248c",
+        "configuration_bailing_moe_v3.py": "f2c048966aec8a2f042cfeb1351f74d51a28589b409c55baae7d24e841c1f6c4",
+        "modeling_bailing_moe_v3.py": "c2509bf7ac580c262e2581d34d6403aa21682d2e10beb9ad85ad8820a7e33a40",
+        "generation_config.json": "64752c5973a55faf4cfc02604c7587c38b090f00013f91191f52362dcc79a4a8",
+        "tokenizer_config.json": "2456b0372956cd3e82f17e33372148b115a94970bfd4878ba5e7e60cd3204f74",
+        "chat_template.jinja": "eb6226c94ae38058f875d159f86a206b3a165828c0e7d6bda664ae14667f798a",
+        "model.safetensors.index.json": "fbdf6a4078381b6ba8819ac0b12829305c2e39639e978ecb8628c87ec03e28e9"
+      },
+      "weight_shard_sizes_bytes": {
+        "model-00000-of-00032.safetensors": 861148640,
+        "model-00001-of-00032.safetensors": 106257984,
+        "model-00002-of-00032.safetensors": 106257984,
+        "model-00003-of-00032.safetensors": 106257984,
+        "model-00004-of-00032.safetensors": 106257984,
+        "model-00005-of-00032.safetensors": 106257984,
+        "model-00006-of-00032.safetensors": 106258528,
+        "model-00007-of-00032.safetensors": 106258704,
+        "model-00008-of-00032.safetensors": 338985656,
+        "model-00009-of-00032.safetensors": 127510248,
+        "model-00010-of-00032.safetensors": 127510248,
+        "model-00011-of-00032.safetensors": 127510248,
+        "model-00012-of-00032.safetensors": 127510248,
+        "model-00013-of-00032.safetensors": 127510248,
+        "model-00014-of-00032.safetensors": 127510896,
+        "model-00015-of-00032.safetensors": 127511112,
+        "model-00016-of-00032.safetensors": 362177160,
+        "model-00017-of-00032.safetensors": 127510824,
+        "model-00018-of-00032.safetensors": 127510824,
+        "model-00019-of-00032.safetensors": 127510824,
+        "model-00020-of-00032.safetensors": 127510824,
+        "model-00021-of-00032.safetensors": 127510824,
+        "model-00022-of-00032.safetensors": 127511472,
+        "model-00023-of-00032.safetensors": 127511688,
+        "model-00024-of-00032.safetensors": 821858808,
+        "model-00025-of-00032.safetensors": 127510824,
+        "model-00026-of-00032.safetensors": 127510824,
+        "model-00027-of-00032.safetensors": 127510824,
+        "model-00028-of-00032.safetensors": 127510824,
+        "model-00029-of-00032.safetensors": 127510824,
+        "model-00030-of-00032.safetensors": 127511472,
+        "model-00031-of-00032.safetensors": 127511688
+      }
+    },
+    "temperature": 0.0,
+    "max_completion_tokens": 160,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "schema_repair_attempts": 1,
+    "prior_exposure": {
+      "scope": "FEVER recovery transport and actions only; no BoolQ V12.1 outputs",
+      "manifest": "results/recovery_v3_8_3_ling/protocol_manifest.json",
+      "manifest_sha256": "4821b88d667e15a503b43c9a8253de823656dd14b02d7568e9a734c05ecb0397"
+    }
+  },
+  "risk_contract": {
+    "score": "0.1*D_inert + 0.3*flip_inertia + 0.6*frac_shared",
+    "weights": {
+      "D_inert": 0.1,
+      "flip_inertia": 0.3,
+      "frac_shared": 0.6
+    },
+    "high_consensus_threshold": 0.8,
+    "router_coverage": 0.8,
+    "outcome_independent": true,
+    "forbidden_inputs": [
+      "consensus_wrong",
+      "correct",
+      "gold_binary",
+      "harmful_fc",
+      "label"
+    ]
+  },
+  "analysis": {
+    "bootstrap_seed": 20261503,
+    "bootstrap_replicates": 10000,
+    "aggregate_replication_gates": [
+      "high_consensus_count_and_class_gate",
+      "aggregate_auroc_ci_lower_above_0_5",
+      "risk80_error_reduction_ci_lower_above_zero",
+      "final_valid_rate_is_one",
+      "first_pass_valid_rate_at_least_0_95"
+    ],
+    "label_robustness_gates": [
+      "both_label_count_gates",
+      "macro_label_auroc_ci_lower_above_0_5",
+      "worst_label_auroc_at_least_0_5"
+    ],
+    "report_yes_no_separately": true
+  },
+  "conformance": {
+    "source": "frozen outcome-blind Ling V3.8.3 FEVER transport failures",
+    "closed_before_boolq_calls": true,
+    "canonicalizations": [
+      "strip_and_casefold_answer_only_if_yes_or_no",
+      "evidence_ids_to_cited_evidence_ids_only_if_unambiguous",
+      "empty_citation_string_to_empty_list",
+      "exact_allowed_citation_string_to_singleton_list",
+      "finite_numeric_confidence_in_1_to_100_divided_by_100"
+    ]
+  },
+  "claim_boundary": {
+    "cross_model_family": true,
+    "same_questions_and_interventions_as_qwen": true,
+    "target_fit_prompt_tuning_or_threshold_calibration": false,
+    "aggregate_pass_does_not_imply_label_robust_pass": true,
+    "cross_dataset_transfer": false,
+    "universal_transfer": false
+  },
+  "amendment": {
+    "scope": "clear_citations_only_when_environment_packet_is_empty",
+    "answer_and_confidence_unchanged": true,
+    "nonempty_packet_citations_still_strict": true,
+    "no_prompt_sample_score_metric_or_gate_change": true,
+    "fresh_smoke_and_full_formal_cache": true,
+    "parent_protocol": "results/detection_v3_15_1_ling/protocol_manifest.json",
+    "parent_protocol_sha256": "8251f45882e52d2f4babab1f51b57330bcb7b3b1d506d585779ab63aa621557b",
+    "parent_outcome_blind_formal_transport_audit": {
+      "rows": 7160,
+      "unique_tuples": 7160,
+      "successful": 7140,
+      "first_pass_valid": 7133,
+      "terminal_error_counts": {
+        "ValueError: citations outside packet: ['evidence_1']": 13,
+        "ValueError: citations outside packet: ['evidence_packet']": 7
+      },
+      "all_terminal_failures_are_empty_packet_remove": true,
+      "record_fields_contain_no_outcomes": true,
+      "partial_sha256": {
+        "results/detection_v3_15_1_ling/formal/shards/shard_0/records.partial.jsonl": "dc2a8ec7593f6b293cddc606f58b9152ff4ce59a555f1a0af44056a8bd87cac8",
+        "results/detection_v3_15_1_ling/formal/shards/shard_1/records.partial.jsonl": "b5b6cf2b6efd3fdc50590198ad93790de696a4521fb908d73b2bbdb44e182636",
+        "results/detection_v3_15_1_ling/formal/shards/shard_2/records.partial.jsonl": "a648710d4ee08347db6d06d833f01bf3476a283d7f9714cb82de95f4a1214852",
+        "results/detection_v3_15_1_ling/formal/shards/shard_3/records.partial.jsonl": "81c2406f113c555704f17ba3dd81ff0e8ae17c9e411b5645a6b9072b276e1575"
+      }
+    }
+  }
+}

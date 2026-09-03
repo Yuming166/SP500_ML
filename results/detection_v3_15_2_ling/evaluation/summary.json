@@ -1,0 +1,110 @@
+{
+  "protocol_version": "detection-v3.15.2-ling-boolq-v12.1-2026-09-03",
+  "verdict": "PASS_CROSS_FAMILY_AGGREGATE_ONLY_DETECTION_V3_15",
+  "aggregate_replication_pass": true,
+  "label_robustness_pass": false,
+  "primary": {
+    "n": 310,
+    "positives": 60,
+    "negatives": 250,
+    "auroc": 0.6395333333333334,
+    "auroc_ci": [
+      0.5576109826568482,
+      0.7166287406443873
+    ],
+    "auprc": 0.3008114842205255
+  },
+  "router_at_80": {
+    "n": 310,
+    "retained": 248,
+    "coverage": 0.8,
+    "baseline_error": 0.1935483870967742,
+    "retained_error": 0.14516129032258066,
+    "error_reduction": 0.04838709677419353,
+    "error_reduction_ci": [
+      0.021922134445175923,
+      0.07679677408380095
+    ]
+  },
+  "label_robustness": {
+    "by_label": {
+      "yes": {
+        "n": 224,
+        "positives": 25,
+        "negatives": 199,
+        "auroc": 0.9572864321608041,
+        "auroc_ci": [
+          0.9295514121563574,
+          0.9798264133239503
+        ],
+        "auprc": 0.6180025341219036
+      },
+      "no": {
+        "n": 86,
+        "positives": 35,
+        "negatives": 51,
+        "auroc": 0.11960784313725492,
+        "auroc_ci": [
+          0.04897309691143119,
+          0.2027027027027027
+        ],
+        "auprc": 0.27113459840373927
+      }
+    },
+    "macro_label_auroc": 0.5384471376490295,
+    "macro_label_auroc_ci": [
+      0.5001332708391992,
+      0.582459387345984
+    ],
+    "worst_label_auroc": 0.11960784313725492,
+    "worst_label_auroc_ci": [
+      0.04831145091039246,
+      0.20341724457237848
+    ]
+  },
+  "aggregate_gates": {
+    "high_consensus_count_and_class_gate": true,
+    "aggregate_auroc_ci_lower_above_0_5": true,
+    "risk80_error_reduction_ci_lower_above_zero": true,
+    "final_valid_rate_is_one": true,
+    "first_pass_valid_rate_at_least_0_95": true
+  },
+  "label_gates": {
+    "both_label_count_gates": true,
+    "macro_label_auroc_ci_lower_above_0_5": true,
+    "worst_label_auroc_at_least_0_5": false
+  },
+  "transport": {
+    "records": 7160,
+    "valid_rate": 1.0,
+    "first_pass_valid_rate": 1.0,
+    "parse_modes": {
+      "strict": 1,
+      "v3_15_1_insert_expected_agent_id": 7126,
+      "v3_15_1_insert_expected_agent_id_and_empty_packet_citations_cleared": 33
+    }
+  },
+  "cross_model_common_items": {
+    "n": 358,
+    "r_pi_spearman_qwen_ling": 0.2921551520865722
+  },
+  "hashes": {
+    "protocol_manifest": "eb170ae781d38c912bf91a342e9bfc3e760eea6d4b5424c67d9b2924ec07637a",
+    "formal_records": "d1f45da96b450b84dd490854f47decd6374cb8be43d61379dce6288ff3610dd7",
+    "preoutcome_routes": "0fa757345b8bcfcb21bc93287f1699a3ea06a46c353ddbb12652c16c88cdd951"
+  },
+  "claim_boundary": {
+    "cross_model_family": true,
+    "same_questions_and_interventions_as_qwen": true,
+    "target_fit_prompt_tuning_or_threshold_calibration": false,
+    "aggregate_pass_does_not_imply_label_robust_pass": true,
+    "cross_dataset_transfer": false,
+    "universal_transfer": false
+  },
+  "parent_substitute_modes": {
+    "initial": 1062,
+    "deterministic_short_normalization": 9,
+    "v12_1_second_repair": 1,
+    "repair": 2
+  }
+}

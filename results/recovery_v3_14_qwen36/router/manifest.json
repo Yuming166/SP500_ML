@@ -1,0 +1,24 @@
+{
+  "protocol_version": "recovery-v3.14-zero-shot-qwen36-hover-2026-09-03",
+  "status": "frozen_without_qwen36_fit_or_calibration",
+  "method": "v3.11_group_robust_dual_head_exact_transfer",
+  "source_router_manifest": "results/recovery_v3_11_hy/router/manifest.json",
+  "source_router_manifest_sha256": "5ed74d04ceb460ea12bec1428bbe062ed12ba49815490e0b6982a8fe1de6035f",
+  "relation_head": "results/recovery_v3_11_hy/router/relation_head.json",
+  "relation_head_sha256": "e73c9fc7e6e6781188678cfb73f2060546e175097d3eb52628bcf278698edadd",
+  "training_examples": 400,
+  "training_target_models": [
+    "Ling-3.0-tiny",
+    "Qwen3.5-4B",
+    "SUFE-Fin-R1"
+  ],
+  "thresholds": {
+    "relation_confidence_margin": 0.1,
+    "provenance_score_margin": 0.3,
+    "target_action_confidence": 0.8
+  },
+  "target_model_absent_from_training_models": true,
+  "no_refit": true,
+  "no_target_calibration": true,
+  "retrieval_score_used_by_primary_router": false
+}

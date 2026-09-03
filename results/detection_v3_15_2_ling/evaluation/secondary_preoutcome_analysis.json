@@ -1,0 +1,22 @@
+{
+  "protocol_version": "detection-v3.15.2-ling-boolq-v12.1-2026-09-03",
+  "status": "prespecified_descriptive_intervention_rates_computed_from_outcome_free_records",
+  "formal_records": 7160,
+  "ling_intervention_flip_rates": {
+    "remove": 0.61731843575419,
+    "reverse": 0.5245810055865922,
+    "substitute": 0.28547486033519553
+  },
+  "qwen_v12_1_intervention_flip_rates": {
+    "remove": 0.46983240223463685,
+    "reverse": 0.32737430167597764,
+    "substitute": 0.3005586592178771
+  },
+  "ling_preoutcome_means": {
+    "D_inert": 0.22625698324022347,
+    "flip_inertia": 0.5242085661080075,
+    "frac_shared": 0.7787709497206704,
+    "R_PI": 0.6471508379888268,
+    "agreement": 0.9162011173184358
+  }
+}

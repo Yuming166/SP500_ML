@@ -1,0 +1,229 @@
+{
+  "protocol_version": "recovery-v3.14-zero-shot-qwen36-hover-2026-09-03",
+  "status": "frozen_before_any_qwen36_study_root_call",
+  "preregistration": {
+    "path": "docs/recovery_v3_14_preregistration.md",
+    "sha256": "dae967323fa7a604e1955c1ab4c2d556e04e28822f76c22300747d786dcbac5c"
+  },
+  "implementation": {
+    "path": "/storage/gaoym/sp500-forecastability-lab/src/sp500_forecastability/recovery_v3_14.py",
+    "sha256": "5b45439b70e6a395a3c98c3f9809d3ba0207b6df99cc094b3dd2ddb24b55e4df"
+  },
+  "run_script": {
+    "path": "scripts/run_recovery_v3_14.sh",
+    "sha256": "8009dc00a4460580335012d57f57b43d906f3ee73442fefa8f433a3bfc2bb462"
+  },
+  "serve_script": {
+    "path": "scripts/serve_recovery_v3_14_qwen36.sh",
+    "sha256": "2345efe269e29b0746f696dc1efcd8c743164d253de59306d940eb339f11bfb5",
+    "runtime": {
+      "python_environment": "/DATA/lianjh/miniconda3/envs/casevo",
+      "vllm": "0.28.0",
+      "transformers": "5.16.1",
+      "torch": "2.13.0+cu130"
+    }
+  },
+  "embedding_script": {
+    "path": "scripts/embed_recovery_v3_11_development.py",
+    "sha256": "738970f6e0211320bcbd9d8c48c7734ac5ada9e523fe6ed0c62758b445c630c7"
+  },
+  "datasets": {
+    "hover": {
+      "path": "data/hover/hover_dev_release_v1.1.json",
+      "sha256": "67c14858f2d7fcdb96b6fe3d538ffcd6f76e3ba594aa2c0cd4359f601101e89d"
+    },
+    "hotpotqa_context": {
+      "path": "data/hover/hotpot_dev_distractor_v1.parquet",
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6"
+    }
+  },
+  "prior_selection_sha256": {
+    "results/recovery_v3_4_1/selection_manifest.json": "30e21c75c84b1f6c01ce2f5cc49267dd21a67b8e266bc1cb53b08b217141f52e",
+    "results/recovery_v3_6_2/selection_manifest.json": "0a8d1f9a4b39aeb37993fd740483deb266b4448cf462f16f5f94fcc5369ba5c9",
+    "results/recovery_v3_7_1/selection_manifest.json": "f2a0fa3a6fd9d3529758989537855b5862dbe39de0e42dac153d08d253fa2665",
+    "results/recovery_v3_11_hy/selection_manifest.json": "57d156621ae19c8a6b2379fa998fe15a095b80522ee60bf922d8554cad549e73",
+    "results/recovery_v3_12_hy18/selection_manifest.json": "68eb73b4b9afd9be53ae5fa74ce8e092178ce01b434a9c2e073c2fb11630a715",
+    "results/recovery_v3_13_hy18/selection_manifest.json": "a8320c8ea2a2db710a01d1461c9909ff514c5d07b6e3f649b3362df54ceb5325",
+    "results/pilot_llm_v10_4/selection_manifest.json": "7c856e48a7766e49a50eb3044da05b3532d0d71b8bc9ef60b997844d62d27349",
+    "results/pilot_llm_v11_1/selection_manifest.json": "78d3e660ccbfba777296a433283f1c0045cbec280181211266280b686a5771f6",
+    "results/pilot_llm_v12_1/selection_manifest.json": "ac1f15283ad719aaa6da969aabce34f59e1da6872a01890912c23fc1519d674b"
+  },
+  "selection": {
+    "path": "results/recovery_v3_14_qwen36/selection_manifest.json",
+    "sha256": "5f1c1dfbef7304ff9e7458c7612e8ed10bd5f3d5893433f7419b3f3ae5722d61",
+    "audit": {
+      "counts": {
+        "formal": 300
+      },
+      "labels": {
+        "Supported": 150,
+        "NotSupported": 150
+      },
+      "distinct_annotated_components": 694,
+      "distinct_auxiliary_components": 1388,
+      "maximum_auxiliary_component_reuse": 1,
+      "direction_counts": {
+        "NotSupported:distractor_at_least_annotated": 75,
+        "NotSupported:distractor_below_annotated": 75,
+        "Supported:distractor_at_least_annotated": 75,
+        "Supported:distractor_below_annotated": 75
+      },
+      "candidate_0_annotated_fraction": 0.5,
+      "retrieval_role_auc": 0.5841388888888889,
+      "gates": {
+        "exact_count": true,
+        "native_labels_balanced": true,
+        "unique_claims": true,
+        "zero_prior_claim_overlap": true,
+        "zero_prior_root_overlap": true,
+        "annotated_components_unique": true,
+        "annotated_and_auxiliary_disjoint": true,
+        "auxiliary_component_reuse_at_most_3": true,
+        "bundle_widths_match": true,
+        "two_or_three_hop_bundles": true,
+        "candidate_order_balanced": true,
+        "retrieval_directions_balanced_within_label": true,
+        "oriented_retrieval_role_auc_at_most_065": true,
+        "retrieval_score_forbidden_from_primary_router": true
+      },
+      "passed": true
+    }
+  },
+  "router": {
+    "manifest": "results/recovery_v3_14_qwen36/router/manifest.json",
+    "manifest_sha256": "1dd66184025464a8f598df92be4d5c17970d31ec96f357d73aa9963b3d7d3ff3",
+    "source_manifest_sha256": "5ed74d04ceb460ea12bec1428bbe062ed12ba49815490e0b6982a8fe1de6035f",
+    "relation_head_sha256": "e73c9fc7e6e6781188678cfb73f2060546e175097d3eb52628bcf278698edadd",
+    "inputs_sha256": "844c7d048e21604e0b3fa81544834378ef52a8551433b407c14b89bf7bf08561",
+    "inputs_metadata_sha256": "13b607fa2f714ab5b969637a73a19393c5a77f7afe1440e99dcdd444d77963e6",
+    "thresholds": {
+      "provenance_score_margin": 0.3,
+      "relation_confidence_margin": 0.1,
+      "target_action_confidence": 0.8
+    }
+  },
+  "target": {
+    "model": "Qwen3.6-35B-A3B",
+    "endpoint": "http://127.0.0.1:31521/v1/chat/completions",
+    "model_dir": "/storage/lianjh/modelzoos/Qwen/Qwen3.6-35B-A3B-FP8",
+    "artifact_fingerprint": {
+      "small_file_sha256": {
+        "config.json": "570ef7ea45a7e1d3de2b1d3c70c4ac3562d0e768acdc195778cb4f4d95025845",
+        "generation_config.json": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+        "model.safetensors.index.json": "6f176f344e41d35b17af12904e33401da5ebff3b49fccb8bfa0185bc2d50f9d6",
+        "tokenizer_config.json": "5186f0defcd7f232382c7f0aebcd2252d073bb921ab240e407b7ae8745d2b29b",
+        "chat_template.jinja": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259"
+      },
+      "weight_shard_sizes_bytes": {
+        "layers-0.safetensors": 843713608,
+        "layers-1.safetensors": 843713608,
+        "layers-10.safetensors": 843715168,
+        "layers-11.safetensors": 837094000,
+        "layers-12.safetensors": 843715168,
+        "layers-13.safetensors": 843715168,
+        "layers-14.safetensors": 843715168,
+        "layers-15.safetensors": 837094000,
+        "layers-16.safetensors": 843715168,
+        "layers-17.safetensors": 843715168,
+        "layers-18.safetensors": 843715168,
+        "layers-19.safetensors": 837094000,
+        "layers-2.safetensors": 843713608,
+        "layers-20.safetensors": 843715168,
+        "layers-21.safetensors": 843715168,
+        "layers-22.safetensors": 843715168,
+        "layers-23.safetensors": 837094000,
+        "layers-24.safetensors": 843715168,
+        "layers-25.safetensors": 843715168,
+        "layers-26.safetensors": 843715168,
+        "layers-27.safetensors": 837094000,
+        "layers-28.safetensors": 843715168,
+        "layers-29.safetensors": 843715168,
+        "layers-3.safetensors": 837092440,
+        "layers-30.safetensors": 843715168,
+        "layers-31.safetensors": 837094000,
+        "layers-32.safetensors": 843715168,
+        "layers-33.safetensors": 843715168,
+        "layers-34.safetensors": 843715168,
+        "layers-35.safetensors": 837094000,
+        "layers-36.safetensors": 843715168,
+        "layers-37.safetensors": 843715168,
+        "layers-38.safetensors": 843715168,
+        "layers-39.safetensors": 837094000,
+        "layers-4.safetensors": 843713608,
+        "layers-5.safetensors": 843713608,
+        "layers-6.safetensors": 843713608,
+        "layers-7.safetensors": 837092440,
+        "layers-8.safetensors": 843713608,
+        "layers-9.safetensors": 843713608,
+        "mtp.safetensors": 853860608,
+        "outside.safetensors": 2927422112
+      }
+    },
+    "temperature": 0.0,
+    "max_completion_tokens": 160,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "recovery_action",
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "yes",
+                "no"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "cited_evidence_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "answer",
+            "confidence",
+            "cited_evidence_ids"
+          ]
+        },
+        "strict": true
+      }
+    },
+    "schema_repair_attempts": 1
+  },
+  "evaluation": {
+    "formal_examples": 300,
+    "per_native_label": 150,
+    "bootstrap_seed": 20261403,
+    "bootstrap_replicates": 10000,
+    "primary_gates": [
+      "macro_gain_ci_lower_above_zero",
+      "zero_observed_harms",
+      "both_label_groups_nonnegative",
+      "annotation_supported_repairs_at_least_10",
+      "net_fixes_above_keep_and_all_matched_baselines",
+      "provenance_path_accuracy_at_least_090",
+      "final_schema_yield_is_one",
+      "first_pass_schema_yield_at_least_095"
+    ]
+  },
+  "claim_boundary": {
+    "target_fit_or_calibration": false,
+    "target_model_used_for_method_selection": false,
+    "fresh_claims_and_all_packet_components": true,
+    "target_answer_is_always_target_generated": true,
+    "cross_dataset_transfer": true,
+    "same_qwen_model_family": true,
+    "cross_family_transfer": false,
+    "publisher_independence": false,
+    "universal_transfer": false
+  }
+}

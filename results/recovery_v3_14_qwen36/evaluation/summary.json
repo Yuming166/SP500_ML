@@ -1,0 +1,342 @@
+{
+  "protocol_version": "recovery-v3.14-zero-shot-qwen36-hover-2026-09-03",
+  "analysis_status": "one_shot_zero_target_fit_qwen36_hover_formal",
+  "protocol_manifest_sha256": "977424373678a92efd3be8a4fede3924be8c3dc09a33fa8d14c994bf5f3df65c",
+  "router_manifest_sha256": "1dd66184025464a8f598df92be4d5c17970d31ec96f357d73aa9963b3d7d3ff3",
+  "target_action_records_sha256": "37d5c114d998a4f1e5cf19f7d439d7d5531f31ee5402d9c740b4d9abbca27314",
+  "preoutcome_routes_sha256": "c9bdc2fb773e2472a222bdb65fcda660176d050b0a02755d828cf37a42a0cf63",
+  "n_formal": 300,
+  "root_budget": 9,
+  "transport_and_schema": {
+    "rows": 2400,
+    "successful": 2400,
+    "first_pass_valid": 2400,
+    "final_schema_yield": 1.0,
+    "first_pass_schema_yield": 1.0,
+    "cache_hits": 0
+  },
+  "policies": {
+    "zero_shot_dual_head_repair": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.49666666666666665,
+      "fixes": 5,
+      "harms": 4,
+      "net_fixes": 1,
+      "net_gain": 0.0033333333333333335,
+      "macro_label_gain": 0.0033333333333333322,
+      "macro_gain_ci": [
+        -0.016666666666666666,
+        0.02333333333333333
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.027210884353741496,
+      "annotation_supported_repairs": 5,
+      "total_added_roots": 9,
+      "selected_actions": {
+        "KEEP": 291,
+        "candidate_0": 5,
+        "candidate_1": 4
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.06,
+          "net_gain": 0.03333333333333333
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.9333333333333333,
+          "net_gain": -0.02666666666666667
+        }
+      }
+    },
+    "keep": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.49333333333333335,
+      "fixes": 0,
+      "harms": 0,
+      "net_fixes": 0,
+      "net_gain": 0.0,
+      "macro_label_gain": 0.0,
+      "macro_gain_ci": [
+        0.0,
+        0.0
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 0,
+      "selected_actions": {
+        "KEEP": 300
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.02666666666666667,
+          "net_gain": 0.0
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.96,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_retrieval_score": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.5,
+      "fixes": 3,
+      "harms": 1,
+      "net_fixes": 2,
+      "net_gain": 0.006666666666666667,
+      "macro_label_gain": 0.006666666666666666,
+      "macro_gain_ci": [
+        -0.006666666666666666,
+        0.02
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.006802721088435374,
+      "annotation_supported_repairs": 2,
+      "total_added_roots": 9,
+      "selected_actions": {
+        "KEEP": 291,
+        "candidate_1": 3,
+        "candidate_0": 6
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.04666666666666667,
+          "net_gain": 0.02
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.9533333333333334,
+          "net_gain": -0.006666666666666667
+        }
+      }
+    },
+    "matched_hash_random": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.4866666666666667,
+      "fixes": 0,
+      "harms": 2,
+      "net_fixes": -2,
+      "net_gain": -0.006666666666666667,
+      "macro_label_gain": -0.006666666666666667,
+      "macro_gain_ci": [
+        -0.016666666666666666,
+        0.0
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.013605442176870748,
+      "annotation_supported_repairs": 0,
+      "total_added_roots": 9,
+      "selected_actions": {
+        "KEEP": 291,
+        "candidate_0": 5,
+        "candidate_1": 4
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.02666666666666667,
+          "net_gain": 0.0
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.9466666666666667,
+          "net_gain": -0.013333333333333334
+        }
+      }
+    },
+    "matched_fixed_candidate_0": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.51,
+      "fixes": 5,
+      "harms": 0,
+      "net_fixes": 5,
+      "net_gain": 0.016666666666666666,
+      "macro_label_gain": 0.016666666666666666,
+      "macro_gain_ci": [
+        0.0033333333333333335,
+        0.03333333333333333
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 5,
+      "total_added_roots": 9,
+      "selected_actions": {
+        "KEEP": 291,
+        "candidate_0": 9
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.06,
+          "net_gain": 0.03333333333333333
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.96,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "matched_fixed_candidate_1": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.5,
+      "fixes": 3,
+      "harms": 1,
+      "net_fixes": 2,
+      "net_gain": 0.006666666666666667,
+      "macro_label_gain": 0.006666666666666666,
+      "macro_gain_ci": [
+        -0.006666666666666666,
+        0.02
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.006802721088435374,
+      "annotation_supported_repairs": 2,
+      "total_added_roots": 9,
+      "selected_actions": {
+        "KEEP": 291,
+        "candidate_1": 9
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.04666666666666667,
+          "net_gain": 0.02
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.9533333333333334,
+          "net_gain": -0.006666666666666667
+        }
+      }
+    },
+    "matched_fixed_both": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.5066666666666667,
+      "fixes": 4,
+      "harms": 0,
+      "net_fixes": 4,
+      "net_gain": 0.013333333333333334,
+      "macro_label_gain": 0.013333333333333334,
+      "macro_gain_ci": [
+        0.0033333333333333335,
+        0.02666666666666667
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 4,
+      "total_added_roots": 4,
+      "selected_actions": {
+        "KEEP": 296,
+        "both": 4
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.05333333333333334,
+          "net_gain": 0.02666666666666667
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.96,
+          "net_gain": 0.0
+        }
+      }
+    },
+    "available_action_oracle_diagnostic": {
+      "n": 300,
+      "baseline_accuracy": 0.49333333333333335,
+      "final_accuracy": 0.9,
+      "fixes": 122,
+      "harms": 0,
+      "net_fixes": 122,
+      "net_gain": 0.4066666666666667,
+      "macro_label_gain": 0.4066666666666667,
+      "macro_gain_ci": [
+        0.37333333333333335,
+        0.44
+      ],
+      "high_consensus_correct_denominator": 147,
+      "damage_rate_high_consensus_correct": 0.0,
+      "annotation_supported_repairs": 115,
+      "total_added_roots": 122,
+      "selected_actions": {
+        "candidate_0": 67,
+        "KEEP": 178,
+        "candidate_1": 50,
+        "both": 5
+      },
+      "by_native_label": {
+        "Supported": {
+          "n": 150,
+          "baseline_accuracy": 0.02666666666666667,
+          "final_accuracy": 0.8266666666666667,
+          "net_gain": 0.8
+        },
+        "NotSupported": {
+          "n": 150,
+          "baseline_accuracy": 0.96,
+          "final_accuracy": 0.9733333333333334,
+          "net_gain": 0.013333333333333334
+        }
+      }
+    }
+  },
+  "provenance_head": {
+    "all_examples_accuracy": 0.9,
+    "routed_examples_accuracy": 1.0,
+    "all_examples_correct": 270,
+    "routed_examples_correct": 9,
+    "routed_examples": 9
+  },
+  "primary_gates": {
+    "macro_gain_ci_lower_above_zero": false,
+    "zero_observed_harms": false,
+    "both_label_groups_nonnegative": false,
+    "annotation_supported_repairs_at_least_10": false,
+    "net_fixes_above_keep_and_all_matched_baselines": false,
+    "provenance_path_accuracy_at_least_090": true,
+    "final_schema_yield_is_one": true,
+    "first_pass_schema_yield_at_least_095": true
+  },
+  "passes": false,
+  "verdict": "NO_VERIFIED_ZERO_SHOT_QWEN36_HOVER_TRANSFER_V3_14",
+  "claim_boundary": {
+    "target_fit_or_calibration": false,
+    "target_model_used_for_method_selection": false,
+    "fresh_claims_and_all_packet_components": true,
+    "target_answer_is_always_target_generated": true,
+    "cross_dataset_transfer": true,
+    "same_qwen_model_family": true,
+    "cross_family_transfer": false,
+    "publisher_independence": false,
+    "universal_transfer": false
+  }
+}
