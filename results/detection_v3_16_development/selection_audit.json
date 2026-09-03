@@ -1,0 +1,37 @@
+{
+  "counts": {
+    "development": 30,
+    "formal": 250,
+    "smoke": 4
+  },
+  "gates": {
+    "archive_hash": true,
+    "contrastive_gate": true,
+    "dataset_hash": true,
+    "distractor_gate": true,
+    "distractor_pages_unique": true,
+    "formal_calls_not_authorized": true,
+    "item_ids_unique": true,
+    "labels_exactly_balanced": true,
+    "natural_reverse_is_exact_swap": true,
+    "split_pair_counts": true,
+    "target_distractor_pages_disjoint": true,
+    "target_pages_unique": true
+  },
+  "label_counts": {
+    "development": {
+      "REFUTES": 30,
+      "SUPPORTS": 30
+    },
+    "formal": {
+      "REFUTES": 250,
+      "SUPPORTS": 250
+    },
+    "smoke": {
+      "REFUTES": 4,
+      "SUPPORTS": 4
+    }
+  },
+  "passed": true,
+  "protocol_version": "detection-v3.16-vitaminc-symmetric-development-2026-09-03"
+}
