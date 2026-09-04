@@ -102,10 +102,10 @@ has studied semantic faithfulness under deletion/negation, explanation
 faithfulness under contradiction, mechanized evidence contracts, and debate
 selection based on confidence or disagreement. Our distinct object is the
 pre-outcome error risk of a fixed multi-agent consensus under
-environment-assigned evidence potential outcomes: the evidence identity is
-external to the model, the same agent view is paired across conditions, and the
-result is evaluated against a subsequently revealed consensus error rather
-than explanation quality, citation sufficiency, or debate accuracy.
+environment-assigned evidence conditions: evidence identity is external to the
+model, the same agent view is paired across conditions, and the result is
+evaluated against a subsequently revealed consensus error rather than
+explanation quality, citation sufficiency, or debate accuracy.
 
 ### 1.1 The narrative chain
 
@@ -222,6 +222,13 @@ conditions. The interventions approximate an operational faithfulness
 question—does the agent's observable decision depend on the evidence it was
 asked to use?
 
+These are operational response tests, not causal identification of the model's
+internal evidence use. Invariance can reflect robust inference, evidence
+irrelevance, or failure to process the intervention; a changed answer can
+reflect an artifact of the transformed text. The endpoint therefore tests
+predictive utility for later consensus error, not semantic entailment or
+internal causal faithfulness.
+
 ### 2.3 False consensus under dependence
 
 Agreement can arise from independent evidence, shared valid evidence, or
@@ -307,6 +314,9 @@ character-similarity and token-overlap filter retained 573 usable page roots;
 the frozen split used 4 smoke pairs, 30 development pairs, and 250 formal
 pairs. Each formal pair contributes one SUPPORTS and one REFUTES item, yielding
 500 exactly balanced items with globally disjoint target and distractor roots.
+The dataset labels are used only to construct and audit this balanced design;
+they are withheld from model calls, risk computation, route selection, and the
+evaluator until the pre-outcome artifacts are frozen.
 
 **Financial replay (two generations).** The as-of environment provides 1,247
 market rows (2021-05-10 → 2026-04-27 after frozen NaN gates), 29 features
@@ -428,7 +438,9 @@ distractor roots, and four conditions (original, remove, reverse, substitute)
 for each of five agents.
 
 The V3.16 score R_sym was selected on Qwen development data and then held fixed
-for both formal models. It was not refit on Ling or on formal outcomes.
+for both formal models. This is directional Qwen-development-to-Qwen/Ling
+transfer, not bidirectional model generalization; it was not refit on Ling or
+on formal outcomes.
 
 | Model | High-consensus N | Errors | R_sym AUROC | Macro | Worst label | Risk@80 | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -450,6 +462,11 @@ model-label AUROCs are all above 0.63, and both worst-label intervals clear
 449 common high-consensus items. Thus V3.16 supports transfer of an aggregate
 behavioral mechanism under a balanced construction, not universal or
 item-level-stable cross-model reliability.
+
+At identical high-consensus counts, R_sym also exceeds the confidence and
+vote-disagreement AUROCs: Qwen 0.808 versus 0.601 and 0.512, and Ling 0.761
+versus 0.568 and 0.522. These are same-prediction secondary comparisons; they
+do not change the conjunctive model-level verdict.
 
 Natural reverse inertia alone is stronger in this formal set (AUROC 0.855 for
 Qwen and 0.837 for Ling), while intervention disagreement alone is weak. These
@@ -606,20 +623,23 @@ subclaims to evidence and mechanizes citation scrutiny; SELENE uses confidence
 and semantic disagreement to initiate debate and weight evidence. We do not
 recast any of these as missing components to be rebuilt. Instead, our unit of
 analysis is the already formed multi-agent consensus: environment-held evidence
-identities generate paired potential outcomes, and the audit asks whether those
+identities generate paired intervention responses, and the audit asks whether those
 responses predict an unrevealed consensus error. We therefore do not claim new
 explanation faithfulness, citation validation, debate scheduling, or generic
 selective-routing machinery.
 
 **Truthfulness, factuality, and attribution.** TruthfulQA, FEVER, and
 attribution studies evaluate accuracy and citation support; our protocol adds
-a behavioral criterion—cited evidence should affect the decision under
-controlled changes—complementing citation correctness rather than replacing
-it.
+a behavioral observation—how a fixed consensus responds when assigned evidence
+changes—while leaving citation correctness and factuality as separate
+properties. Our endpoint is the pre-outcome error of that consensus, not a
+citation-sufficiency score.
 
 **Faithful explanations and interventions.** We avoid asking models to expose
-private reasoning and instead manipulate environment-provided evidence while
-observing answer changes: a black-box intervention test.
+**Faithful explanations and interventions.** We avoid treating a model-
+generated explanation as the object of evaluation. Environment-provided
+evidence is manipulated while observable consensus responses are recorded; the
+test is operational and does not identify internal causal evidence use.
 
 **Selective prediction and calibration.** Selective classification abstains
 to reduce retained risk; calibration and conformal methods quantify

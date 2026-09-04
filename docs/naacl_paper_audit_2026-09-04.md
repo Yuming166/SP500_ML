@@ -22,8 +22,8 @@ The defensible central sentence is:
 > risk signal against the unrevealed decision outcome.
 
 The contribution is the estimand and its integrity protocol together: fixed
-agent views, opaque environment-held evidence identities, paired potential
-outcomes, an outcome firewall, pre-outcome route snapshots, and adequacy gates
+agent views, opaque environment-held evidence identities, paired intervention
+responses, an outcome firewall, pre-outcome route snapshots, and adequacy gates
 that remain binding after results are observed. The weighted scores are frozen
 instantiations of that protocol, not claims of a new universal scoring model.
 
