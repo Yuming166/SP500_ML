@@ -1,5 +1,9 @@
 # When Consensus Lies: Intervention-Tested Provenance for Reliable Multi-Agent LLM Decisions
 
+> Archived first version. The current integrated manuscript is
+> [`paper/acl_draft_v2.md`](acl_draft_v2.md); this file is retained for protocol
+> history and comparison.
+
 **Anonymous ACL submission draft — September 2026**
 
 > Draft status: companion content manuscript based on the currently frozen
