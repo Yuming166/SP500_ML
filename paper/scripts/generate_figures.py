@@ -18,7 +18,15 @@ from typing import Any
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
+from matplotlib.patches import (
+    Arc,
+    Circle,
+    Ellipse,
+    FancyArrowPatch,
+    FancyBboxPatch,
+    Polygon,
+    Rectangle,
+)
 
 from sp500_forecastability import pilot_llm_v11
 
@@ -93,10 +101,16 @@ def _read_jsonl(path: Path) -> list[dict[str, Any]]:
     ]
 
 
-def _save(fig: plt.Figure, stem: str) -> None:
+def _save(fig: plt.Figure, stem: str, *, write_svg: bool = False) -> None:
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIGURE_DIR / f"{stem}.pdf")
-    fig.savefig(FIGURE_DIR / f"{stem}.png", dpi=320)
+    facecolor = fig.get_facecolor()
+    fig.savefig(FIGURE_DIR / f"{stem}.pdf", facecolor=facecolor)
+    fig.savefig(FIGURE_DIR / f"{stem}.png", dpi=320, facecolor=facecolor)
+    if write_svg:
+        svg_path = FIGURE_DIR / f"{stem}.svg"
+        fig.savefig(svg_path, facecolor=facecolor)
+        svg_lines = svg_path.read_text(encoding="utf-8").splitlines()
+        svg_path.write_text("\n".join(line.rstrip() for line in svg_lines) + "\n", encoding="utf-8")
     plt.close(fig)
 
 
@@ -144,51 +158,646 @@ def _box(
 
 
 def make_framework_figure() -> None:
-    fig, ax = plt.subplots(figsize=(7.15, 2.45))
+    background = "#FFFDF7"
+    soft_ink = "#35414A"
+    muted = "#83909A"
+    shadow = "#E9E3D7"
+    fig, ax = plt.subplots(figsize=(7.15, 3.35))
+    fig.patch.set_facecolor(background)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis("off")
 
-    boxes = [
-        (0.02, PALE_BLUE, NAVY, "Evidence graph", "source roots $\\rightarrow$ evidence IDs\nfixed agent views"),
-        (0.27, PALE_ORANGE, ORANGE, "Agent votes", "5 fixed agents\nanswer, confidence, cited IDs"),
-        (0.52, PALE_RED, VERMILION, "Evidence tests", "original / remove\nreverse / substitute"),
-        (0.77, PALE_GREEN, GREEN, "Route or retain", "$R_{PI}$ ranks false consensus\nretain low risk; route high risk"),
-    ]
-    for x, face, edge, title, lines in boxes:
-        _box(ax, (x, 0.26), 0.205, 0.54, face, title, lines, edge)
-
-    for start in (0.225, 0.475, 0.725):
-        arrow = FancyArrowPatch(
-            (start, 0.53),
-            (start + 0.04, 0.53),
-            arrowstyle="-|>",
-            mutation_scale=14,
-            linewidth=1.7,
-            color=GRAY,
+    def rounded_card(
+        left: float,
+        bottom: float,
+        width: float,
+        height: float,
+        face: str,
+        edge: str,
+    ) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                (left + 0.006, bottom - 0.009),
+                width,
+                height,
+                boxstyle="round,pad=0.012,rounding_size=0.026",
+                linewidth=0,
+                facecolor=shadow,
+                alpha=0.75,
+                zorder=0,
+            )
         )
-        ax.add_patch(arrow)
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                height,
+                boxstyle="round,pad=0.012,rounding_size=0.026",
+                linewidth=1.5,
+                edgecolor=edge,
+                facecolor=face,
+                zorder=1,
+            )
+        )
 
+    def step_badge(center: tuple[float, float], number: str, color: str) -> None:
+        center_x, center_y = center
+        ax.add_patch(Circle((center_x, center_y), 0.022, facecolor=color, edgecolor="white", linewidth=1.0, zorder=4))
+        ax.text(
+            center_x,
+            center_y - 0.001,
+            number,
+            ha="center",
+            va="center",
+            fontsize=8.0,
+            fontweight="bold",
+            color="white",
+            zorder=5,
+        )
+
+    def face(center: tuple[float, float], size: float, color: str, wink: bool = False) -> None:
+        center_x, center_y = center
+        head_height = size * 0.80
+        ax.add_patch(
+            Ellipse(
+                (center_x, center_y),
+                size,
+                head_height,
+                facecolor=color,
+                edgecolor=soft_ink,
+                linewidth=0.8,
+                zorder=4,
+            )
+        )
+        eye_offset = size * 0.19
+        eye_y = center_y + size * 0.08
+        if wink:
+            ax.plot(
+                [center_x - eye_offset * 1.35, center_x - eye_offset * 0.75],
+                [eye_y, eye_y + size * 0.01],
+                color=soft_ink,
+                linewidth=0.8,
+                zorder=5,
+            )
+        else:
+            ax.add_patch(Circle((center_x - eye_offset, eye_y), size * 0.035, color=soft_ink, zorder=5))
+        ax.add_patch(Circle((center_x + eye_offset, eye_y), size * 0.035, color=soft_ink, zorder=5))
+        ax.add_patch(
+            Arc(
+                (center_x, center_y - size * 0.01),
+                size * 0.28,
+                size * 0.18,
+                theta1=205,
+                theta2=335,
+                color=soft_ink,
+                linewidth=0.8,
+                zorder=5,
+            )
+        )
+        ax.add_patch(Ellipse((center_x - size * 0.30, center_y - size * 0.08), size * 0.10, size * 0.045, color="#F4A6A0", alpha=0.75, zorder=5))
+        ax.add_patch(Ellipse((center_x + size * 0.30, center_y - size * 0.08), size * 0.10, size * 0.045, color="#F4A6A0", alpha=0.75, zorder=5))
+
+    def document(center: tuple[float, float], width: float, height: float, color: str) -> None:
+        center_x, center_y = center
+        left = center_x - width / 2
+        bottom = center_y - height / 2
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                height,
+                boxstyle="round,pad=0.004,rounding_size=0.008",
+                facecolor="white",
+                edgecolor=color,
+                linewidth=1.0,
+                zorder=3,
+            )
+        )
+        ax.add_patch(
+            Polygon(
+                [
+                    (left + width * 0.66, bottom + height),
+                    (left + width, bottom + height * 0.66),
+                    (left + width * 0.66, bottom + height * 0.66),
+                ],
+                closed=True,
+                facecolor=color,
+                edgecolor=color,
+                linewidth=0.3,
+                zorder=4,
+            )
+        )
+        for line_index in range(2):
+            line_y = bottom + height * (0.43 - line_index * 0.16)
+            ax.plot(
+                [left + width * 0.18, left + width * 0.78],
+                [line_y, line_y],
+                color=color,
+                linewidth=0.8,
+                alpha=0.75,
+                zorder=4,
+            )
+
+    def sparkle(center: tuple[float, float], color: str, size: float = 0.014) -> None:
+        center_x, center_y = center
+        ax.plot([center_x - size, center_x + size], [center_y, center_y], color=color, linewidth=1.1, zorder=4)
+        ax.plot([center_x, center_x], [center_y - size, center_y + size], color=color, linewidth=1.1, zorder=4)
+
+    def pill(left: float, bottom: float, width: float, text: str, face: str, edge: str) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                0.052,
+                boxstyle="round,pad=0.006,rounding_size=0.018",
+                facecolor=face,
+                edgecolor=edge,
+                linewidth=0.8,
+                zorder=3,
+            )
+        )
+        ax.text(
+            left + width / 2,
+            bottom + 0.026,
+            text,
+            ha="center",
+            va="center",
+            fontsize=6.8,
+            color=soft_ink,
+            zorder=4,
+        )
+
+    def arrow(start_x: float, end_x: float) -> None:
+        ax.add_patch(
+            FancyArrowPatch(
+                (start_x, 0.535),
+                (end_x, 0.535),
+                arrowstyle="-|>",
+                mutation_scale=13,
+                linewidth=1.6,
+                color=muted,
+                zorder=2,
+            )
+        )
+
+    title = "How the evidence-aware audit catches false consensus"
+    ax.text(0.5, 0.955, title, ha="center", va="center", fontsize=12.0, fontweight="bold", color=soft_ink)
     ax.text(
         0.5,
-        0.91,
-        "Environment-controlled evidence tests turn consensus into a routing decision",
+        0.895,
+        "Change the evidence, watch the behavior, then unlock the labels",
         ha="center",
         va="center",
-        fontsize=11.2,
-        fontweight="bold",
-        color=INK,
+        fontsize=8.5,
+        color=muted,
     )
-    ax.text(
-        0.5,
-        0.09,
-        "Outcome-independent inputs only; labels are revealed after routing",
-        ha="center",
-        va="center",
-        fontsize=8.7,
-        color=GRAY,
+    ax.add_patch(
+        FancyBboxPatch(
+            (0.405, 0.825),
+            0.19,
+            0.038,
+            boxstyle="round,pad=0.005,rounding_size=0.014",
+            facecolor="#F2EEE5",
+            edgecolor="#D8D0C3",
+            linewidth=0.7,
+            zorder=2,
+        )
     )
-    _save(fig, "framework_overview")
+    ax.text(0.5, 0.844, "OUTCOME-FIREWALLED PIPELINE", ha="center", va="center", fontsize=6.6, fontweight="bold", color=muted, zorder=3)
+
+    card_bottom = 0.255
+    card_height = 0.515
+    card_specs = [
+        (0.03, 0.205, PALE_BLUE, NAVY),
+        (0.27, 0.205, PALE_ORANGE, ORANGE),
+        (0.51, 0.205, PALE_RED, VERMILION),
+        (0.75, 0.22, PALE_GREEN, GREEN),
+    ]
+    for left, width, face_color, edge_color in card_specs:
+        rounded_card(left, card_bottom, width, card_height, face_color, edge_color)
+
+    step_badge((0.06, 0.725), "1", NAVY)
+    ax.text(0.1325, 0.719, "Evidence\ngarden", ha="center", va="center", fontsize=8.5, fontweight="bold", color=soft_ink, linespacing=0.95)
+    ax.text(0.1325, 0.647, "roots  →  evidence IDs", ha="center", va="center", fontsize=6.8, color=soft_ink)
+    document((0.085, 0.525), 0.052, 0.092, BLUE)
+    document((0.145, 0.525), 0.052, 0.092, NAVY)
+    ax.plot([0.111, 0.119, 0.135], [0.483, 0.458, 0.483], color=GREEN, linewidth=1.4, zorder=3)
+    ax.plot([0.119, 0.119], [0.458, 0.418], color=GREEN, linewidth=1.4, zorder=3)
+    ax.add_patch(Ellipse((0.101, 0.469), 0.026, 0.052, angle=35, facecolor=PALE_GREEN, edgecolor=GREEN, linewidth=0.8, zorder=3))
+    ax.add_patch(Ellipse((0.139, 0.469), 0.026, 0.052, angle=-35, facecolor=PALE_GREEN, edgecolor=GREEN, linewidth=0.8, zorder=3))
+    ax.text(0.1325, 0.365, "source roots\nfixed agent views", ha="center", va="center", fontsize=6.8, color=soft_ink, linespacing=1.2)
+
+    step_badge((0.30, 0.725), "2", ORANGE)
+    ax.text(0.3725, 0.719, "Agent\nchoir", ha="center", va="center", fontsize=8.5, fontweight="bold", color=soft_ink, linespacing=0.95)
+    ax.text(0.3725, 0.647, "5 fixed personas", ha="center", va="center", fontsize=6.8, color=soft_ink)
+    face((0.316, 0.535), 0.052, "#F5C56B")
+    face((0.346, 0.535), 0.052, "#F5D98D", wink=True)
+    face((0.376, 0.535), 0.052, "#F2B2A8")
+    face((0.406, 0.535), 0.052, "#B9DCCF", wink=True)
+    face((0.436, 0.535), 0.052, "#B8D8EE")
+    ax.text(0.3725, 0.365, "answer  ·  confidence\ncited IDs", ha="center", va="center", fontsize=6.9, color=soft_ink, linespacing=1.2)
+
+    step_badge((0.54, 0.725), "3", VERMILION)
+    ax.text(0.6125, 0.719, "Gentle\nnudges", ha="center", va="center", fontsize=8.5, fontweight="bold", color=soft_ink, linespacing=0.95)
+    ax.text(0.6125, 0.647, "one paired change", ha="center", va="center", fontsize=6.8, color=soft_ink)
+    sparkle((0.55, 0.575), ORANGE, 0.018)
+    sparkle((0.675, 0.585), PURPLE, 0.012)
+    pill(0.526, 0.525, 0.081, "original", "#E8F3F8", BLUE)
+    pill(0.612, 0.525, 0.081, "remove", "#F0EEEE", GRAY)
+    pill(0.526, 0.455, 0.081, "reverse", "#FBE7E2", VERMILION)
+    pill(0.612, 0.455, 0.081, "substitute", "#EEE8F7", PURPLE)
+    ax.text(0.6125, 0.365, "paired, visible\nanswer changes", ha="center", va="center", fontsize=6.9, color=soft_ink, linespacing=1.2)
+
+    step_badge((0.78, 0.725), "4", GREEN)
+    ax.text(0.86, 0.719, "Risk  →\naction", ha="center", va="center", fontsize=8.5, fontweight="bold", color=soft_ink, linespacing=0.95)
+    ax.text(0.86, 0.647, "pre-outcome risk", ha="center", va="center", fontsize=6.8, color=soft_ink)
+    gauge_center = (0.86, 0.545)
+    ax.add_patch(Arc(gauge_center, 0.135, 0.115, theta1=0, theta2=180, color="#C5DCD1", linewidth=5.0, zorder=3))
+    ax.add_patch(Arc(gauge_center, 0.135, 0.115, theta1=0, theta2=72, color=GREEN, linewidth=5.0, zorder=4))
+    ax.plot([0.86, 0.897], [0.545, 0.59], color=VERMILION, linewidth=1.4, zorder=5)
+    ax.add_patch(Circle(gauge_center, 0.009, facecolor=VERMILION, edgecolor="white", linewidth=0.6, zorder=6))
+    ax.text(0.86, 0.505, "$R_{\\mathrm{PI}}$ / $R_{\\mathrm{sym}}$", ha="center", va="center", fontsize=7.3, fontweight="bold", color=soft_ink)
+    ax.add_patch(
+        FancyBboxPatch((0.765, 0.345), 0.085, 0.062, boxstyle="round,pad=0.006,rounding_size=0.013", facecolor="#E3F3ED", edgecolor=GREEN, linewidth=0.8, zorder=3)
+    )
+    ax.add_patch(
+        FancyBboxPatch((0.87, 0.345), 0.085, 0.062, boxstyle="round,pad=0.006,rounding_size=0.013", facecolor="#FBE8E4", edgecolor=VERMILION, linewidth=0.8, zorder=3)
+    )
+    ax.text(0.8075, 0.382, "LOW RISK\nretain", ha="center", va="center", fontsize=6.4, fontweight="bold", color=GREEN, linespacing=1.1, zorder=4)
+    ax.text(0.9125, 0.382, "HIGH RISK\nreview / route", ha="center", va="center", fontsize=6.4, fontweight="bold", color=VERMILION, linespacing=1.1, zorder=4)
+    ax.text(0.86, 0.298, "ranks the tail\nnot the truth", ha="center", va="center", fontsize=5.8, color=muted, linespacing=1.0)
+
+    arrow(0.238, 0.258)
+    arrow(0.478, 0.498)
+    arrow(0.718, 0.738)
+    ax.add_patch(FancyArrowPatch((0.50, 0.17), (0.50, 0.095), arrowstyle="-|>", mutation_scale=11, linewidth=1.2, color=muted, zorder=2))
+    ax.add_patch(
+        FancyBboxPatch((0.20, 0.035), 0.62, 0.06, boxstyle="round,pad=0.008,rounding_size=0.018", facecolor="#F2EEE5", edgecolor="#D8D0C3", linewidth=0.8, zorder=2)
+    )
+    lock_left = 0.225
+    ax.add_patch(Rectangle((lock_left, 0.049), 0.027, 0.023, facecolor=muted, edgecolor=muted, linewidth=0.5, zorder=4))
+    ax.add_patch(Arc((lock_left + 0.0135, 0.072), 0.022, 0.025, theta1=0, theta2=180, color=muted, linewidth=1.2, zorder=4))
+    ax.text(0.58, 0.065, "labels unlock after routing  →  evaluate consensus error", ha="center", va="center", fontsize=6.6, fontweight="bold", color=soft_ink, zorder=3)
+    sparkle((0.72, 0.86), ORANGE, 0.012)
+    sparkle((0.255, 0.86), BLUE, 0.010)
+    _save(fig, "framework_overview", write_svg=True)
+
+
+def make_methodology_figure() -> None:
+    background = "#FFFFFF"
+    panel_navy = "#214E6B"
+    soft_ink = "#253746"
+    muted = "#6F7F8C"
+    warning = "#C4514D"
+    stable = "#159A74"
+    yellow = "#F3B21A"
+    lavender = "#7A5AA6"
+    pale_yellow = "#FFF5D9"
+    pale_gray = "#F1F4F6"
+
+    fig, ax = plt.subplots(figsize=(7.15, 5.35))
+    fig.patch.set_facecolor(background)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    def frame(
+        left: float,
+        bottom: float,
+        width: float,
+        height: float,
+        title: str,
+        subtitle: str,
+        accent: str,
+    ) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                height,
+                boxstyle="round,pad=0.008,rounding_size=0.018",
+                facecolor="white",
+                edgecolor=panel_navy,
+                linewidth=1.2,
+                linestyle=(0, (4, 2)),
+                zorder=0,
+            )
+        )
+        ax.add_patch(
+            FancyBboxPatch(
+                (left + 0.012, bottom + height - 0.046),
+                width - 0.024,
+                0.032,
+                boxstyle="round,pad=0.004,rounding_size=0.012",
+                facecolor=accent,
+                edgecolor=panel_navy,
+                linewidth=0.6,
+                zorder=1,
+            )
+        )
+        ax.text(
+            left + width / 2,
+            bottom + height - 0.030,
+            title,
+            ha="center",
+            va="center",
+            fontsize=8.2,
+            fontweight="bold",
+            color=soft_ink,
+            zorder=2,
+        )
+        ax.text(
+            left + width / 2,
+            bottom + height - 0.063,
+            subtitle,
+            ha="center",
+            va="center",
+            fontsize=5.8,
+            color=muted,
+            zorder=2,
+        )
+
+    def card(
+        left: float,
+        bottom: float,
+        width: float,
+        height: float,
+        text: str,
+        face_color: str,
+        edge_color: str,
+        *,
+        fontsize: float = 6.5,
+        dashed: bool = False,
+        weight: str = "normal",
+    ) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                height,
+                boxstyle="round,pad=0.006,rounding_size=0.012",
+                facecolor=face_color,
+                edgecolor=edge_color,
+                linewidth=0.85,
+                linestyle=(0, (3, 2)) if dashed else "-",
+                zorder=2,
+            )
+        )
+        ax.text(
+            left + width / 2,
+            bottom + height / 2,
+            text,
+            ha="center",
+            va="center",
+            fontsize=fontsize,
+            fontweight=weight,
+            color=soft_ink,
+            linespacing=1.05,
+            zorder=3,
+        )
+
+    def flow(
+        start: tuple[float, float],
+        end: tuple[float, float],
+        *,
+        color: str = muted,
+        dashed: bool = False,
+        linewidth: float = 1.15,
+        mutation_scale: float = 10,
+    ) -> None:
+        ax.add_patch(
+            FancyArrowPatch(
+                start,
+                end,
+                arrowstyle="-|>",
+                mutation_scale=mutation_scale,
+                linewidth=linewidth,
+                linestyle="--" if dashed else "-",
+                color=color,
+                zorder=4,
+            )
+        )
+
+    def document(center: tuple[float, float], width: float, height: float, color: str) -> None:
+        center_x, center_y = center
+        left = center_x - width / 2
+        bottom = center_y - height / 2
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                width,
+                height,
+                boxstyle="round,pad=0.003,rounding_size=0.006",
+                facecolor="white",
+                edgecolor=color,
+                linewidth=0.8,
+                zorder=3,
+            )
+        )
+        ax.add_patch(
+            Polygon(
+                [
+                    (left + width * 0.64, bottom + height),
+                    (left + width, bottom + height * 0.64),
+                    (left + width * 0.64, bottom + height * 0.64),
+                ],
+                closed=True,
+                facecolor=color,
+                edgecolor=color,
+                linewidth=0.3,
+                zorder=4,
+            )
+        )
+        for line_index in range(2):
+            line_y = bottom + height * (0.39 - line_index * 0.16)
+            ax.plot(
+                [left + width * 0.18, left + width * 0.78],
+                [line_y, line_y],
+                color=color,
+                linewidth=0.65,
+                zorder=4,
+            )
+
+    def source(center: tuple[float, float], width: float, height: float, color: str) -> None:
+        center_x, center_y = center
+        left = center_x - width / 2
+        bottom = center_y - height / 2
+        ax.add_patch(Rectangle((left, bottom), width, height * 0.72, facecolor=color, edgecolor=color, linewidth=0.7, zorder=3))
+        ax.add_patch(Ellipse((center_x, bottom + height * 0.72), width, height * 0.32, facecolor=color, edgecolor=panel_navy, linewidth=0.7, zorder=4))
+        ax.add_patch(Ellipse((center_x, bottom), width, height * 0.32, facecolor=color, edgecolor=panel_navy, linewidth=0.7, zorder=4))
+        ax.add_patch(Ellipse((center_x, bottom + height * 0.72), width * 0.62, height * 0.12, facecolor="white", edgecolor="none", alpha=0.55, zorder=5))
+
+    def robot(center: tuple[float, float], size: float, color: str, label: str | None = None) -> None:
+        center_x, center_y = center
+        ax.plot([center_x, center_x], [center_y + size * 0.35, center_y + size * 0.56], color=panel_navy, linewidth=0.7, zorder=4)
+        ax.add_patch(Circle((center_x, center_y + size * 0.61), size * 0.045, facecolor=yellow, edgecolor=panel_navy, linewidth=0.5, zorder=5))
+        ax.add_patch(FancyBboxPatch((center_x - size * 0.32, center_y - size * 0.38), size * 0.64, size * 0.46, boxstyle="round,pad=0.002,rounding_size=0.006", facecolor=color, edgecolor=panel_navy, linewidth=0.7, zorder=3))
+        ax.add_patch(Ellipse((center_x, center_y + size * 0.10), size * 0.76, size * 0.58, facecolor=color, edgecolor=panel_navy, linewidth=0.8, zorder=4))
+        ax.add_patch(Circle((center_x - size * 0.18, center_y + size * 0.15), size * 0.045, facecolor=soft_ink, zorder=5))
+        ax.add_patch(Circle((center_x + size * 0.18, center_y + size * 0.15), size * 0.045, facecolor=soft_ink, zorder=5))
+        ax.add_patch(Arc((center_x, center_y + size * 0.05), size * 0.28, size * 0.16, theta1=205, theta2=335, color=soft_ink, linewidth=0.65, zorder=5))
+        if label:
+            ax.text(center_x, center_y - size * 0.58, label, ha="center", va="center", fontsize=5.2, color=muted, zorder=5)
+
+    def decision_token(center: tuple[float, float], text: str, color: str, *, width: float = 0.042) -> None:
+        center_x, center_y = center
+        card(center_x - width / 2, center_y - 0.014, width, 0.028, text, "white", color, fontsize=5.3, weight="bold")
+
+    def matrix_cell(left: float, bottom: float, value: str, color: str) -> None:
+        ax.add_patch(
+            FancyBboxPatch(
+                (left, bottom),
+                0.034,
+                0.027,
+                boxstyle="round,pad=0.002,rounding_size=0.005",
+                facecolor=color,
+                edgecolor="white",
+                linewidth=0.7,
+                zorder=3,
+            )
+        )
+        ax.text(left + 0.017, bottom + 0.0135, value, ha="center", va="center", fontsize=5.4, fontweight="bold", color=soft_ink, zorder=4)
+
+    def shield(center: tuple[float, float], size: float) -> None:
+        center_x, center_y = center
+        points = [
+            (center_x - size * 0.34, center_y + size * 0.37),
+            (center_x + size * 0.34, center_y + size * 0.37),
+            (center_x + size * 0.29, center_y - size * 0.10),
+            (center_x, center_y - size * 0.43),
+            (center_x - size * 0.29, center_y - size * 0.10),
+        ]
+        ax.add_patch(Polygon(points, closed=True, facecolor="#DCEFE8", edgecolor=stable, linewidth=1.0, zorder=4))
+        ax.plot([center_x - size * 0.13, center_x - size * 0.02, center_x + size * 0.18], [center_y - size * 0.02, center_y - size * 0.16, center_y + size * 0.15], color=stable, linewidth=1.2, zorder=5)
+
+    def warning_icon(center: tuple[float, float], size: float) -> None:
+        center_x, center_y = center
+        ax.add_patch(Polygon([(center_x, center_y + size * 0.42), (center_x - size * 0.40, center_y - size * 0.33), (center_x + size * 0.40, center_y - size * 0.33)], closed=True, facecolor="#FBE8E4", edgecolor=warning, linewidth=0.9, zorder=4))
+        ax.plot([center_x, center_x], [center_y + size * 0.15, center_y - size * 0.10], color=warning, linewidth=1.0, zorder=5)
+        ax.add_patch(Circle((center_x, center_y - size * 0.21), size * 0.035, facecolor=warning, zorder=5))
+
+    ax.text(0.5, 0.985, "From shared evidence to a reliability-aware decision", ha="center", va="center", fontsize=12.0, fontweight="bold", color=soft_ink)
+    ax.text(0.5, 0.958, "The environment changes the evidence, watches the response, and reveals labels last", ha="center", va="center", fontsize=7.4, color=muted)
+
+    frame(0.025, 0.53, 0.285, 0.40, "1. Decision setup", "question → agents → consensus", PALE_BLUE)
+    frame(0.33, 0.53, 0.30, 0.40, "2. Provenance", "source → evidence → agents", pale_yellow)
+    frame(0.65, 0.53, 0.325, 0.40, "3. Counterfactual tests", "controlled evidence intervention", PALE_RED)
+    frame(0.025, 0.075, 0.95, 0.385, "4. Reliability & routing", "", PALE_GREEN)
+
+    card(0.047, 0.802, 0.241, 0.050, 'Question: "Accept this\nmulti-agent decision?"', pale_yellow, yellow, fontsize=6.3, weight="bold")
+    agent_centers = [0.070, 0.117, 0.164, 0.211, 0.258]
+    robot_colors = ["#F4C86A", "#F2D98A", "#F1B1A8", "#BBDDCF", "#B9D9EF"]
+    for index, (agent_x, robot_color) in enumerate(zip(agent_centers, robot_colors, strict=True), start=1):
+        robot((agent_x, 0.748), 0.045, robot_color, f"A{index}")
+        decision_token((agent_x, 0.678), "YES", stable)
+    card(0.061, 0.603, 0.213, 0.046, "HIGH CONSENSUS  ·  5/5 YES\nconsensus  ≠  reliability", "#FBE8E4", warning, fontsize=6.0, dashed=True, weight="bold")
+    source((0.063, 0.565), 0.026, 0.034, BLUE)
+    document((0.111, 0.565), 0.033, 0.039, BLUE)
+    card(0.139, 0.554, 0.041, 0.022, "claim", PALE_ORANGE, ORANGE, fontsize=4.8)
+    robot((0.216, 0.566), 0.022, "#BBDDCF")
+    decision_token((0.270, 0.566), "YES", stable, width=0.035)
+    flow((0.078, 0.565), (0.094, 0.565), color=muted, mutation_scale=7)
+    flow((0.128, 0.565), (0.139, 0.565), color=muted, mutation_scale=7)
+    flow((0.181, 0.565), (0.203, 0.565), color=muted, mutation_scale=7)
+    flow((0.229, 0.565), (0.252, 0.565), color=muted, mutation_scale=7)
+    ax.text(0.167, 0.541, "SRC  →  EVID  →  CLAIM  →  AGENT  →  DEC", ha="center", va="center", fontsize=4.8, color=muted)
+
+    source_centers = [(0.375, "A", BLUE), (0.455, "B", ORANGE), (0.535, "C", PURPLE)]
+    evidence_centers = [(0.365, "E1", BLUE), (0.405, "E2", BLUE), (0.445, "E3", ORANGE), (0.485, "E4", PURPLE), (0.525, "E5", PURPLE)]
+    for source_x, source_label, source_color in source_centers:
+        source((source_x, 0.827), 0.034, 0.035, source_color)
+        ax.text(source_x, 0.795, f"Source {source_label}", ha="center", va="center", fontsize=5.0, color=soft_ink)
+    for evidence_x, evidence_label, evidence_color in evidence_centers:
+        document((evidence_x, 0.744), 0.030, 0.035, evidence_color)
+        ax.text(evidence_x, 0.713, evidence_label, ha="center", va="center", fontsize=4.8, color=muted)
+    for start_x, end_x in ((0.375, 0.365), (0.375, 0.405), (0.455, 0.445), (0.535, 0.485), (0.535, 0.525)):
+        flow((start_x, 0.805), (end_x, 0.765), color=muted, mutation_scale=6)
+    agent_graph = [(0.385, "A1"), (0.465, "A3"), (0.545, "A5")]
+    for agent_x, agent_label in agent_graph:
+        robot((agent_x, 0.665), 0.029, "#F2D98A", agent_label)
+    for evidence_x, agent_x in ((0.365, 0.385), (0.445, 0.465), (0.525, 0.545)):
+        flow((evidence_x, 0.725), (agent_x, 0.684), color=muted, dashed=True, mutation_scale=6)
+    card(0.352, 0.565, 0.256, 0.072, "SHARED PROVENANCE\none source  →  correlated views", pale_yellow, yellow, fontsize=5.9, dashed=True, weight="bold")
+    ax.text(0.480, 0.548, "different-looking citations can share one root", ha="center", va="center", fontsize=5.0, color=warning)
+
+    card(0.670, 0.805, 0.285, 0.040, "Original:  E={E1,E2,E3}  ·  A(E)=YES", "#FFFFFF", panel_navy, fontsize=5.5, weight="bold")
+    branch_centers = [0.704, 0.812, 0.920]
+    branch_names = ["REMOVE", "REVERSE", "SUBSTITUTE"]
+    branch_text = ["Ej  →  ∅", "Ej  →  Ēj", "Ej  →  E′j"]
+    branch_colors = [BLUE, warning, lavender]
+    for branch_x, branch_name, branch_formula, branch_color in zip(branch_centers, branch_names, branch_text, branch_colors, strict=True):
+        card(branch_x - 0.045, 0.773, 0.090, 0.026, branch_name, branch_color, panel_navy, fontsize=5.3, weight="bold")
+        card(branch_x - 0.045, 0.711, 0.090, 0.040, branch_formula, pale_gray, branch_color, fontsize=6.3, weight="bold")
+        flow((branch_x, 0.771), (branch_x, 0.753), color=branch_color, mutation_scale=6)
+    response_texts = ["YES  →  NO\nflip", "YES  →  YES\ninertia", "YES  →  NO\nflip"]
+    response_colors = [warning, stable, warning]
+    for branch_x, response_text, response_color in zip(branch_centers, response_texts, response_colors, strict=True):
+        card(branch_x - 0.045, 0.629, 0.090, 0.052, response_text, "#FFFFFF", response_color, fontsize=5.5, weight="bold")
+        flow((branch_x, 0.709), (branch_x, 0.684), color=response_color, mutation_scale=6)
+    ax.text(0.812, 0.602, r"$\Delta_{ij}=A_i(E)-A_i(E')$", ha="center", va="center", fontsize=6.4, color=panel_navy)
+    card(0.674, 0.543, 0.277, 0.045, "Does the decision respond to evidence?\nfragility  →  false-consensus risk", pale_yellow, warning, fontsize=5.0, dashed=True, weight="bold")
+
+    flow((0.310, 0.752), (0.328, 0.752), color=panel_navy, linewidth=1.4, mutation_scale=10)
+    flow((0.630, 0.752), (0.648, 0.752), color=panel_navy, linewidth=1.4, mutation_scale=10)
+    flow((0.812, 0.535), (0.812, 0.468), color=panel_navy, linewidth=1.4, mutation_scale=10)
+    ax.text(0.319, 0.768, "trace", ha="center", va="center", fontsize=4.8, color=muted)
+    ax.text(0.639, 0.768, "test", ha="center", va="center", fontsize=4.8, color=muted)
+    ax.text(0.829, 0.503, "observe", ha="left", va="center", fontsize=4.8, color=muted)
+
+    card(0.046, 0.381, 0.274, 0.036, "INTERVENTION MATRIX", "#EAF4F8", panel_navy, fontsize=6.0, weight="bold")
+    matrix_left = 0.142
+    matrix_bottom = 0.205
+    for column_index, column_label in enumerate(("E1", "E2", "E3")):
+        ax.text(matrix_left + column_index * 0.042 + 0.017, 0.347, column_label, ha="center", va="center", fontsize=5.2, fontweight="bold", color=panel_navy)
+    matrix_values = ((0, 1, 0), (0, 1, 1), (0, 0, 1), (0, 1, 0), (0, 0, 1))
+    for row_index, row_values in enumerate(matrix_values):
+        row_y = matrix_bottom + (4 - row_index) * 0.030
+        ax.text(0.106, row_y + 0.0135, f"A{row_index + 1}", ha="right", va="center", fontsize=5.0, color=muted)
+        for column_index, value in enumerate(row_values):
+            cell_color = "#CFEBDD" if value else "#F9D6C9"
+            matrix_cell(matrix_left + column_index * 0.042, row_y, str(value), cell_color)
+    ax.text(0.182, 0.174, "1 = evidence-sensitive    0 = suspicious inertia", ha="center", va="center", fontsize=4.9, color=muted)
+    ax.text(0.182, 0.145, r"$\Delta_{ij}=A_i(E)-A_i(E')$", ha="center", va="center", fontsize=5.8, color=panel_navy)
+    card(0.046, 0.103, 0.274, 0.028, "green = flip   ·   orange = inertia", "#FFFFFF", muted, fontsize=4.9)
+
+    card(0.350, 0.381, 0.270, 0.036, "INTERPRETABLE RISK ROUTER", "#EAF4F8", panel_navy, fontsize=6.0, weight="bold")
+    card(0.370, 0.319, 0.095, 0.040, "answer-flip\ninertia", PALE_BLUE, BLUE, fontsize=5.3, weight="bold")
+    card(0.505, 0.319, 0.095, 0.040, "complete\ninertia", PALE_ORANGE, ORANGE, fontsize=5.3, weight="bold")
+    flow((0.418, 0.318), (0.466, 0.267), color=BLUE, mutation_scale=7)
+    flow((0.553, 0.318), (0.502, 0.267), color=ORANGE, mutation_scale=7)
+    shield((0.485, 0.239), 0.060)
+    ax.text(0.485, 0.184, r"$R_{\mathrm{PI}}$ / $R_{\mathrm{sym}}$", ha="center", va="center", fontsize=7.2, fontweight="bold", color=panel_navy)
+    ax.text(0.485, 0.158, "pre-outcome risk", ha="center", va="center", fontsize=5.0, color=muted)
+    card(0.370, 0.103, 0.230, 0.034, "shared-source fraction  ·  secondary signal", pale_yellow, yellow, fontsize=5.0, dashed=True)
+    ax.text(0.485, 0.083, r"$R_{\mathrm{PI}}=0.1D_{\mathrm{inert}}+0.3I_{\mathrm{flip}}+0.6F_{\mathrm{shared}}$", ha="center", va="center", fontsize=4.7, color=muted)
+
+    card(0.650, 0.375, 0.300, 0.030, "SELECTIVE ROUTING", "#EAF4F8", panel_navy, fontsize=5.8, weight="bold")
+    card(0.660, 0.319, 0.132, 0.050, "", "#E3F3ED", stable, fontsize=6.1, weight="bold")
+    shield((0.678, 0.344), 0.026)
+    ax.text(0.742, 0.344, "LOW RISK\nACCEPT", ha="center", va="center", fontsize=5.8, fontweight="bold", color=soft_ink, linespacing=1.05)
+    card(0.808, 0.319, 0.132, 0.050, "", "#FBE8E4", warning, fontsize=5.6, weight="bold")
+    warning_icon((0.818, 0.344), 0.026)
+    ax.text(0.895, 0.344, "HIGH RISK\nABSTAIN / ESCALATE", ha="center", va="center", fontsize=5.0, fontweight="bold", color=soft_ink, linespacing=1.05)
+    ax.text(0.800, 0.286, "predict reliability before labels are revealed", ha="center", va="center", fontsize=5.0, color=panel_navy, fontweight="bold")
+    card(0.660, 0.240, 0.280, 0.028, "BoolQ V12.1  ·  compact validation check", pale_yellow, yellow, fontsize=5.0, dashed=True, weight="bold")
+    card(0.660, 0.199, 0.132, 0.026, "flip inertia: 0.807", "#FFFFFF", BLUE, fontsize=4.7, weight="bold")
+    card(0.808, 0.199, 0.132, 0.026, "shared source: 0.498", "#FFFFFF", lavender, fontsize=4.5, weight="bold")
+    ax.text(0.660, 0.160, "Risk@80", ha="left", va="center", fontsize=5.0, color=muted, fontweight="bold")
+    ax.add_patch(Rectangle((0.715, 0.151), 0.055, 0.018, facecolor="#E5EBEF", edgecolor=muted, linewidth=0.5, zorder=3))
+    ax.add_patch(Rectangle((0.715, 0.151), 0.036, 0.018, facecolor=stable, edgecolor="none", zorder=4))
+    ax.text(0.785, 0.160, "22.0%  →  13.3%", ha="left", va="center", fontsize=5.1, color=stable, fontweight="bold")
+    ax.text(0.800, 0.125, "selective routing reduces retained error at 80% coverage", ha="center", va="center", fontsize=4.6, color=muted)
+
+    flow((0.322, 0.267), (0.345, 0.267), color=panel_navy, linewidth=1.2, mutation_scale=8)
+    flow((0.622, 0.267), (0.645, 0.267), color=panel_navy, linewidth=1.2, mutation_scale=8)
+    ax.text(0.334, 0.282, "aggregate", ha="center", va="center", fontsize=4.6, color=muted)
+    ax.text(0.633, 0.282, "route", ha="center", va="center", fontsize=4.6, color=muted)
+
+    card(0.185, 0.018, 0.290, 0.032, "HIGH CONSENSUS  ≠  RELIABLE", "#FBE8E4", warning, fontsize=5.8, weight="bold")
+    card(0.525, 0.018, 0.290, 0.032, "INTERVENTION  >  CITATIONS", "#E3F3ED", stable, fontsize=5.8, weight="bold")
+
+    _save(fig, "framework_overview", write_svg=True)
 
 
 def _errorbar_points(
@@ -448,7 +1057,7 @@ def make_routing_figure() -> dict[str, Any]:
 
 def main() -> None:
     _configure_style()
-    make_framework_figure()
+    make_methodology_figure()
     make_primary_results_figure()
     routing_data = make_routing_figure()
     (FIGURE_DIR / "routing_curve_data.json").write_text(
