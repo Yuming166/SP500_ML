@@ -8,13 +8,14 @@
 > agent replay as the paper's external stress test; (ii) adds the
 > **protocol-failure chain** (abstention–contract conflict, evidence-id
 > hallucination, paired prompt repair) as a first-class contribution; (iii) adds
-> the preregistered **V3.16** label-symmetric Qwen-to-Ling transfer on natural
+> the preregistered **V3.16/V3.16.1** label-symmetric Qwen-to-Ling transfer on natural
 > contrastive VitaminC pairs; and (iv) reorganizes the narrative around one
 > arc: *consensus is unreliable → intervention-tested provenance ranks bad
 > consensus → label asymmetry is exposed and controlled by a balanced protocol
-> → cross-family per-model evidence is obtained but the joint adequacy gate is
-> conservatively withheld → sequential transfer exposes calibration and
-> protocol-failure boundaries.* `paper/latex/` is synchronized to this version
+> → an adequacy-limited first cross-family result is followed by a fresh-cohort
+> joint pass with an explicit page-exposure boundary → sequential transfer
+> exposes calibration and protocol-failure boundaries.* `paper/latex/` is synchronized
+> to this version
 > in the NAACL branch.
 
 ---
@@ -41,15 +42,14 @@ AUROC 0.705 ([0.620, 0.781]) and reduced retained error at 80% coverage from
 0.220 to 0.133 (reduction 0.087, [0.046, 0.098]). Descriptive BoolQ-label
 subgroups reverse direction, and citation sharing alone is at chance.
 
-A preregistered label-symmetric cross-family test then uses 250 natural
-contrastive Wikipedia pairs from VitaminC (500 exactly balanced items; 10,000
-calls per model) with Qwen3.5-4B and Ling-3.0-tiny. The separately frozen
-V3.16 risk score reaches AUROC 0.808 ([0.761, 0.853]) for Qwen and 0.761
-([0.722, 0.798]) for Ling, with Risk@80 error reductions of 0.048 and 0.041,
-respectively. All performance intervals clear their registered thresholds,
-but the joint pass is withheld because Ling has 17 high-consensus SUPPORTS
-errors versus the preregistered minimum of 20. This is bounded per-model
-cross-family evidence, not a universal transfer claim.
+A preregistered label-symmetric cross-family test first used 250 natural
+contrastive Wikipedia pairs from VitaminC; its Ling arm missed a frozen
+native-label event-count gate. A second preregistered cohort uses all remaining
+289 natural pairs (578 balanced items; 11,560 calls per model) with the same
+frozen score. Qwen and Ling both pass every gate: AUROC 0.839 [0.802, 0.873]
+and 0.727 [0.689, 0.764], with Risk@80 error reductions of 0.057 [0.038,
+0.075] and 0.042 [0.026, 0.055]. The result supports aggregate cross-family
+detection transfer, not universal or item-level-stable reliability.
 
 We then test how far the mechanism travels. In a preregistered, as-of-provenance
 S&P 500 replay, five LLM agents answer 5-day-ahead direction questions on 500
@@ -127,14 +127,16 @@ motivated by the previous link's verdict (Table 1):
   balanced natural-pair test rather than post-hoc subgroup reweighting.
 
 - **L3 — A label-symmetric cross-family test transfers the detection signal
-  with a conservative boundary (VitaminC V3.16).** V3.15.2 replicated the
-  aggregate BoolQ endpoint on Ling but reproduced the label reversal. V3.16
-  therefore freezes balanced natural SUPPORTS/REFUTES pairs, globally disjoint
-  roots, and a separate risk instantiation before formal calls. Qwen and Ling
-  both pass the substantive AUROC and Risk@80 intervals, but the registered
-  joint verdict remains FAIL because Ling has fewer than 20 SUPPORTS errors.
-  Per-item risk correlation is only 0.295, so the evidence supports transfer
-  of an aggregate mechanism, not stable item-level ranking.
+  with a measured adequacy boundary (VitaminC V3.16/V3.16.1).** V3.15.2
+  replicated the aggregate BoolQ endpoint on Ling but reproduced the label
+  reversal. V3.16 therefore froze balanced natural SUPPORTS/REFUTES pairs and
+  a separate risk instantiation before formal calls; its substantive intervals
+  were positive, but its Ling native-label event count was inadequate. V3.16.1
+  preregistered the remaining 289 natural pairs and both models pass every
+  registered gate. Its target pairs are fresh relative to prior natural target
+  pairs, although 70 target pages had appeared as prior distractors. Per-item
+  risk correlation is only 0.294, so the evidence supports aggregate mechanism
+  transfer, not stable item-level ranking.
 
 - **L4 — The mechanism moves to a sequential real-world domain, but the
   confirmatory gain does not (S&P 500 statistical replay, FAIL → LLM replay,
@@ -314,9 +316,13 @@ character-similarity and token-overlap filter retained 573 usable page roots;
 the frozen split used 4 smoke pairs, 30 development pairs, and 250 formal
 pairs. Each formal pair contributes one SUPPORTS and one REFUTES item, yielding
 500 exactly balanced items with globally disjoint target and distractor roots.
-The dataset labels are used only to construct and audit this balanced design;
-they are withheld from model calls, risk computation, route selection, and the
-evaluator until the pre-outcome artifacts are frozen.
+  V3.16.1 uses the remaining 289 page-pair roots, producing 578 balanced items;
+  its natural target pages are disjoint from prior natural targets, but 70 had
+  appeared as prior distractor pages. Its new distractors are disjoint from all
+  prior 568 target/distractor pages and from new targets. The dataset labels are
+  used only to construct and audit balance; they are withheld from model calls,
+  risk computation, route selection, and the evaluator until pre-outcome
+  artifacts are frozen.
 
 **Financial replay (two generations).** The as-of environment provides 1,247
 market rows (2021-05-10 → 2026-04-27 after frozen NaN gates), 29 features
@@ -334,9 +340,9 @@ evidence IDs.
 ### 4.2 Models and agents
 
 All language-model calls use locally deployed instruction models through
-OpenAI-compatible endpoints: Qwen3.5-4B (BoolQ and V3.16) and Ling-3.0-tiny
-(V3.15.2 and V3.16), with Hy-MT2-7B for the LLM-S&P500 V1/V2 replay. V3.16
-uses five fixed personas, four conditions per item, a prompt-only JSON
+OpenAI-compatible endpoints: Qwen3.5-4B (BoolQ and V3.16/V3.16.1) and
+Ling-3.0-tiny (V3.15.2 and V3.16/V3.16.1), with Hy-MT2-7B for the
+LLM-S&P500 V1/V2 replay. V3.16/V3.16.1 use five fixed personas, four conditions per item, a prompt-only JSON
 interface, a strict local parser, a 256-token cap, fixed model-specific seeds,
 and fresh model-specific formal caches. Formal V11.1/V12.1 records achieved
 100% first-pass schema validity. The LLM-S&P500 calls carry a
@@ -357,7 +363,8 @@ replay generations.
 | Valid | V11.1 | first held-out validation | 200 q / 4,000 calls | primary FAIL (CI crossed 0.5) |
 | Valid | V12.1 | disjoint replication | 358 q / 7,160 calls | **primary PASS** |
 | Valid | V3.15.2 | Ling BoolQ cross-family replication | 358 q / 7,160 calls | aggregate-only; label-robust FAIL |
-| Valid | V3.16 | label-symmetric VitaminC transfer | 500 items / 20,000 calls | per-model performance passes; joint adequacy FAIL |
+| Valid | V3.16 | label-symmetric VitaminC transfer | 500 items / 20,000 calls | per-model performance passes; Ling adequacy FAIL |
+| Valid | V3.16.1 | fresh natural-pair replication | 578 items / 23,120 calls | **both models pass all gates** |
 | Replay G1 | V4, V5 | statistical-agent market replay | 1,247 rows / 6 folds | selective gains; AURC CI crosses 0 |
 | Replay G2 | LLM-S&P500 V1 | LLM agents on market replay | 500 dates / 2,500 calls | yield 68.2%; AURC CI crosses 0 |
 | Replay G2 | LLM-S&P500 V2 | paired prompt-only repair | same manifest / 2,500 calls | yield 75.6% (p≈7e−9); AURC CI crosses 0 |
@@ -372,8 +379,8 @@ date-paired.
 The BoolQ primary endpoint is AUROC(R_PI, z | A ≥ 0.8) with a 1,000-replicate
 question-bootstrap 95% CI lower bound strictly above 0.5. Secondary metrics
 include AUPRC, individual coordinates, error at 80% coverage, and preregistered
-descriptive subgroups. V3.16 uses R_sym on the same high-consensus error
-endpoint, with pair-bootstrap intervals and seven model-level gates: transport
+descriptive subgroups. V3.16/V3.16.1 use R_sym on the same high-consensus error
+endpoint, with pair-bootstrap intervals and eight model-level gates: transport
 validity, high-consensus count, at least 20 errors per native label, overall,
 macro, and worst-label AUROC, and positive Risk@80 error reduction. The joint
 cross-family verdict requires both models to pass every gate; pooled data cannot
@@ -424,7 +431,7 @@ BoolQ labels (yes: AUROC 0.834, n=210; no: 0.213, n=90). The aggregate PASS
 is driven by the yes regime; the result must not be read as label-invariant
 reliability.
 
-### 5.4 L3: Label-symmetric cross-family transfer (VitaminC V3.16)
+### 5.4 L3: Label-symmetric cross-family transfer (VitaminC V3.16/V3.16.1)
 
 The BoolQ subgroup reversal could reflect answer priors, asymmetric evidence
 construction, or intervention polarity rather than a universally label-specific
@@ -442,29 +449,35 @@ for both formal models. This is directional Qwen-development-to-Qwen/Ling
 transfer, not bidirectional model generalization; it was not refit on Ling or
 on formal outcomes.
 
-| Model | High-consensus N | Errors | R_sym AUROC | Macro | Worst label | Risk@80 | Status |
+| Protocol/model | High-consensus N | Errors | R_sym AUROC | Macro | Worst label | Risk@80 | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Qwen3.5-4B | 482 | 87 | **0.808** | 0.811 | 0.792 | 0.180 → 0.132 | performance PASS |
-| Ling-3.0-tiny | 464 | 113 | **0.761** | 0.766 | 0.635 | 0.244 → 0.202 | adequacy FAIL |
+| V3.16 / Qwen3.5-4B | 482 | 87 | 0.808 | 0.811 | 0.792 | 0.180 → 0.132 | performance PASS |
+| V3.16 / Ling-3.0-tiny | 464 | 113 | 0.761 | 0.766 | 0.635 | 0.244 → 0.202 | adequacy FAIL |
+| V3.16.1 / Qwen3.5-4B | 557 | 87 | **0.839** | **0.840** | **0.807** | 0.156 → 0.099 | **all gates PASS** |
+| V3.16.1 / Ling-3.0-tiny | 545 | 158 | **0.727** | **0.738** | **0.607** | 0.290 → 0.248 | **all gates PASS** |
 
-Qwen's 95% pair-bootstrap intervals are [0.761, 0.853] for overall AUROC,
-[0.763, 0.856] for macro AUROC, [0.729, 0.844] for worst-label AUROC, and
-[0.025, 0.067] for Risk@80 error reduction. Ling's corresponding intervals
-are [0.722, 0.798], [0.719, 0.816], [0.546, 0.732], and [0.026, 0.058].
-All substantive performance intervals clear their registered thresholds.
+The first V3.16 run remains a formal adequacy boundary: Ling had 17
+high-consensus SUPPORTS errors, below the frozen minimum of 20, despite
+positive substantive intervals. V3.16.1 was frozen before formal calls on all
+remaining 289 natural pairs; it has 30/57 SUPPORTS/REFUTES errors for Qwen and
+30/128 for Ling, so both native-label event-count gates pass. Its 5,000-pair
+bootstrap intervals are [0.802, 0.873] and [0.689, 0.764] for overall AUROC,
+[0.802, 0.875] and [0.689, 0.784] for macro AUROC, [0.750, 0.857] and
+[0.515, 0.692] for worst-label AUROC, and [+0.038, +0.075] and
+[+0.026, +0.055] for Risk@80 error reduction (Qwen, Ling respectively).
+All eight gates pass for both models.
 
-The joint preregistered pass is nevertheless withheld: Ling has 17 high-
-consensus SUPPORTS errors, below the frozen minimum of 20, although it has 96
-REFUTES errors. This is an adequacy failure, not a license to pool data or add
-post hoc examples. The label asymmetry is substantially reduced: the four
-model-label AUROCs are all above 0.63, and both worst-label intervals clear
-0.5. However, R_sym risk ranks correlate only 0.295 between Qwen and Ling on
-449 common high-consensus items. Thus V3.16 supports transfer of an aggregate
-behavioral mechanism under a balanced construction, not universal or
-item-level-stable cross-model reliability.
+The balanced construction and native-label gates remove the earlier adequacy
+failure; they do not prove identical label mechanisms. V3.16.1's Qwen--Ling
+risk Spearman correlation is 0.294 on 526 common high-consensus items. The
+new target pairs are disjoint from prior natural target pairs, but 70 target
+pages were previously shown as distractors; new distractors exclude all prior
+568 pages. This controlled exposure is a limitation, not evidence for a fully
+unseen-page replication. No prior selected errors or outcomes are pooled.
 
 The label-wise sequence is summarized below. BoolQ and V3.15.2 are diagnostic
-precursors; V3.16 is the label-symmetric follow-up and is not pooled with them.
+precursors; V3.16 and V3.16.1 are the label-symmetric follow-ups and are not
+pooled with them.
 
 | Protocol/model | Native label | High-consensus N | Errors | AUROC |
 |---|---|---:|---:|---:|
@@ -476,6 +489,10 @@ precursors; V3.16 is the label-symmetric follow-up and is not pooled with them.
 | V3.16 / Qwen | REFUTES | 240 | 50 | 0.830 |
 | V3.16 / Ling | SUPPORTS | 238 | 17 | 0.635 |
 | V3.16 / Ling | REFUTES | 226 | 96 | 0.897 |
+| V3.16.1 / Qwen | SUPPORTS | 277 | 30 | 0.807 |
+| V3.16.1 / Qwen | REFUTES | 280 | 57 | 0.874 |
+| V3.16.1 / Ling | SUPPORTS | 278 | 30 | 0.607 |
+| V3.16.1 / Ling | REFUTES | 267 | 128 | 0.869 |
 
 **Post-hoc qualitative tail audit.** To make the observable behavior concrete,
 we select the Qwen high-consensus error with maximum frozen R_sym and the
@@ -496,15 +513,11 @@ observable answer after removal or reversal of the assigned evidence. These are
 illustrations of the registered association, not evidence of internal causal
 faithfulness or estimates of tail frequency.
 
-At identical high-consensus counts, R_sym also exceeds the confidence and
-vote-disagreement AUROCs: Qwen 0.808 versus 0.601 and 0.512, and Ling 0.761
-versus 0.568 and 0.522. These are same-prediction secondary comparisons; they
-do not change the conjunctive model-level verdict.
-
-Natural reverse inertia alone is stronger in this formal set (AUROC 0.855 for
-Qwen and 0.837 for Ling), while intervention disagreement alone is weak. These
-are descriptive component results; the registered R_sym composite remains the
-primary result and is not retuned.
+In V3.16.1, R_sym exceeds confidence and vote-disagreement AUROC: Qwen 0.839
+versus 0.617 and 0.530, and Ling 0.727 versus 0.585 and 0.517. Reverse
+inertia alone is strong (0.887 and 0.784), while intervention disagreement
+alone is near chance (0.499 and 0.476). These are same-prediction secondary
+comparisons; the frozen composite remains primary.
 
 ### 5.5 L4 (G1): Statistical-agent market replay
 
@@ -696,18 +709,20 @@ cross-domain adaptation.
 
 First, completed language-model experiments use Qwen3.5-4B, Ling-3.0-tiny, and
 Hy-MT2-7B, but the five personas within each deployment are not independent
-models. V3.16 supplies cross-family evidence on one label-symmetric VitaminC
-setting: all substantive per-model intervals are positive, while the joint
-adequacy gate is withheld because Ling has fewer than 20 SUPPORTS errors. Its
-Qwen--Ling item-level risk Spearman correlation is only 0.295. The LLM replay's
-primary intervals are also wide (half-width ≈ 0.13) at 150 test dates; no
-stronger-model replay or larger temporal test window has been completed.
+models. V3.16.1 supplies cross-family evidence on one label-symmetric VitaminC
+cohort: both models pass all gates, but Qwen--Ling item-level risk Spearman
+correlation is only 0.294. Seventy target pages were previously shown only as
+V3.16 distractors, so this is not a fully unseen-page replication. The LLM
+replay's primary intervals are also wide (half-width ≈ 0.13) at 150 test
+dates; no stronger-model replay or larger temporal test window has been
+completed.
 
 Second, V12.1's label subgroups reverse direction. V3.15.2 reproduces this
-pattern on Ling, while V3.16 reduces it with balanced natural contrastive pairs
-but does not identify whether the remaining asymmetry comes from answer priors,
-evidence construction, or intervention polarity. The result must not be
-generalized to arbitrary binary QA or factuality settings.
+pattern on Ling, while V3.16.1's balanced natural pairs and native-label event
+gates remove the earlier adequacy failure but cannot identify whether the
+remaining asymmetry comes from answer priors, evidence construction, or
+intervention polarity. The result must not be generalized to arbitrary binary
+QA or factuality settings.
 
 Third, R_PI was selected on one 100-question development split, and R_sym was
 selected on Qwen V3.16 development data. R_sym's reverse-inertia and
@@ -754,11 +769,11 @@ research diagnostics, not investment advice.
 Every formal stage has a versioned preregistration, deterministic selection
 manifest, fixed salts, a response cache, expected record counts, bootstrap
 seeds, and post-run integrity audits. V11.1 contains exactly 4,000 unique
-records; V12.1 exactly 7,160; V3.15.2 exactly 7,160; V3.16 exactly 10,000
-records per model; and LLM-S&P500 V1 and V2 exactly 2,500 each, with V2's
-manifest sha-pinned to V1's (`6fd3c3ed…`) so the pair is date-identical. V3.16's
-Qwen and Ling record hashes, pre-outcome routes, and evaluation summary are
-stored with the formal result. All replay protocol deviations are enumerated
+records; V12.1 exactly 7,160; V3.15.2 exactly 7,160; V3.16 exactly 10,000;
+V3.16.1 exactly 11,560 records per model; and LLM-S&P500 V1 and V2 exactly
+2,500 each, with V2's manifest sha-pinned to V1's (`6fd3c3ed…`) so the pair is
+date-identical. V3.16/V3.16.1 Qwen and Ling record hashes, pre-outcome routes,
+and evaluation summaries are stored with the formal results. All replay protocol deviations are enumerated
 in their preregistrations, including the backend substitution (D7_v1) and the
 pre-freeze min-role prompt repair (D2_v2). Token accounting for the two replay
 runs is retained per call (≈15.3M and ≈16.2M tokens respectively). The
@@ -770,18 +785,19 @@ Consensus is reliable only to the extent that its evidence and errors are
 independent. We presented an environment-controlled paired-intervention
 framework that tests this assumption, a frozen pre-outcome risk score that
 confirmatorily ranks wrong high-consensus decisions on BoolQ, and a
-label-symmetric VitaminC transfer with strong per-model evidence on Qwen and
-Ling while conservatively withholding the joint pass for a frozen event-count
-gate. A preregistered transfer program into a sequential real-world domain
+label-symmetric VitaminC transfer. Its first formal cohort exposes an
+adequacy boundary; a preregistered fresh natural-pair cohort then passes all
+model-level gates on Qwen and Ling while preserving a controlled page-exposure
+limitation. A preregistered transfer program into a sequential real-world domain
 locates a second boundary: calibration transfers, confirmatory risk–coverage
 gains do not (yet), and the transfer itself exposes a reproducible
 protocol-failure chain—an abstention–contract conflict responsible for nearly
 three quarters of agent failures—that we diagnose and repair under a paired
 preregistration. The bounded conclusion stands: provenance-aware
 interventions are a falsifiable reliability signal, not a universal truth
-detector. The next decisive empirical step is a separately registered,
-fresh-root V3.16 replication sized for the native-label event gate; it must
-preserve R_sym and cannot pool selected formal errors.
+detector. V3.16.1 is the completed final cross-family attempt in this study:
+its aggregate signal replicates, but its modest item-level cross-model
+correlation and controlled page exposure limit stronger universality claims.
 
 ## References
 
@@ -867,7 +883,7 @@ V3.16 score:
     R_sym = 0.3 * reverse_inertia
           + 0.7 * intervention_disagreement
 
-Primary endpoint (V3.16):
+Primary endpoint (V3.16/V3.16.1):
     AUROC(R_sym, consensus_wrong)
     Joint pass iff every model-level gate passes
 ```
@@ -883,6 +899,7 @@ Primary endpoint (V3.16):
 | subgroup analysis | descriptive | direction reverses | **L2 mechanism narrowing** |
 | V3.15.2 | 358 q / 7,160 calls | aggregate-only; label robustness fails | L2 cross-family precursor |
 | V3.16 | 500 balanced items / 20,000 calls | per-model performance positive; joint adequacy fails | **L3 cross-family boundary** |
+| V3.16.1 | 578 balanced items / 23,120 calls | **both models pass all gates**; 70 target pages were prior distractors | **L3 cross-family replication** |
 | V4/V5 replay | 1,247 rows / 6 folds | selective gains; AURC crosses 0 | L4 transfer boundary (G1) |
 | LLM-S&P500 V1 | 500 dates / 2,500 calls | yield 68.2%; AURC crosses 0; best ECE 0.055 | **L4 transfer boundary (G2)** + L5 diagnosis input |
 | LLM-S&P500 V2 | same manifest / 2,500 calls | yield 75.6% (p≈7e−9); AURC crosses 0 | **L5 paired repair**; confirms yield ≠ signal |
@@ -893,7 +910,7 @@ Primary endpoint (V3.16):
 |---|---|---|---|
 | Qwen3.5-4B / BoolQ dev | Qwen3.5-4B / disjoint BoolQ validation | complete | within-model replication |
 | Qwen3.5-4B / BoolQ dev | Ling-3.0-tiny / same BoolQ evidence | complete; aggregate-only | cross-family aggregate replication |
-| Qwen3.5-4B / VitaminC development | Ling-3.0-tiny / label-symmetric VitaminC | complete; joint adequacy FAIL | cross-family per-model transfer boundary |
-| remove + reverse | substitute + alias/duplicate holdout | V3.16 includes all four conditions | mechanism transfer |
+| Qwen3.5-4B / VitaminC development | Ling-3.0-tiny / label-symmetric VitaminC | complete; V3.16.1 passes all model-level gates | cross-family aggregate mechanism transfer |
+| remove + reverse | substitute + alias/duplicate holdout | V3.16/V3.16.1 include all four conditions | mechanism transfer |
 | Hy-MT2-7B / S&P 500 replay | stronger API model / same manifest | preregistered, pending | agent-strength scaling |
 | Hy-MT2-7B / 150 test dates | same backend / widened test window | proposed; not started | power for the routing endpoint |

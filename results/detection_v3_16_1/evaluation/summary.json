@@ -1,0 +1,429 @@
+{
+  "claim_boundary": {
+    "answer_repair": false,
+    "fresh_root_replication": true,
+    "label_symmetric_detection": true,
+    "pooled_old_and_new_outcomes": false,
+    "universal_transfer": false
+  },
+  "common_high_consensus_items": 526,
+  "cross_family_pass": true,
+  "formal_version": "detection-v3.16.1-formal-vitaminc-qwen-ling-2026-09-05",
+  "models": {
+    "ling": {
+      "baselines": {
+        "agreement_risk": {
+          "aurc": 0.27645992225299587,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.48572392086330934,
+              "errors": 128,
+              "n": 267
+            },
+            "SUPPORTS": {
+              "auroc": 0.5485215053763441,
+              "errors": 30,
+              "n": 278
+            }
+          },
+          "errors": 158,
+          "macro_label_auroc": 0.5171227131198267,
+          "n": 545,
+          "overall_auroc": 0.5170411801262552,
+          "risk_at_80": {
+            "baseline_error": 0.28990825688073396,
+            "error_reduction": 0.0009174311926605783,
+            "retained": 436,
+            "retained_error": 0.2889908256880734
+          },
+          "worst_label_auroc": 0.48572392086330934
+        },
+        "confidence_risk": {
+          "aurc": 0.2242920954666453,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.3093525179856115,
+              "errors": 128,
+              "n": 267
+            },
+            "SUPPORTS": {
+              "auroc": 0.8923387096774194,
+              "errors": 30,
+              "n": 278
+            }
+          },
+          "errors": 158,
+          "macro_label_auroc": 0.6008456138315155,
+          "n": 545,
+          "overall_auroc": 0.5845271972001439,
+          "risk_at_80": {
+            "baseline_error": 0.28990825688073396,
+            "error_reduction": 0.016972477064220226,
+            "retained": 436,
+            "retained_error": 0.27293577981651373
+          },
+          "worst_label_auroc": 0.3093525179856115
+        },
+        "hash_risk": {
+          "aurc": 0.31269246351512575,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.46470323741007197,
+              "errors": 128,
+              "n": 267
+            },
+            "SUPPORTS": {
+              "auroc": 0.4721774193548387,
+              "errors": 30,
+              "n": 278
+            }
+          },
+          "errors": 158,
+          "macro_label_auroc": 0.4684403283824553,
+          "n": 545,
+          "overall_auroc": 0.47887024498740716,
+          "risk_at_80": {
+            "baseline_error": 0.28990825688073396,
+            "error_reduction": -0.003669724770642202,
+            "retained": 436,
+            "retained_error": 0.29357798165137616
+          },
+          "worst_label_auroc": 0.46470323741007197
+        },
+        "intervention_disagreement": {
+          "aurc": 0.2992389216409107,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.5238590377697842,
+              "errors": 128,
+              "n": 267
+            },
+            "SUPPORTS": {
+              "auroc": 0.42943548387096775,
+              "errors": 30,
+              "n": 278
+            }
+          },
+          "errors": 158,
+          "macro_label_auroc": 0.47664726082037595,
+          "n": 545,
+          "overall_auroc": 0.47571386517515457,
+          "risk_at_80": {
+            "baseline_error": 0.28990825688073396,
+            "error_reduction": -0.0059633027522935644,
+            "retained": 436,
+            "retained_error": 0.2958715596330275
+          },
+          "worst_label_auroc": 0.42943548387096775
+        },
+        "reverse_inertia": {
+          "aurc": 0.11546192305673465,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.9052102068345323,
+              "errors": 128,
+              "n": 267
+            },
+            "SUPPORTS": {
+              "auroc": 0.6758736559139784,
+              "errors": 30,
+              "n": 278
+            }
+          },
+          "errors": 158,
+          "macro_label_auroc": 0.7905419313742554,
+          "n": 545,
+          "overall_auroc": 0.7836980342131947,
+          "risk_at_80": {
+            "baseline_error": 0.28990825688073396,
+            "error_reduction": 0.06972477064220184,
+            "retained": 436,
+            "retained_error": 0.22018348623853212
+          },
+          "worst_label_auroc": 0.6758736559139784
+        }
+      },
+      "gates": {
+        "errors_per_label_at_least_20": true,
+        "final_valid_rate_at_least_098": true,
+        "first_pass_valid_rate_at_least_095": true,
+        "high_consensus_at_least_400": true,
+        "macro_label_auroc_ci_lower_above_05": true,
+        "overall_auroc_ci_lower_above_05": true,
+        "risk80_reduction_ci_lower_above_zero": true,
+        "worst_label_auroc_ci_lower_above_05": true
+      },
+      "metrics": {
+        "aurc": 0.13460974180193797,
+        "by_label": {
+          "REFUTES": {
+            "auroc": 0.8691827787769785,
+            "errors": 128,
+            "n": 267
+          },
+          "SUPPORTS": {
+            "auroc": 0.606518817204301,
+            "errors": 30,
+            "n": 278
+          }
+        },
+        "errors": 158,
+        "macro_label_auroc": 0.7378507979906397,
+        "n": 545,
+        "overall_auroc": 0.7269486147908285,
+        "risk_at_80": {
+          "baseline_error": 0.28990825688073396,
+          "error_reduction": 0.04220183486238532,
+          "retained": 436,
+          "retained_error": 0.24770642201834864
+        },
+        "worst_label_auroc": 0.606518817204301
+      },
+      "model": "Ling-3.0-tiny",
+      "pair_bootstrap_ci": {
+        "macro": [
+          0.6893750139095705,
+          0.7839911821041636
+        ],
+        "overall": [
+          0.6887268746504775,
+          0.7642375377516779
+        ],
+        "reduction": [
+          0.02614678899082573,
+          0.054536334695175256
+        ],
+        "refutes": [
+          0.8241013508548866,
+          0.9092063217647803
+        ],
+        "supports": [
+          0.5153678442366466,
+          0.6919654574428196
+        ],
+        "worst": [
+          0.5153678442366466,
+          0.6919654574428196
+        ]
+      },
+      "passed": true,
+      "transport": {
+        "first_pass_valid": 11333,
+        "first_pass_valid_rate": 0.980363321799308,
+        "model": "Ling-3.0-tiny",
+        "qualified": true,
+        "rows": 11560,
+        "successful": 11552,
+        "valid_rate": 0.9993079584775086
+      }
+    },
+    "qwen": {
+      "baselines": {
+        "agreement_risk": {
+          "aurc": 0.15249450855478958,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.5169538195263944,
+              "errors": 57,
+              "n": 280
+            },
+            "SUPPORTS": {
+              "auroc": 0.550472334682861,
+              "errors": 30,
+              "n": 277
+            }
+          },
+          "errors": 87,
+          "macro_label_auroc": 0.5337130771046277,
+          "n": 557,
+          "overall_auroc": 0.5304475421863536,
+          "risk_at_80": {
+            "baseline_error": 0.1561938958707361,
+            "error_reduction": 0.0033849071066911485,
+            "retained": 445,
+            "retained_error": 0.15280898876404495
+          },
+          "worst_label_auroc": 0.5169538195263944
+        },
+        "confidence_risk": {
+          "aurc": 0.13563426584349023,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.651246951459366,
+              "errors": 57,
+              "n": 280
+            },
+            "SUPPORTS": {
+              "auroc": 0.5647098515519569,
+              "errors": 30,
+              "n": 277
+            }
+          },
+          "errors": 87,
+          "macro_label_auroc": 0.6079784015056614,
+          "n": 557,
+          "overall_auroc": 0.6167400342382001,
+          "risk_at_80": {
+            "baseline_error": 0.1561938958707361,
+            "error_reduction": 0.03259839025275857,
+            "retained": 445,
+            "retained_error": 0.12359550561797752
+          },
+          "worst_label_auroc": 0.5647098515519569
+        },
+        "hash_risk": {
+          "aurc": 0.164802377746451,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.4687278734953977,
+              "errors": 57,
+              "n": 280
+            },
+            "SUPPORTS": {
+              "auroc": 0.5341430499325236,
+              "errors": 30,
+              "n": 277
+            }
+          },
+          "errors": 87,
+          "macro_label_auroc": 0.5014354617139607,
+          "n": 557,
+          "overall_auroc": 0.49339691856199563,
+          "risk_at_80": {
+            "baseline_error": 0.1561938958707361,
+            "error_reduction": 0.0033849071066911485,
+            "retained": 445,
+            "retained_error": 0.15280898876404495
+          },
+          "worst_label_auroc": 0.4687278734953977
+        },
+        "intervention_disagreement": {
+          "aurc": 0.1623121150986692,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.49763983950908663,
+              "errors": 57,
+              "n": 280
+            },
+            "SUPPORTS": {
+              "auroc": 0.5027665317139002,
+              "errors": 30,
+              "n": 277
+            }
+          },
+          "errors": 87,
+          "macro_label_auroc": 0.5002031856114935,
+          "n": 557,
+          "overall_auroc": 0.49921741257031066,
+          "risk_at_80": {
+            "baseline_error": 0.1561938958707361,
+            "error_reduction": 0.0011377160954551824,
+            "retained": 445,
+            "retained_error": 0.1550561797752809
+          },
+          "worst_label_auroc": 0.49763983950908663
+        },
+        "reverse_inertia": {
+          "aurc": 0.03124705016176535,
+          "by_label": {
+            "REFUTES": {
+              "auroc": 0.9188891511289434,
+              "errors": 57,
+              "n": 280
+            },
+            "SUPPORTS": {
+              "auroc": 0.8566801619433199,
+              "errors": 30,
+              "n": 277
+            }
+          },
+          "errors": 87,
+          "macro_label_auroc": 0.8877846565361316,
+          "n": 557,
+          "overall_auroc": 0.8874786011249695,
+          "risk_at_80": {
+            "baseline_error": 0.1561938958707361,
+            "error_reduction": 0.08203659249994957,
+            "retained": 445,
+            "retained_error": 0.07415730337078652
+          },
+          "worst_label_auroc": 0.8566801619433199
+        }
+      },
+      "gates": {
+        "errors_per_label_at_least_20": true,
+        "final_valid_rate_at_least_098": true,
+        "first_pass_valid_rate_at_least_095": true,
+        "high_consensus_at_least_400": true,
+        "macro_label_auroc_ci_lower_above_05": true,
+        "overall_auroc_ci_lower_above_05": true,
+        "risk80_reduction_ci_lower_above_zero": true,
+        "worst_label_auroc_ci_lower_above_05": true
+      },
+      "metrics": {
+        "aurc": 0.03933358432865901,
+        "by_label": {
+          "REFUTES": {
+            "auroc": 0.8744001258752261,
+            "errors": 57,
+            "n": 280
+          },
+          "SUPPORTS": {
+            "auroc": 0.8065452091767882,
+            "errors": 30,
+            "n": 277
+          }
+        },
+        "errors": 87,
+        "macro_label_auroc": 0.8404726675260071,
+        "n": 557,
+        "overall_auroc": 0.8389092687698705,
+        "risk_at_80": {
+          "baseline_error": 0.1561938958707361,
+          "error_reduction": 0.05731749137635407,
+          "retained": 445,
+          "retained_error": 0.09887640449438202
+        },
+        "worst_label_auroc": 0.8065452091767882
+      },
+      "model": "Qwen3.5-4B",
+      "pair_bootstrap_ci": {
+        "macro": [
+          0.8016140633663494,
+          0.875267648166014
+        ],
+        "overall": [
+          0.8021643536231505,
+          0.872785060215634
+        ],
+        "reduction": [
+          0.03783783783783784,
+          0.07518885513605607
+        ],
+        "refutes": [
+          0.8310265271327142,
+          0.9129192039773746
+        ],
+        "supports": [
+          0.7500405832853946,
+          0.8570847245944184
+        ],
+        "worst": [
+          0.7500405832853946,
+          0.8565575051229507
+        ]
+      },
+      "passed": true,
+      "transport": {
+        "first_pass_valid": 11504,
+        "first_pass_valid_rate": 0.9951557093425606,
+        "model": "Qwen3.5-4B",
+        "qualified": true,
+        "rows": 11560,
+        "successful": 11535,
+        "valid_rate": 0.9978373702422145
+      }
+    }
+  },
+  "qwen_ling_risk_spearman": 0.29383461235049685
+}
