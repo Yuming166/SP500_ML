@@ -28,7 +28,7 @@
 \maketitle
 
 \begin{abstract}
-Agreement among language-model agents is often treated as independent corroboration even when agents share a model, prompts, or evidence roots. This creates \emph{false consensus}: a highly agreed answer can be wrong because agents repeat the same unsupported or behaviorally irrelevant evidence. We ask two linked questions: can observable evidence dependence identify wrong consensus before labels are revealed, and when is that reliability information strong enough to route a decision rather than retain the consensus? We introduce an environment-controlled protocol that records source-to-evidence provenance and applies paired removal, reversal, and substitution interventions without inspecting hidden chain-of-thought. A frozen outcome-independent score, $\rpi$, combines intervention inertia, answer-flip inertia, and citation overlap.
+Agreement among language-model agents is often treated as independent corroboration even when agents share a model, prompts, or evidence roots. This creates \emph{false consensus}: a highly agreed answer can be wrong because agents repeat the same unsupported or behaviorally irrelevant evidence. We ask two linked questions: can observable evidence dependence identify wrong consensus before labels are revealed, and when is that reliability information strong enough to route a decision rather than retain the consensus? We formulate and preregister an environment-controlled protocol that records source-to-evidence provenance and applies paired removal, reversal, and substitution interventions without inspecting hidden chain-of-thought. A frozen outcome-independent score, $\rpi$, combines intervention inertia, answer-flip inertia, and citation overlap.
 
 We evaluate five Qwen3.5-4B agents on provenance-disjoint BoolQ splits. A first 200-question held-out run was directionally positive but inconclusive (AUROC 0.605, 95\% CI [0.495, 0.721]). A preregistered replication used every remaining eligible validation root: 358 questions and 7,160 calls. Among 300 high-consensus questions, 66 were wrong. $\rpi$ ranked wrong consensus with AUROC 0.705 [0.620, 0.781] and reduced retained error at 80\% coverage from 0.220 to 0.133 (reduction 0.087 [0.046, 0.098]). BoolQ label subgroups reverse direction, and citation overlap alone is at chance.
 
@@ -45,6 +45,8 @@ We study \emph{high-consensus answers supported by correlated evidence}. An answ
 
 Our evaluation environment, rather than the language model, therefore controls evidence identity and interventions. Each agent receives a fixed subset of evidence IDs and returns only a binary answer, confidence, and cited IDs. For the same question--agent pair, the environment removes evidence, reverses its direction, or substitutes an opposite-answer passage. We observe answer changes and citation overlap without collecting private reasoning traces. Figure~\ref{fig:framework} summarizes the resulting decision pipeline.
 
+We deliberately do not claim that input intervention, evidence binding, selective prediction, or multi-agent conformity is individually new. Prior work has studied semantic faithfulness under deletion and negation, explanation faithfulness under contradiction, mechanized evidence contracts, and debate selection based on confidence or disagreement \citep{chaturvedi-etal-2024-analyzing,chuang-etal-2026-faithlm,xu-etal-2026-gavel,verma-etal-2026-selene}. Our distinct object is the pre-outcome error risk of a fixed multi-agent consensus under environment-assigned evidence potential outcomes: evidence identity is external to the model, the same agent view is paired across conditions, and the result is evaluated against a subsequently revealed consensus error rather than explanation quality, citation sufficiency, or debate accuracy.
+
 \begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{framework_overview.pdf}
@@ -59,7 +61,7 @@ Our experiments follow a versioned sequence. A development run exposed an outcom
 Our contributions are:
 
 \begin{itemize}
-    \item An environment-controlled protocol connecting evidence provenance to paired removal, reversal, and substitution tests of multi-agent consensus.
+    \item A pre-outcome consensus-error audit that specifies an environment-maintained evidence graph, fixed agent views, paired removal, reversal, and substitution conditions, and observable decision outcomes. The individual intervention and citation ingredients are established tools; the contribution is their use in this consensus-error estimand with an explicit integrity protocol.
     \item Versioned pre-outcome risk contracts: $\rpi$ for the original BoolQ study and $R_{\mathrm{sym}}$ for the label-symmetric V3.16 transfer, both with explicit outcome firewalls.
     \item A preregistered real-LLM BoolQ replication and a label-symmetric cross-family stress test, with label-conditional and event-count boundaries preserved rather than repaired post hoc.
     \item A decision-centered external stress program: S\&P~500 replays separate risk ranking, calibration, and output-contract validity, and report no confirmatory routing gain.
@@ -235,45 +237,44 @@ We additionally mapped the intervention framework to an as-of S\&P~500 replay. S
 \section{Related Work}
 
 \paragraph{Multi-agent reasoning.}
-Multi-agent debate elicits proposals and revisions from several model instances and reports gains in reasoning and factuality \citep{du2023multiagent,liang2023divergent}. Our question is orthogonal: whether agreement is trustworthy when evidence and model errors are dependent. Work on group conformity directly motivates testing provenance rather than treating personas as independent \citep{choi2025conformity}.
+Multi-agent debate elicits proposals and revisions from several model instances \citep{du2023multiagent,liang2023divergent}, while conformity work shows that group interaction can amplify dominant stances \citep{choi2025conformity}. We study a different unit: whether an already formed agreement is trustworthy when its evidence and errors are dependent.
+
+\paragraph{Closest neighboring protocols.}
+Input-intervention work tests semantic effects on a single model's QA inference \citep{chaturvedi-etal-2024-analyzing}; FaithLM measures and optimizes explanation faithfulness under contradiction \citep{chuang-etal-2026-faithlm}. GAVEL binds atomic subclaims to evidence and mechanizes citation scrutiny \citep{xu-etal-2026-gavel}, while SELENE uses confidence and disagreement to initiate debate \citep{verma-etal-2026-selene}. We do not claim these ingredients are new: our unit is a fixed multi-agent consensus, whose environment-held evidence potential outcomes are tested for predicting an unrevealed consensus error.
 
 \paragraph{Truthfulness, attribution, and faithfulness.}
-TruthfulQA measures imitative falsehoods \citep{lin2022truthfulqa}; FEVER supplies claims with supporting or refuting evidence \citep{thorne2018fever}; attribution work asks whether generated content is supported by identified sources \citep{muller2023attribution}. We add a behavioral criterion: cited evidence should affect the decision under controlled changes. This is closer to a black-box intervention test than to explanation plausibility \citep{jacovi2020faithfully,wiegreffe2019attention}.
+TruthfulQA, FEVER, and attribution work provide task and evidence-quality contexts \citep{lin2022truthfulqa,thorne2018fever,muller2023attribution}. Faithfulness work distinguishes plausible explanations from dependence \citep{jacovi2020faithfully,wiegreffe2019attention}; our endpoint is pre-outcome error ranking of a consensus, not explanation quality or citation sufficiency.
 
 \paragraph{Selective prediction and uncertainty.}
-Selective classification permits abstention in exchange for lower retained risk \citep{geifman2017selective}. Calibration asks whether predicted probabilities match correctness \citep{guo2017calibration}, while conformal methods offer distribution-free guarantees under stated assumptions \citep{angelopoulos2021conformal}. We use empirical risk--coverage and bootstrap uncertainty; no exact conformal guarantee is claimed. The exploratory transfer router also relates to worst-group learning under distribution shift \citep{sagawa2020groupdro}.
+Selective classification and calibration quantify abstention risk and probability quality \citep{geifman2017selective,guo2017calibration}; conformal methods provide guarantees under stated assumptions \citep{angelopoulos2021conformal}. We use empirical risk--coverage and bootstrap uncertainty; these tools evaluate, but do not define, our evidence-response estimand.
 
 \section{Conclusion}
 
-Consensus is informative only to the extent that its evidence and errors are sufficiently independent. We introduced an environment-controlled framework that turns provenance into paired behavioral tests and then into a selective routing signal. A provenance-disjoint BoolQ replication shows that a frozen pre-outcome score ranks wrong high-consensus decisions and lowers retained error at a fixed 80\% coverage. A label-symmetric VitaminC transfer yields strong per-model evidence on Qwen and Ling while conservatively withholding the joint pass for a frozen event-count gate. The sequential replay locates a second boundary: calibration and protocol diagnosis transfer, but confirmatory routing gain does not yet.
+Consensus is informative only to the extent that its evidence and errors are sufficiently independent. We formulate an environment-controlled framework that turns provenance into paired behavioral tests and a selective risk signal. A provenance-disjoint BoolQ replication confirms error ranking at fixed 80\% coverage; a label-symmetric VitaminC transfer yields strong per-model evidence on Qwen and Ling while withholding the joint pass for a frozen event-count gate. The sequential replay locates a second boundary: calibration and protocol diagnosis transfer, but confirmatory routing gain does not yet.
 
 The resulting principle is decision-centered: retain consensus when intervention evidence indicates lower risk, route the higher-risk tail only at a frozen operating point, and withhold a routing claim when uncertainty includes no benefit. A fresh-root V3.16 replication sized before outcome access is the next empirical step; it must preserve $R_{\mathrm{sym}}$ and cannot pool selected formal errors.
 
 \section*{Limitations}
 
-Completed language-model experiments use Qwen3.5-4B, Ling-3.0-tiny, and Hy-MT2-7B, but the five personas within each deployment are not independent models. V3.16 supplies cross-family evidence on one balanced VitaminC setting: all substantive per-model intervals are positive, while its joint adequacy gate is withheld because Ling has fewer than 20 SUPPORTS errors. The Qwen--Ling item-level risk Spearman correlation is only 0.295. The LLM replay also has wide primary intervals at 150 test dates; no stronger-model replay or larger temporal test window has been completed.
+Completed language-model experiments use Qwen3.5-4B, Ling-3.0-tiny, and Hy-MT2-7B; the five personas within each deployment are not independent models. V3.16 provides cross-family evidence on one balanced VitaminC setting, but its joint adequacy gate is withheld because Ling has fewer than 20 SUPPORTS errors, and item-level risk Spearman is only 0.295. The LLM replay has wide intervals at 150 test dates and no stronger-model replication.
 
-V12.1 label subgroups reverse direction, and V3.15.2 reproduces this pattern on Ling. V3.16 reduces the asymmetry with balanced natural contrastive pairs but does not identify whether the remaining difference comes from answer priors, evidence construction, or intervention polarity. These results must not be generalized to arbitrary binary QA or factuality settings.
+V12.1 label subgroups reverse direction, and V3.15.2 reproduces this pattern on Ling. V3.16 reduces the asymmetry with balanced natural pairs but cannot identify whether the remaining difference comes from answer priors, evidence construction, or intervention polarity. We therefore make no arbitrary-QA or universal-factuality claim.
 
-$\rpi$ was selected on one 100-question development split, while $R_{\mathrm{sym}}$ was selected on Qwen V3.16 development data. Reverse inertia is stronger than the frozen composite descriptively, but promoting it or changing either score after formal outcomes would be post-hoc.
+$\rpi$ was selected on one 100-question development split, while $R_{\mathrm{sym}}$ was selected on Qwen V3.16 development data. Reverse inertia is stronger descriptively, but replacing either frozen score after formal outcomes would be post-hoc.
 
-Generated substitutes may differ in fluency or logical force despite entity and length constraints. Removal, reversal, and substitution measure different response behaviors and do not identify one unique causal mechanism. Abstention also defers rather than solves risky questions; deployment requires a fallback model, independent retrieval, or human review.
+Generated substitutes may differ in fluency or logical force; the interventions measure different response behaviors and do not identify one unique causal mechanism. Abstention defers rather than solves risky questions.
 
-The current paper is a detection study rather than a universal answer-repair study. The recovery experiments are therefore retained as supplementary evidence with their calibration and safety boundaries, rather than used to turn the V3.16 detection result into a repair claim.
+The paper is a detection study rather than a universal answer-repair study; recovery experiments remain supplementary and do not convert V3.16 into a repair claim.
 
-Finally, the financial replay is retrospective and contains a local 7B LLM backend substituted under a registered deviation rather than deployed traders. Its primary AURC intervals cross zero, so it cannot establish prospective performance, investment alpha, or causal market impact.
+Finally, the financial replay is retrospective and uses a locally substituted 7B backend under a registered deviation. Its primary AURC intervals cross zero; it cannot establish prospective performance, alpha, or causal market impact.
 
-Related-work coverage and formatting remain preliminary. A submission version needs a systematic literature audit, released prompts and licenses, compute accounting, V3.16 error examples, and a final supplement separating answer repair from detection.
+The submission still needs final literature, license, compute, and V3.16 error-example audits, plus a supplement separating answer repair from detection.
 
 \section*{Ethical Considerations}
 
 False consensus matters in medicine, law, finance, and content moderation. A provenance-aware signal may help identify when many agreeing agents repeat one weak source, but it can also create false reassurance. Low $\rpi$ is not proof of correctness, and an intervention-sensitive answer can remain wrong. We recommend using routing for triage and independent evidence acquisition, not as an autonomous truth certificate.
 
 The experiments use existing QA datasets and automated model outputs. We collect no private human data or hidden chain-of-thought. Financial results are research diagnostics and should not be interpreted as investment advice.
-
-\section*{Reproducibility Statement}
-
-Each formal stage has a versioned preregistration, deterministic selection manifest, fixed salts, response cache, expected record count, bootstrap seed, and post-run integrity audit. V11.1 contains exactly 4,000 unique records; V12.1 and V3.15.2 exactly 7,160 each; V3.16 exactly 10,000 records per model; and LLM-S\&P500 V1/V2 exactly 2,500 each. The repository includes protocols, code, tests, formal records, summaries, plotting code, and vector figures. The full test suite passed 102 tests at manuscript generation time; the V3.16 targeted suite passed 19 tests.
 
 \bibliography{references}
 

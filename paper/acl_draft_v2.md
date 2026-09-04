@@ -25,7 +25,7 @@ Agreement among language-model agents is often treated as independent
 corroboration, even when the agents share a model, prompts, or evidence roots.
 This creates *false consensus*: a highly agreed answer can be wrong because the
 agents repeat the same unsupported or behaviorally irrelevant evidence. We
-introduce an environment-controlled evaluation framework that records the graph
+formulate and preregister an environment-controlled evaluation framework that records the graph
 from sources to evidence, agents, and decisions, then applies paired evidence
 interventions—removal, reversal, and substitution—without inspecting hidden
 chain-of-thought. From observable answer changes and citation overlap we define
@@ -96,6 +96,17 @@ the answer changes, whether it remains inert under every intervention, and
 whether agents reuse the same cited roots. No hidden reasoning trace is stored
 or evaluated.
 
+We deliberately do not claim that input intervention, evidence binding,
+selective prediction, or multi-agent conformity is individually new. Prior work
+has studied semantic faithfulness under deletion/negation, explanation
+faithfulness under contradiction, mechanized evidence contracts, and debate
+selection based on confidence or disagreement. Our distinct object is the
+pre-outcome error risk of a fixed multi-agent consensus under
+environment-assigned evidence potential outcomes: the evidence identity is
+external to the model, the same agent view is paired across conditions, and the
+result is evaluated against a subsequently revealed consensus error rather
+than explanation quality, citation sufficiency, or debate accuracy.
+
 ### 1.1 The narrative chain
 
 The paper is organized as one deliberate chain of experiments, each link
@@ -152,10 +163,12 @@ reported.
 
 Our contributions are:
 
-1. **An intervention-based false-consensus protocol** combining an
-   environment-maintained evidence graph with remove, reverse, and substitute
-   conditions, evaluated on observable actions rather than hidden
-   chain-of-thought.
+1. **A pre-outcome consensus-error audit** that specifies an
+   environment-maintained evidence graph, fixed agent views, paired remove,
+   reverse, and substitute conditions, and observable decision outcomes. The
+   individual intervention and citation ingredients are established tools; the
+   contribution is their use in this consensus-error estimand with an explicit
+   integrity protocol.
 2. **Versioned pre-outcome risk contracts**: R_PI combines complete
    intervention inertia, answer-flip inertia, and shared citations for BoolQ;
    R_sym is a separately frozen label-symmetric V3.16 instantiation. Both use
@@ -586,6 +599,18 @@ evidence and model errors are dependent. Empirical work on conformity in
 LLM-agent groups motivates testing provenance rather than assuming personas
 are independent witnesses.
 
+**Closest neighboring protocols.** Input-intervention work tests whether
+semantic content affects a single model's QA inference, while FaithLM measures
+and optimizes explanation faithfulness under contradiction. GAVEL binds atomic
+subclaims to evidence and mechanizes citation scrutiny; SELENE uses confidence
+and semantic disagreement to initiate debate and weight evidence. We do not
+recast any of these as missing components to be rebuilt. Instead, our unit of
+analysis is the already formed multi-agent consensus: environment-held evidence
+identities generate paired potential outcomes, and the audit asks whether those
+responses predict an unrevealed consensus error. We therefore do not claim new
+explanation faithfulness, citation validation, debate scheduling, or generic
+selective-routing machinery.
+
 **Truthfulness, factuality, and attribution.** TruthfulQA, FEVER, and
 attribution studies evaluate accuracy and citation support; our protocol adds
 a behavioral criterion—cited evidence should affect the decision under
@@ -743,6 +768,21 @@ preserve R_sym and cannot pool selected formal errors.
 - Min Choi, Keonwoo Kim, Sungwon Chae, and Sangyeop Baek. 2025. [An Empirical
   Study of Group Conformity in Multi-Agent
   Systems](https://aclanthology.org/2025.findings-acl.265/). Findings of ACL.
+- Akshay Chaturvedi, Swarnadeep Bhar, Soumadeep Saha, Utpal Garain, and Nicholas
+  Asher. 2024. [Analyzing Semantic Faithfulness of Language Models via Input
+  Intervention on Question Answering](https://aclanthology.org/2024.cl-1.5/).
+  Computational Linguistics.
+- Yu-Neng Chuang, Guanchu Wang, Chia-Yuan Chang, Ruixiang Tang, Shaochen Zhong,
+  Fan Yang, Andrew Wen, Mengnan Du, Xuanting Cai, Vladimir Braverman, and Xia
+  Hu. 2026. [FaithLM: Towards Faithful Explanations for Large Language
+  Models](https://aclanthology.org/2026.eacl-long.177/). EACL.
+- Ruoyu Xu, Gaoxiang Li, and Victor S. Sheng. 2026. [GAVEL: Evidence-Contract
+  Debate with Mechanized Scrutiny for Provenance-Grounded Fact-Checking](https://aclanthology.org/2026.findings-acl.1789/).
+  Findings of ACL.
+- Akshay Verma, Swapnil Gupta, Deepak Gupta, Prateek Sircar, and Siddharth
+  Pillai. 2026. [SELENE: Selective and Evidence-Weighted LLM Debating for
+  Efficient and Reliable Reasoning](https://aclanthology.org/2026.eacl-industry.7/).
+  EACL Industry Track.
 
 ## Appendix A. Frozen risk contract
 
