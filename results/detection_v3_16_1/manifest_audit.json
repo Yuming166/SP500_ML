@@ -1,0 +1,20 @@
+{
+  "formal_version": "detection-v3.16.1-formal-vitaminc-qwen-ling-2026-09-05",
+  "gates": {
+    "exact_item_count": true,
+    "four_conditions": true,
+    "ledger_points_to_public_hash": true,
+    "natural_reverse_is_distinct": true,
+    "opaque_ids_unique": true,
+    "outcome_ids_match_public": true,
+    "outcomes_exactly_balanced": true,
+    "public_has_no_outcome_keys": true,
+    "public_manifest_hash": true,
+    "two_items_per_pair": true
+  },
+  "label_counts": {
+    "REFUTES": 289,
+    "SUPPORTS": 289
+  },
+  "passed": true
+}

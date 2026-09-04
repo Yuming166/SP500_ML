@@ -1,0 +1,2897 @@
+{
+  "formal_version": "detection-v3.16.1-formal-vitaminc-qwen-ling-2026-09-05",
+  "items": [
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "00fa6060299a02845672",
+      "pair_id": "06b42c7cfe950796"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "013d394a72e7a715cc4a",
+      "pair_id": "4c312740165caf24"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "015407bcc9a66ae04cd9",
+      "pair_id": "d1b0ca45df2084e2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "01f98ff3793ad60983f8",
+      "pair_id": "94199b0fe79c86a2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "02f5791874a96ca1205a",
+      "pair_id": "bc28d93a585318aa"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0393dec947776bc69dfe",
+      "pair_id": "bd499e040c91bdd0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "044cfbd78e1936f4759e",
+      "pair_id": "849b0a183f38997d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "04673809505044709b28",
+      "pair_id": "16f850da0a0679ad"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "04db154fe1ee5bf97605",
+      "pair_id": "cdb1bc5c16fb9957"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "058e49f91a9c68aa274b",
+      "pair_id": "eeb586db6ae0b9db"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "059f7adc4b7defdd7472",
+      "pair_id": "af13437ba59e166f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "05a9e651b99e784f78dd",
+      "pair_id": "3171520d94fa31be"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "06802d33093f5df43e9c",
+      "pair_id": "553e321e025ebf45"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "06e4738538fbc9230022",
+      "pair_id": "627ec8fe1f31f3c3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "06fdd235b4de9aa5327f",
+      "pair_id": "eac5a1e19c44e4d2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "070b26aee22ba0ccc94f",
+      "pair_id": "d2555888ea6e9f5e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0788533ae7ed41413f25",
+      "pair_id": "018f715308581cba"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0897a9b8087975e4e4c9",
+      "pair_id": "6a7139eaf22b2263"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "08e06ebb02a4c3b80387",
+      "pair_id": "4cf325a761760e21"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0977e5443edb34dc7253",
+      "pair_id": "81d191d61f5bd68f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "099a97a9bc206b9aa2b4",
+      "pair_id": "a66c04933907ac96"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0a1b25a6e13bc9ef43a6",
+      "pair_id": "1a218ecf730ab049"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0a1bb0474fc27029f797",
+      "pair_id": "d49bed92df6c72eb"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0ba3ef1525b4f615b7e9",
+      "pair_id": "f8b0dc3d949211bb"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0bae69a5fd6104c8d0d0",
+      "pair_id": "d49bed92df6c72eb"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0bbdead4ac29320b5043",
+      "pair_id": "e6f4798d882e7641"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0d3b952566a34c18404f",
+      "pair_id": "5cc114990985bfc9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0d830d3402dcde66383a",
+      "pair_id": "6b3f41e195ee8f5b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0e2e0c7a00cc0f411a43",
+      "pair_id": "813267585d207bbb"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0f9063ce7d5708e25b89",
+      "pair_id": "e6f4798d882e7641"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "0f9e3cd2a3572814b980",
+      "pair_id": "340b45bf9164bd5b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "0ffbb07bc4c62e4302f0",
+      "pair_id": "db9273a1e632622b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "103825d0b7831c4b68e9",
+      "pair_id": "3a4d91d0caa5bae5"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "10a87a0e106a6441c044",
+      "pair_id": "6f4a1c344acbbe2f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "10dc0a7c025c842e5201",
+      "pair_id": "35d5faedb67845f9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "10fbf02d6e0d8d2cc52d",
+      "pair_id": "4ee79fef44d57632"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "111a382ae7f473954d22",
+      "pair_id": "627ec8fe1f31f3c3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "11e519776450aa8cd997",
+      "pair_id": "1fd1463be2e415c0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "11e749155e2e2a067035",
+      "pair_id": "0bda0c033c8b6cc4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "122b542ba09c25f23977",
+      "pair_id": "8d17ab9d398e3ab3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "122bb1f56d8f84f97347",
+      "pair_id": "d559e49dcad3c110"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1291860c0f9f5e77f063",
+      "pair_id": "d559e49dcad3c110"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "12da3a36c9ca3c82cfda",
+      "pair_id": "f72b87abe55982a0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "133318aa6ed20d9ff60a",
+      "pair_id": "a21ee94d32c1ffe1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "134387bb8ea5586d6456",
+      "pair_id": "4abe9c3388dce713"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "13df6dbcb4f1563403b4",
+      "pair_id": "06ba2d14adc6a6e3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "148d1a5164010f53cf1c",
+      "pair_id": "739fe82aabb8134f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "152274f1a2e59c987f75",
+      "pair_id": "89eebd29340cdd0c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "15c31ab87d7700fac79d",
+      "pair_id": "43012a8f77f3741f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "15c52c9364e33715f0a4",
+      "pair_id": "94bab37e7a6428ed"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "165b9dba1b6cd410e3c8",
+      "pair_id": "48671f2cb907497a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "16a0fa549ddc2bdb6a71",
+      "pair_id": "dfe348e91ce37606"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "16a505b37a8ee0e8e2d7",
+      "pair_id": "3435ac2052981d1e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "16aecb0fc89c49ab9499",
+      "pair_id": "f51a3022cfee71a1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "16c88e96e3c233865d4b",
+      "pair_id": "12b9a4c415715858"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "171290d9f020d8010a99",
+      "pair_id": "12b9a4c415715858"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "174a9f0569310cc27bc3",
+      "pair_id": "819fa683a833ba0d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "17d68fc02d1492219007",
+      "pair_id": "24fb1ab2c0889da0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "18f596a554fd327bdc96",
+      "pair_id": "f72b87abe55982a0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "19adc40814916ad77df2",
+      "pair_id": "dfadfa4ef4c3c380"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "19bb425cd0f0ab4e7df1",
+      "pair_id": "deb8ff99ef0e85a9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1b25f0f5bdb0a53728fb",
+      "pair_id": "e6043dfa056f1b21"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1b75cc0e9879ff1799f5",
+      "pair_id": "274c07a31445742e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1c0c0867acd616ad3fd1",
+      "pair_id": "caebfd94ffe37d29"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1c0c18dd4258920062fd",
+      "pair_id": "bca9ed0885da752f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1c1a958274fff61578fa",
+      "pair_id": "f6d0a7300bd086e5"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1c672224feefe7560f2e",
+      "pair_id": "1b3e2dd55cc52530"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1d280da23c7c63d8602c",
+      "pair_id": "06ba2d14adc6a6e3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1df2aa84b5719356f3b4",
+      "pair_id": "8af2031ba990899b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1e669376411396fb88a6",
+      "pair_id": "b0cf22d4a7edf7e3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1e938bce8c6b13368c98",
+      "pair_id": "c92f06ffcdbed5d2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1eca111f90ddba19c489",
+      "pair_id": "f0e8f6401e21307d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1efd12a016f8785ef7cc",
+      "pair_id": "d500bdc0bd469a5a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1f20496e414525b0ed76",
+      "pair_id": "fa80d03c86dd5b02"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1f60178e6f44d95d8ba8",
+      "pair_id": "849b0a183f38997d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1f6f366e6305932743cb",
+      "pair_id": "679bbfb1faeeb8de"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "1fa7cba72efe4a7dca2e",
+      "pair_id": "e28040c028c7c3e2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "1fe9a6cc4eeb4fd8afa2",
+      "pair_id": "04be6dc9a92ed79f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2059c477080422631ad1",
+      "pair_id": "14840c3e7161380c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2077cf2ab39c64401003",
+      "pair_id": "bbafc2a8da7ac87e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "207c2bc44289322f2994",
+      "pair_id": "7eceef5d70463267"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2086c41668aef917fc34",
+      "pair_id": "85888943756df51d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "20bea31f39520cb2f7aa",
+      "pair_id": "ff0639cc63d84ed0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2104834b448e2ca63379",
+      "pair_id": "88f7de7d82940548"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2133630dfbe9d811f653",
+      "pair_id": "3826da6f37867e44"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "216680b35275dc63cde5",
+      "pair_id": "f3cb4639836944b1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "216c82436f401baf202c",
+      "pair_id": "1ba017a718784082"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2283fbfe088f6e111aff",
+      "pair_id": "a37cb00ec3a6cd5b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "22e5b2801caa592ff600",
+      "pair_id": "85fc9b67ec08b732"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "235c118d9e046de105ab",
+      "pair_id": "e179de1831266015"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2369efccde28a90f6e7a",
+      "pair_id": "71222c6907e3c175"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "242c6170495993d9b9cb",
+      "pair_id": "3171520d94fa31be"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "24684b57501ec736127a",
+      "pair_id": "773c1b4602c9f23d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "24ce7dd5a07bd5e6b5bd",
+      "pair_id": "e53465ad5e1f72e2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "255f4dc5d966361740b8",
+      "pair_id": "f4ee4b9de29abfb4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "256fec39a63ffb9d7011",
+      "pair_id": "c0312e1a5bcd80fd"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2629fba08231236d5023",
+      "pair_id": "ef8b7e33e22c9a63"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "26566d71d36a6ea6f19c",
+      "pair_id": "0ca616fb99ad5bf2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "26aa21a84cfc94b5f91b",
+      "pair_id": "e179de1831266015"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "26c9f34a6a76bdb2bc9a",
+      "pair_id": "1c99c91c05c0b5d7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2747b428bf4b6338b2db",
+      "pair_id": "3965782e9d6f0293"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2751f907c0a285134603",
+      "pair_id": "d2fb93e25c9b0e33"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "27740dd51a3fc0bf6b9f",
+      "pair_id": "94bab37e7a6428ed"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "277af5f0b8ed2b5362c5",
+      "pair_id": "7eba313ffd0a9d8b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "27b0fbbe3e2913755af1",
+      "pair_id": "4d80fc26d1ddbefd"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "27eb15b90b7d26f2e686",
+      "pair_id": "c855e645706d4d11"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2866ad9c53c42f812456",
+      "pair_id": "f51a3022cfee71a1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "291d4a9f688fe7a3f31a",
+      "pair_id": "e7b8c50fd33747f5"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "293527e2c2a02bd3b8c2",
+      "pair_id": "1b3e2dd55cc52530"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2959ecc8288722eb8771",
+      "pair_id": "84329f14dbe2d20d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "295abfe6a1578088d4c1",
+      "pair_id": "94199b0fe79c86a2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2ad23a573d70c061ee8d",
+      "pair_id": "a8e01215ff00f3cd"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2bbd6e159fa75b732354",
+      "pair_id": "d76bd4b97aba75aa"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2c5e5a242f3157b24b98",
+      "pair_id": "12ac1f8556cc2e3a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2c6a74b5896adfba9419",
+      "pair_id": "807067ae84172ece"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2c6b94dfd87f1144ad42",
+      "pair_id": "ce5fa455079ef5f4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2c6bc99c8a31f46efa87",
+      "pair_id": "8ee45013b429ffd1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2c81cf0b365784f2b101",
+      "pair_id": "11d41989bb5e0053"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2cba39784c2f368395c3",
+      "pair_id": "e53465ad5e1f72e2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2cf24f7e9fb52e2e26d9",
+      "pair_id": "feaef5ff979c5433"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2d4f7023451707013fa9",
+      "pair_id": "c7e5e3072f46fbc1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2d8b3f98881815171fab",
+      "pair_id": "776d12f929e4df27"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "2e58157a0c5603c1cea9",
+      "pair_id": "19e6ae2ad24a487e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "2f39dea390041313c85a",
+      "pair_id": "773c1b4602c9f23d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3025dd8baa5730b898d2",
+      "pair_id": "bca9ed0885da752f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "30e3d00ccf3f5cb61972",
+      "pair_id": "def4a45a6da655d6"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3132dfd00d14a9a8bd74",
+      "pair_id": "c1e985edaf674b32"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "31ef6264d0149fed6749",
+      "pair_id": "610a827f8f849810"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "330273efc6361e0ef928",
+      "pair_id": "4ac76855a0bbe507"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "331a831fe05e0675985e",
+      "pair_id": "ae7dff546efc3416"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "332e54796dcb5a679ad4",
+      "pair_id": "a437592fa875415d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "335ef6285d5dd4c0f035",
+      "pair_id": "cca81ce5a2451c85"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "34199d9f0e32068d86a5",
+      "pair_id": "f0e8f6401e21307d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "35222f1300f3b356ba9e",
+      "pair_id": "1ba017a718784082"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "354f950aee699bb9940d",
+      "pair_id": "fe74e6e806500f85"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "35d5bc213b4718ddee2d",
+      "pair_id": "645760144a06adcc"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "35face03ebeb5b1063dd",
+      "pair_id": "d79d4697dfcbe04c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "35fee521d3e9723583db",
+      "pair_id": "8797f07b567c4f43"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "36dfa79f1c2b9ece88c8",
+      "pair_id": "85af6d718b8b2f9f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "377bb09184181a40b6d6",
+      "pair_id": "567ec83d444c6f2f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "37dd1470113bdd2c3d72",
+      "pair_id": "e331c09db4b69633"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "38b4e7c84beb686e06ee",
+      "pair_id": "be51e3f314595234"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3933b867ad02a1a83833",
+      "pair_id": "bc28d93a585318aa"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3a2c62150495cc7526ed",
+      "pair_id": "4de9e1d96711e772"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3b6807f6e47d1519b4b3",
+      "pair_id": "06b42c7cfe950796"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3bd6ab72572a8d0f2e90",
+      "pair_id": "e612264a22a8f58b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3c41bc23063d64b6d108",
+      "pair_id": "516f73076b4ed4fe"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3c4d633d2917a2f6c300",
+      "pair_id": "7090d29e0c98d61e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3c50ae914bc7f8030ba5",
+      "pair_id": "ec786c23e03ed80e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3c56b1239a3a5925d57e",
+      "pair_id": "89b55f50f19fd758"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3caa311a46d791dbd40c",
+      "pair_id": "a3c3be3a5381fcc4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3d7470edf537fca7a9a7",
+      "pair_id": "5c5fc2a1272e5a4c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3da716ab83fec2a63aaa",
+      "pair_id": "47e9dff66c3c3432"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3dd01e8dde13e701270c",
+      "pair_id": "ea9bdb693e0564b2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3e1f0b862ca51d207ef3",
+      "pair_id": "fa00f709a2ab8522"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3ed63fe62ed278c27836",
+      "pair_id": "7fab88fe529c1e11"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "3ee88a2611f91566676e",
+      "pair_id": "7b04baa54998e397"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3f31f30748cff5ffa7a4",
+      "pair_id": "51e79fc91c7b4a3d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "3f8fdde39ffa8a3b1046",
+      "pair_id": "c0312e1a5bcd80fd"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "402cbfb4ca181f02e2aa",
+      "pair_id": "8e14c1e900ca76c0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "411a2f9d2215fed17b8a",
+      "pair_id": "d687079355c51e12"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "4131bd1b31ee1eb7340d",
+      "pair_id": "7258c1a3e59a0fba"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "41faab5cb31ec5db0812",
+      "pair_id": "b613ae62e08495f3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "42fa225c5a10880b53b4",
+      "pair_id": "2a4ce852e950e025"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "4347987b1723e3477109",
+      "pair_id": "bd1469ff3027a860"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "438c1301f5535e01a801",
+      "pair_id": "d32511467604318a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "446eda740579b2389c2a",
+      "pair_id": "8797f07b567c4f43"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "449eaf9b105390d0c580",
+      "pair_id": "71803549b2c80a66"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "4528d8cae46908df7062",
+      "pair_id": "e612264a22a8f58b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "45ced2f5a8ba7ea82ce0",
+      "pair_id": "4fa37206546361c3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4643e43acb7471144015",
+      "pair_id": "1c99c91c05c0b5d7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "47ac39c7b0c79a18c2ec",
+      "pair_id": "edcb15752fc4a74e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "47b4c37f90b1b667b7c2",
+      "pair_id": "f9ec8c6eb71d9618"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4849929b77f91d82cfb5",
+      "pair_id": "6a6bf2a6ed13981c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "48902bc1901da68910ff",
+      "pair_id": "5c84ac7e37c93d5f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "48dc251ae4ff9c109d50",
+      "pair_id": "1ea15e9a9fe0d8f0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "49741117befdae54d4d9",
+      "pair_id": "8df88eb9fc3b56c0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "49c1ce8c473e62e1a71e",
+      "pair_id": "b75f4a6278eca88b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "49ed0ab5ca2f76f577e8",
+      "pair_id": "89eebd29340cdd0c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "4a4cad9d305709bcd884",
+      "pair_id": "f72ef51e58b4dd66"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4b02f8efdb9dc32ea14a",
+      "pair_id": "2285f9d55e19385f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4bd89670c1ecaf860ce3",
+      "pair_id": "fecae6ace09dd66f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4bdd298816f648af7f23",
+      "pair_id": "0213f95b8f55728b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4c49217e90635047e4f9",
+      "pair_id": "efbeeca59561a1ac"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4d7a0c98418c4bf893bb",
+      "pair_id": "1e9faec67ae2e390"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "4ec006229c0b222920a3",
+      "pair_id": "a21617d0daec0168"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "4f1961e7061d07b3c54f",
+      "pair_id": "5e4e71077b25b4d5"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "50f926a362e79b32630e",
+      "pair_id": "43012a8f77f3741f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5125a6fae5b6bee68112",
+      "pair_id": "6a6bf2a6ed13981c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "51d5f62ae168689c9d04",
+      "pair_id": "739fe82aabb8134f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5286e424207ac5238659",
+      "pair_id": "ad62f89f46a4987f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "535fe264ffa1dd4f8488",
+      "pair_id": "a21617d0daec0168"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "53bf7c6213ab2effc2aa",
+      "pair_id": "5179e1d8365b1b80"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5469e42b62f389907129",
+      "pair_id": "6a7139eaf22b2263"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "54808ce304f05e80da46",
+      "pair_id": "f72ef51e58b4dd66"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "55523a91f6d2abd20409",
+      "pair_id": "db9273a1e632622b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "555312b47740c0536f9c",
+      "pair_id": "476f8ee574c4e3fa"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "55d7f88ccf279051f677",
+      "pair_id": "94a223bcc8ee3da9"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "55e6da1ddc199ba5200c",
+      "pair_id": "39458ac269794ea1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "55eebdc7caf55c53961b",
+      "pair_id": "a430b7cac0d68091"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "56915812d87979aaf69a",
+      "pair_id": "4332daca25e5b9a4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "577c5b196e72ae081b5c",
+      "pair_id": "b1b14950a69d17ea"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5791a6fc960e486c2835",
+      "pair_id": "94a223bcc8ee3da9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "58c4f4d5ac167f5a8958",
+      "pair_id": "dfe348e91ce37606"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "598d2d8905dda37b1991",
+      "pair_id": "26cbbd6c4d6cf6b2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "59cd2396bdd9504bd4ea",
+      "pair_id": "1ea15e9a9fe0d8f0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5a7f26717fed11405549",
+      "pair_id": "ff08c877a3fad298"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5a918922cdbf37eafea1",
+      "pair_id": "d7888f28fec96e8d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5b61cd24398465c9a5d9",
+      "pair_id": "7fab88fe529c1e11"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5b8382026ad0c6e6cafd",
+      "pair_id": "bececdaf05aac556"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5ba908145df02854b3de",
+      "pair_id": "d71b8799795acbf4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5d873f29134f0af65e50",
+      "pair_id": "4ee79fef44d57632"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5e531ccc0b4f9a7240d9",
+      "pair_id": "3a4d91d0caa5bae5"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5ea569ed42de14d863bf",
+      "pair_id": "e5e0a0d097019598"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5eb7d67ff83b76848a4a",
+      "pair_id": "5c5fc2a1272e5a4c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5ec22d44d0a3464d1546",
+      "pair_id": "7e957a4bb47e03d7"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5edd10cb65a8d18f05ec",
+      "pair_id": "11f3171bbabe94e1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "5f3ff9227df1716c9671",
+      "pair_id": "0a1c0d90fafbc3f3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5f4d79db24fdf436b380",
+      "pair_id": "d687079355c51e12"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5f77ce28cdd94e121402",
+      "pair_id": "71803549b2c80a66"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5f9ad0c1109b5e055e13",
+      "pair_id": "d1b2f7a051ca49b3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "5fa23bc3a151e07e33af",
+      "pair_id": "a3c3be3a5381fcc4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6056a751c97c6c866ddc",
+      "pair_id": "f6d0a7300bd086e5"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "607b44a32176e4c7cb76",
+      "pair_id": "d500bdc0bd469a5a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "60876dbf5888181d7f32",
+      "pair_id": "52318c919deb9702"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "60a0bbbe1d3fec0a70c1",
+      "pair_id": "fecae6ace09dd66f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "61962d248cc01f3992c5",
+      "pair_id": "8e14c1e900ca76c0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "62c05c6e9baefe922f2c",
+      "pair_id": "24fb1ab2c0889da0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "62c6fa8bc445c6a3bf47",
+      "pair_id": "f0bd63a07be8eea8"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "630ebd7b719a07b8f446",
+      "pair_id": "f0bd63a07be8eea8"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "631c3b8a583be38878d8",
+      "pair_id": "0213f95b8f55728b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "63347b0fb39cf45df5ce",
+      "pair_id": "d2fb93e25c9b0e33"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "638978336c9576802423",
+      "pair_id": "74905a819d7f83c1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6395f8858d10ad146796",
+      "pair_id": "cf2bdf08b6179066"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "64c9a4895e21d5f99d89",
+      "pair_id": "6e8593f1dfedf315"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6572f2cf5bac183bf5b6",
+      "pair_id": "097f1f24665af4d7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "65a2da6a32da32abd929",
+      "pair_id": "4c312740165caf24"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "65c37f635cd51e1adfe4",
+      "pair_id": "2a9816bcb5f32bae"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "65c9b2b4949269b62a1f",
+      "pair_id": "ff0639cc63d84ed0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "66e71809eab68d0df724",
+      "pair_id": "bad491776b8e3f35"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "67c7ac079ee2e9480b8c",
+      "pair_id": "e331c09db4b69633"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "67d2590efb779a6225d4",
+      "pair_id": "c5d8c0964182bd5d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6843ce4fe0aa011c2211",
+      "pair_id": "7258c1a3e59a0fba"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "68c9e88e6327dbae8580",
+      "pair_id": "4d462d953ead8b31"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "69749f3818ac0fc5f406",
+      "pair_id": "b4f6920ed2fa016d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6977e579e95f223b7fbc",
+      "pair_id": "a37cb00ec3a6cd5b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "69a91cb346dcd35826a7",
+      "pair_id": "f4ee4b9de29abfb4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6a0743c5e0ff59cc2e05",
+      "pair_id": "c3299549b7934770"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6a3bf0c96badfb03e856",
+      "pair_id": "9f8ee1954f6c122a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6a7807e2dc7a9e089261",
+      "pair_id": "19e6ae2ad24a487e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6aa40d986c33a58d43a9",
+      "pair_id": "d8098fc9c56247a1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6ac552575d57a5aaafbf",
+      "pair_id": "6e83ce2943a2797d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6b03237f9c182145060e",
+      "pair_id": "541a58cc240f13ce"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6b1d72bf3375f7f3c7e6",
+      "pair_id": "8ee45013b429ffd1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6bd767fe799a70744884",
+      "pair_id": "27644944dfbb783f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6ca323dab4da94a8bc24",
+      "pair_id": "c92f06ffcdbed5d2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6cf1877aa57dd12ea322",
+      "pair_id": "ef54d7dac06a468a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "6d4f7c75f2270f381ad1",
+      "pair_id": "7a75d9292a375372"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6e348a605c7210508a30",
+      "pair_id": "04be6dc9a92ed79f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6e37cf87b02446af9b89",
+      "pair_id": "3e29cb24d0c8394f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6e7aee87c74b4c758929",
+      "pair_id": "d616bf97bd6f8b34"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6eb768f0f3fe865d1238",
+      "pair_id": "6deb40b4a53a5a54"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "6fd18f08f5019eaa314a",
+      "pair_id": "c9a1ff40089269df"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "722f0fe5d25aaab821ec",
+      "pair_id": "2285f9d55e19385f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "72bf6b66496c07bda282",
+      "pair_id": "7090d29e0c98d61e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "73268dc599244123a539",
+      "pair_id": "097f1f24665af4d7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "735f143ef81fda66c7ee",
+      "pair_id": "e39fdbad9380cbff"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "737856e5b18dc40f4855",
+      "pair_id": "af13437ba59e166f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "73c3299ac53813b15af6",
+      "pair_id": "469ce64084ce6be7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "73fe550a95316441ea80",
+      "pair_id": "5cc114990985bfc9"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "744ee5414edde3dc368a",
+      "pair_id": "9d2fb82c6d429238"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7588c8f6ca8cd19c572a",
+      "pair_id": "3a94ff1a86554063"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "75c0925bca615bc86938",
+      "pair_id": "6b29533b1454083f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7639d40f3892ae87f51a",
+      "pair_id": "f3cb4639836944b1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "763ace205c2089cb2cba",
+      "pair_id": "645760144a06adcc"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7750568cf2040c36c371",
+      "pair_id": "c855e645706d4d11"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "77533965579a7a7c7037",
+      "pair_id": "0f211e9b6e500278"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "77558337c440bcf1c3d8",
+      "pair_id": "7eceef5d70463267"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "777431af293031b6cbd7",
+      "pair_id": "856f68b135f88cce"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7836d5f382fa455bae11",
+      "pair_id": "71222c6907e3c175"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "78370238573e8155c164",
+      "pair_id": "ac5f2744870f7fea"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7837b2f21bd176d88ddc",
+      "pair_id": "476f8ee574c4e3fa"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "78aeaa36dda62afc2013",
+      "pair_id": "477dfdde70736c89"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "796843436dc01b072479",
+      "pair_id": "51e79fc91c7b4a3d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7ab81e57475e65ca9235",
+      "pair_id": "668e2437a5abc161"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7ac7d405d91e7a6016c2",
+      "pair_id": "5179e1d8365b1b80"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7b4aa99e9b366baf3401",
+      "pair_id": "52318c919deb9702"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7b8c94de5694f12a0f1c",
+      "pair_id": "7b04baa54998e397"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7c08843e151192d9af9a",
+      "pair_id": "b6039022e9733299"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7c85db59822fdef6096e",
+      "pair_id": "bbafc2a8da7ac87e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7d243560f7449439c274",
+      "pair_id": "f8b0dc3d949211bb"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7d3578e6fd9c87c2f3f9",
+      "pair_id": "0db0a7d0d274fe9c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7e82cfbc4a76766ebd44",
+      "pair_id": "5e4e71077b25b4d5"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7ee797c275ac0887961d",
+      "pair_id": "0f8908e290ac8f55"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "7f5e1f09cc3bbe35761d",
+      "pair_id": "c3299549b7934770"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "7fe71b7d6d56c9621b30",
+      "pair_id": "9e554849a9fcbfb0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8075da290b3a877713de",
+      "pair_id": "2af773d3a50016e3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8077ae5c177802de810e",
+      "pair_id": "1da926835341172c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "80a3881f11038f0b9fcf",
+      "pair_id": "35d5faedb67845f9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "80acc0597561e88f04b3",
+      "pair_id": "567ec83d444c6f2f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "81aeb7fb6e2577a78776",
+      "pair_id": "5c576572e32d8346"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "82387a270db98c73d6f7",
+      "pair_id": "c2daf373ddde8b1a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "826462ccee1b45efe25f",
+      "pair_id": "e379256ecf1a20d0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "82bf5e40c8b550dd0c15",
+      "pair_id": "63870e260456c001"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8325e09401777d8a88f8",
+      "pair_id": "c2daf373ddde8b1a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "84a72b0e640622df8812",
+      "pair_id": "4d80fc26d1ddbefd"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "84c95dc35fd18419d1d2",
+      "pair_id": "4168b92cc9714dbe"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "85209a36f76411a4e335",
+      "pair_id": "c1e985edaf674b32"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "85704693e4100ea6f67a",
+      "pair_id": "7eba313ffd0a9d8b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "86176335385151f8ae6c",
+      "pair_id": "a8e01215ff00f3cd"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "86582578e76ba18d4b8a",
+      "pair_id": "81d191d61f5bd68f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8771e8e69d02ae75617b",
+      "pair_id": "84329f14dbe2d20d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "87b9231c087d4a012535",
+      "pair_id": "26cbbd6c4d6cf6b2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "87c9989778bb056dc971",
+      "pair_id": "a21ee94d32c1ffe1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8931eb28522bd1417ae4",
+      "pair_id": "6986701a3280919c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8972f7b5a0c0a7070049",
+      "pair_id": "5502fce2d2284f82"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8984519d43e79fbcd0ba",
+      "pair_id": "0f211e9b6e500278"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8a45bc3d24460179d0e8",
+      "pair_id": "284a509ea3896f8e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8a87bdbfcd93d22e5f24",
+      "pair_id": "0bda0c033c8b6cc4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8aa5ab8459557226061b",
+      "pair_id": "83fcfc974be67706"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8ae78c57944922f912e3",
+      "pair_id": "058eff3e4b50e0e1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8b667c1bcc318a7d813d",
+      "pair_id": "2ce7a2141f53c62a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8bc0050e86ec7d11c216",
+      "pair_id": "375bc1efea8dee4c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8c05176aa44e86ddc0d9",
+      "pair_id": "4de9e1d96711e772"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8c8a887a24161e9409db",
+      "pair_id": "835888da0e0d5ed4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8ccc72339580f143e32c",
+      "pair_id": "48671f2cb907497a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8d66a3356c9b1bc9247e",
+      "pair_id": "26e96f1176ba0556"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8dbed135d9893a3f8670",
+      "pair_id": "11d41989bb5e0053"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8deb3d4c8d45049efae4",
+      "pair_id": "a66c04933907ac96"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "8f27281ef71665beef78",
+      "pair_id": "aff4b52b9acf7c44"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "8ffb37a6d53e48035141",
+      "pair_id": "42089b7d150b6617"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "904e4e699c9ffb6ce413",
+      "pair_id": "cbcd9e8793ad672f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "908f8ad1e80390832e3a",
+      "pair_id": "83b7db65a751b5d2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "914cf9951c94ee4b9ab1",
+      "pair_id": "20726123776f1bef"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "91bf34eac9e434f2a531",
+      "pair_id": "990a9cfd0726c698"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9213faadaa00e414ea32",
+      "pair_id": "efbeeca59561a1ac"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "923aa0c5fea998f6e194",
+      "pair_id": "6c65fe59aa1a8fd8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "93cd6f2b79f476bee32b",
+      "pair_id": "32c061cd9309d145"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "942ab17116c737fa617b",
+      "pair_id": "e204267676695edb"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "962b20d91b245d743be0",
+      "pair_id": "e39fdbad9380cbff"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "96614de2daa7969bffde",
+      "pair_id": "482849eeba72a134"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "96e4846e935dfcce80ed",
+      "pair_id": "631b8d8c26d73b9b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "97443ace32b59b0b3d78",
+      "pair_id": "a430b7cac0d68091"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9764a4e3667fa82f635c",
+      "pair_id": "6773201b7f2aa16f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "97e8a32a58b3c19d361d",
+      "pair_id": "8af2031ba990899b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "98d606f3dd5e333bed65",
+      "pair_id": "610a827f8f849810"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "98eec3927d4ff5b6c4b4",
+      "pair_id": "4332daca25e5b9a4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "991cf59c904117c813b2",
+      "pair_id": "6b3f41e195ee8f5b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "994c5de40ed3f80c7c10",
+      "pair_id": "6986701a3280919c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "99d1950a6306a324be5e",
+      "pair_id": "d71b8799795acbf4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "9a2f90113420b18e4858",
+      "pair_id": "5c576572e32d8346"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9a5cc792a8c4a59ce043",
+      "pair_id": "4168b92cc9714dbe"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "9b1b656b04caf621d4e3",
+      "pair_id": "ac3f68edf3ac66ce"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9b680635c8e325bdec0d",
+      "pair_id": "ac5f2744870f7fea"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9bf2fd7cf4fa54867cd4",
+      "pair_id": "058eff3e4b50e0e1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "9c529ecb2f1baf007a66",
+      "pair_id": "ec786c23e03ed80e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "9cf3f12b210202102f93",
+      "pair_id": "fa80d03c86dd5b02"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9d00fb8be49f9b7b4a32",
+      "pair_id": "bad491776b8e3f35"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9dce6fada4af1742a063",
+      "pair_id": "7decd5788f075986"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9e74205279544ea9ba62",
+      "pair_id": "c9a1ff40089269df"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "9f08403aa1a55a7f39e7",
+      "pair_id": "dfadfa4ef4c3c380"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "9fc751de00a1576c0c54",
+      "pair_id": "c2dd798a773c20c2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a03ea255e9436d19e1cc",
+      "pair_id": "cdb1bc5c16fb9957"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a048d693d6cbb8b24d4f",
+      "pair_id": "813267585d207bbb"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a07282d81b736bea7fd7",
+      "pair_id": "f9ec8c6eb71d9618"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a0b12fe98cb506b10f0e",
+      "pair_id": "1fd1463be2e415c0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a12a819e4dfeba314026",
+      "pair_id": "d1b2f7a051ca49b3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a22aa2dfb6c69e03b426",
+      "pair_id": "284a509ea3896f8e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a25196e57025e9250f72",
+      "pair_id": "b75f4a6278eca88b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a2dff5e08cb1d16d5cf8",
+      "pair_id": "835888da0e0d5ed4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a4ca186fb1c4ab1bd963",
+      "pair_id": "fe74e6e806500f85"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a5d83c52b171a15ce5ce",
+      "pair_id": "3435ac2052981d1e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a5fee7b3a68ea7166578",
+      "pair_id": "6deb40b4a53a5a54"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a6276e91ac7f8ca60e42",
+      "pair_id": "8d17ab9d398e3ab3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a64048713a964d3573f1",
+      "pair_id": "c2dd798a773c20c2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a675cf9a83092eebb113",
+      "pair_id": "0db0a7d0d274fe9c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a71e18f2194562fa836c",
+      "pair_id": "7619270d4de54d30"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a723e46e47f24b8f3201",
+      "pair_id": "6bd74580110f8710"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a74dcf11d9d0af882249",
+      "pair_id": "14840c3e7161380c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a7597d44d62f3268e9fd",
+      "pair_id": "82fe57798405000c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a79f439f97c3403ae3e8",
+      "pair_id": "e204267676695edb"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a81ad75b7928144992dd",
+      "pair_id": "532abd16344266a3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a8abcc010c031225e8f2",
+      "pair_id": "feaef5ff979c5433"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a8be2059ab3da73957dd",
+      "pair_id": "819fa683a833ba0d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "a95829b6f90db65e24a8",
+      "pair_id": "e396f2f892557da8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "a975c7a4539f429cfe53",
+      "pair_id": "94308f072bc5f39f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "aa4123792edb1fa32a1a",
+      "pair_id": "6773201b7f2aa16f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "aa4f2f1648bc8951432b",
+      "pair_id": "85af6d718b8b2f9f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "aa61d6792a35679ed751",
+      "pair_id": "9299468b75ed6c1f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ab4ef064ea766abbe46b",
+      "pair_id": "d1b0ca45df2084e2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "abcc59997e39cfa0ce58",
+      "pair_id": "a437592fa875415d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ac73c0f2ebb83ce29507",
+      "pair_id": "b6039022e9733299"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ac986ea9aeac9f9e4483",
+      "pair_id": "9591a8b3eb097ba7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "acc50269489fc1a88af1",
+      "pair_id": "b1b14950a69d17ea"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "acf9f1e2a9bccb3e0632",
+      "pair_id": "c5ae2362e16cf392"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ad15f0f28e5753bc512d",
+      "pair_id": "4d462d953ead8b31"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ae224bf96485850a3605",
+      "pair_id": "4715e8e63a33bce8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ae321be5ad06b2a5f504",
+      "pair_id": "9e554849a9fcbfb0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ae3cb340dcc85c2eb6df",
+      "pair_id": "819abe86d74abdde"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ae75896ca91388129d21",
+      "pair_id": "411a36449aa5b59f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "af2df99b28524b3af724",
+      "pair_id": "620300f2213c2609"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "af4229c1be5dcecc9b24",
+      "pair_id": "6bd74580110f8710"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "af5cb3ad2894ed8686a6",
+      "pair_id": "7decd5788f075986"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "afa0feeb6a30b4557a9b",
+      "pair_id": "819abe86d74abdde"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "afea902e7dc6f69616b5",
+      "pair_id": "0a1c0d90fafbc3f3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b00516cd200b7a9e3fc0",
+      "pair_id": "caebfd94ffe37d29"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b0483e29c4c0a4bd045d",
+      "pair_id": "e28040c028c7c3e2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b1c02a03e16c7559af8d",
+      "pair_id": "b0cf22d4a7edf7e3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b1dc91bfdae3d142b4a4",
+      "pair_id": "4715e8e63a33bce8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b25dd1b275d9753a8377",
+      "pair_id": "24c780e41f944798"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b27e6795490e51cce737",
+      "pair_id": "4ed7612f3b5ad70b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b282d5edc5582a67ea90",
+      "pair_id": "4a814385b6aa19b9"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b28c38d963624781662a",
+      "pair_id": "26e96f1176ba0556"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b2fca4aca021b8a2a8af",
+      "pair_id": "cca81ce5a2451c85"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b30c99cf0834dccdb560",
+      "pair_id": "ac3f68edf3ac66ce"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b32dfe760ed0dc0b79a9",
+      "pair_id": "ff08c877a3fad298"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b4114e859e7eadff8054",
+      "pair_id": "532abd16344266a3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b41c532402c0aa52ecbe",
+      "pair_id": "8503cde7ae085072"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b4b445e81ed0983c2527",
+      "pair_id": "5c84ac7e37c93d5f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b5b686ce7978d393b99a",
+      "pair_id": "5ad4eb2cf2cc63c3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b5bca1250732d4578484",
+      "pair_id": "16564677601d4d42"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b75fdd1d2dfa5af418b5",
+      "pair_id": "b737c6df008559bc"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "b8555e8358090db6e909",
+      "pair_id": "e7ae63f46e051c80"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "b964e2a9a3d877627308",
+      "pair_id": "477dfdde70736c89"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ba735abf70ec0dd1c883",
+      "pair_id": "42089b7d150b6617"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "bc0adbdd86fa47795408",
+      "pair_id": "340b45bf9164bd5b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "bc8165b5f3151dbef506",
+      "pair_id": "553e321e025ebf45"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "bcc76222087bc8a5ade0",
+      "pair_id": "274c07a31445742e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "bd85f9f5309007901676",
+      "pair_id": "c31149aecac249c8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "bd9af020ffd0864313ed",
+      "pair_id": "9299468b75ed6c1f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "bdc9cf31f591c9a885c1",
+      "pair_id": "e7b8c50fd33747f5"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "be3526f2ba0d34f44380",
+      "pair_id": "1e9faec67ae2e390"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "be592333a20288a49394",
+      "pair_id": "b613ae62e08495f3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "be66cfb8a1fc99b8ba5e",
+      "pair_id": "990a9cfd0726c698"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "be714bd253346551e8d1",
+      "pair_id": "1eae0f593d4d6253"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "bec6e2a46d1dcfc5db8c",
+      "pair_id": "89c1a638ddeb15e3"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "bfc526c0d98e3e8190c2",
+      "pair_id": "aff4b52b9acf7c44"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "bfd8b818f61d6b978ceb",
+      "pair_id": "16564677601d4d42"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c04a952c4c69ccd542d1",
+      "pair_id": "20726123776f1bef"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c06aafc69f6254cf441f",
+      "pair_id": "3fd47912233471a8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c0a5e6cfd0092fe09f9d",
+      "pair_id": "018f715308581cba"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c0b146f57316d5154212",
+      "pair_id": "1da926835341172c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c19f4883884ba1e9c2eb",
+      "pair_id": "1c0cafcb4a4ce6e4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c1e1162475c5588a8d13",
+      "pair_id": "ad49a32ac8f807a8"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c22c113fcfb73505abdd",
+      "pair_id": "0f8908e290ac8f55"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c24ad99b37e296e3856f",
+      "pair_id": "d79a16ccb48bf5ed"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c40477b33bbcc7bf4217",
+      "pair_id": "0ea1efd1c611101e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c47665cc8ba688a5c071",
+      "pair_id": "665c3ef21c15c2a1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c4e598ed66c29252d1d7",
+      "pair_id": "e6043dfa056f1b21"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c57235ecbfeedad2b583",
+      "pair_id": "e379256ecf1a20d0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c5fbdf667375d51f3d61",
+      "pair_id": "bececdaf05aac556"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c62c7a87fa292ba69861",
+      "pair_id": "9d2fb82c6d429238"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c64be8b787dd88cd6b18",
+      "pair_id": "1c0cafcb4a4ce6e4"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c783156a2b2da623d06e",
+      "pair_id": "b4f6920ed2fa016d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c813b3fda55f2a545e90",
+      "pair_id": "fdc3b80b869bdf00"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c81dcd4425831acd54ed",
+      "pair_id": "668e2437a5abc161"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c8619b469a5402367ad0",
+      "pair_id": "14beb9c95d86ebb8"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c863bd6ca68c8e95442d",
+      "pair_id": "11f3171bbabe94e1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c953ba86cc1eb6a50500",
+      "pair_id": "7e957a4bb47e03d7"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "c9626e7454aea05c8d1d",
+      "pair_id": "eca1c10f62febaef"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "c9e0b07130d60891a04b",
+      "pair_id": "375bc1efea8dee4c"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ca0ee3b61302c9af4da3",
+      "pair_id": "776d12f929e4df27"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ca40b96f003b579f17f3",
+      "pair_id": "e2ca1a98bb41fae1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cadfa70c39fe85ab8f72",
+      "pair_id": "ad62f89f46a4987f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cae6856546df2b899c51",
+      "pair_id": "3e29cb24d0c8394f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cb9fe53b02befa6e01f2",
+      "pair_id": "8f8313bab54fbd53"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cce8fe057c463ab9007b",
+      "pair_id": "47e9dff66c3c3432"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cd4dc97edc57911b3d6b",
+      "pair_id": "cbcd9e8793ad672f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cdb0bfeea3fca677ef12",
+      "pair_id": "665c3ef21c15c2a1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cdb1b2e6ab8d23af6fba",
+      "pair_id": "edcb15752fc4a74e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cdd6225fcbf071aa3963",
+      "pair_id": "2af773d3a50016e3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "cdf0ae9959dd8f3d7485",
+      "pair_id": "83fcfc974be67706"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ce6f32f29a94b5c6ea9e",
+      "pair_id": "631b8d8c26d73b9b"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cea5dc7b0c7e5ca5bdd6",
+      "pair_id": "2a9816bcb5f32bae"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cece5f45544dc8fee4a6",
+      "pair_id": "6f4a1c344acbbe2f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "cedbc40c64f1877b6d5a",
+      "pair_id": "482849eeba72a134"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d1aead38fd2c37fc02d7",
+      "pair_id": "33154ccaf65dcea1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d2459f8f48f28d006fd4",
+      "pair_id": "469ce64084ce6be7"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d428c2059801bbec11eb",
+      "pair_id": "773ef950aac049d9"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d476d260376c6bda171e",
+      "pair_id": "89b55f50f19fd758"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d490626c0ee41e213af7",
+      "pair_id": "d79a16ccb48bf5ed"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d4a109eb29606e7d537b",
+      "pair_id": "82fe57798405000c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d4aa7f14d0c5c2229f63",
+      "pair_id": "7619270d4de54d30"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d62eacbd524e67756548",
+      "pair_id": "e7ae63f46e051c80"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d6a79685d1e4091eb5d0",
+      "pair_id": "1eae0f593d4d6253"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d6e55ef0daa81de9db06",
+      "pair_id": "def4a45a6da655d6"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d7495aa89b5f5c066607",
+      "pair_id": "4fa37206546361c3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d78eea3d6cb53ca683af",
+      "pair_id": "5dde1b602cd80a45"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d7e3b64a73dfd0a1620d",
+      "pair_id": "2a4ce852e950e025"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d832540cf3babec0dad1",
+      "pair_id": "d79d4697dfcbe04c"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d89815f3cf1b9239d5dc",
+      "pair_id": "bd499e040c91bdd0"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d9069ca06bbbd548dedb",
+      "pair_id": "ef8b7e33e22c9a63"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "d93734da08cc029028bd",
+      "pair_id": "b72611c56e5badf2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "d97b736fd958c21b192d",
+      "pair_id": "6e83ce2943a2797d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "da21a48438696084cc0a",
+      "pair_id": "5ad4eb2cf2cc63c3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "da451c39554cc81d96d5",
+      "pair_id": "94308f072bc5f39f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "db6163a38a2270cbc266",
+      "pair_id": "c5ae2362e16cf392"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "dbcdf9b50242b7c720f0",
+      "pair_id": "ed09306002c58427"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "dc21da14f20046b6acc3",
+      "pair_id": "d76bd4b97aba75aa"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "dc50676267dd6097f67e",
+      "pair_id": "1a218ecf730ab049"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "dcfd208e4b0b62661cd3",
+      "pair_id": "ed09306002c58427"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "dd374bdc493659f439c0",
+      "pair_id": "85fc9b67ec08b732"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "de3512e6b4bf3fd7e9f8",
+      "pair_id": "773ef950aac049d9"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "de3a6b3a6a431b490c44",
+      "pair_id": "25090add606ffcb3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "df02b3ce1e011eba5953",
+      "pair_id": "d616bf97bd6f8b34"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "df976ddc478e044c2758",
+      "pair_id": "d7888f28fec96e8d"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e01ac79465516ae496fa",
+      "pair_id": "3fd47912233471a8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e02ae8d2d58cfc252a85",
+      "pair_id": "16f850da0a0679ad"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e02bb64087ee46cc85a5",
+      "pair_id": "32c061cd9309d145"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e041e3726ff75ca06efc",
+      "pair_id": "3826da6f37867e44"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e0ee91862ed37dda5d7f",
+      "pair_id": "f5f70b910afacb97"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e10ce316cb2327b26f06",
+      "pair_id": "0ea1efd1c611101e"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e1fbbac99937b2823fa6",
+      "pair_id": "620300f2213c2609"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e203b4ceef15dea10028",
+      "pair_id": "63870e260456c001"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e24434d6c6001356697c",
+      "pair_id": "6b29533b1454083f"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e2873cd925ef607f7c2c",
+      "pair_id": "4ed7612f3b5ad70b"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e28cc7d2df9d85b22414",
+      "pair_id": "d32511467604318a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e313c994819ae62c7455",
+      "pair_id": "74905a819d7f83c1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e3bac1c2cf797e125e8d",
+      "pair_id": "3a94ff1a86554063"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e44ab1504f789055d44d",
+      "pair_id": "541a58cc240f13ce"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e45dac354f449e7e5ea7",
+      "pair_id": "5502fce2d2284f82"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e45df611409751ec4bef",
+      "pair_id": "33154ccaf65dcea1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e482ef74f5fddec46593",
+      "pair_id": "4ac76855a0bbe507"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e5e3a96b74c1aa45fc1f",
+      "pair_id": "2ce7a2141f53c62a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e62e4f3817bdd68bedd0",
+      "pair_id": "e2ca1a98bb41fae1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e6767236b6997aecdfbe",
+      "pair_id": "9f8ee1954f6c122a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e6af095fac91330a48a7",
+      "pair_id": "25090add606ffcb3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "e7c5dd3cccf6c968ba27",
+      "pair_id": "e5e0a0d097019598"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e82bcc27a3cdd2b1893e",
+      "pair_id": "856f68b135f88cce"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e84765195d8db50dd21b",
+      "pair_id": "e396f2f892557da8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e8e5f719ea37ce2731b0",
+      "pair_id": "516f73076b4ed4fe"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e97d705c26dd42f08417",
+      "pair_id": "d2555888ea6e9f5e"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "e9b6f410bc7f9fdec83f",
+      "pair_id": "b737c6df008559bc"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ea138296b0397bec2701",
+      "pair_id": "6c65fe59aa1a8fd8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ea57c51d866b06c94767",
+      "pair_id": "fdc3b80b869bdf00"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "eaa33c78a105347733a1",
+      "pair_id": "eeb586db6ae0b9db"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "eb518d4208610db22741",
+      "pair_id": "679bbfb1faeeb8de"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "eb70fe9ca3d1066f1797",
+      "pair_id": "5dde1b602cd80a45"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ebb7923da8646554f207",
+      "pair_id": "fa00f709a2ab8522"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ebb897b5927177b0ca27",
+      "pair_id": "24c780e41f944798"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ebdd73b1cd5f9cf0a63b",
+      "pair_id": "7a75d9292a375372"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ec553b0acde44b7f4ba4",
+      "pair_id": "bd1469ff3027a860"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ed26850c3eaa8dcadecc",
+      "pair_id": "ce5fa455079ef5f4"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ed563be0b43a087b45b1",
+      "pair_id": "12ac1f8556cc2e3a"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ee9c7f28b23354cb8acc",
+      "pair_id": "cf2bdf08b6179066"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "eea28144ef49b0159e43",
+      "pair_id": "411a36449aa5b59f"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "eed0672d49ef9f7b29ee",
+      "pair_id": "8df88eb9fc3b56c0"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ef6914cffbdf4bdef97e",
+      "pair_id": "ad49a32ac8f807a8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "efc43376b7b9618b107f",
+      "pair_id": "8f8313bab54fbd53"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f035d858ee55ccadeeb9",
+      "pair_id": "807067ae84172ece"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f05b1fec9d32ed750651",
+      "pair_id": "f5f70b910afacb97"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f08ee92aa123cc0ef0e5",
+      "pair_id": "deb8ff99ef0e85a9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f0a88d626fdf06b4cb09",
+      "pair_id": "ef54d7dac06a468a"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f0ae3bbe19405c6e8fde",
+      "pair_id": "eac5a1e19c44e4d2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f0d4c0287a93bd41fb96",
+      "pair_id": "3965782e9d6f0293"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f144de8448577c2020c4",
+      "pair_id": "be51e3f314595234"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f14bceae9d6cf757fe31",
+      "pair_id": "c7e5e3072f46fbc1"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f1c70345ca01caa16ea5",
+      "pair_id": "4cf325a761760e21"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f2b8be30031476cbf49a",
+      "pair_id": "6e8593f1dfedf315"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "f6ee92ddb5313a227011",
+      "pair_id": "4abe9c3388dce713"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f7516eba8519f21c0944",
+      "pair_id": "ae7dff546efc3416"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f88d1759c0be405ff36a",
+      "pair_id": "eca1c10f62febaef"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f992438a4d70dc1446da",
+      "pair_id": "0ca616fb99ad5bf2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f9a7a3c51266bbc2ad52",
+      "pair_id": "ea9bdb693e0564b2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "f9fb6d4b0688f71c7660",
+      "pair_id": "83b7db65a751b5d2"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fa5bada09544b5614dba",
+      "pair_id": "89c1a638ddeb15e3"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "fb6bb96dff41c255e2b8",
+      "pair_id": "c5d8c0964182bd5d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "fbc1ca34ef441a1c0531",
+      "pair_id": "85888943756df51d"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "fc5cb589a587f1a3b695",
+      "pair_id": "14beb9c95d86ebb8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fcb2c16f9c45d1276024",
+      "pair_id": "4a814385b6aa19b9"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fcb9ce46fa3e82aa3fbd",
+      "pair_id": "b72611c56e5badf2"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "fd9dcef27c5b1f697d3c",
+      "pair_id": "d8098fc9c56247a1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fe34873e426c130ee28d",
+      "pair_id": "9591a8b3eb097ba7"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fe43eb1d1d6ffd4c29ec",
+      "pair_id": "39458ac269794ea1"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "fe624aa84b6bb5d5df97",
+      "pair_id": "8503cde7ae085072"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "fee40bdc0016b53fc044",
+      "pair_id": "c31149aecac249c8"
+    },
+    {
+      "gold_label": "REFUTES",
+      "opaque_item_id": "ff1a913407e4bb9fbca1",
+      "pair_id": "88f7de7d82940548"
+    },
+    {
+      "gold_label": "SUPPORTS",
+      "opaque_item_id": "ff91639862c6a6835d5f",
+      "pair_id": "27644944dfbb783f"
+    }
+  ],
+  "public_manifest_sha256": "ab3836ef5b02b0c121cf0b27ce5d5e8395ffc6d708e81eccfc206813e7d9c907",
+  "status": "sealed_until_all_preoutcome_routes_are_frozen"
+}
