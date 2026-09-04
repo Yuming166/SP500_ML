@@ -225,6 +225,8 @@ Qwen's pair-bootstrap intervals are [0.761, 0.853] for overall AUROC, [0.763, 0.
 
 The formal primary remains the frozen $R_{\mathrm{sym}}$ composite. Reverse inertia alone is descriptively stronger (AUROC 0.855 for Qwen and 0.837 for Ling), while intervention disagreement alone is weak; neither observation changes the registered score. At identical high-consensus counts, $R_{\mathrm{sym}}$ also exceeds confidence and vote-disagreement AUROC: Qwen 0.808 versus 0.601 and 0.512, and Ling 0.761 versus 0.568 and 0.522. Risk ranks correlate only 0.295 between models on 449 common high-consensus items, so the result supports aggregate mechanism transfer rather than stable item-level ranking or universal robustness.
 
+A deterministic post-hoc qualitative audit selects the maximum-risk error and minimum-risk correct consensus in the Qwen high-consensus subset; it is illustrative only and does not alter any formal metric or gate (Appendix~\ref{sec:tail}).
+
 \section{Validity Audits and External Stress Test}
 
 \paragraph{Outcome leakage.}
@@ -258,7 +260,7 @@ The resulting principle is decision-centered: retain consensus when intervention
 
 \section*{Limitations}
 
-Completed language-model experiments use Qwen3.5-4B, Ling-3.0-tiny, and Hy-MT2-7B; the five personas within each deployment are not independent models. V3.16 provides cross-family evidence on one balanced VitaminC setting, but its joint adequacy gate is withheld because Ling has fewer than 20 SUPPORTS errors, and item-level risk Spearman is only 0.295. The LLM replay has wide intervals at 150 test dates and no stronger-model replication.
+Completed language-model experiments use Qwen3.5-4B, Ling-3.0-tiny, and Hy-MT2-7B; the five personas within each deployment are not independent models. V3.16 provides cross-family evidence on one balanced VitaminC setting, but its joint adequacy gate is withheld because Ling has fewer than 20 SUPPORTS errors and item-level risk Spearman is only 0.295. The LLM replay has wide intervals at 150 test dates and no stronger-model replication.
 
 V12.1 label subgroups reverse direction, and V3.15.2 reproduces this pattern on Ling. V3.16 reduces the asymmetry with balanced natural pairs but cannot identify whether the remaining difference comes from answer priors, evidence construction, or intervention polarity. We therefore make no arbitrary-QA or universal-factuality claim.
 
@@ -266,21 +268,52 @@ $\rpi$ was selected on one 100-question development split, while $R_{\mathrm{sym
 
 Generated substitutes may differ in fluency or logical force; the interventions measure different response behaviors and do not identify one unique causal mechanism. Abstention defers rather than solves risky questions.
 
-The paper is a detection study rather than a universal answer-repair study; recovery experiments remain supplementary and do not convert V3.16 into a repair claim.
-
-Finally, the financial replay is retrospective and uses a locally substituted 7B backend under a registered deviation. Its primary AURC intervals cross zero; it cannot establish prospective performance, alpha, or causal market impact.
-
-The submission still needs final literature, license, compute, and V3.16 error-example audits, plus a supplement separating answer repair from detection.
-
-\section*{Ethical Considerations}
-
-False consensus matters in medicine, law, finance, and content moderation. A provenance-aware signal may help identify when many agreeing agents repeat one weak source, but it can also create false reassurance. Low $\rpi$ is not proof of correctness, and an intervention-sensitive answer can remain wrong. We recommend using routing for triage and independent evidence acquisition, not as an autonomous truth certificate.
-
-The experiments use existing QA datasets and automated model outputs. We collect no private human data or hidden chain-of-thought. Financial results are research diagnostics and should not be interpreted as investment advice.
-
 \bibliography{references}
 
 \appendix
+
+\section{Label Asymmetry and Error Tails}
+\label{sec:tail}
+
+This appendix reports a post-hoc qualitative audit selected from the opened Qwen V3.16 outcome ledger. The error case is the maximum-$R_{\mathrm{sym}}$ error in the high-consensus subset; the correct case is the minimum-$R_{\mathrm{sym}}$ correct consensus, with ties broken by analysis opaque ID. Agent-vector order is literal, skeptic, consistency, counterfactual, minimal. These examples explain observable behavior only and do not modify the formal analysis.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrr}
+\toprule
+Protocol/model & Label & $N_{\mathrm{hc}}$ & Errors & AUROC \\
+\midrule
+BoolQ V12.1 / Qwen & yes & 210 & 55 & 0.834 \\
+BoolQ V12.1 / Qwen & no & 90 & 11 & 0.213 \\
+V3.15.2 / Ling & yes & 224 & 25 & 0.957 \\
+V3.15.2 / Ling & no & 86 & 35 & 0.120 \\
+V3.16 / Qwen & SUPPORTS & 242 & 37 & 0.792 \\
+V3.16 / Qwen & REFUTES & 240 & 50 & 0.830 \\
+V3.16 / Ling & SUPPORTS & 238 & 17 & 0.635 \\
+V3.16 / Ling & REFUTES & 226 & 96 & 0.897 \\
+\bottomrule
+\end{tabular}
+\caption{Label-wise asymmetry sequence. BoolQ and V3.15.2 are diagnostic precursors; V3.16 is the balanced follow-up. Rows are not pooled into one test.}
+\label{tab:label-asymmetry}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lp{0.34\textwidth}p{0.34\textwidth}r}
+\toprule
+Case & Claim and label/consensus & Observable vectors (original; reverse) & $R_{\mathrm{sym}}$ \\
+\midrule
+High-risk error & ``Malcolm Young died before November 19, 2017.'' Gold SUPPORTS; consensus REFUTES at $A=0.80$. Original evidence states ``on the 18th of November 2017''; reverse changes only the date to the 19th. & S/R/R/R/R; R/R/R/R/R & 0.80 \\
+Low-risk correct & ``In Infinity Blade, Drain replenishes the character's hit points.'' Gold and consensus SUPPORTS at $A=1.00$. Original evidence says Drain restores hit points; reverse replaces Drain with Life. & S/S/S/S/S; R/R/R/R/R & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Illustrative Qwen V3.16 tails. The high-risk case contains a confident false consensus that is mostly inert under reversal; the low-risk case shows uniform observable response. The examples do not identify internal causal evidence use.}
+\label{tab:tail-examples}
+\end{table*}
 
 \section{Frozen Risk Contract}
 

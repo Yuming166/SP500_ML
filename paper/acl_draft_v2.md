@@ -463,6 +463,39 @@ model-label AUROCs are all above 0.63, and both worst-label intervals clear
 behavioral mechanism under a balanced construction, not universal or
 item-level-stable cross-model reliability.
 
+The label-wise sequence is summarized below. BoolQ and V3.15.2 are diagnostic
+precursors; V3.16 is the label-symmetric follow-up and is not pooled with them.
+
+| Protocol/model | Native label | High-consensus N | Errors | AUROC |
+|---|---|---:|---:|---:|
+| BoolQ V12.1 / Qwen | yes | 210 | 55 | 0.834 |
+| BoolQ V12.1 / Qwen | no | 90 | 11 | 0.213 |
+| V3.15.2 / Ling | yes | 224 | 25 | 0.957 |
+| V3.15.2 / Ling | no | 86 | 35 | 0.120 |
+| V3.16 / Qwen | SUPPORTS | 242 | 37 | 0.792 |
+| V3.16 / Qwen | REFUTES | 240 | 50 | 0.830 |
+| V3.16 / Ling | SUPPORTS | 238 | 17 | 0.635 |
+| V3.16 / Ling | REFUTES | 226 | 96 | 0.897 |
+
+**Post-hoc qualitative tail audit.** To make the observable behavior concrete,
+we select the Qwen high-consensus error with maximum frozen R_sym and the
+correct consensus with minimum frozen R_sym, breaking ties by analysis opaque
+ID. This selection uses the opened outcome ledger for illustration only and
+does not alter any metric or verdict; the full record is in
+`docs/detection_v3_16_qualitative_audit.md`.
+
+| Case | Claim and gold/consensus | R_sym | Observable answer vector (literal, skeptic, consistency, counterfactual, minimal) |
+|---|---|---:|---|
+| High-risk error | “Malcolm Young died before November 19, 2017.” Gold `SUPPORTS`; consensus `REFUTES` at 0.80 | 0.80 | Original `S/R/R/R/R`; reverse `R/R/R/R/R` |
+| Low-risk correct | “In Infinity Blade, Drain replenishes the character's hit points.” Gold/consensus `SUPPORTS` at 1.00 | 0.00 | Original `S/S/S/S/S`; reverse `R/R/R/R/R` |
+
+In the high-risk case, the original evidence states that Young died on
+November 18, yet four agents form a confident false consensus and remain inert
+under the natural date reversal. In the low-risk case, every agent changes its
+observable answer after removal or reversal of the assigned evidence. These are
+illustrations of the registered association, not evidence of internal causal
+faithfulness or estimates of tail frequency.
+
 At identical high-consensus counts, R_sym also exceeds the confidence and
 vote-disagreement AUROCs: Qwen 0.808 versus 0.601 and 0.512, and Ling 0.761
 versus 0.568 and 0.522. These are same-prediction secondary comparisons; they
@@ -696,10 +729,11 @@ causal market impact, or prospective performance. The G2 backend was a local
 originally intended API endpoint became unreachable; the GPT-class replication
 is preregistered as the V2 `--relay` arm and not yet run.
 
-Finally, related-work coverage and formatting are preliminary; a submission
-version needs a systematic literature audit, released prompts and licenses,
-compute accounting, V3.16 error examples, and a clear supplement separating
-answer-repair experiments from detection.
+Finally, related-work coverage and formatting remain preliminary; the
+submission needs released prompts and licenses, compute accounting, and a
+clear supplement separating answer-repair experiments from detection. The
+V3.16 qualitative examples are post-hoc illustrations and are not additional
+formal evidence.
 
 ## 9. Ethics and Broader Impact
 
